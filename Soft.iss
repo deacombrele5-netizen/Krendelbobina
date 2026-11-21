@@ -5,12 +5,12 @@
 ;
 ; ПЕРЕД СБОРКОЙ:
 ; 1. Проверьте, что исходная папка находится по пути MySoftRoot ниже.
-; 2. В корне MySoftRoot должны находиться app.svg и папка "Софт (исходники)".
+; 2. В корне MySoftRoot должны находиться app.ico и папка "Софт (исходники)".
 ; 3. Структура каталогов должна соответствовать MySoft_Structure_UTF8.txt.
 ; 4. Откройте этот файл в Inno Setup Compiler и нажмите Compile.
 ;
-; ВАЖНО: app.svg используется только как значок самого Setup.exe.
-; Файл app.svg не добавлен в [Files] и на компьютер пользователя не копируется.
+; ВАЖНО: app.ico используется только как значок самого Setup.exe.
+; Файл app.ico не добавлен в [Files] и на компьютер пользователя не копируется.
 ; Все содержимое выбранных папок копируется без Excludes и без выборочного
 ; удаления файлов; вложенные каталоги и пустые папки сохраняются.
 ;
@@ -39,8 +39,8 @@
 #if !DirExists(OutputRoot)
 #error "Не найдена папка вывода Софт\\Софт - установка. Создайте её в корне MySoft."
 #endif
-#if !FileExists(MySoftRoot + "\app.svg")
-#error "Не найден app.svg в корневой папке MySoftRoot."
+#if !FileExists(MySoftRoot + "\app.ico")
+#error "Не найден app.ico в корневой папке MySoftRoot."
 #endif
 #if !DirExists(PortableRoot + "\AdobeAcrobatPro-Portable")
 #error "Не найден исходник: {#PortableRoot}\AdobeAcrobatPro-Portable\*"
@@ -260,7 +260,7 @@ DiskSliceSize=35000000000
 SlicesPerDisk=1
 WizardStyle=modern dark
 WizardSizePercent=100
-SetupIconFile={#MySoftRoot}\app.svg
+SetupIconFile={#MySoftRoot}\app.ico
 DefaultDialogFontName=Segoe UI
 CloseApplications=no
 

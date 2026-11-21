@@ -65,8 +65,21 @@ DefaultDialogFontName=Segoe UI
 CloseApplications=no
 
 [Messages]
-FinishedLabelNoIcons=Установка выбранных программ завершена.
-FinishedLabel=Установка выбранных программ завершена.
+SetupWindowTitle=Установка - %1
+WizardSelectDir=Выбор папки установки
+SelectDirDesc=В какую папку вы хотите скопировать выбранные программы?
+SelectDirLabel3=Выбранные программы будут скопированы в следующую папку.
+SelectDirBrowseLabel=Нажмите «Далее», чтобы продолжить. Если вы хотите выбрать другую папку, нажмите «Обзор».
+WizardReady=Всё готово к установке
+ReadyLabel1=Программа установки готова начать копирование выбранных файлов.
+ReadyLabel2a=Нажмите «Установить», чтобы продолжить, или «Назад», если вы хотите просмотреть или изменить параметры.
+ReadyLabel2b=Нажмите «Установить», чтобы продолжить.
+WizardInstalling=Установка...
+InstallingLabel=Пожалуйста, подождите, пока выбранные файлы копируются.
+FinishedHeadingLabel=Завершение Мастера установки [name]
+FinishedLabelNoIcons=Копирование выбранных файлов завершено.
+FinishedLabel=Копирование выбранных файлов завершено.
+ClickFinish=Нажмите «Завершить», чтобы выйти из программы установки.
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
@@ -222,7 +235,7 @@ end;
 
 procedure InitializeWizard();
 var
-  ModeCardCatalog, ModeCardArchive, CatalogCard, ArchiveCard, HeaderAccent: TPanel;
+  ModeCardCatalog, ModeCardArchive, CatalogCard, ArchiveCard: TPanel;
   LogoBitmap: TBitmap;
 begin
   CatalogMap := TStringList.Create;
@@ -255,24 +268,25 @@ begin
   LogoBitmap.Canvas.LineTo(55, 49);
   LogoBitmap.Canvas.LineTo(7, 49);
   LogoBitmap.Canvas.LineTo(7, 25);
-  LogoBitmap.Canvas.Ellipse(41, 4, 60, 23);
-  LogoBitmap.Canvas.Ellipse(47, 10, 54, 17);
-  LogoBitmap.Canvas.MoveTo(50, 1);
-  LogoBitmap.Canvas.LineTo(50, 4);
-  LogoBitmap.Canvas.MoveTo(50, 23);
-  LogoBitmap.Canvas.LineTo(50, 26);
-  LogoBitmap.Canvas.MoveTo(38, 13);
-  LogoBitmap.Canvas.LineTo(41, 13);
-  LogoBitmap.Canvas.MoveTo(60, 13);
-  LogoBitmap.Canvas.LineTo(63, 13);
-  LogoBitmap.Canvas.MoveTo(42, 5);
-  LogoBitmap.Canvas.LineTo(44, 7);
-  LogoBitmap.Canvas.MoveTo(57, 20);
-  LogoBitmap.Canvas.LineTo(59, 22);
-  LogoBitmap.Canvas.MoveTo(42, 21);
-  LogoBitmap.Canvas.LineTo(44, 19);
-  LogoBitmap.Canvas.MoveTo(57, 7);
-  LogoBitmap.Canvas.LineTo(59, 5);
+  { Шестерёнка расположена в нижнем правом углу папки }
+  LogoBitmap.Canvas.Ellipse(40, 34, 59, 53);
+  LogoBitmap.Canvas.Ellipse(46, 40, 53, 47);
+  LogoBitmap.Canvas.MoveTo(49, 29);
+  LogoBitmap.Canvas.LineTo(49, 34);
+  LogoBitmap.Canvas.MoveTo(49, 53);
+  LogoBitmap.Canvas.LineTo(49, 58);
+  LogoBitmap.Canvas.MoveTo(35, 43);
+  LogoBitmap.Canvas.LineTo(40, 43);
+  LogoBitmap.Canvas.MoveTo(59, 43);
+  LogoBitmap.Canvas.LineTo(64, 43);
+  LogoBitmap.Canvas.MoveTo(39, 33);
+  LogoBitmap.Canvas.LineTo(43, 37);
+  LogoBitmap.Canvas.MoveTo(55, 49);
+  LogoBitmap.Canvas.LineTo(59, 53);
+  LogoBitmap.Canvas.MoveTo(39, 53);
+  LogoBitmap.Canvas.LineTo(43, 49);
+  LogoBitmap.Canvas.MoveTo(55, 37);
+  LogoBitmap.Canvas.LineTo(59, 33);
 
   WizardForm.WizardSmallBitmapImage.Bitmap := LogoBitmap;
   WizardForm.WizardSmallBitmapImage.AutoSize := False;
@@ -283,17 +297,6 @@ begin
   WizardForm.WizardSmallBitmapImage.Width := ScaleX(48);
   WizardForm.WizardSmallBitmapImage.Height := ScaleY(48);
   WizardForm.WizardSmallBitmapImage.Visible := True;
-
-  HeaderAccent := TPanel.Create(WizardForm);
-  HeaderAccent.Parent := WizardForm.MainPanel;
-  HeaderAccent.Left := 0;
-  HeaderAccent.Top := 0;
-  HeaderAccent.Width := ScaleX(4);
-  HeaderAccent.Height := WizardForm.MainPanel.Height;
-  HeaderAccent.Anchors := [akLeft, akTop, akBottom];
-  HeaderAccent.BevelOuter := bvNone;
-  HeaderAccent.Color := $00C28A3C;
-  HeaderAccent.SendToBack;
 
   WizardForm.PageNameLabel.Left := ScaleX(70);
   WizardForm.PageNameLabel.Top := ScaleY(7);
@@ -327,9 +330,9 @@ begin
   ProgressPercentLabel.Font.Size := 9;
   ProgressPercentLabel.Font.Color := clWhite;
 
-  ModePage := CreateCustomPage(wpSelectDir, 'Способ выбора', 'Выберите источник программ для копирования.');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', 'Отметьте программы, которые нужно скопировать.');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', 'Выберите готовые архивы для копирования.');
+  ModePage := CreateCustomPage(wpSelectDir, 'Выбор источника', 'Выберите источник, из которого необходимо скопировать программы.');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор компонентов', 'Выберите программы, которые вы хотите скопировать, затем нажмите «Далее».');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Выберите архивы, которые вы хотите скопировать, затем нажмите «Далее».');
   ModePage.Surface.Color := $00131A23;
   CatalogPage.Surface.Color := $00131A23;
   ArchivePage.Surface.Color := $00131A23;
@@ -525,7 +528,7 @@ begin
   begin
     if not HasAnyCatalogSelection then
     begin
-      MsgBox('Выберите программы из каталога.', mbInformation, MB_OK);
+      MsgBox('Выберите хотя бы одну программу для копирования.', mbInformation, MB_OK);
       Result := False;
     end;
   end
@@ -533,35 +536,9 @@ begin
   begin
     if not (ArchiveList.Checked[0] or ArchiveList.Checked[1]) then
     begin
-      MsgBox('Выберите архив.', mbInformation, MB_OK);
+      MsgBox('Выберите хотя бы один архив для копирования.', mbInformation, MB_OK);
       Result := False;
     end;
-  end;
-end;
-
-procedure CurPageChanged(CurPageID: Integer);
-begin
-  case CurPageID of
-    wpSelectDir:
-      begin
-        WizardForm.PageNameLabel.Caption := 'Каталог размещения';
-        WizardForm.PageDescriptionLabel.Caption := 'Укажите папку для копирования выбранных программ.';
-      end;
-    wpReady:
-      begin
-        WizardForm.PageNameLabel.Caption := 'Готово к установке';
-        WizardForm.PageDescriptionLabel.Caption := 'Проверьте выбранные параметры перед началом копирования.';
-      end;
-    wpInstalling:
-      begin
-        WizardForm.PageNameLabel.Caption := 'Установка';
-        WizardForm.PageDescriptionLabel.Caption := 'Выполняется копирование выбранных файлов.';
-      end;
-    wpFinished:
-      begin
-        WizardForm.PageNameLabel.Caption := 'Завершение';
-        WizardForm.PageDescriptionLabel.Caption := 'Операция завершена.';
-      end;
   end;
 end;
 

@@ -187,7 +187,9 @@ var
   I: Integer;
 begin
   I := StrToIntDef(CatalogMap.Values[ItemID], -1);
-  Result := (I >= 0) and CatalogList.Checked[I];
+  Result := False;
+  if I >= 0 then
+    Result := CatalogList.Checked[I];
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
@@ -237,7 +239,6 @@ begin
 end;
 
 procedure InitializeWizard();
-var
 begin
   CatalogMap := TStringList.Create;
   WizardForm.Caption := 'Soft — установка программ';

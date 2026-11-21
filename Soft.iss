@@ -29,7 +29,7 @@
 #define SetupRoot SourceRoot + "\Софт-SetUp\Программы без архива-SetUp"
 #define PortableArchiveRoot SourceRoot + "\Софт-Portable"
 #define SetupArchiveRoot SourceRoot + "\Софт-SetUp"
-#define OutputRoot MySoftRoot + "\Софт\Софт - установка"
+#define OutputRoot MySoftRoot + "\Софт установка"
 ; Проверка реальных исходников выполняется при каждой локальной компиляции.
 ; Если чего-то не хватает или имя папки отличается, компилятор остановится
 ; и укажет конкретный путь вместо создания неполного установщика.
@@ -246,7 +246,7 @@ AllowRootDirectory=yes
 AllowUNCPath=yes
 UsePreviousAppDir=no
 CreateAppDir=no
-DisableDirPage=yes
+DisableDirPage=no
 DisableWelcomePage=yes
 DisableProgramGroupPage=yes
 DisableReadyMemo=yes
@@ -267,16 +267,6 @@ CloseApplications=no
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
-
-[Messages]
-SetupWindowTitle=Софт - установка программ
-SelectDirLabel3=Укажите папку назначения.
-ReadyLabel1=Всё готово к копированию
-InstallingLabel=Копирование выбранных файлов. Пожалуйста, подождите...
-StatusExtractFiles=Копирование: {0}
-StatusCreateDirs=Создание папки: {0}
-FinishedHeadingLabel=Готово!
-FinishedLabel=Выбранные файлы успешно скопированы в указанное место.
 
 [Files]
 Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_acrobat')
@@ -346,38 +336,14 @@ Source: "{#SetupArchiveRoot}\Информация об архиве - Софт-S
 
 [Code]
 var
-  DestinationPage: TWizardPage;
-  ModePage: TWizardPage;
+    ModePage: TWizardPage;
   CatalogPage: TWizardPage;
   ArchivePage: TWizardPage;
-  DestinationEdit: TNewEdit;
-  BrowseButton: TNewButton;
   CatalogList: TNewCheckListBox;
   ArchiveList: TNewCheckListBox;
   CatalogMap: TStringList;
   CatalogModeButton: TNewRadioButton;
   ArchiveModeButton: TNewRadioButton;
-  DestinationPath: String;
-
-procedure AddPageText(Page: TWizardPage; const TextValue: String; const TopValue, HeightValue, FontSizeValue: Integer; const IsBold: Boolean);
-var
-  L: TNewStaticText;
-begin
-  L := TNewStaticText.Create(Page);
-  L.Parent := Page.Surface;
-  L.Left := ScaleX(8);
-  L.Top := ScaleY(TopValue);
-  L.Width := Page.SurfaceWidth - ScaleX(16);
-  L.Height := ScaleY(HeightValue);
-  L.AutoSize := False;
-  L.WordWrap := True;
-  L.Caption := TextValue;
-  L.Color := Page.Surface.Color;
-  L.Font.Name := 'Segoe UI';
-  L.Font.Size := FontSizeValue;
-  L.Font.Color := clWhite;
-  if IsBold then L.Font.Style := [fsBold];
-end;
 
 function AddCatalogCheck(const ItemID, CaptionText: String; const LevelValue: Byte; const HasChildren, CheckWhenParent: Boolean): Integer;
 begin
@@ -442,67 +408,27 @@ end;
 
 function GetDestinationPath(Param: String): String;
 begin
-  Result := DestinationPath;
+  Result := WizardDirValue;
 end;
 
 function GetTargetFolder(Param: String): String;
 begin
-  Result := AddBackslash(DestinationPath) + Param;
-end;
-
-procedure BrowseButtonClick(Sender: TObject);
-var
-  SelectedFolder: String;
-begin
-  SelectedFolder := DestinationEdit.Text;
-  if BrowseForFolder('Выберите папку назначения для Софт', SelectedFolder, True) then
-    DestinationEdit.Text := SelectedFolder;
+  Result := AddBackslash(WizardDirValue) + Param;
 end;
 
 procedure InitializeWizard();
 begin
   CatalogMap := TStringList.Create;
-  WizardForm.Caption := 'Софт - установка программ';
   WizardForm.Color := $0021262E;
   WizardForm.Font.Name := 'Segoe UI';
   WizardForm.Font.Color := clWhite;
-  WizardForm.BackButton.Caption := 'Назад';
-  WizardForm.NextButton.Caption := 'Далее';
-  WizardForm.CancelButton.Caption := 'Отмена';
 
-  DestinationPage := CreateCustomPage(wpWelcome, 'Папка назначения', 'Укажите место, куда сохранить выбранные программы.');
-  ModePage := CreateCustomPage(DestinationPage.ID, 'Способ выбора', 'Выберите каталог отдельных программ или готовый архив.');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', 'Отметьте одну или несколько программ. Ничего не выбрано заранее.');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', 'Выберите готовый архив портативных программ и/или архив установщиков. Архив будет скопирован как RAR-файл.');
-  DestinationPage.Surface.Color := $0021262E;
+  ModePage := CreateCustomPage(wpSelectDir, 'Способ выбора', '');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', '');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', '');
   ModePage.Surface.Color := $0021262E;
   CatalogPage.Surface.Color := $0021262E;
   ArchivePage.Surface.Color := $0021262E;
-
-  AddPageText(DestinationPage, 'Куда сохранить выбранное?', 10, 34, 16, True);
-  AddPageText(DestinationPage, 'Можно указать корень диска (например, C:\) или любую папку на компьютере. Если указанной папки ещё нет, Софт попробует создать её.', 52, 58, 9, False);
-  DestinationEdit := TNewEdit.Create(DestinationPage);
-  DestinationEdit.Parent := DestinationPage.Surface;
-  DestinationEdit.Left := ScaleX(8);
-  DestinationEdit.Top := ScaleY(132);
-  DestinationEdit.Width := DestinationPage.SurfaceWidth - ScaleX(112);
-  DestinationEdit.Height := ScaleY(28);
-  DestinationEdit.Text := 'C:\';
-  DestinationEdit.Font.Name := 'Segoe UI';
-  DestinationEdit.Font.Size := 10;
-  DestinationEdit.Color := $00343A44;
-  DestinationEdit.Font.Color := clWhite;
-  BrowseButton := TNewButton.Create(DestinationPage);
-  BrowseButton.Parent := DestinationPage.Surface;
-  BrowseButton.Left := DestinationEdit.Left + DestinationEdit.Width + ScaleX(8);
-  BrowseButton.Top := DestinationEdit.Top - ScaleY(1);
-  BrowseButton.Width := ScaleX(88);
-  BrowseButton.Height := ScaleY(28);
-  BrowseButton.Caption := 'Обзор...';
-  BrowseButton.OnClick := @BrowseButtonClick;
-
-  AddPageText(ModePage, 'Как вы хотите выбрать содержимое?', 10, 34, 16, True);
-  AddPageText(ModePage, 'Выберите один из двух вариантов. На следующем шаге появится соответствующий список.', 52, 42, 9, False);
   CatalogModeButton := TNewRadioButton.Create(ModePage);
   CatalogModeButton.Parent := ModePage.Surface;
   CatalogModeButton.Left := ScaleX(18);
@@ -526,9 +452,6 @@ begin
   ArchiveModeButton.Font.Size := 10;
   ArchiveModeButton.Font.Color := clWhite;
   ArchiveModeButton.Color := $0021262E;
-
-  AddPageText(CatalogPage, 'Выберите нужные программы', 10, 30, 15, True);
-  AddPageText(CatalogPage, 'Отметьте одну или несколько позиций. Группы Visual Studio и «Браузеры» можно раскрыть.', 43, 28, 9, False);
   CatalogList := TNewCheckListBox.Create(CatalogPage);
   CatalogList.Parent := CatalogPage.Surface;
   CatalogList.Left := ScaleX(8);
@@ -609,9 +532,6 @@ begin
   AddCatalogCheck('s_browser_edge', 'Microsoft Edge', 2, False, True);
   AddCatalogCheck('s_browser_opera', 'Opera', 2, False, True);
   AddCatalogCheck('s_browser_yandex', 'Яндекс Браузер', 2, False, True);
-
-  AddPageText(ArchivePage, 'Готовые сборники', 10, 30, 15, True);
-  AddPageText(ArchivePage, 'Можно выбрать Portable, Setup или оба архива. RAR-файлы и сведения о них будут скопированы в указанную папку; архивы останутся архивами.', 43, 40, 9, False);
   ArchiveList := TNewCheckListBox.Create(ArchivePage);
   ArchiveList.Parent := ArchivePage.Surface;
   ArchiveList.Left := ScaleX(8);
@@ -626,15 +546,15 @@ begin
   ArchiveList.Font.Name := 'Segoe UI';
   ArchiveList.Font.Size := 10;
   ArchiveList.Font.Color := clWhite;
-  ArchiveList.AddCheckBox('Софт-Portable.rar - готовый архив портативных программ', 'Вместе с файлом архива будет скопирована информация о нём.', 0, False, True, False, False, nil);
-  ArchiveList.AddCheckBox('Софт-SetUp.rar - готовый архив программ с установщиками', 'Вместе с файлом архива будет скопирована информация о нём.', 0, False, True, False, False, nil);
+  ArchiveList.AddCheckBox('Софт-Portable.rar', '', 0, False, True, False, False, nil);
+  ArchiveList.AddCheckBox('Софт-SetUp.rar', '', 0, False, True, False, False, nil);
 
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   Result := False;
-  if (PageID = wpWelcome) or (PageID = wpSelectDir) or
+  if (PageID = wpWelcome) or
      (PageID = wpSelectComponents) or (PageID = wpSelectProgramGroup) then
     Result := True;
   if (PageID = CatalogPage.ID) and ArchiveModeButton.Checked then
@@ -644,36 +564,9 @@ begin
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
-var
-  PathValue: String;
 begin
   Result := True;
-  if CurPageID = DestinationPage.ID then
-  begin
-    PathValue := Trim(DestinationEdit.Text);
-    if (Length(PathValue) = 2) and (PathValue[2] = ':') then
-      PathValue := PathValue + '\';
-    if (PathValue = '') then
-    begin
-      MsgBox('Укажите папку назначения, например C:\ или C:\Софт.', mbError, MB_OK);
-      Result := False;
-    end
-    else
-    begin
-      if not DirExists(PathValue) and not ForceDirectories(PathValue) then
-      begin
-        MsgBox('Не удалось найти или создать указанную папку. Проверьте путь и доступ к диску.', mbError, MB_OK);
-        Result := False;
-      end
-      else
-      begin
-        while (Length(PathValue) > 3) and (PathValue[Length(PathValue)] = '\') do
-          Delete(PathValue, Length(PathValue), 1);
-        DestinationPath := PathValue;
-      end;
-    end;
-  end
-  else if CurPageID = CatalogPage.ID then
+  if CurPageID = CatalogPage.ID then
   begin
     if not HasAnyCatalogSelection then
     begin
@@ -689,14 +582,6 @@ begin
       Result := False;
     end;
   end;
-end;
-
-procedure CurPageChanged(CurPageID: Integer);
-begin
-  if CurPageID = wpReady then
-    WizardForm.NextButton.Caption := 'Установить'
-  else
-    WizardForm.NextButton.Caption := 'Далее';
 end;
 
 function InitializeSetup(): Boolean;

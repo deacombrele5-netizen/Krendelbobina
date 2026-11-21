@@ -66,20 +66,20 @@ CloseApplications=no
 
 [Messages]
 SetupWindowTitle=Установка - %1
-WizardSelectDir=Выбор пути установки
-SelectDirDesc=Укажите путь, по которому необходимо установить выбранные программы.
-SelectDirLabel3=Выбранные программы будут установлены по следующему пути.
-SelectDirBrowseLabel=Проверьте указанный путь. Чтобы выбрать другое место установки, нажмите «Обзор», затем нажмите «Далее».
-WizardReady=Всё готово к установке
-ReadyLabel1=Программа установки готова установить выбранные программы и файлы.
-ReadyLabel2a=Нажмите «Установить», чтобы продолжить, или «Назад», если вы хотите просмотреть или изменить параметры.
-ReadyLabel2b=Нажмите «Установить», чтобы продолжить.
+WizardSelectDir=Каталог установки
+SelectDirDesc=
+SelectDirLabel3=
+SelectDirBrowseLabel=
+WizardReady=Готово к установке
+ReadyLabel1=
+ReadyLabel2a=
+ReadyLabel2b=
 WizardInstalling=Установка...
-InstallingLabel=Пожалуйста, подождите, пока выполняется установка выбранных элементов.
-FinishedHeadingLabel=Завершение Мастера установки [name]
-FinishedLabelNoIcons=Установка выбранных элементов успешно завершена.
-FinishedLabel=Установка выбранных элементов успешно завершена.
-ClickFinish=Нажмите «Завершить», чтобы выйти из программы установки.
+InstallingLabel=
+FinishedHeadingLabel=Установка завершена
+FinishedLabelNoIcons=
+FinishedLabel=
+ClickFinish=
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
@@ -310,7 +310,8 @@ begin
   WizardForm.PageDescriptionLabel.Left := ScaleX(70);
   WizardForm.PageDescriptionLabel.Top := ScaleY(31);
   WizardForm.PageDescriptionLabel.Width := WizardForm.MainPanel.Width - ScaleX(82);
-  WizardForm.PageDescriptionLabel.Height := ScaleY(18);
+  WizardForm.PageDescriptionLabel.Height := 0;
+  WizardForm.PageDescriptionLabel.Visible := False;
   WizardForm.PageDescriptionLabel.Font.Name := 'Segoe UI';
   WizardForm.PageDescriptionLabel.Font.Size := 9;
   WizardForm.PageDescriptionLabel.Font.Color := $00B7C4D1;
@@ -330,9 +331,9 @@ begin
   ProgressPercentLabel.Font.Size := 9;
   ProgressPercentLabel.Font.Color := clWhite;
 
-  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', 'Выберите, как вы хотите установить программы.');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Отметьте программы, которые хотите установить, затем нажмите «Далее».');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Отметьте архивы, которые хотите установить, затем нажмите «Далее».');
+  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', '');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', '');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', '');
   ModePage.Surface.Color := $00131A23;
   CatalogPage.Surface.Color := $00131A23;
   ArchivePage.Surface.Color := $00131A23;
@@ -504,8 +505,8 @@ begin
   ArchiveList.Font.Size := 11;
   ArchiveList.Font.Color := $00E8EDF2;
   ArchiveList.Font.Style := [];
-  ArchiveList.AddCheckBox('Софт-Portable.rar', '', 0, False, True, False, False, nil);
-  ArchiveList.AddCheckBox('Софт-SetUp.rar', '', 0, False, True, False, False, nil);
+  ArchiveList.AddCheckBox('Архив с портативными программами', '', 0, False, True, False, False, nil);
+  ArchiveList.AddCheckBox('Архив с установочными версиями программ', '', 0, False, True, False, False, nil);
 
 end;
 

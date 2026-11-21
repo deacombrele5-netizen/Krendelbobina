@@ -29,11 +29,15 @@
 #define SetupRoot SourceRoot + "\Софт-SetUp\Программы без архива-SetUp"
 #define PortableArchiveRoot SourceRoot + "\Софт-Portable"
 #define SetupArchiveRoot SourceRoot + "\Софт-SetUp"
+#define OutputRoot MySoftRoot + "\Софт\Софт - установка"
 ; Проверка реальных исходников выполняется при каждой локальной компиляции.
 ; Если чего-то не хватает или имя папки отличается, компилятор остановится
 ; и укажет конкретный путь вместо создания неполного установщика.
 #if !DirExists(MySoftRoot)
 #error "Не найдена корневая папка MySoftRoot. Проверьте путь в начале Soft.iss."
+#endif
+#if !DirExists(OutputRoot)
+#error "Не найдена папка вывода Софт\\Софт - установка. Создайте её в корне MySoft."
 #endif
 #if !FileExists(MySoftRoot + "\app.ico")
 #error "Не найден app.ico в корневой папке MySoftRoot."
@@ -247,7 +251,7 @@ DisableProgramGroupPage=yes
 DisableReadyMemo=yes
 Uninstallable=no
 PrivilegesRequired=admin
-OutputDir={#MySoftRoot}\Софт установка
+OutputDir={#OutputRoot}
 OutputBaseFilename=Установщик Soft
 Compression=lzma2/normal
 SolidCompression=yes

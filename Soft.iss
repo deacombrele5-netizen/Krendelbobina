@@ -69,7 +69,7 @@ Name: "portable.programs.media.obs_studio_portable"; Description: "OBS-Studio"; 
 Name: "portable.programs.utilities.portablecreator_portable"; Description: "PortableCreator"; Types: full custom
 Name: "portable.programs.utilities.putty_portable"; Description: "PuTTY"; Types: full custom
 Name: "portable.programs.utilities.rufus_portable"; Description: "Rufus"; Types: full custom
-Name: "portable.programs..sysinternalssuite_portable"; Description: "SysinternalsSuite"; Types: full custom
+Name: "portable.programs.utilities.sysinternalssuite_portable"; Description: "SysinternalsSuite"; Types: full custom
 Name: "portable.programs.downloads.utorrent_portable"; Description: "uTorrent"; Types: full custom
 Name: "portable.programs.media.vlcmediaplayer_portable"; Description: "VlcMediaPlayer"; Types: full custom
 Name: "portable.programs.development.vscode_portable"; Description: "VSCode"; Types: full custom

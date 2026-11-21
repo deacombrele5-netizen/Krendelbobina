@@ -71,7 +71,7 @@ SelectDirDesc=Укажите папку, в которой будут разме
 SelectDirLabel3=
 SelectDirBrowseLabel=Для выбора другой папки нажмите «Обзор».
 WizardReady=Готово к установке
-ReadyLabel1=Мастер готов разместить выбранные программы и архивы в указанной папке.
+ReadyLabel1=Мастер установки готов перенести выбранные файлы на ваш компьютер.
 ReadyLabel2a=
 ReadyLabel2b=
 WizardInstalling=Установка...
@@ -347,8 +347,8 @@ begin
   ProgressPercentLabel.Font.Color := clWhite;
 
   ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', 'Выберите источник: отдельные программы из каталога или готовые архивы.');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Отметьте программы, которые нужно добавить. Для Visual Studio и браузеров можно выбрать отдельные компоненты.');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Выберите архивы, которые нужно разместить в указанной папке. Можно выбрать оба архива.');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Выберите программы, которые можно добавить.');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Выберите архив.');
   ModePage.Surface.Color := $00131A23;
   CatalogPage.Surface.Color := $00131A23;
   ArchivePage.Surface.Color := $00131A23;

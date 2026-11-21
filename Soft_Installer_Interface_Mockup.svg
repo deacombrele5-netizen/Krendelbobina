@@ -65,6 +65,7 @@
  <rect x="540" y="177" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="567" y="190" font-size="13" fill="#e5edf5">VLC Media Player</text>
  <rect x="540" y="203" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="567" y="216" font-size="13" fill="#e5edf5">WinRAR</text>
  <rect x="540" y="229" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M544 237l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="567" y="242" font-size="13" fill="#e5edf5">WinSCP</text>
+ <rect x="750" y="176" width="5" height="76" rx="2.5" fill="#27394a"/><rect x="750" y="181" width="5" height="24" rx="2.5" fill="#6b8298"/>
 
  <path d="M0 278H800" stroke="#344456"/>
  <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
@@ -81,10 +82,10 @@
  
  <rect x="30" y="148" width="740" height="48" rx="6" fill="#192633" stroke="#3d5268"/>
  <rect x="48" y="164" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M52 172l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="82" y="178" font-size="14" fill="#eaf1f7">Архив с портативными программами</text>
- <text x="748" y="178" text-anchor="end" font-size="11" fill="#8ea1b4">Архив с портативными программами</text>
+ 
  <rect x="30" y="208" width="740" height="48" rx="6" fill="#192633" stroke="#3d5268"/>
  <rect x="48" y="224" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="82" y="238" font-size="14" fill="#eaf1f7">Архив с установочными версиями программ</text>
- <text x="748" y="238" text-anchor="end" font-size="11" fill="#8ea1b4">Архив с установочными версиями программ</text>
+ 
 
  <path d="M0 278H800" stroke="#344456"/>
  <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>

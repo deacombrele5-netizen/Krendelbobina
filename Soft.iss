@@ -71,14 +71,14 @@ SelectDirDesc=Укажите папку, в которой будут разме
 SelectDirLabel3=
 SelectDirBrowseLabel=Для выбора другой папки нажмите «Обзор».
 WizardReady=Готово к установке
-ReadyLabel1=Мастер готов начать установку выбранных программ и архивов.
+ReadyLabel1=Мастер готов разместить выбранные программы и архивы в указанной папке.
 ReadyLabel2a=
 ReadyLabel2b=
 WizardInstalling=Установка...
-InstallingLabel=Выполняется установка выбранных компонентов. Дождитесь завершения процесса.
+InstallingLabel=Выполняется размещение выбранных компонентов. Дождитесь завершения процесса.
 FinishedHeadingLabel=Установка завершена
-FinishedLabelNoIcons=Выбранные программы и архивы успешно размещены в указанной папке.
-FinishedLabel=Выбранные программы и архивы успешно размещены в указанной папке.
+FinishedLabelNoIcons=Выбранные программы и архивы размещены в указанной папке.
+FinishedLabel=Выбранные программы и архивы размещены в указанной папке.
 ClickFinish=Нажмите «Завершить», чтобы закрыть мастер установки.
 
 [Languages]
@@ -346,9 +346,9 @@ begin
   ProgressPercentLabel.Font.Size := 9;
   ProgressPercentLabel.Font.Color := clWhite;
 
-  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', 'Выберите программы в каталоге или добавьте готовые архивы.');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Отметьте нужные программы. Для Visual Studio и браузеров доступны отдельные компоненты.');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Отметьте архивы, которые нужно добавить в выбранную папку. Можно выбрать оба варианта.');
+  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', 'Выберите источник: отдельные программы из каталога или готовые архивы.');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Отметьте программы, которые нужно добавить. Для Visual Studio и браузеров можно выбрать отдельные компоненты.');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Выберите архивы, которые нужно разместить в указанной папке. Можно выбрать оба архива.');
   ModePage.Surface.Color := $00131A23;
   CatalogPage.Surface.Color := $00131A23;
   ArchivePage.Surface.Color := $00131A23;

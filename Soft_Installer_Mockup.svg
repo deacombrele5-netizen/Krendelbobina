@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1430" viewBox="0 0 1720 1430">
 <rect width="1720" height="1430" fill="#0d141d"/>
-<rect x="60" y="42" width="34" height="34" rx="7" fill="#168ac7"/>
-<path d="M68 67V51H75L86 62V51" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(60 42)" fill="none" stroke="#cbd3dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 12V7.5C3 6.7 3.7 6 4.5 6H12L15 9H28C29.1 9 30 9.9 30 11V25C30 26.1 29.1 27 28 27H5C3.9 27 3 26.1 3 25V12Z"/>
+<path d="M22.5 2.5L24 1.5L25.5 2.5L27.2 2.3L27.8 4L29.2 5L28.6 6.7L29.2 8.4L27.8 9.4L27.2 11.1L25.5 10.9L24 12L22.5 10.9L20.8 11.1L20.2 9.4L18.8 8.4L19.4 6.7L18.8 5L20.2 4L20.8 2.3Z"/>
+<circle cx="24" cy="6.7" r="1.8"/>
+</g>
 <text x="110" y="67" font-family="Segoe UI,Arial" font-size="28" font-weight="650" fill="#f4f7fb">Установка - Софт</text>
 <text x="62" y="104" font-family="Segoe UI,Arial" font-size="13" fill="#8496aa">Мастер установки</text>
 <path d="M60 126H1660" stroke="#2e4053"/>
 <g transform="translate(60 154)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Каталог размещения</text>
  
@@ -32,17 +38,20 @@
 <g transform="translate(860 154)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Способ выбора</text>
  
  <rect x="28" y="99" width="744" height="48" rx="7" fill="#1a2c3b" stroke="#238ec8"/>
  <circle cx="52" cy="123" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M48 123l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
- <text x="76" y="129" font-family="Segoe UI,Arial" font-size="16" fill="#f1f6fb">Каталог программ</text>
+ <text x="76" y="129" font-family="Segoe UI,Arial" font-size="16" fill="#f1f6fb">Выбрать программу из каталога программ</text>
  <rect x="28" y="160" width="744" height="48" rx="7" fill="#192431" stroke="#405267"/>
  <circle cx="52" cy="184" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/>
- <text x="76" y="190" font-family="Segoe UI,Arial" font-size="16" fill="#e0e8f0">Готовые архивы</text>
+ <text x="76" y="190" font-family="Segoe UI,Arial" font-size="16" fill="#e0e8f0">Выбрать готовый архив с программами</text>
  <path d="M0 230H800" stroke="#344456"/>
  <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Источник данных</text>
  <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
@@ -55,8 +64,11 @@
 <g transform="translate(60 464)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Каталог программ</text>
  
@@ -71,7 +83,7 @@
  <circle cx="530" cy="139" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="548" y="144" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">VLC Media Player</text>
  <circle cx="530" cy="164" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="548" y="169" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">WinRAR</text>
  <circle cx="530" cy="189" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M526 189l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><text x="548" y="194" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">WinSCP</text>
- <text x="28" y="221" font-family="Segoe UI,Arial" font-size="11" fill="#8294a7">Ниже по списку: «Установщики программ»</text>
+ <text x="28" y="221" font-family="Segoe UI,Arial" font-size="11" fill="#8294a7">УСТАНОВЩИКИ ПРОГРАММ</text>
  <path d="M0 230H800" stroke="#344456"/>
  <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Выбор компонентов</text>
  <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
@@ -84,8 +96,11 @@
 <g transform="translate(860 464)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Готовые архивы</text>
  
@@ -106,8 +121,11 @@
 <g transform="translate(60 774)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Готово к установке</text>
  
@@ -127,8 +145,11 @@
 <g transform="translate(860 774)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Установка</text>
  
@@ -148,8 +169,11 @@
 <g transform="translate(60 1084)">
  <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
  <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
- <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
- <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <g transform="translate(18 12)" fill="none" stroke="#cbd3dc" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1 9V5.5C1 4.7 1.7 4 2.5 4H7L9 6H16C16.6 6 17 6.4 17 7V15C17 15.6 16.6 16 16 16H2C1.4 16 1 15.6 1 15V9Z"/>
+ <path d="M12 1.3L13 0.8L14 1.3L15.1 1.2L15.5 2.3L16.4 3L16 4.1L16.4 5.2L15.5 5.9L15.1 7L14 6.9L13 7.5L12 6.9L10.9 7L10.5 5.9L9.6 5.2L10 4.1L9.6 3L10.5 2.3L10.9 1.2Z"/>
+ <circle cx="13" cy="4.1" r="1.1"/>
+ </g>
  <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Завершение</text>
  

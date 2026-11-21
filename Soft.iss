@@ -191,7 +191,12 @@ end;
 
 function IsItemSelected(const ItemID: String): Boolean;
 begin
-  Result := CatalogChecked(ItemID);
+  if ItemID = 'a_portable' then
+    Result := ArchiveList.Checked[0]
+  else if ItemID = 'a_setup' then
+    Result := ArchiveList.Checked[1]
+  else
+    Result := CatalogChecked(ItemID);
 end;
 
 function HasAnyCatalogSelection: Boolean;

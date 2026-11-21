@@ -265,6 +265,9 @@ SetupIconFile={#MySoftRoot}\app.ico
 DefaultDialogFontName=Segoe UI
 CloseApplications=no
 
+[Messages]
+SelectDirDesc=Программа будет установлена по указанному пути:
+
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
@@ -447,7 +450,7 @@ begin
   ArchiveModeButton.Top := ScaleY(80);
   ArchiveModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   ArchiveModeButton.Height := ScaleY(32);
-  ArchiveModeButton.Caption := 'Выбрать готовый сборник программ в архиве';
+  ArchiveModeButton.Caption := 'Выбрать готовый архив с программами';
   ArchiveModeButton.Font.Name := 'Segoe UI';
   ArchiveModeButton.Font.Size := 10;
   ArchiveModeButton.Font.Color := clWhite;
@@ -467,6 +470,7 @@ begin
   CatalogList.Font.Name := 'Segoe UI';
   CatalogList.Font.Size := 9;
   CatalogList.Font.Color := clWhite;
+  CatalogList.Font.Style := [];
 
   CatalogList.AddGroup('Портативные программы', '', 0, nil);
   AddCatalogCheck('p_adobe_acrobat', 'Adobe Acrobat Pro', 1, False, True);
@@ -501,7 +505,7 @@ begin
   AddCatalogCheck('p_winsetup', 'WinSetupFromUSB', 1, False, True);
   AddCatalogCheck('p_winterminal', 'Windows Terminal', 1, False, True);
   AddCatalogCheck('p_wnetwatcher', 'WNetWatcher', 1, False, True);
-  CatalogList.AddGroup('Программы с установщиком', '', 0, nil);
+  CatalogList.AddGroup('Установщики программ', '', 0, nil);
   AddCatalogCheck('s_adobe_acrobat', 'Adobe Acrobat Pro', 1, False, True);
   AddCatalogCheck('s_adobe_aftereffects', 'Adobe After Effects', 1, False, True);
   AddCatalogCheck('s_adobe_animate', 'Adobe Animate', 1, False, True);
@@ -546,6 +550,7 @@ begin
   ArchiveList.Font.Name := 'Segoe UI';
   ArchiveList.Font.Size := 10;
   ArchiveList.Font.Color := clWhite;
+  ArchiveList.Font.Style := [];
   ArchiveList.AddCheckBox('Софт-Portable.rar', '', 0, False, True, False, False, nil);
   ArchiveList.AddCheckBox('Софт-SetUp.rar', '', 0, False, True, False, False, nil);
 
@@ -570,7 +575,7 @@ begin
   begin
     if not HasAnyCatalogSelection then
     begin
-      MsgBox('Выберите хотя бы одну программу из каталога.', mbInformation, MB_OK);
+      MsgBox('Выберите программы из каталога.', mbInformation, MB_OK);
       Result := False;
     end;
   end
@@ -578,7 +583,7 @@ begin
   begin
     if not (ArchiveList.Checked[0] or ArchiveList.Checked[1]) then
     begin
-      MsgBox('Выберите архив: Portable, Setup или оба.', mbInformation, MB_OK);
+      MsgBox('Выберите архив.', mbInformation, MB_OK);
       Result := False;
     end;
   end;

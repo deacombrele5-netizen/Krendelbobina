@@ -179,14 +179,30 @@ end;
 function AddCatalogCheck(const ItemID, CaptionText: String; const LevelValue: Byte; const HasChildren, CheckWhenParent: Boolean): Integer;
 begin
   Result := CatalogList.AddCheckBox(CaptionText, '', LevelValue, False, True, HasChildren, CheckWhenParent, nil);
-  CatalogMap.Values[ItemID] := IntToStr(Result);
+  CatalogMap.Add(ItemID + '=' + IntToStr(Result));
+end;
+
+function GetCatalogIndex(const ItemID: String): Integer;
+var
+  I, P: Integer;
+  Entry: String;
+begin
+  Result := -1;
+  I := CatalogMap.IndexOfName(ItemID);
+  if I >= 0 then
+  begin
+    Entry := CatalogMap.Strings[I];
+    P := Pos('=', Entry);
+    if P > 0 then
+      Result := StrToIntDef(Copy(Entry, P + 1, Length(Entry) - P), -1);
+  end;
 end;
 
 function CatalogChecked(const ItemID: String): Boolean;
 var
   I: Integer;
 begin
-  I := StrToIntDef(CatalogMap.Values[ItemID], -1);
+  I := GetCatalogIndex(ItemID);
   Result := False;
   if I >= 0 then
     Result := CatalogList.Checked[I];
@@ -210,7 +226,7 @@ begin
   Result := False;
   for I := 0 to CatalogMap.Count - 1 do
   begin
-    ItemIndex := StrToIntDef(CatalogMap.Values[CatalogMap.Names[I]], -1);
+    ItemIndex := GetCatalogIndex(Copy(CatalogMap.Strings[I], 1, Pos('=', CatalogMap.Strings[I]) - 1));
     if (ItemIndex >= 0) and CatalogList.Checked[ItemIndex] then
     begin
       Result := True;

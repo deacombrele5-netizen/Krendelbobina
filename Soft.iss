@@ -380,10 +380,10 @@ begin
   AddCatalogCheck('s_steam', 'Steam', 1, False, True);
   AddCatalogCheck('s_torrent', 'Torrent', 1, False, True);
   AddCatalogCheck('s_winrar', 'WinRAR', 1, False, True);
-  AddCatalogCheck('s_vs_all', 'Visual Studio (and Code version)', 1, True, False);
+  AddCatalogCheck('s_vs_all', 'Visual Studio (and Code version)', 1, True, True);
   AddCatalogCheck('s_vs_vs', 'Visual Studio', 2, False, True);
   AddCatalogCheck('s_vs_code', 'Visual Studio Code', 2, False, True);
-  AddCatalogCheck('s_browsers_all', 'Браузеры (все сразу)', 1, True, False);
+  AddCatalogCheck('s_browsers_all', 'Браузеры (все сразу)', 1, True, True);
   AddCatalogCheck('s_browser_chrome', 'Google Chrome', 2, False, True);
   AddCatalogCheck('s_browser_firefox', 'Mozilla Firefox', 2, False, True);
   AddCatalogCheck('s_browser_edge', 'Microsoft Edge', 2, False, True);

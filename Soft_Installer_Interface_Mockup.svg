@@ -8,11 +8,9 @@
 <g font-family="Segoe UI,Arial,sans-serif"><g transform="translate(60 175)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Каталог установки</text>
@@ -27,11 +25,9 @@
  </g><g transform="translate(860 175)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор способа установки</text>
@@ -48,11 +44,9 @@
  </g><g transform="translate(60 555)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор программ</text>
@@ -74,11 +68,9 @@
  </g><g transform="translate(860 555)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор архивов</text>
@@ -95,11 +87,9 @@
  </g><g transform="translate(60 935)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Готово к установке</text>
@@ -111,11 +101,9 @@
  </g><g transform="translate(860 935)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка...</text>
@@ -129,11 +117,9 @@
  </g><g transform="translate(460 1315)">
  <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
  <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(20 12)" fill="none" stroke="#dce7f0" stroke-width="1.06" stroke-linecap="round" stroke-linejoin="round">
- <path d="M3.72 13.28V9.03H11.69L14.34 11.69H29.22V26.03H3.72Z"/>
- <circle cx="26.30" cy="23.06" r="5.05" stroke="#56bde8"/>
- <circle cx="26.30" cy="23.06" r="1.86" stroke="#56bde8"/>
- <path d="M26.03 15.40V18.06M26.03 28.16V30.81M18.59 22.84H21.25M31.34 22.84H34.00M20.72 17.53L22.84 19.66M29.22 26.03L31.34 28.16M20.72 28.16L22.84 26.03M29.22 19.66L31.34 17.53" stroke="#56bde8"/>
+ <g transform="translate(20 12) scale(1.4)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
+ <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="62" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка завершена</text>

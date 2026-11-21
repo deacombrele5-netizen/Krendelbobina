@@ -283,7 +283,6 @@ begin
   WizardForm.WizardSmallBitmapImage.Width := ScaleX(48);
   WizardForm.WizardSmallBitmapImage.Height := ScaleY(48);
   WizardForm.WizardSmallBitmapImage.Visible := True;
-  LogoBitmap.Free;
 
   HeaderAccent := TPanel.Create(WizardForm);
   HeaderAccent.Parent := WizardForm.MainPanel;

@@ -262,6 +262,10 @@ SetupIconFile={#MySoftRoot}\app.ico
 DefaultDialogFontName=Segoe UI
 CloseApplications=no
 
+[Messages]
+FinishedLabelNoIcons=Установка выбранных программ завершена.
+FinishedLabel=Установка выбранных программ завершена.
+
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
@@ -415,11 +419,100 @@ begin
 end;
 
 procedure InitializeWizard();
+var
+  ModeCardCatalog, ModeCardArchive, CatalogCard, ArchiveCard, HeaderAccent: TPanel;
+  LogoBitmap: TBitmap;
 begin
   CatalogMap := TStringList.Create;
-  WizardForm.Color := $0021262E;
+
+  { Общая визуальная тема установщика }
+  WizardForm.Color := $00131A23;
   WizardForm.Font.Name := 'Segoe UI';
   WizardForm.Font.Color := clWhite;
+  WizardForm.MainPanel.Color := $001B2734;
+  WizardForm.MainPanel.BevelOuter := bvNone;
+  WizardForm.InnerPage.Color := $00131A23;
+  WizardForm.Bevel.Visible := False;
+  WizardForm.Bevel1.Visible := False;
+
+  { Собственный логотип: контур папки и шестерёнка, рисуется в памяти }
+  LogoBitmap := TBitmap.Create;
+  LogoBitmap.Width := ScaleX(64);
+  LogoBitmap.Height := ScaleY(64);
+  LogoBitmap.Canvas.Brush.Color := $001B2734;
+  LogoBitmap.Canvas.Brush.Style := bsSolid;
+  LogoBitmap.Canvas.FillRect(Rect(0, 0, LogoBitmap.Width, LogoBitmap.Height));
+  LogoBitmap.Canvas.Pen.Color := $00D5DCE4;
+  LogoBitmap.Canvas.Pen.Width := ScaleX(2);
+  LogoBitmap.Canvas.Brush.Style := bsClear;
+  LogoBitmap.Canvas.MoveTo(7, 25);
+  LogoBitmap.Canvas.LineTo(7, 17);
+  LogoBitmap.Canvas.LineTo(22, 17);
+  LogoBitmap.Canvas.LineTo(27, 22);
+  LogoBitmap.Canvas.LineTo(55, 22);
+  LogoBitmap.Canvas.LineTo(55, 49);
+  LogoBitmap.Canvas.LineTo(7, 49);
+  LogoBitmap.Canvas.LineTo(7, 25);
+  LogoBitmap.Canvas.Ellipse(41, 4, 60, 23);
+  LogoBitmap.Canvas.Ellipse(47, 10, 54, 17);
+  LogoBitmap.Canvas.MoveTo(50, 1);
+  LogoBitmap.Canvas.LineTo(50, 4);
+  LogoBitmap.Canvas.MoveTo(50, 23);
+  LogoBitmap.Canvas.LineTo(50, 26);
+  LogoBitmap.Canvas.MoveTo(38, 13);
+  LogoBitmap.Canvas.LineTo(41, 13);
+  LogoBitmap.Canvas.MoveTo(60, 13);
+  LogoBitmap.Canvas.LineTo(63, 13);
+  LogoBitmap.Canvas.MoveTo(42, 5);
+  LogoBitmap.Canvas.LineTo(44, 7);
+  LogoBitmap.Canvas.MoveTo(57, 20);
+  LogoBitmap.Canvas.LineTo(59, 22);
+  LogoBitmap.Canvas.MoveTo(42, 21);
+  LogoBitmap.Canvas.LineTo(44, 19);
+  LogoBitmap.Canvas.MoveTo(57, 7);
+  LogoBitmap.Canvas.LineTo(59, 5);
+
+  WizardForm.WizardSmallBitmapImage.Bitmap := LogoBitmap;
+  WizardForm.WizardSmallBitmapImage.AutoSize := False;
+  WizardForm.WizardSmallBitmapImage.Stretch := True;
+  WizardForm.WizardSmallBitmapImage.BackColor := $001B2734;
+  WizardForm.WizardSmallBitmapImage.Left := ScaleX(12);
+  WizardForm.WizardSmallBitmapImage.Top := ScaleY(7);
+  WizardForm.WizardSmallBitmapImage.Width := ScaleX(48);
+  WizardForm.WizardSmallBitmapImage.Height := ScaleY(48);
+  WizardForm.WizardSmallBitmapImage.Visible := True;
+
+  HeaderAccent := TPanel.Create(WizardForm);
+  HeaderAccent.Parent := WizardForm.MainPanel;
+  HeaderAccent.Left := 0;
+  HeaderAccent.Top := 0;
+  HeaderAccent.Width := ScaleX(4);
+  HeaderAccent.Height := WizardForm.MainPanel.Height;
+  HeaderAccent.Anchors := [akLeft, akTop, akBottom];
+  HeaderAccent.BevelOuter := bvNone;
+  HeaderAccent.Color := $00C28A3C;
+  HeaderAccent.SendToBack;
+
+  WizardForm.PageNameLabel.Left := ScaleX(70);
+  WizardForm.PageNameLabel.Top := ScaleY(7);
+  WizardForm.PageNameLabel.Width := WizardForm.MainPanel.Width - ScaleX(82);
+  WizardForm.PageNameLabel.Height := ScaleY(24);
+  WizardForm.PageNameLabel.Font.Name := 'Segoe UI';
+  WizardForm.PageNameLabel.Font.Size := 14;
+  WizardForm.PageNameLabel.Font.Style := [fsBold];
+  WizardForm.PageNameLabel.Font.Color := $00F2F5F8;
+
+  WizardForm.PageDescriptionLabel.Left := ScaleX(70);
+  WizardForm.PageDescriptionLabel.Top := ScaleY(31);
+  WizardForm.PageDescriptionLabel.Width := WizardForm.MainPanel.Width - ScaleX(82);
+  WizardForm.PageDescriptionLabel.Height := ScaleY(18);
+  WizardForm.PageDescriptionLabel.Font.Name := 'Segoe UI';
+  WizardForm.PageDescriptionLabel.Font.Size := 9;
+  WizardForm.PageDescriptionLabel.Font.Color := $00B7C4D1;
+
+  WizardForm.NextButton.Font.Name := 'Segoe UI';
+  WizardForm.BackButton.Font.Name := 'Segoe UI';
+  WizardForm.CancelButton.Font.Name := 'Segoe UI';
 
   ProgressPercentLabel := TNewStaticText.Create(WizardForm);
   ProgressPercentLabel.Parent := WizardForm.ProgressGauge.Parent;
@@ -432,50 +525,89 @@ begin
   ProgressPercentLabel.Font.Size := 9;
   ProgressPercentLabel.Font.Color := clWhite;
 
-  ModePage := CreateCustomPage(wpSelectDir, 'Способ выбора', '');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', '');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', '');
-  ModePage.Surface.Color := $0021262E;
-  CatalogPage.Surface.Color := $0021262E;
-  ArchivePage.Surface.Color := $0021262E;
+  ModePage := CreateCustomPage(wpSelectDir, 'Способ выбора', 'Выберите источник программ для копирования.');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', 'Отметьте программы, которые нужно скопировать.');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', 'Выберите готовые архивы для копирования.');
+  ModePage.Surface.Color := $00131A23;
+  CatalogPage.Surface.Color := $00131A23;
+  ArchivePage.Surface.Color := $00131A23;
+
+  { Две отдельные карточки выбора источника }
+  ModeCardCatalog := TPanel.Create(ModePage);
+  ModeCardCatalog.Parent := ModePage.Surface;
+  ModeCardCatalog.Left := ScaleX(10);
+  ModeCardCatalog.Top := ScaleY(16);
+  ModeCardCatalog.Width := ModePage.SurfaceWidth - ScaleX(20);
+  ModeCardCatalog.Height := ScaleY(64);
+  ModeCardCatalog.Anchors := [akLeft, akTop, akRight];
+  ModeCardCatalog.BevelOuter := bvNone;
+  ModeCardCatalog.Color := $001E2B39;
+
+  ModeCardArchive := TPanel.Create(ModePage);
+  ModeCardArchive.Parent := ModePage.Surface;
+  ModeCardArchive.Left := ScaleX(10);
+  ModeCardArchive.Top := ScaleY(92);
+  ModeCardArchive.Width := ModePage.SurfaceWidth - ScaleX(20);
+  ModeCardArchive.Height := ScaleY(64);
+  ModeCardArchive.Anchors := [akLeft, akTop, akRight];
+  ModeCardArchive.BevelOuter := bvNone;
+  ModeCardArchive.Color := $001E2B39;
+
   CatalogModeButton := TNewRadioButton.Create(ModePage);
-  CatalogModeButton.Parent := ModePage.Surface;
-  CatalogModeButton.Left := ScaleX(18);
-  CatalogModeButton.Top := ScaleY(24);
-  CatalogModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
+  CatalogModeButton.Parent := ModeCardCatalog;
+  CatalogModeButton.Left := ScaleX(16);
+  CatalogModeButton.Top := ScaleY(16);
+  CatalogModeButton.Width := ModeCardCatalog.Width - ScaleX(32);
   CatalogModeButton.Height := ScaleY(32);
+  CatalogModeButton.Anchors := [akLeft, akTop, akRight];
   CatalogModeButton.Caption := 'Выбрать программу из каталога программ';
   CatalogModeButton.Checked := True;
   CatalogModeButton.Font.Name := 'Segoe UI';
-  CatalogModeButton.Font.Size := 10;
-  CatalogModeButton.Font.Color := clWhite;
-  CatalogModeButton.Color := $0021262E;
+  CatalogModeButton.Font.Size := 11;
+  CatalogModeButton.Font.Style := [fsBold];
+  CatalogModeButton.Font.Color := $00F0F4F8;
+  CatalogModeButton.Color := ModeCardCatalog.Color;
+
   ArchiveModeButton := TNewRadioButton.Create(ModePage);
-  ArchiveModeButton.Parent := ModePage.Surface;
-  ArchiveModeButton.Left := ScaleX(18);
-  ArchiveModeButton.Top := ScaleY(80);
-  ArchiveModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
+  ArchiveModeButton.Parent := ModeCardArchive;
+  ArchiveModeButton.Left := ScaleX(16);
+  ArchiveModeButton.Top := ScaleY(16);
+  ArchiveModeButton.Width := ModeCardArchive.Width - ScaleX(32);
   ArchiveModeButton.Height := ScaleY(32);
+  ArchiveModeButton.Anchors := [akLeft, akTop, akRight];
   ArchiveModeButton.Caption := 'Выбрать готовый архив с программами';
   ArchiveModeButton.Font.Name := 'Segoe UI';
-  ArchiveModeButton.Font.Size := 10;
-  ArchiveModeButton.Font.Color := clWhite;
-  ArchiveModeButton.Color := $0021262E;
+  ArchiveModeButton.Font.Size := 11;
+  ArchiveModeButton.Font.Style := [fsBold];
+  ArchiveModeButton.Font.Color := $00F0F4F8;
+  ArchiveModeButton.Color := ModeCardArchive.Color;
+
+  { Каталог размещён на отдельной тёмной панели }
+  CatalogCard := TPanel.Create(CatalogPage);
+  CatalogCard.Parent := CatalogPage.Surface;
+  CatalogCard.Left := ScaleX(8);
+  CatalogCard.Top := ScaleY(8);
+  CatalogCard.Width := CatalogPage.SurfaceWidth - ScaleX(16);
+  CatalogCard.Height := CatalogPage.SurfaceHeight - ScaleY(16);
+  CatalogCard.Anchors := [akLeft, akTop, akRight, akBottom];
+  CatalogCard.BevelOuter := bvNone;
+  CatalogCard.Color := $0019232D;
+
   CatalogList := TNewCheckListBox.Create(CatalogPage);
-  CatalogList.Parent := CatalogPage.Surface;
-  CatalogList.Left := ScaleX(8);
-  CatalogList.Top := ScaleY(8);
-  CatalogList.Width := CatalogPage.SurfaceWidth - ScaleX(16);
-  CatalogList.Height := CatalogPage.SurfaceHeight - ScaleY(16);
+  CatalogList.Parent := CatalogCard;
+  CatalogList.Left := ScaleX(10);
+  CatalogList.Top := ScaleY(10);
+  CatalogList.Width := CatalogCard.Width - ScaleX(20);
+  CatalogList.Height := CatalogCard.Height - ScaleY(20);
   CatalogList.Anchors := [akLeft, akTop, akRight, akBottom];
-  CatalogList.Flat := True;
-  CatalogList.ShowLines := True;
+  CatalogList.Flat := False;
+  CatalogList.ShowLines := False;
   CatalogList.BorderStyle := bsNone;
-  CatalogList.Color := $002B3038;
-  CatalogList.MinItemHeight := ScaleY(24);
+  CatalogList.Color := $0019232D;
+  CatalogList.MinItemHeight := ScaleY(28);
   CatalogList.Font.Name := 'Segoe UI';
-  CatalogList.Font.Size := 9;
-  CatalogList.Font.Color := clWhite;
+  CatalogList.Font.Size := 10;
+  CatalogList.Font.Color := $00E8EDF2;
   CatalogList.Font.Style := [];
 
   CatalogList.AddGroup('Портативные программы', '', 0, nil);
@@ -542,20 +674,30 @@ begin
   AddCatalogCheck('s_browser_edge', 'Microsoft Edge', 2, False, True);
   AddCatalogCheck('s_browser_opera', 'Opera', 2, False, True);
   AddCatalogCheck('s_browser_yandex', 'Яндекс Браузер', 2, False, True);
+  ArchiveCard := TPanel.Create(ArchivePage);
+  ArchiveCard.Parent := ArchivePage.Surface;
+  ArchiveCard.Left := ScaleX(8);
+  ArchiveCard.Top := ScaleY(8);
+  ArchiveCard.Width := ArchivePage.SurfaceWidth - ScaleX(16);
+  ArchiveCard.Height := ScaleY(132);
+  ArchiveCard.Anchors := [akLeft, akTop, akRight];
+  ArchiveCard.BevelOuter := bvNone;
+  ArchiveCard.Color := $0019232D;
+
   ArchiveList := TNewCheckListBox.Create(ArchivePage);
-  ArchiveList.Parent := ArchivePage.Surface;
-  ArchiveList.Left := ScaleX(8);
-  ArchiveList.Top := ScaleY(8);
-  ArchiveList.Width := ArchivePage.SurfaceWidth - ScaleX(16);
-  ArchiveList.Height := ArchivePage.SurfaceHeight - ScaleY(16);
+  ArchiveList.Parent := ArchiveCard;
+  ArchiveList.Left := ScaleX(10);
+  ArchiveList.Top := ScaleY(10);
+  ArchiveList.Width := ArchiveCard.Width - ScaleX(20);
+  ArchiveList.Height := ArchiveCard.Height - ScaleY(20);
   ArchiveList.Anchors := [akLeft, akTop, akRight, akBottom];
-  ArchiveList.Flat := True;
+  ArchiveList.Flat := False;
   ArchiveList.BorderStyle := bsNone;
-  ArchiveList.Color := $002B3038;
-  ArchiveList.MinItemHeight := ScaleY(32);
+  ArchiveList.Color := $0019232D;
+  ArchiveList.MinItemHeight := ScaleY(42);
   ArchiveList.Font.Name := 'Segoe UI';
-  ArchiveList.Font.Size := 10;
-  ArchiveList.Font.Color := clWhite;
+  ArchiveList.Font.Size := 11;
+  ArchiveList.Font.Color := $00E8EDF2;
   ArchiveList.Font.Style := [];
   ArchiveList.AddCheckBox('Софт-Portable.rar', '', 0, False, True, False, False, nil);
   ArchiveList.AddCheckBox('Софт-SetUp.rar', '', 0, False, True, False, False, nil);

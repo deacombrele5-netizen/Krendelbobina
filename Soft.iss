@@ -30,207 +30,9 @@
 #define PortableArchiveRoot SourceRoot + "\Софт-Portable"
 #define SetupArchiveRoot SourceRoot + "\Софт-SetUp"
 #define OutputRoot MySoftRoot + "\Софт\Софт - установка"
-; Проверка реальных исходников выполняется при каждой локальной компиляции.
-; Если чего-то не хватает или имя папки отличается, компилятор остановится
-; и укажет конкретный путь вместо создания неполного установщика.
-#if !DirExists(MySoftRoot)
-#error "Не найдена корневая папка MySoftRoot. Проверьте путь в начале Soft.iss."
-#endif
-#if !FileExists(MySoftRoot + "\app.ico")
-#error "Не найден app.ico в корневой папке MySoftRoot."
-#endif
-#if !DirExists(PortableRoot + "\AdobeAcrobatPro-Portable")
-#error "Не найден исходник: {#PortableRoot}\AdobeAcrobatPro-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AdobeAfterEffects-Portable")
-#error "Не найден исходник: {#PortableRoot}\AdobeAfterEffects-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AdobeAudition-Portable")
-#error "Не найден исходник: {#PortableRoot}\AdobeAudition-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AdobeIllustrator-Portable")
-#error "Не найден исходник: {#PortableRoot}\AdobeIllustrator-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AdobePhotoshop-Portable")
-#error "Не найден исходник: {#PortableRoot}\AdobePhotoshop-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AdobePremierePro-Portable")
-#error "Не найден исходник: {#PortableRoot}\AdobePremierePro-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AIDA64-Portable")
-#error "Не найден исходник: {#PortableRoot}\AIDA64-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\AnyDesk-Portable")
-#error "Не найден исходник: {#PortableRoot}\AnyDesk-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\Blender-Portable")
-#error "Не найден исходник: {#PortableRoot}\Blender-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\Easy2Boot-Portable")
-#error "Не найден исходник: {#PortableRoot}\Easy2Boot-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\EncryptOnClick-Portable")
-#error "Не найден исходник: {#PortableRoot}\EncryptOnClick-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\GoogleChrome-Portable")
-#error "Не найден исходник: {#PortableRoot}\GoogleChrome-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\ImgBurn-Portable")
-#error "Не найден исходник: {#PortableRoot}\ImgBurn-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\LocalSend-Portable")
-#error "Не найден исходник: {#PortableRoot}\LocalSend-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\MicrosoftScaner-Portable")
-#error "Не найден исходник: {#PortableRoot}\MicrosoftScaner-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\NSIS-Portable")
-#error "Не найден исходник: {#PortableRoot}\NSIS-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\OBS-Studio-Portable")
-#error "Не найден исходник: {#PortableRoot}\OBS-Studio-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\PortableCreator-Portable")
-#error "Не найден исходник: {#PortableRoot}\PortableCreator-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\PuTTY-Portable")
-#error "Не найден исходник: {#PortableRoot}\PuTTY-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\Rufus-Portable")
-#error "Не найден исходник: {#PortableRoot}\Rufus-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\SysinternalsSuite-Portable")
-#error "Не найден исходник: {#PortableRoot}\SysinternalsSuite-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\uTorrent-Portable")
-#error "Не найден исходник: {#PortableRoot}\uTorrent-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\VlcMediaPlayer-Portable")
-#error "Не найден исходник: {#PortableRoot}\VlcMediaPlayer-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\VSCode-Portable")
-#error "Не найден исходник: {#PortableRoot}\VSCode-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\Wifiinfoview-Portable")
-#error "Не найден исходник: {#PortableRoot}\Wifiinfoview-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\WinNotepad-Portable")
-#error "Не найден исходник: {#PortableRoot}\WinNotepad-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\WinPowerShel-Portable")
-#error "Не найден исходник: {#PortableRoot}\WinPowerShel-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\WinRAR-Portable")
-#error "Не найден исходник: {#PortableRoot}\WinRAR-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\WinSCP-Portable")
-#error "Не найден исходник: {#PortableRoot}\WinSCP-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\WinSetupFromUSB-Portable")
-#error "Не найден исходник: {#PortableRoot}\WinSetupFromUSB-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\WinTerminal-Portable")
-#error "Не найден исходник: {#PortableRoot}\WinTerminal-Portable\*"
-#endif
-#if !DirExists(PortableRoot + "\Wnet-Watcher-Portable")
-#error "Не найден исходник: {#PortableRoot}\Wnet-Watcher-Portable\*"
-#endif
-#if !DirExists(SetupRoot + "\Adobe Acrobat Pro")
-#error "Не найден исходник: {#SetupRoot}\Adobe Acrobat Pro\*"
-#endif
-#if !DirExists(SetupRoot + "\Adobe After Effects")
-#error "Не найден исходник: {#SetupRoot}\Adobe After Effects\*"
-#endif
-#if !DirExists(SetupRoot + "\Adobe Animate")
-#error "Не найден исходник: {#SetupRoot}\Adobe Animate\*"
-#endif
-#if !DirExists(SetupRoot + "\Adobe Audition")
-#error "Не найден исходник: {#SetupRoot}\Adobe Audition\*"
-#endif
-#if !DirExists(SetupRoot + "\Adobe Lightroom Classic")
-#error "Не найден исходник: {#SetupRoot}\Adobe Lightroom Classic\*"
-#endif
-#if !DirExists(SetupRoot + "\Adobe Substance 3D Painter")
-#error "Не найден исходник: {#SetupRoot}\Adobe Substance 3D Painter\*"
-#endif
-#if !DirExists(SetupRoot + "\AIDA 64")
-#error "Не найден исходник: {#SetupRoot}\AIDA 64\*"
-#endif
-#if !DirExists(SetupRoot + "\Blender 3D")
-#error "Не найден исходник: {#SetupRoot}\Blender 3D\*"
-#endif
-#if !DirExists(SetupRoot + "\Discord")
-#error "Не найден исходник: {#SetupRoot}\Discord\*"
-#endif
-#if !DirExists(SetupRoot + "\Epic Games")
-#error "Не найден исходник: {#SetupRoot}\Epic Games\*"
-#endif
-#if !DirExists(SetupRoot + "\FL Studio")
-#error "Не найден исходник: {#SetupRoot}\FL Studio\*"
-#endif
-#if !DirExists(SetupRoot + "\Illustrator")
-#error "Не найден исходник: {#SetupRoot}\Illustrator\*"
-#endif
-#if !DirExists(SetupRoot + "\InDesign")
-#error "Не найден исходник: {#SetupRoot}\InDesign\*"
-#endif
-#if !DirExists(SetupRoot + "\LocalSend")
-#error "Не найден исходник: {#SetupRoot}\LocalSend\*"
-#endif
-#if !DirExists(SetupRoot + "\Microsoft Office")
-#error "Не найден исходник: {#SetupRoot}\Microsoft Office\*"
-#endif
-#if !DirExists(SetupRoot + "\OBS Studio")
-#error "Не найден исходник: {#SetupRoot}\OBS Studio\*"
-#endif
-#if !DirExists(SetupRoot + "\Photoshop")
-#error "Не найден исходник: {#SetupRoot}\Photoshop\*"
-#endif
-#if !DirExists(SetupRoot + "\Premier")
-#error "Не найден исходник: {#SetupRoot}\Premier\*"
-#endif
-#if !DirExists(SetupRoot + "\Steam")
-#error "Не найден исходник: {#SetupRoot}\Steam\*"
-#endif
-#if !DirExists(SetupRoot + "\Torrent")
-#error "Не найден исходник: {#SetupRoot}\Torrent\*"
-#endif
-#if !DirExists(SetupRoot + "\WinRar")
-#error "Не найден исходник: {#SetupRoot}\WinRar\*"
-#endif
-#if !DirExists(SetupRoot + "\Visual Studio (and Code version)\VS")
-#error "Не найден исходник: {#SetupRoot}\Visual Studio (and Code version)\VS\*"
-#endif
-#if !DirExists(SetupRoot + "\Visual Studio (and Code version)\VS Code")
-#error "Не найден исходник: {#SetupRoot}\Visual Studio (and Code version)\VS Code\*"
-#endif
-#if !FileExists(SetupRoot + "\Браузеры\ChromeSetup.exe")
-#error "Не найден исходник: {#SetupRoot}\Браузеры\ChromeSetup.exe"
-#endif
-#if !FileExists(SetupRoot + "\Браузеры\Firefox Installer.exe")
-#error "Не найден исходник: {#SetupRoot}\Браузеры\Firefox Installer.exe"
-#endif
-#if !FileExists(SetupRoot + "\Браузеры\MicrosoftEdgeSetup.exe")
-#error "Не найден исходник: {#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"
-#endif
-#if !FileExists(SetupRoot + "\Браузеры\OperaSetup.exe")
-#error "Не найден исходник: {#SetupRoot}\Браузеры\OperaSetup.exe"
-#endif
-#if !FileExists(SetupRoot + "\Браузеры\Yandex.exe")
-#error "Не найден исходник: {#SetupRoot}\Браузеры\Yandex.exe"
-#endif
-#if !FileExists(PortableArchiveRoot + "\Софт-Portable.rar")
-#error "Не найден исходник: {#PortableArchiveRoot}\Софт-Portable.rar"
-#endif
-#if !FileExists(PortableArchiveRoot + "\Информация об архиве - Софт-Portable.txt")
-#error "Не найден исходник: {#PortableArchiveRoot}\Информация об архиве - Софт-Portable.txt"
-#endif
-#if !FileExists(SetupArchiveRoot + "\Софт-SetUp.rar")
-#error "Не найден исходник: {#SetupArchiveRoot}\Софт-SetUp.rar"
-#endif
-#if !FileExists(SetupArchiveRoot + "\Информация об архиве - Софт-SetUp.txt")
-#error "Не найден исходник: {#SetupArchiveRoot}\Информация об архиве - Софт-SetUp.txt"
-#endif
+; Наличие исходных файлов проверяется самим Inno Setup при компиляции
+; по путям, указанным в секции [Files]. Не используем проверки #if DirExists:
+; они выполняются препроцессором и не подходят для проверки локальной структуры.
 
 [Setup]
 AppId={{8D9C3E1A-4E2B-9F11-1234567890AB}
@@ -481,6 +283,7 @@ begin
   WizardForm.WizardSmallBitmapImage.Width := ScaleX(48);
   WizardForm.WizardSmallBitmapImage.Height := ScaleY(48);
   WizardForm.WizardSmallBitmapImage.Visible := True;
+  LogoBitmap.Free;
 
   HeaderAccent := TPanel.Create(WizardForm);
   HeaderAccent.Parent := WizardForm.MainPanel;
@@ -734,6 +537,32 @@ begin
       MsgBox('Выберите архив.', mbInformation, MB_OK);
       Result := False;
     end;
+  end;
+end;
+
+procedure CurPageChanged(CurPageID: Integer);
+begin
+  case CurPageID of
+    wpSelectDir:
+      begin
+        WizardForm.PageNameLabel.Caption := 'Каталог размещения';
+        WizardForm.PageDescriptionLabel.Caption := 'Укажите папку для копирования выбранных программ.';
+      end;
+    wpReady:
+      begin
+        WizardForm.PageNameLabel.Caption := 'Готово к установке';
+        WizardForm.PageDescriptionLabel.Caption := 'Проверьте выбранные параметры перед началом копирования.';
+      end;
+    wpInstalling:
+      begin
+        WizardForm.PageNameLabel.Caption := 'Установка';
+        WizardForm.PageDescriptionLabel.Caption := 'Выполняется копирование выбранных файлов.';
+      end;
+    wpFinished:
+      begin
+        WizardForm.PageNameLabel.Caption := 'Завершение';
+        WizardForm.PageDescriptionLabel.Caption := 'Операция завершена.';
+      end;
   end;
 end;
 

@@ -6,19 +6,19 @@
 ; Папка KMS Auto и явно обозначенные repack-файлы не включены в пакет.
 #define MyAppName "Софт"
 #define MyAppPublisher "MyCompany"
-#define SourceRoot "E:\\для всего\\MySoft"
-#define SourceCollection "{#SourceRoot}\\Софт (исходники)"
+#define SourceRoot "E:\для всего\MySoft"
+#define SourceCollection "{#SourceRoot}\Софт (исходники)"
 
 [Setup]
 AppId={{8D9C3E1A-4E2B-9F11-1234567890AB}
 AppName={#MyAppName}
 AppVerName=Софт
 AppPublisher={#MyAppPublisher}
-DefaultDirName={autopf}\\{#MyAppName}
+DefaultDirName={autopf}\{#MyAppName}
 DisableDirPage=no
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-OutputDir={#SourceRoot}\\Софт\\Софт - установка
+OutputDir={#SourceRoot}\Софт\Софт - установка
 OutputBaseFilename=SoftSetup
 Compression=lzma2/max
 SolidCompression=yes
@@ -26,14 +26,14 @@ DiskSpanning=yes
 DiskSliceSize=15000000000
 WizardStyle=modern dark
 WizardSizePercent=100
-SetupIconFile={#SourceRoot}\\app.ico
-UninstallDisplayIcon={app}\\app.ico
+SetupIconFile={#SourceRoot}\app.ico
+UninstallDisplayIcon={app}\app.ico
 PrivilegesRequired=admin
 Uninstallable=yes
 DefaultDialogFontName=Segoe UI
 
 [Languages]
-Name: "russian"; MessagesFile: "compiler:Languages\\Russian.isl"
+Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [LangOptions]
 DialogFontName=Segoe UI
@@ -43,105 +43,105 @@ WelcomeFontSize=14
 
 [Files]
 ; Иконка приложения и деинсталлятора — сохраняем поведение исходного сценария.
-Source: "{#SourceRoot}\\app.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceRoot}\app.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; Все записи ниже проверяются по выбранным пользователем пунктам.
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeAcrobatPro-Portable\*"; DestDir: "{app}\Portable\AdobeAcrobatPro-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0001')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeAfterEffects-Portable\*"; DestDir: "{app}\Portable\AdobeAfterEffects-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0002')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeAudition-Portable\*"; DestDir: "{app}\Portable\AdobeAudition-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0003')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeIllustrator-Portable\*"; DestDir: "{app}\Portable\AdobeIllustrator-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0004')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobePhotoshop-Portable\*"; DestDir: "{app}\Portable\AdobePhotoshop-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0005')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobePremierePro-Portable\*"; DestDir: "{app}\Portable\AdobePremierePro-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0006')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AIDA64-Portable\*"; DestDir: "{app}\Portable\AIDA64-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0007')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AnyDesk-Portable\*"; DestDir: "{app}\Portable\AnyDesk-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0008')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Easy2Boot-Portable\*"; DestDir: "{app}\Portable\Easy2Boot-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0009')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\EncryptOnClick-Portable\*"; DestDir: "{app}\Portable\EncryptOnClick-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0010')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\ImgBurn-Portable\*"; DestDir: "{app}\Portable\ImgBurn-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0011')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\MicrosoftScaner-Portable\*"; DestDir: "{app}\Portable\MicrosoftScaner-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0012')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\NSIS-Portable\*"; DestDir: "{app}\Portable\NSIS-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0013')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\PortableCreator-Portable\*"; DestDir: "{app}\Portable\PortableCreator-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0014')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\PuTTY-Portable\*"; DestDir: "{app}\Portable\PuTTY-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0015')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Rufus-Portable\*"; DestDir: "{app}\Portable\Rufus-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0016')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\SysinternalsSuite-Portable\*"; DestDir: "{app}\Portable\SysinternalsSuite-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0017')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Wifiinfoview-Portable\*"; DestDir: "{app}\Portable\Wifiinfoview-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0018')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinNotepad-Portable\*"; DestDir: "{app}\Portable\WinNotepad-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0019')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinPowerShel-Portable\*"; DestDir: "{app}\Portable\WinPowerShel-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0020')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinRAR-Portable\*"; DestDir: "{app}\Portable\WinRAR-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0021')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinSetupFromUSB-Portable\*"; DestDir: "{app}\Portable\WinSetupFromUSB-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0022')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinTerminal-Portable\*"; DestDir: "{app}\Portable\WinTerminal-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0023')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Wnet-Watcher-Portable\*"; DestDir: "{app}\Portable\Wnet-Watcher-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0024')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\GoogleChrome-Portable\*"; DestDir: "{app}\Portable\GoogleChrome-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0025')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\LibreOffice-Portable\*"; DestDir: "{app}\Portable\LibreOffice-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0026')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\LocalSend-Portable\*"; DestDir: "{app}\Portable\LocalSend-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0027')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinSCP-Portable\*"; DestDir: "{app}\Portable\WinSCP-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0028')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Blender-Portable\*"; DestDir: "{app}\Portable\Blender-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0029')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\OBS-Studio-Portable\*"; DestDir: "{app}\Portable\OBS-Studio-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0030')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\VlcMediaPlayer-Portable\*"; DestDir: "{app}\Portable\VlcMediaPlayer-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0031')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\VSCode-Portable\*"; DestDir: "{app}\Portable\VSCode-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0032')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\uTorrent-Portable\*"; DestDir: "{app}\Portable\uTorrent-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0033')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\*"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0034'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe After Effects\*"; DestDir: "{app}\Setup\Adobe After Effects"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0035'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Animate\*"; DestDir: "{app}\Setup\Adobe Animate"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0036'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Audition\*"; DestDir: "{app}\Setup\Adobe Audition"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0037'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\*"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0038'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Substance 3D Painter\*"; DestDir: "{app}\Setup\Adobe Substance 3D Painter"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0039'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\*"; DestDir: "{app}\Setup\Illustrator"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0040'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\*"; DestDir: "{app}\Setup\InDesign"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0041'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Photoshop\*"; DestDir: "{app}\Setup\Photoshop"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0042'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\*"; DestDir: "{app}\Setup\Premier"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0043'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\AIDA 64\*"; DestDir: "{app}\Setup\AIDA 64"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0044'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\WinRar\*"; DestDir: "{app}\Setup\WinRar"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0045'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Blender 3D\*"; DestDir: "{app}\Setup\Blender 3D"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0046'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Discord\*"; DestDir: "{app}\Setup\Discord"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0047'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Epic Games\*"; DestDir: "{app}\Setup\Epic Games"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0048'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\FL Studio\*"; DestDir: "{app}\Setup\FL Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0049'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\LocalSend\*"; DestDir: "{app}\Setup\LocalSend"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0050'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\*"; DestDir: "{app}\Setup\Microsoft Office"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0051'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\OBS Studio\*"; DestDir: "{app}\Setup\OBS Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0052'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Steam\*"; DestDir: "{app}\Setup\Steam"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0053'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Torrent\*"; DestDir: "{app}\Setup\Torrent"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0054'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS\*"; DestDir: "{app}\Setup\Visual Studio\VS"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0055'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS Code\*"; DestDir: "{app}\Setup\Visual Studio\VS Code"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0056'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Софт-Portable.rar"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0057')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-Portable\Информация об архиве - Софт-Portable.txt"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0058')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Софт-SetUp.rar"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0059')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Информация об архиве - Софт-SetUp.txt"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0060')
-Source: "{#SourceCollection}\Софт\ReadMe (Software Installation Guide).docx"; DestDir: "{app}\Документы"; Flags: ignoreversion; Check: IsChosen('f0061')
-Source: "{#SourceCollection}\Софт\ReadMe (Software Installation Guide).txt"; DestDir: "{app}\Документы"; Flags: ignoreversion; Check: IsChosen('f0062')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.iso"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0063')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.md5"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0064')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.sfv"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0065')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.sha"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0066')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe After Effects\Adobe After Effects 2024 24.6.2.002.iso"; DestDir: "{app}\Setup\Adobe After Effects"; Flags: ignoreversion; Check: IsChosen('f0067')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Animate\Adobe Animate 2022 v22.0.4.185 x64 Multilingual.iso"; DestDir: "{app}\Setup\Adobe Animate"; Flags: ignoreversion; Check: IsChosen('f0068')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\AUTORUN.exe"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: ignoreversion; Check: IsChosen('f0069')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\AUTORUN.inf"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: ignoreversion; Check: IsChosen('f0070')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\AIDA 64\aida64extreme520_3400.exe"; DestDir: "{app}\Setup\AIDA 64"; Flags: ignoreversion; Check: IsChosen('f0071')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Blender 3D\blender-5.2.3-windows-x64.msi"; DestDir: "{app}\Setup\Blender 3D"; Flags: ignoreversion; Check: IsChosen('f0072')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Discord\DiscordSetup.exe"; DestDir: "{app}\Setup\Discord"; Flags: ignoreversion; Check: IsChosen('f0073')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Epic Games\EpicInstaller-20.3.3.msi"; DestDir: "{app}\Setup\Epic Games"; Flags: ignoreversion; Check: IsChosen('f0074')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\FL Studio\flstudio_win64_26.1.7.5654.exe"; DestDir: "{app}\Setup\FL Studio"; Flags: ignoreversion; Check: IsChosen('f0075')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.iso"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0076')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.md5"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0077')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.sfv"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0078')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.sha"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0079')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0080')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso.md5"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0081')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso.sfv"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0082')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso.sha"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0083')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\LocalSend\LocalSend-1.18.2-windows-x86-64.exe"; DestDir: "{app}\Setup\LocalSend"; Flags: ignoreversion; Check: IsChosen('f0084')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\OfficeSetup.exe"; DestDir: "{app}\Setup\Microsoft Office"; Flags: ignoreversion; Check: IsChosen('f0085')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\Не устанавливается.txt"; DestDir: "{app}\Setup\Microsoft Office"; Flags: ignoreversion; Check: IsChosen('f0086')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\OBS Studio\OBS-Studio-33.0.1-Windows-x64-Installer.exe"; DestDir: "{app}\Setup\OBS Studio"; Flags: ignoreversion; Check: IsChosen('f0087')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\autoplay.exe"; DestDir: "{app}\Setup\Premier"; Flags: ignoreversion; Check: IsChosen('f0088')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\autorun.inf"; DestDir: "{app}\Setup\Premier"; Flags: ignoreversion; Check: IsChosen('f0089')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Steam\SteamSetup.exe"; DestDir: "{app}\Setup\Steam"; Flags: ignoreversion; Check: IsChosen('f0090')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Torrent\utorrent_installer.exe"; DestDir: "{app}\Setup\Torrent"; Flags: ignoreversion; Check: IsChosen('f0091')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\WinRar\winrar-x64-723ru.exe"; DestDir: "{app}\Setup\WinRar"; Flags: ignoreversion; Check: IsChosen('f0092')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\ChromeSetup.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0093')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\Firefox Installer.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0094')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0095')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\OperaSetup.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0096')
-Source: "{#SourceCollection}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\Yandex.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0097')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeAcrobatPro-Portable\*"; DestDir: "{app}\Portable\AdobeAcrobatPro-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0001')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeAfterEffects-Portable\*"; DestDir: "{app}\Portable\AdobeAfterEffects-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0002')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeAudition-Portable\*"; DestDir: "{app}\Portable\AdobeAudition-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0003')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobeIllustrator-Portable\*"; DestDir: "{app}\Portable\AdobeIllustrator-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0004')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobePhotoshop-Portable\*"; DestDir: "{app}\Portable\AdobePhotoshop-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0005')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AdobePremierePro-Portable\*"; DestDir: "{app}\Portable\AdobePremierePro-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0006')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AIDA64-Portable\*"; DestDir: "{app}\Portable\AIDA64-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0007')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\AnyDesk-Portable\*"; DestDir: "{app}\Portable\AnyDesk-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0008')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Easy2Boot-Portable\*"; DestDir: "{app}\Portable\Easy2Boot-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0009')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\EncryptOnClick-Portable\*"; DestDir: "{app}\Portable\EncryptOnClick-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0010')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\ImgBurn-Portable\*"; DestDir: "{app}\Portable\ImgBurn-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0011')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\MicrosoftScaner-Portable\*"; DestDir: "{app}\Portable\MicrosoftScaner-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0012')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\NSIS-Portable\*"; DestDir: "{app}\Portable\NSIS-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0013')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\PortableCreator-Portable\*"; DestDir: "{app}\Portable\PortableCreator-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0014')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\PuTTY-Portable\*"; DestDir: "{app}\Portable\PuTTY-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0015')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Rufus-Portable\*"; DestDir: "{app}\Portable\Rufus-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0016')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\SysinternalsSuite-Portable\*"; DestDir: "{app}\Portable\SysinternalsSuite-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0017')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Wifiinfoview-Portable\*"; DestDir: "{app}\Portable\Wifiinfoview-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0018')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinNotepad-Portable\*"; DestDir: "{app}\Portable\WinNotepad-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0019')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinPowerShel-Portable\*"; DestDir: "{app}\Portable\WinPowerShel-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0020')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinRAR-Portable\*"; DestDir: "{app}\Portable\WinRAR-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0021')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinSetupFromUSB-Portable\*"; DestDir: "{app}\Portable\WinSetupFromUSB-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0022')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinTerminal-Portable\*"; DestDir: "{app}\Portable\WinTerminal-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0023')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Wnet-Watcher-Portable\*"; DestDir: "{app}\Portable\Wnet-Watcher-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0024')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\GoogleChrome-Portable\*"; DestDir: "{app}\Portable\GoogleChrome-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0025')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\LibreOffice-Portable\*"; DestDir: "{app}\Portable\LibreOffice-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0026')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\LocalSend-Portable\*"; DestDir: "{app}\Portable\LocalSend-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0027')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\WinSCP-Portable\*"; DestDir: "{app}\Portable\WinSCP-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0028')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\Blender-Portable\*"; DestDir: "{app}\Portable\Blender-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0029')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\OBS-Studio-Portable\*"; DestDir: "{app}\Portable\OBS-Studio-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0030')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\VlcMediaPlayer-Portable\*"; DestDir: "{app}\Portable\VlcMediaPlayer-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0031')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\VSCode-Portable\*"; DestDir: "{app}\Portable\VSCode-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0032')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\uTorrent-Portable\*"; DestDir: "{app}\Portable\uTorrent-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0033')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\*"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0034'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe After Effects\*"; DestDir: "{app}\Setup\Adobe After Effects"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0035'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Animate\*"; DestDir: "{app}\Setup\Adobe Animate"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0036'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Audition\*"; DestDir: "{app}\Setup\Adobe Audition"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0037'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\*"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0038'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Substance 3D Painter\*"; DestDir: "{app}\Setup\Adobe Substance 3D Painter"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0039'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\*"; DestDir: "{app}\Setup\Illustrator"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0040'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\*"; DestDir: "{app}\Setup\InDesign"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0041'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Photoshop\*"; DestDir: "{app}\Setup\Photoshop"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0042'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\*"; DestDir: "{app}\Setup\Premier"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0043'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\AIDA 64\*"; DestDir: "{app}\Setup\AIDA 64"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0044'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\WinRar\*"; DestDir: "{app}\Setup\WinRar"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0045'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Blender 3D\*"; DestDir: "{app}\Setup\Blender 3D"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0046'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Discord\*"; DestDir: "{app}\Setup\Discord"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0047'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Epic Games\*"; DestDir: "{app}\Setup\Epic Games"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0048'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\FL Studio\*"; DestDir: "{app}\Setup\FL Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0049'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\LocalSend\*"; DestDir: "{app}\Setup\LocalSend"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0050'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\*"; DestDir: "{app}\Setup\Microsoft Office"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0051'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\OBS Studio\*"; DestDir: "{app}\Setup\OBS Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0052'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Steam\*"; DestDir: "{app}\Setup\Steam"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0053'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Torrent\*"; DestDir: "{app}\Setup\Torrent"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0054'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS\*"; DestDir: "{app}\Setup\Visual Studio\VS"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0055'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS Code\*"; DestDir: "{app}\Setup\Visual Studio\VS Code"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0056'); Excludes: "m0nkrus.nfo;Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Софт-Portable.rar"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0057')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Информация об архиве - Софт-Portable.txt"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0058')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Софт-SetUp.rar"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0059')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Информация об архиве - Софт-SetUp.txt"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0060')
+Source: "{#SourceRoot}\Софт\ReadMe (Software Installation Guide).docx"; DestDir: "{app}\Документы"; Flags: ignoreversion; Check: IsChosen('f0061')
+Source: "{#SourceRoot}\Софт\ReadMe (Software Installation Guide).txt"; DestDir: "{app}\Документы"; Flags: ignoreversion; Check: IsChosen('f0062')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.iso"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0063')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.md5"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0064')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.sfv"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0065')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\Adobe.Acrobat.Pro.2025.u25.x64.Multilingual.sha"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: ignoreversion; Check: IsChosen('f0066')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe After Effects\Adobe After Effects 2024 24.6.2.002.iso"; DestDir: "{app}\Setup\Adobe After Effects"; Flags: ignoreversion; Check: IsChosen('f0067')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Animate\Adobe Animate 2022 v22.0.4.185 x64 Multilingual.iso"; DestDir: "{app}\Setup\Adobe Animate"; Flags: ignoreversion; Check: IsChosen('f0068')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\AUTORUN.exe"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: ignoreversion; Check: IsChosen('f0069')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\AUTORUN.inf"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: ignoreversion; Check: IsChosen('f0070')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\AIDA 64\aida64extreme520_3400.exe"; DestDir: "{app}\Setup\AIDA 64"; Flags: ignoreversion; Check: IsChosen('f0071')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Blender 3D\blender-5.2.3-windows-x64.msi"; DestDir: "{app}\Setup\Blender 3D"; Flags: ignoreversion; Check: IsChosen('f0072')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Discord\DiscordSetup.exe"; DestDir: "{app}\Setup\Discord"; Flags: ignoreversion; Check: IsChosen('f0073')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Epic Games\EpicInstaller-20.3.3.msi"; DestDir: "{app}\Setup\Epic Games"; Flags: ignoreversion; Check: IsChosen('f0074')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\FL Studio\flstudio_win64_26.1.7.5654.exe"; DestDir: "{app}\Setup\FL Studio"; Flags: ignoreversion; Check: IsChosen('f0075')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.iso"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0076')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.md5"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0077')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.sfv"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0078')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\Adobe.Illustrator.2024.Multilingual.sha"; DestDir: "{app}\Setup\Illustrator"; Flags: ignoreversion; Check: IsChosen('f0079')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0080')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso.md5"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0081')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso.sfv"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0082')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\Adobe.InDesign.2025.u6.Multilingual.iso.sha"; DestDir: "{app}\Setup\InDesign"; Flags: ignoreversion; Check: IsChosen('f0083')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\LocalSend\LocalSend-1.18.2-windows-x86-64.exe"; DestDir: "{app}\Setup\LocalSend"; Flags: ignoreversion; Check: IsChosen('f0084')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\OfficeSetup.exe"; DestDir: "{app}\Setup\Microsoft Office"; Flags: ignoreversion; Check: IsChosen('f0085')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\Не устанавливается.txt"; DestDir: "{app}\Setup\Microsoft Office"; Flags: ignoreversion; Check: IsChosen('f0086')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\OBS Studio\OBS-Studio-33.0.1-Windows-x64-Installer.exe"; DestDir: "{app}\Setup\OBS Studio"; Flags: ignoreversion; Check: IsChosen('f0087')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\autoplay.exe"; DestDir: "{app}\Setup\Premier"; Flags: ignoreversion; Check: IsChosen('f0088')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\autorun.inf"; DestDir: "{app}\Setup\Premier"; Flags: ignoreversion; Check: IsChosen('f0089')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Steam\SteamSetup.exe"; DestDir: "{app}\Setup\Steam"; Flags: ignoreversion; Check: IsChosen('f0090')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Torrent\utorrent_installer.exe"; DestDir: "{app}\Setup\Torrent"; Flags: ignoreversion; Check: IsChosen('f0091')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\WinRar\winrar-x64-723ru.exe"; DestDir: "{app}\Setup\WinRar"; Flags: ignoreversion; Check: IsChosen('f0092')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\ChromeSetup.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0093')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\Firefox Installer.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0094')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0095')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\OperaSetup.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0096')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Браузеры\Yandex.exe"; DestDir: "{app}\Setup\Браузеры"; Flags: ignoreversion; Check: IsChosen('f0097')
 
 [Messages]
 SetupWindowTitle=Установка - Софт

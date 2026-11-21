@@ -437,8 +437,8 @@ begin
 
   { Собственный логотип: контур папки и шестерёнка, рисуется в памяти }
   LogoBitmap := TBitmap.Create;
-  LogoBitmap.Width := ScaleX(64);
-  LogoBitmap.Height := ScaleY(64);
+  LogoBitmap.Width := 64;
+  LogoBitmap.Height := 64;
   LogoBitmap.Canvas.Brush.Color := $001B2734;
   LogoBitmap.Canvas.Brush.Style := bsSolid;
   LogoBitmap.Canvas.FillRect(Rect(0, 0, LogoBitmap.Width, LogoBitmap.Height));

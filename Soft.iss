@@ -263,10 +263,20 @@ DefaultDialogFontName=Segoe UI
 CloseApplications=no
 
 [Messages]
-WizardSelectDir=Выбор пути назначения
+WizardSelectDir=Каталог размещения
 SetupWindowTitle=Установка - Софт
-SelectDirDesc=Укажите папку для размещения выбранных программ
-SelectDirLabel3=Путь назначения:
+SelectDirDesc=Укажите каталог для размещения выбранных компонентов:
+SelectDirLabel3=Каталог размещения:
+WizardReady=Готово к установке
+ReadyLabel1=Конфигурация задана. Выбранные компоненты готовы к размещению.
+ReadyLabel2a=Нажмите «Установить», чтобы начать размещение выбранных компонентов, или «Назад» для изменения параметров.
+ReadyLabel2b=Нажмите «Установить», чтобы начать размещение выбранных компонентов.
+WizardInstalling=Установка
+InstallingLabel=Установка
+FinishedHeadingLabel=Завершение установки
+FinishedLabelNoIcons=Размещение выбранных компонентов завершено.
+FinishedLabel=Размещение выбранных компонентов завершено.
+ClickFinish=Нажмите «Завершить», чтобы закрыть мастер.
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
@@ -347,6 +357,7 @@ var
   CatalogMap: TStringList;
   CatalogModeButton: TNewRadioButton;
   ArchiveModeButton: TNewRadioButton;
+  ProgressPercentLabel: TNewStaticText;
 
 function AddCatalogCheck(const ItemID, CaptionText: String; const LevelValue: Byte; const HasChildren, CheckWhenParent: Boolean): Integer;
 begin
@@ -426,6 +437,17 @@ begin
   WizardForm.Font.Name := 'Segoe UI';
   WizardForm.Font.Color := clWhite;
 
+  ProgressPercentLabel := TNewStaticText.Create(WizardForm);
+  ProgressPercentLabel.Parent := WizardForm.ProgressGauge.Parent;
+  ProgressPercentLabel.Left := WizardForm.ProgressGauge.Left;
+  ProgressPercentLabel.Top := WizardForm.ProgressGauge.Top + WizardForm.ProgressGauge.Height + ScaleY(6);
+  ProgressPercentLabel.Width := ScaleX(100);
+  ProgressPercentLabel.Height := ScaleY(20);
+  ProgressPercentLabel.Caption := '0%';
+  ProgressPercentLabel.Font.Name := 'Segoe UI';
+  ProgressPercentLabel.Font.Size := 9;
+  ProgressPercentLabel.Font.Color := clWhite;
+
   ModePage := CreateCustomPage(wpSelectDir, 'Способ выбора', '');
   CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', '');
   ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', '');
@@ -438,7 +460,7 @@ begin
   CatalogModeButton.Top := ScaleY(24);
   CatalogModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   CatalogModeButton.Height := ScaleY(32);
-  CatalogModeButton.Caption := 'Выбрать программу из каталога программ';
+  CatalogModeButton.Caption := 'Каталог программ';
   CatalogModeButton.Checked := True;
   CatalogModeButton.Font.Name := 'Segoe UI';
   CatalogModeButton.Font.Size := 10;
@@ -450,7 +472,7 @@ begin
   ArchiveModeButton.Top := ScaleY(80);
   ArchiveModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   ArchiveModeButton.Height := ScaleY(32);
-  ArchiveModeButton.Caption := 'Выбрать готовый архив с программами';
+  ArchiveModeButton.Caption := 'Готовые архивы';
   ArchiveModeButton.Font.Name := 'Segoe UI';
   ArchiveModeButton.Font.Size := 10;
   ArchiveModeButton.Font.Color := clWhite;
@@ -587,6 +609,23 @@ begin
       Result := False;
     end;
   end;
+end;
+
+procedure CurInstallProgressChanged(CurProgress, MaxProgress: Integer);
+var
+  PercentValue: Integer;
+begin
+  if MaxProgress > 0 then
+  begin
+    PercentValue := Round(CurProgress * 100.0 / MaxProgress);
+    if PercentValue < 0 then
+      PercentValue := 0;
+    if PercentValue > 100 then
+      PercentValue := 100;
+    ProgressPercentLabel.Caption := IntToStr(PercentValue) + '%';
+  end
+  else
+    ProgressPercentLabel.Caption := '0%';
 end;
 
 function InitializeSetup(): Boolean;

@@ -37,7 +37,7 @@
 #error "Не найдена корневая папка MySoftRoot. Проверьте путь в начале Soft.iss."
 #endif
 #if !DirExists(OutputRoot)
-#error "Не найдена папка вывода Софт\\Софт - установка. Создайте её в корне MySoft."
+#error "Не найдена папка вывода MySoft\Софт установка. Создайте её в корне MySoft."
 #endif
 #if !FileExists(MySoftRoot + "\app.ico")
 #error "Не найден app.ico в корневой папке MySoftRoot."

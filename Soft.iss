@@ -31,7 +31,7 @@
 #define SetupArchiveRoot SourceRoot + "\Софт-SetUp"
 
 [Setup]
-AppId={{A6D4E0A1-2B77-4B1B-9E34-5F6A1C0B2026}
+AppId={{8D9C3E1A-4E2B-9F11-1234567890AB}
 AppName={#MyAppName}
 AppVersion=Soft
 AppVerName=Soft
@@ -51,7 +51,7 @@ OutputBaseFilename=Установщик Soft
 Compression=lzma2/normal
 SolidCompression=yes
 DiskSpanning=yes
-DiskSliceSize=1900000000
+DiskSliceSize=9000000000
 WizardStyle=modern dark
 WizardSizePercent=100
 SetupIconFile={#MySoftRoot}\app.ico
@@ -315,6 +315,7 @@ begin
   CatalogList.Height := CatalogPage.SurfaceHeight - ScaleY(88);
   CatalogList.Anchors := [akLeft, akTop, akRight, akBottom];
   CatalogList.Flat := True;
+  CatalogList.ShowLines := True;
   CatalogList.BorderStyle := bsNone;
   CatalogList.Color := $002B3038;
   CatalogList.MinItemHeight := ScaleY(24);

@@ -22,14 +22,14 @@
 
 #define MyAppName "Софт"
 #ifndef MySoftRoot
-#define MySoftRoot "E:\ДЛЯ ВСЕГО\MYSOFT"
+#define MySoftRoot "E:\для всего\MySoft"
 #endif
 #define SourceRoot MySoftRoot + "\Софт (исходники)"
 #define PortableRoot SourceRoot + "\Софт-Portable\Программы без архива-Portable"
 #define SetupRoot SourceRoot + "\Софт-SetUp\Программы без архива-SetUp"
 #define PortableArchiveRoot SourceRoot + "\Софт-Portable"
 #define SetupArchiveRoot SourceRoot + "\Софт-SetUp"
-#define OutputRoot MySoftRoot + "\Софт установка"
+#define OutputRoot MySoftRoot + "\Софт\Софт - установка"
 ; Проверка реальных исходников выполняется при каждой локальной компиляции.
 ; Если чего-то не хватает или имя папки отличается, компилятор остановится
 ; и укажет конкретный путь вместо создания неполного установщика.
@@ -263,7 +263,10 @@ DefaultDialogFontName=Segoe UI
 CloseApplications=no
 
 [Messages]
-SelectDirDesc=Программа будет установлена по указанному пути:
+WizardSelectDir=Выбор пути назначения
+SetupWindowTitle=Установка - Софт
+SelectDirDesc=Укажите папку для размещения выбранных программ
+SelectDirLabel3=Путь назначения:
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"

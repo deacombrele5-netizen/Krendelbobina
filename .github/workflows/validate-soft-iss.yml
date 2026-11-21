@@ -1,0 +1,68 @@
+name: Validate Inno Setup script
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Soft.iss"
+      - ".github/workflows/validate-soft-iss.yml"
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Inno Setup 6
+        shell: pwsh
+        run: choco install innosetup --yes --no-progress
+
+      - name: Prepare isolated placeholder source tree
+        shell: pwsh
+        run: |
+          $script = Get-Content -Raw "Soft.iss"
+          $root = Join-Path $env:RUNNER_TEMP "MySoft"
+          $sourceRoot = Join-Path $root "Софт (исходники)"
+          $macros = @{
+            "MySoftRoot" = $root
+            "SourceRoot" = $sourceRoot
+            "PortableRoot" = Join-Path $sourceRoot "Софт-Portable\Программы без архива-Portable"
+            "SetupRoot" = Join-Path $sourceRoot "Софт-SetUp\Программы без архива-SetUp"
+            "PortableArchiveRoot" = Join-Path $sourceRoot "Софт-Portable"
+            "SetupArchiveRoot" = Join-Path $sourceRoot "Софт-SetUp"
+          }
+          $files = [regex]::Matches($script, '(?m)^Source: "([^"]+)"')
+          foreach ($match in $files) {
+            $path = $match.Groups[1].Value
+            foreach ($key in @("PortableRoot", "SetupRoot", "PortableArchiveRoot", "SetupArchiveRoot", "SourceRoot", "MySoftRoot")) {
+              $path = $path.Replace("{#" + $key + "}", $macros[$key])
+            }
+            $path = $path.Replace("\\", [IO.Path]::DirectorySeparatorChar)
+            if ($path.EndsWith("\*")) {
+              $dir = $path.Substring(0, $path.Length - 2)
+              New-Item -ItemType Directory -Force -Path $dir | Out-Null
+              Set-Content -Path (Join-Path $dir "compile-placeholder.txt") -Value "compile validation placeholder"
+            } else {
+              $dir = Split-Path -Parent $path
+              New-Item -ItemType Directory -Force -Path $dir | Out-Null
+              Set-Content -Path $path -Value "compile validation placeholder"
+            }
+          }
+          New-Item -ItemType Directory -Force -Path $root | Out-Null
+          # Minimal valid ICO header with one 1x1 32-bit image.
+          [byte[]]$ico = @(0,0,1,0,1,0,1,1,0,0,1,0,32,0,48,0,0,0,22,0,0,0,
+            40,0,0,0,1,0,0,0,2,0,0,0,1,0,32,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+            0,0,0,0,0,0,0,0,0,0,0,0)
+          [IO.File]::WriteAllBytes((Join-Path $root "app.ico"), $ico)
+          New-Item -ItemType Directory -Force -Path (Join-Path $root "Output") | Out-Null
+          "Prepared placeholder source tree under $root"
+
+      - name: Compile Soft.iss
+        shell: pwsh
+        run: |
+          $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (!(Test-Path $compiler)) { throw "ISCC.exe was not found at $compiler" }
+          & $compiler "/DMySoftRoot=$env:RUNNER_TEMP\MySoft" "Soft.iss"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

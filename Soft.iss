@@ -262,22 +262,6 @@ SetupIconFile={#MySoftRoot}\app.ico
 DefaultDialogFontName=Segoe UI
 CloseApplications=no
 
-[Messages]
-WizardSelectDir=Каталог размещения
-SetupWindowTitle=Установка - Софт
-SelectDirDesc=Укажите каталог для размещения выбранных компонентов:
-SelectDirLabel3=Каталог размещения:
-WizardReady=Готово к установке
-ReadyLabel1=Конфигурация задана. Выбранные компоненты готовы к размещению.
-ReadyLabel2a=Нажмите «Установить», чтобы начать размещение выбранных компонентов, или «Назад» для изменения параметров.
-ReadyLabel2b=Нажмите «Установить», чтобы начать размещение выбранных компонентов.
-WizardInstalling=Установка
-InstallingLabel=Установка
-FinishedHeadingLabel=Завершение
-FinishedLabelNoIcons=Установка выбранных программ завершена.
-FinishedLabel=Установка выбранных программ завершена.
-ClickFinish=Нажмите «Завершить», чтобы закрыть мастер.
-
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
@@ -460,7 +444,7 @@ begin
   CatalogModeButton.Top := ScaleY(24);
   CatalogModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   CatalogModeButton.Height := ScaleY(32);
-  CatalogModeButton.Caption := 'Каталог программ';
+  CatalogModeButton.Caption := 'Выбрать программу из каталога программ';
   CatalogModeButton.Checked := True;
   CatalogModeButton.Font.Name := 'Segoe UI';
   CatalogModeButton.Font.Size := 10;
@@ -472,7 +456,7 @@ begin
   ArchiveModeButton.Top := ScaleY(80);
   ArchiveModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   ArchiveModeButton.Height := ScaleY(32);
-  ArchiveModeButton.Caption := 'Готовые архивы';
+  ArchiveModeButton.Caption := 'Выбрать готовый архив с программами';
   ArchiveModeButton.Font.Name := 'Segoe UI';
   ArchiveModeButton.Font.Size := 10;
   ArchiveModeButton.Font.Color := clWhite;

@@ -88,7 +88,6 @@ Source: "{#PortableRoot}\Easy2Boot-Portable\*"; DestDir: "{code:GetTargetFolder|
 Source: "{#PortableRoot}\EncryptOnClick-Portable\*"; DestDir: "{code:GetTargetFolder|EncryptOnClick-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_encryptonclick')
 Source: "{#PortableRoot}\GoogleChrome-Portable\*"; DestDir: "{code:GetTargetFolder|GoogleChrome-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_chrome')
 Source: "{#PortableRoot}\ImgBurn-Portable\*"; DestDir: "{code:GetTargetFolder|ImgBurn-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_imgburn')
-Source: "{#PortableRoot}\LibreOffice-Portable\*"; DestDir: "{code:GetTargetFolder|LibreOffice-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_libreoffice')
 Source: "{#PortableRoot}\LocalSend-Portable\*"; DestDir: "{code:GetTargetFolder|LocalSend-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_localsend')
 Source: "{#PortableRoot}\MicrosoftScaner-Portable\*"; DestDir: "{code:GetTargetFolder|MicrosoftScaner-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_scanner')
 Source: "{#PortableRoot}\NSIS-Portable\*"; DestDir: "{code:GetTargetFolder|NSIS-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_nsis')
@@ -356,7 +355,6 @@ begin
   AddCatalogCheck('p_encryptonclick', 'EncryptOnClick', 1, False, True);
   AddCatalogCheck('p_chrome', 'Google Chrome', 1, False, True);
   AddCatalogCheck('p_imgburn', 'ImgBurn', 1, False, True);
-  AddCatalogCheck('p_libreoffice', 'LibreOffice', 1, False, True);
   AddCatalogCheck('p_localsend', 'LocalSend', 1, False, True);
   AddCatalogCheck('p_scanner', 'Microsoft Scanner', 1, False, True);
   AddCatalogCheck('p_nsis', 'NSIS', 1, False, True);

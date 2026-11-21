@@ -188,13 +188,15 @@ var
   Entry: String;
 begin
   Result := -1;
-  I := CatalogMap.IndexOfName(ItemID);
-  if I >= 0 then
+  for I := 0 to CatalogMap.Count - 1 do
   begin
     Entry := CatalogMap.Strings[I];
     P := Pos('=', Entry);
-    if P > 0 then
+    if (P > 0) and (Copy(Entry, 1, P - 1) = ItemID) then
+    begin
       Result := StrToIntDef(Copy(Entry, P + 1, Length(Entry) - P), -1);
+      Exit;
+    end;
   end;
 end;
 
@@ -226,7 +228,7 @@ begin
   Result := False;
   for I := 0 to CatalogMap.Count - 1 do
   begin
-    ItemIndex := GetCatalogIndex(Copy(CatalogMap.Strings[I], 1, Pos('=', CatalogMap.Strings[I]) - 1));
+    ItemIndex := StrToIntDef(Copy(CatalogMap.Strings[I], Pos('=', CatalogMap.Strings[I]) + 1, Length(CatalogMap.Strings[I])), -1);
     if (ItemIndex >= 0) and CatalogList.Checked[ItemIndex] then
     begin
       Result := True;

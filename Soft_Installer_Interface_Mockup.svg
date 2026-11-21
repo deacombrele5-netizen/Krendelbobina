@@ -130,7 +130,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка завершена</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Выбранные программы и архивы размещены в указанной папке.</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Чтобы завершить установку, нажмите кнопку: «Завершить».</text>
 
  <path d="M0 278H800" stroke="#344456"/>
  <rect x="410" y="296" width="102" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="461" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Завершить</text>

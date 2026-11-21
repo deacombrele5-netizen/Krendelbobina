@@ -1,5 +1,5 @@
 ; =============================================================================
-; SOFT — установщик программной коллекции
+; SOFT - установщик программной коллекции
 ;
 ; Назначение: выборочное копирование программ и готовых архивов из MySoft.
 ;
@@ -20,7 +20,7 @@
 ; собственные страницы, тексты, элементы выбора и тёмное оформление.
 ; =============================================================================
 
-#define MyAppName "Soft"
+#define MyAppName "Софт"
 #ifndef MySoftRoot
 #define MySoftRoot "E:\ДЛЯ ВСЕГО\MYSOFT"
 #endif
@@ -238,9 +238,9 @@
 [Setup]
 AppId={{8D9C3E1A-4E2B-9F11-1234567890AB}
 AppName={#MyAppName}
-AppVersion=Soft
-AppVerName=Soft
-AppPublisher=Soft
+AppVersion=Софт
+AppVerName=Софт
+AppPublisher=Софт
 DefaultDirName=C:\
 AllowRootDirectory=yes
 AllowUNCPath=yes
@@ -252,11 +252,11 @@ DisableReadyMemo=yes
 Uninstallable=no
 PrivilegesRequired=admin
 OutputDir={#OutputRoot}
-OutputBaseFilename=Установщик Soft
+OutputBaseFilename=Soft Setup
 Compression=lzma2/normal
 SolidCompression=yes
 DiskSpanning=yes
-DiskSliceSize=max
+DiskSliceSize=9000000000
 SlicesPerDisk=1
 WizardStyle=modern dark
 WizardSizePercent=100
@@ -268,8 +268,8 @@ CloseApplications=no
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Messages]
-SetupWindowTitle=Soft — установка программ
-WelcomeLabel1=Добро пожаловать в Soft!
+SetupWindowTitle=Софт - установка программ
+WelcomeLabel1=Добро пожаловать в Софт!
 WelcomeLabel2=Выберите место сохранения, затем укажите программы или готовый архив. Будут скопированы только выбранные элементы, а структура каталогов исходных программ сохранится.
 SelectDirLabel3=Укажите папку назначения.
 ReadyLabel1=Всё готово к копированию
@@ -456,14 +456,14 @@ var
   SelectedFolder: String;
 begin
   SelectedFolder := DestinationEdit.Text;
-  if BrowseForFolder('Выберите папку назначения для Soft', SelectedFolder, True) then
+  if BrowseForFolder('Выберите папку назначения для Софт', SelectedFolder, True) then
     DestinationEdit.Text := SelectedFolder;
 end;
 
 procedure InitializeWizard();
 begin
   CatalogMap := TStringList.Create;
-  WizardForm.Caption := 'Soft — установка программ';
+  WizardForm.Caption := 'Софт - установка программ';
   WizardForm.Color := $0021262E;
   WizardForm.Font.Name := 'Segoe UI';
   WizardForm.Font.Color := clWhite;
@@ -481,7 +481,7 @@ begin
   ArchivePage.Surface.Color := $0021262E;
 
   AddPageText(DestinationPage, 'Куда сохранить выбранное?', 10, 34, 16, True);
-  AddPageText(DestinationPage, 'Можно указать корень диска (например, C:\) или любую папку на компьютере. Если указанной папки ещё нет, Soft попробует создать её.', 52, 58, 9, False);
+  AddPageText(DestinationPage, 'Можно указать корень диска (например, C:\) или любую папку на компьютере. Если указанной папки ещё нет, Софт попробует создать её.', 52, 58, 9, False);
   DestinationEdit := TNewEdit.Create(DestinationPage);
   DestinationEdit.Parent := DestinationPage.Surface;
   DestinationEdit.Left := ScaleX(8);
@@ -627,8 +627,8 @@ begin
   ArchiveList.Font.Name := 'Segoe UI';
   ArchiveList.Font.Size := 10;
   ArchiveList.Font.Color := clWhite;
-  ArchiveList.AddCheckBox('Софт-Portable.rar — готовый архив портативных программ', 'Вместе с файлом архива будет скопирована информация о нём.', 0, False, True, False, False, nil);
-  ArchiveList.AddCheckBox('Софт-SetUp.rar — готовый архив программ с установщиками', 'Вместе с файлом архива будет скопирована информация о нём.', 0, False, True, False, False, nil);
+  ArchiveList.AddCheckBox('Софт-Portable.rar - готовый архив портативных программ', 'Вместе с файлом архива будет скопирована информация о нём.', 0, False, True, False, False, nil);
+  ArchiveList.AddCheckBox('Софт-SetUp.rar - готовый архив программ с установщиками', 'Вместе с файлом архива будет скопирована информация о нём.', 0, False, True, False, False, nil);
 
 end;
 
@@ -656,7 +656,7 @@ begin
       PathValue := PathValue + '\';
     if (PathValue = '') then
     begin
-      MsgBox('Укажите папку назначения, например C:\ или C:\Soft.', mbError, MB_OK);
+      MsgBox('Укажите папку назначения, например C:\ или C:\Софт.', mbError, MB_OK);
       Result := False;
     end
     else

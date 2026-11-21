@@ -21,7 +21,6 @@
  <text x="48" y="174" font-size="15" fill="#f0f4f8">C:\</text>
  <rect x="652" y="147" width="118" height="42" rx="6" fill="#2a3a4b" stroke="#52677e"/>
  <text x="711" y="174" text-anchor="middle" font-size="13" fill="#eef4fa">Обзор...</text>
- <text x="30" y="224" font-size="12" fill="#8498ac">Нажмите «Далее», чтобы продолжить. Если вы хотите выбрать другую папку, нажмите «Обзор».</text>
 
  <path d="M0 278H800" stroke="#344456"/>
  <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>

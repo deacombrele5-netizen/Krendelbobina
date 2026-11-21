@@ -1,9 +1,15 @@
-; Полный сценарий установки коллекции «Софт».
-; Сценарий основан на реальном дереве MySoft_Structure_UTF8.txt.
-; Исходные каталоги и файлы не переименовываются и не удаляются.
-; Выбор выполняется на отдельной странице: каталог программ или архивы/отдельные файлы.
-; Программы выбираются целыми папками, а отдельные файлы Setup — по одному.
-; Папка KMS Auto и явно обозначенные repack-файлы не включены в пакет.
+; Полный сценарий установки коллекции «Софт» для Inno Setup 6.x.
+; ИНСТРУКЦИЯ:
+; 1. Разместите исходную коллекцию в E:\для всего\MySoft (или измените SourceRoot ниже).
+; 2. В корне MySoft должны находиться app.ico, папка «Софт», папка «Софт (исходники)» и этот ISS.
+; 3. Откройте Soft.iss в Inno Setup Compiler и нажмите Compile.
+; 4. На первом шаге выберите режим: программы из каталога Portable/Setup либо архивы и отдельные файлы.
+; 5. На следующем шаге отметьте нужные папки или файлы; для выбранных папок копируется всё содержимое рекурсивно.
+; Сценарий сохраняет исходные имена, вложенные каталоги и структуру выбранных программ.
+; Файлы не переименовываются, не подменяются и не исключаются фильтрами Excludes.
+; Включены все найденные каталоги Portable и Setup, в том числе «Windows and Microsoft Office (KMS Auto)».
+; Отдельные ISO/EXE/MSI/MD5/SFV/SHA, архивы и ReadMe выбираются на вкладке отдельных файлов.
+; ВНИМАНИЕ: исходный путь должен существовать на компьютере, где выполняется компиляция.
 #define MyAppName "Софт"
 #define MyAppPublisher "MyCompany"
 #define SourceRoot "E:\для всего\MySoft"
@@ -77,29 +83,30 @@ Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Прог�
 Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\VlcMediaPlayer-Portable\*"; DestDir: "{app}\Portable\VlcMediaPlayer-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0031')
 Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\VSCode-Portable\*"; DestDir: "{app}\Portable\VSCode-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0032')
 Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Программы без архива-Portable\uTorrent-Portable\*"; DestDir: "{app}\Portable\uTorrent-Portable"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('p0033')
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\*"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0034'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe After Effects\*"; DestDir: "{app}\Setup\Adobe After Effects"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0035'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Animate\*"; DestDir: "{app}\Setup\Adobe Animate"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0036'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Audition\*"; DestDir: "{app}\Setup\Adobe Audition"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0037'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\*"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0038'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Substance 3D Painter\*"; DestDir: "{app}\Setup\Adobe Substance 3D Painter"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0039'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\*"; DestDir: "{app}\Setup\Illustrator"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0040'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\*"; DestDir: "{app}\Setup\InDesign"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0041'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Photoshop\*"; DestDir: "{app}\Setup\Photoshop"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0042'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\*"; DestDir: "{app}\Setup\Premier"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0043'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\AIDA 64\*"; DestDir: "{app}\Setup\AIDA 64"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0044'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\WinRar\*"; DestDir: "{app}\Setup\WinRar"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0045'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Blender 3D\*"; DestDir: "{app}\Setup\Blender 3D"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0046'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Discord\*"; DestDir: "{app}\Setup\Discord"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0047'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Epic Games\*"; DestDir: "{app}\Setup\Epic Games"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0048'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\FL Studio\*"; DestDir: "{app}\Setup\FL Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0049'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\LocalSend\*"; DestDir: "{app}\Setup\LocalSend"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0050'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\*"; DestDir: "{app}\Setup\Microsoft Office"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0051'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\OBS Studio\*"; DestDir: "{app}\Setup\OBS Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0052'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Steam\*"; DestDir: "{app}\Setup\Steam"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0053'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Torrent\*"; DestDir: "{app}\Setup\Torrent"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0054'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS\*"; DestDir: "{app}\Setup\Visual Studio\VS"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0055'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
-Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS Code\*"; DestDir: "{app}\Setup\Visual Studio\VS Code"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0056'); Excludes: "m0nkrus.nfo,Adobe Photoshop CC 2019 20.0.7 RePack by D!akov.exe"
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Acrobat Pro\*"; DestDir: "{app}\Setup\Adobe Acrobat Pro"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0034')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe After Effects\*"; DestDir: "{app}\Setup\Adobe After Effects"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0035')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Animate\*"; DestDir: "{app}\Setup\Adobe Animate"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0036')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Audition\*"; DestDir: "{app}\Setup\Adobe Audition"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0037')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Lightroom Classic\*"; DestDir: "{app}\Setup\Adobe Lightroom Classic"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0038')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Adobe Substance 3D Painter\*"; DestDir: "{app}\Setup\Adobe Substance 3D Painter"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0039')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Illustrator\*"; DestDir: "{app}\Setup\Illustrator"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0040')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\InDesign\*"; DestDir: "{app}\Setup\InDesign"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0041')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Photoshop\*"; DestDir: "{app}\Setup\Photoshop"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0042')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Premier\*"; DestDir: "{app}\Setup\Premier"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0043')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\AIDA 64\*"; DestDir: "{app}\Setup\AIDA 64"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0044')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\WinRar\*"; DestDir: "{app}\Setup\WinRar"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0045')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Blender 3D\*"; DestDir: "{app}\Setup\Blender 3D"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0046')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Discord\*"; DestDir: "{app}\Setup\Discord"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0047')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Epic Games\*"; DestDir: "{app}\Setup\Epic Games"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0048')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\FL Studio\*"; DestDir: "{app}\Setup\FL Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0049')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\LocalSend\*"; DestDir: "{app}\Setup\LocalSend"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0050')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Microsoft Office\*"; DestDir: "{app}\Setup\Microsoft Office"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0051')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\OBS Studio\*"; DestDir: "{app}\Setup\OBS Studio"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0052')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Steam\*"; DestDir: "{app}\Setup\Steam"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0053')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Torrent\*"; DestDir: "{app}\Setup\Torrent"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0054')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS\*"; DestDir: "{app}\Setup\Visual Studio\VS"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0055')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Visual Studio (and Code version)\VS Code\*"; DestDir: "{app}\Setup\Visual Studio\VS Code"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0056')
+Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Программы без архива-SetUp\Windows and Microsoft Office (KMS Auto)\*"; DestDir: "{app}\Setup\Windows and Microsoft Office (KMS Auto)"; Flags: recursesubdirs createallsubdirs ignoreversion; Check: IsChosen('s0057')
 Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Софт-Portable.rar"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0057')
 Source: "{#SourceRoot}\Софт (исходники)\Софт-Portable\Информация об архиве - Софт-Portable.txt"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0058')
 Source: "{#SourceRoot}\Софт (исходники)\Софт-SetUp\Софт-SetUp.rar"; DestDir: "{app}\Архивы"; Flags: ignoreversion; Check: IsChosen('f0059')
@@ -291,6 +298,7 @@ begin
   AddCatalogItem('Разработка', '', 1, True);
   AddCatalogItem('Visual Studio', 's0055', 2, False);
   AddCatalogItem('Visual Studio Code', 's0056', 2, False);
+  AddCatalogItem('Windows and Microsoft Office (KMS Auto)', 's0057', 2, False);
 
   AddFileItem('Архивы и описания', '', 0, True);
   AddFileItem('Софт-Portable.rar', 'f0057', 1, False);

@@ -66,20 +66,20 @@ CloseApplications=no
 
 [Messages]
 SetupWindowTitle=Установка - %1
-WizardSelectDir=Каталог установки
-SelectDirDesc=
+WizardSelectDir=Выберите папку установки
+SelectDirDesc=Укажите папку, в которой будут размещены выбранные программы или архивы.
 SelectDirLabel3=
-SelectDirBrowseLabel=
+SelectDirBrowseLabel=Для выбора другой папки нажмите «Обзор».
 WizardReady=Готово к установке
-ReadyLabel1=
+ReadyLabel1=Мастер готов начать установку выбранных программ и архивов.
 ReadyLabel2a=
 ReadyLabel2b=
 WizardInstalling=Установка...
-InstallingLabel=
+InstallingLabel=Выполняется установка выбранных компонентов. Дождитесь завершения процесса.
 FinishedHeadingLabel=Установка завершена
-FinishedLabelNoIcons=
-FinishedLabel=
-ClickFinish=
+FinishedLabelNoIcons=Выбранные программы и архивы успешно размещены в указанной папке.
+FinishedLabel=Выбранные программы и архивы успешно размещены в указанной папке.
+ClickFinish=Нажмите «Завершить», чтобы закрыть мастер установки.
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
@@ -325,10 +325,10 @@ begin
   WizardForm.PageDescriptionLabel.Left := ScaleX(70);
   WizardForm.PageDescriptionLabel.Top := ScaleY(31);
   WizardForm.PageDescriptionLabel.Width := WizardForm.MainPanel.Width - ScaleX(82);
-  WizardForm.PageDescriptionLabel.Height := 0;
-  WizardForm.PageDescriptionLabel.Visible := False;
+  WizardForm.PageDescriptionLabel.Height := ScaleY(32);
+  WizardForm.PageDescriptionLabel.Visible := True;
   WizardForm.PageDescriptionLabel.Font.Name := 'Segoe UI';
-  WizardForm.PageDescriptionLabel.Font.Size := 9;
+  WizardForm.PageDescriptionLabel.Font.Size := 10;
   WizardForm.PageDescriptionLabel.Font.Color := $00B7C4D1;
 
   WizardForm.NextButton.Font.Name := 'Segoe UI';
@@ -346,9 +346,9 @@ begin
   ProgressPercentLabel.Font.Size := 9;
   ProgressPercentLabel.Font.Color := clWhite;
 
-  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', '');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', '');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', '');
+  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', 'Выберите программы в каталоге или добавьте готовые архивы.');
+  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Отметьте нужные программы. Для Visual Studio и браузеров доступны отдельные компоненты.');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Отметьте архивы, которые нужно добавить в выбранную папку. Можно выбрать оба варианта.');
   ModePage.Surface.Color := $00131A23;
   CatalogPage.Surface.Color := $00131A23;
   ArchivePage.Surface.Color := $00131A23;

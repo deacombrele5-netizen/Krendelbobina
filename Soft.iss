@@ -35,7 +35,7 @@
 #if !DirExists("{#MySoftRoot}")
 #error "Не найдена корневая папка MySoftRoot. Проверьте путь в начале Soft.iss."
 #endif
-#if !FileExists("{#MySoftRoot}\\app.ico")
+#if !FileExists("{#MySoftRoot}\app.ico")
 #error "Не найден app.ico в корневой папке MySoftRoot."
 #endif
 #if !DirExists("{#PortableRoot}\AdobeAcrobatPro-Portable")

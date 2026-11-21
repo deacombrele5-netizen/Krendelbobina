@@ -188,7 +188,7 @@ procedure InitializeWizard();
 begin
   WizardForm.DiskSpaceLabel.Visible := False;
 
-  ModePage := CreateInputOptionPage(wpSelectDir, 'Выбор содержимого',
+  ModePage := CreateInputOptionPage(wpWelcome, 'Выбор содержимого',
     'Что вы хотите выбрать?',
     'Сначала выберите один из двух режимов. На следующем шаге появится соответствующий список:', True, False);
   ModePage.Add('Выбрать программу из каталога программ');

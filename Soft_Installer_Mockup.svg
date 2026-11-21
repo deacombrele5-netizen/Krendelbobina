@@ -1,181 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1450" viewBox="0 0 1760 1450">
-<defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b121b"/><stop offset="1" stop-color="#111e2b"/></linearGradient>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#168ac7"/><stop offset="1" stop-color="#46b9e8"/></linearGradient>
-</defs>
-<rect width="1760" height="1450" fill="url(#bg)"/>
-<rect x="64" y="54" width="42" height="42" rx="10" fill="url(#accent)"/>
-<path d="M76 86V65H84L96 79V65" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="126" y="82" font-family="Segoe UI,Arial" font-size="34" font-weight="700" fill="#f4f8fc">Установка - Софт</text>
-<text x="66" y="124" font-family="Segoe UI,Arial" font-size="16" fill="#91a4b8">Обновлённый макет интерфейса · тёмное оформление · последовательность страниц мастера</text>
-<rect x="64" y="146" width="1632" height="2" fill="#2b3d50"/>
-
-  <g transform="translate(64 174)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Выбор пути назначения</text>
-    
-  <text x="28" y="116" font-family="Segoe UI,Arial" font-size="15" fill="#b9c7d6">Укажите папку для размещения выбранных программ</text>
-  <rect x="28" y="137" width="600" height="42" rx="6" fill="#0d1620" stroke="#43576c"/>
-  <text x="44" y="164" font-family="Segoe UI,Arial" font-size="16" fill="#f0f5fa">C:\</text>
-  <rect x="642" y="137" width="150" height="42" rx="6" fill="#2b3b4d" stroke="#536a81"/>
-  <text x="717" y="164" text-anchor="middle" font-family="Segoe UI,Arial" font-size="15" fill="#edf4fb">Обзор...</text>
-  <text x="28" y="213" font-family="Segoe UI,Arial" font-size="13" fill="#8294a8">Можно указать корень диска или выбрать отдельную папку</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 1</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Далее</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-
-  <g transform="translate(876 174)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Способ выбора</text>
-    
-  <rect x="28" y="105" width="764" height="55" rx="8" fill="#1d3041" stroke="#258ec5"/>
-  <circle cx="54" cy="132" r="9" fill="none" stroke="#56b9ec" stroke-width="2"/><circle cx="54" cy="132" r="4.5" fill="#56b9ec"/>
-  <text x="78" y="138" font-family="Segoe UI,Arial" font-size="17" fill="#f1f6fb">Выбрать программу из каталога программ</text>
-  <rect x="28" y="174" width="764" height="55" rx="8" fill="#182432" stroke="#405267"/>
-  <circle cx="54" cy="201" r="9" fill="none" stroke="#8295a9" stroke-width="2"/>
-  <text x="78" y="207" font-family="Segoe UI,Arial" font-size="17" fill="#e1e9f1">Выбрать готовый архив с программами</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 2</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Далее</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-
-  <g transform="translate(64 510)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Каталог программ</text>
-    
-  <rect x="28" y="101" width="764" height="130" rx="7" fill="#101a25" stroke="#34475b"/>
-  <text x="44" y="124" font-family="Segoe UI,Arial" font-size="14" font-weight="650" fill="#67bce8">ПОРТАТИВНЫЕ ПРОГРАММЫ</text>
-  <g font-family="Segoe UI,Arial" font-size="13.5" fill="#e5edf5">
-    <text x="48" y="151">□  Adobe Acrobat Pro</text><text x="48" y="174">□  Adobe After Effects</text><text x="48" y="197">□  Blender</text><text x="48" y="220">□  Google Chrome</text>
-    <text x="300" y="151">□  LocalSend</text><text x="300" y="174">□  Rufus</text><text x="300" y="197">□  VLC Media Player</text><text x="300" y="220">□  WinRAR</text>
-    <text x="560" y="151">□  WinSCP</text><text x="560" y="174">□  Visual Studio Code</text><text x="560" y="197">□  WNetWatcher</text>
-  </g>
-  <rect x="777" y="111" width="5" height="108" rx="2" fill="#26384a"/><rect x="777" y="113" width="5" height="42" rx="2" fill="#66839d"/>
-  <text x="28" y="243" font-family="Segoe UI,Arial" font-size="12" fill="#8294a8">Ниже в списке находится группа «Установщики программ» · список прокручивается</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 3</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Далее</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-
-  <g transform="translate(876 510)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Готовые архивы</text>
-    
-  <text x="28" y="116" font-family="Segoe UI,Arial" font-size="15" fill="#b9c7d6">Отметьте архивы, которые нужно скопировать</text>
-  <rect x="28" y="132" width="764" height="42" rx="6" fill="#182635" stroke="#3e5368"/>
-  <text x="48" y="159" font-family="Segoe UI,Arial" font-size="16" fill="#eef4fa">□  Софт-Portable.rar</text>
-  <rect x="28" y="184" width="764" height="42" rx="6" fill="#182635" stroke="#3e5368"/>
-  <text x="48" y="211" font-family="Segoe UI,Arial" font-size="16" fill="#eef4fa">□  Софт-SetUp.rar</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 4</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Далее</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-
-  <g transform="translate(64 846)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Готово к установке</text>
-    
-  <circle cx="66" cy="142" r="24" fill="#183b35" stroke="#2c9c79"/>
-  <path d="M54 142l8 8 16-18" fill="none" stroke="#65d5ad" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="108" y="137" font-family="Segoe UI,Arial" font-size="17" font-weight="600" fill="#f0f5fa">Мастер установки готов начать установку Софт</text>
-  <text x="108" y="166" font-family="Segoe UI,Arial" font-size="14" fill="#b9c7d6">Нажмите «Установить», чтобы начать копирование выбранных файлов</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 5</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Установить</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-
-  <g transform="translate(876 846)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Установка</text>
-    
-  <text x="28" y="122" font-family="Segoe UI,Arial" font-size="15" fill="#dce6f0">Подождите, пока мастер установки копирует выбранные файлы</text>
-  <rect x="28" y="145" width="764" height="18" rx="8" fill="#0b141e" stroke="#3a4e63"/>
-  <rect x="31" y="148" width="465" height="12" rx="6" fill="#269ed6"/>
-  <text x="28" y="195" font-family="Segoe UI,Arial" font-size="13" fill="#91a4b8">Выполняется копирование файлов и папок...</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 6</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Далее</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-
-  <g transform="translate(64 1182)">
-    <rect width="820" height="300" rx="16" fill="#151f2b" stroke="#3a4b5e" stroke-width="1.5"/>
-    <path d="M16 0H804Q820 0 820 16V48H0V16Q0 0 16 0Z" fill="#202d3b"/>
-    <rect x="22" y="14" width="20" height="20" rx="5" fill="#28a5df"/>
-    <path d="M27 29V19H31L36 25V19" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="56" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f5f9">Установка - Софт</text>
-    <text x="28" y="83" font-family="Segoe UI,Arial" font-size="23" font-weight="650" fill="#f5f8fc">Завершение</text>
-    
-  <circle cx="66" cy="142" r="24" fill="#183b35" stroke="#2c9c79"/>
-  <path d="M54 142l8 8 16-18" fill="none" stroke="#65d5ad" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="108" y="137" font-family="Segoe UI,Arial" font-size="18" font-weight="600" fill="#f0f5fa">Установка Софт завершена</text>
-  <text x="108" y="166" font-family="Segoe UI,Arial" font-size="14" fill="#b9c7d6">Нажмите «Завершить», чтобы закрыть мастер установки</text>
-    <path d="M0 250H820" stroke="#334457"/>
-    <text x="28" y="279" font-family="Segoe UI,Arial" font-size="13" fill="#8d9daf">Экран 7</text>
-    <rect x="492" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="536" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Назад</text>
-    <rect x="590" y="263" width="112" height="27" rx="5" fill="#168ac7"/>
-    <text x="646" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" font-weight="600" fill="#fff">Завершить</text>
-    <rect x="712" y="263" width="88" height="27" rx="5" fill="#253444" stroke="#506276"/>
-    <text x="756" y="281" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#dce5ef">Отмена</text>
-  </g>
-<text x="876" y="1240" font-family="Segoe UI,Arial" font-size="17" font-weight="600" fill="#dbe6f0">Порядок работы</text>
-<text x="876" y="1274" font-family="Segoe UI,Arial" font-size="14" fill="#a6b6c7">Выбор пути → способ выбора → каталог или архив → готово к установке</text>
-<text x="876" y="1301" font-family="Segoe UI,Arial" font-size="14" fill="#a6b6c7">→ установка → завершение</text>
-<text x="876" y="1350" font-family="Segoe UI,Arial" font-size="12" fill="#73879b">Каталог и готовые архивы являются альтернативными вариантами выбора</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1430" viewBox="0 0 1720 1430">
+<rect width="1720" height="1430" fill="#0d141d"/>
+<rect x="60" y="42" width="34" height="34" rx="7" fill="#168ac7"/>
+<path d="M68 67V51H75L86 62V51" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="110" y="67" font-family="Segoe UI,Arial" font-size="28" font-weight="650" fill="#f4f7fb">Установка - Софт</text>
+<text x="62" y="104" font-family="Segoe UI,Arial" font-size="13" fill="#8496aa">Мастер установки</text>
+<path d="M60 126H1660" stroke="#2e4053"/>
+<g transform="translate(60 154)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Каталог размещения</text>
+ 
+ <text x="28" y="112" font-family="Segoe UI,Arial" font-size="14" fill="#b7c4d1">Укажите каталог для размещения выбранных компонентов:</text>
+ <rect x="28" y="130" width="590" height="38" rx="5" fill="#0d151e" stroke="#465a70"/>
+ <text x="43" y="154" font-family="Segoe UI,Arial" font-size="15" fill="#f0f4f8">C:\</text>
+ <rect x="630" y="130" width="142" height="38" rx="5" fill="#2a3a4b" stroke="#52677e"/>
+ <text x="701" y="154" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" fill="#eef4fa">Обзор...</text>
+ <text x="28" y="198" font-family="Segoe UI,Arial" font-size="12" fill="#8799ac">Допускается корневой каталог диска или отдельная папка</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Выбор каталога</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Назад</text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff">Далее</text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Отмена</text>
+ </g>
+<g transform="translate(860 154)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Способ выбора</text>
+ 
+ <rect x="28" y="99" width="744" height="48" rx="7" fill="#1a2c3b" stroke="#238ec8"/>
+ <circle cx="52" cy="123" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M48 123l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="76" y="129" font-family="Segoe UI,Arial" font-size="16" fill="#f1f6fb">Каталог программ</text>
+ <rect x="28" y="160" width="744" height="48" rx="7" fill="#192431" stroke="#405267"/>
+ <circle cx="52" cy="184" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/>
+ <text x="76" y="190" font-family="Segoe UI,Arial" font-size="16" fill="#e0e8f0">Готовые архивы</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Источник данных</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Назад</text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff">Далее</text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Отмена</text>
+ </g>
+<g transform="translate(60 464)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Каталог программ</text>
+ 
+ <rect x="28" y="96" width="744" height="112" rx="6" fill="#101923" stroke="#34485d"/>
+ <text x="44" y="117" font-family="Segoe UI,Arial" font-size="12" font-weight="700" letter-spacing=".7" fill="#5abce8">ПОРТАТИВНЫЕ ПРОГРАММЫ</text>
+ <circle cx="51" cy="139" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M47 139l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><text x="69" y="144" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">Adobe Acrobat Pro</text>
+ <circle cx="51" cy="164" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="69" y="169" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">Adobe After Effects</text>
+ <circle cx="51" cy="189" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="69" y="194" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">Blender</text>
+ <circle cx="285" cy="139" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="303" y="144" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">Google Chrome</text>
+ <circle cx="285" cy="164" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M281 164l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><text x="303" y="169" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">LocalSend</text>
+ <circle cx="285" cy="189" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="303" y="194" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">Rufus</text>
+ <circle cx="530" cy="139" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="548" y="144" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">VLC Media Player</text>
+ <circle cx="530" cy="164" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="548" y="169" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">WinRAR</text>
+ <circle cx="530" cy="189" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M526 189l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><text x="548" y="194" font-family="Segoe UI,Arial" font-size="12.5" fill="#e5edf5">WinSCP</text>
+ <text x="28" y="221" font-family="Segoe UI,Arial" font-size="11" fill="#8294a7">Ниже по списку: «Установщики программ»</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Выбор компонентов</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Назад</text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff">Далее</text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Отмена</text>
+ </g>
+<g transform="translate(860 464)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Готовые архивы</text>
+ 
+ <text x="28" y="111" font-family="Segoe UI,Arial" font-size="13" fill="#b8c6d4">Выберите архивы для копирования:</text>
+ <rect x="28" y="126" width="744" height="34" rx="5" fill="#192633" stroke="#3d5268"/>
+ <circle cx="51" cy="143" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><path d="M47 143l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><text x="72" y="148" font-family="Segoe UI,Arial" font-size="14" fill="#eaf1f7">Софт-Portable.rar</text>
+ <rect x="28" y="170" width="744" height="34" rx="5" fill="#192633" stroke="#3d5268"/>
+ <circle cx="51" cy="187" r="8" fill="#111b26" stroke="#718397" stroke-width="1.6"/><text x="72" y="192" font-family="Segoe UI,Arial" font-size="14" fill="#eaf1f7">Софт-SetUp.rar</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Выбор архивов</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Назад</text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff">Далее</text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Отмена</text>
+ </g>
+<g transform="translate(60 774)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Готово к установке</text>
+ 
+ <circle cx="60" cy="142" r="18" fill="#153b35" stroke="#2b9c79"/>
+ <path d="M51 142l6 6 12-14" fill="none" stroke="#70d9b1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="92" y="137" font-family="Segoe UI,Arial" font-size="15" font-weight="600" fill="#f1f6fb">Выбранные компоненты готовы к размещению</text>
+ <text x="92" y="163" font-family="Segoe UI,Arial" font-size="13" fill="#b2c1d0">Нажмите «Установить» для начала операции</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Подтверждение параметров</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Назад</text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff">Установить</text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Отмена</text>
+ </g>
+<g transform="translate(860 774)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Установка</text>
+ 
+ <text x="28" y="112" font-family="Segoe UI,Arial" font-size="14" fill="#dce6ef">Установка</text>
+ <rect x="28" y="133" width="744" height="18" rx="9" fill="#0c151f" stroke="#43586d"/>
+ <rect x="31" y="136" width="351" height="12" rx="6" fill="#249bd4"/>
+ <text x="28" y="180" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#eaf4fb">47%</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Выполнение операции</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb"></text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff"></text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb"></text>
+ </g>
+<g transform="translate(60 1084)">
+ <rect width="800" height="280" rx="10" fill="#151e28" stroke="#405064"/>
+ <path d="M10 0H790Q800 0 800 10V43H0V10Q0 0 10 0Z" fill="#202c39"/>
+ <rect x="18" y="12" width="18" height="18" rx="4" fill="#258fca"/>
+ <path d="M22 26V17H26L32 23V17" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="48" y="27" font-family="Segoe UI,Arial" font-size="14" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="28" y="78" font-family="Segoe UI,Arial" font-size="22" font-weight="600" fill="#f4f7fb">Завершение</text>
+ 
+ <circle cx="60" cy="142" r="18" fill="#153b35" stroke="#2b9c79"/>
+ <path d="M51 142l6 6 12-14" fill="none" stroke="#70d9b1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="92" y="147" font-family="Segoe UI,Arial" font-size="16" font-weight="600" fill="#f1f6fb">Установка выбранных программ завершена.</text>
+ <path d="M0 230H800" stroke="#344456"/>
+ <text x="28" y="260" font-family="Segoe UI,Arial" font-size="12" fill="#8192a5">Результат</text>
+ <rect x="510" y="244" width="78" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="549" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb"></text>
+ <rect x="598" y="244" width="108" height="25" rx="5" fill="#168ac7"/>
+ <text x="652" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="600" fill="#fff"></text>
+ <rect x="716" y="244" width="72" height="25" rx="5" fill="#273747" stroke="#4a5e73"/>
+ <text x="752" y="261" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" fill="#d9e2eb">Завершить</text>
+ </g>
 </svg>

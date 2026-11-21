@@ -273,9 +273,9 @@ ReadyLabel2a=Нажмите «Установить», чтобы начать р
 ReadyLabel2b=Нажмите «Установить», чтобы начать размещение выбранных компонентов.
 WizardInstalling=Установка
 InstallingLabel=Установка
-FinishedHeadingLabel=Завершение установки
-FinishedLabelNoIcons=Размещение выбранных компонентов завершено.
-FinishedLabel=Размещение выбранных компонентов завершено.
+FinishedHeadingLabel=Завершение
+FinishedLabelNoIcons=Установка выбранных программ завершена.
+FinishedLabel=Установка выбранных программ завершена.
 ClickFinish=Нажмите «Завершить», чтобы закрыть мастер.
 
 [Languages]

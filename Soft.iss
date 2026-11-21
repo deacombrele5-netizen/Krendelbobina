@@ -247,6 +247,7 @@ AllowUNCPath=yes
 UsePreviousAppDir=no
 CreateAppDir=no
 DisableDirPage=yes
+DisableWelcomePage=yes
 DisableProgramGroupPage=yes
 DisableReadyMemo=yes
 Uninstallable=no
@@ -269,8 +270,6 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Messages]
 SetupWindowTitle=Софт - установка программ
-WelcomeLabel1=Добро пожаловать в Софт!
-WelcomeLabel2=Выберите место сохранения, затем укажите программы или готовый архив. Будут скопированы только выбранные элементы, а структура каталогов исходных программ сохранится.
 SelectDirLabel3=Укажите папку назначения.
 ReadyLabel1=Всё готово к копированию
 InstallingLabel=Копирование выбранных файлов. Пожалуйста, подождите...

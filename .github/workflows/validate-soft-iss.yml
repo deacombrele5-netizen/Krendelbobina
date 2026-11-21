@@ -56,7 +56,7 @@ jobs:
             40,0,0,0,1,0,0,0,2,0,0,0,1,0,32,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0)
           [IO.File]::WriteAllBytes((Join-Path $root "app.ico"), $ico)
-          New-Item -ItemType Directory -Force -Path (Join-Path $root "Софт установка") | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $root "Софт\\Софт - установка") | Out-Null
           "Prepared placeholder source tree under $root"
 
       - name: Compile Soft.iss

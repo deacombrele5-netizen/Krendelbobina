@@ -199,14 +199,18 @@ end;
 function HasAnyCatalogSelection: Boolean;
 var
   I: Integer;
+  ItemIndex: Integer;
 begin
   Result := False;
   for I := 0 to CatalogMap.Count - 1 do
-    if CatalogList.Checked[StrToIntDef(CatalogMap.Values[CatalogMap.Names[I]], -1)] then
+  begin
+    ItemIndex := StrToIntDef(CatalogMap.Values[CatalogMap.Names[I]], -1);
+    if (ItemIndex >= 0) and CatalogList.Checked[ItemIndex] then
     begin
       Result := True;
       Exit;
     end;
+  end;
 end;
 
 function GetDestinationPath(Param: String): String;
@@ -245,6 +249,10 @@ begin
   ModePage := CreateCustomPage(DestinationPage.ID, 'Способ выбора', 'Выберите каталог отдельных программ или готовый архив.');
   CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', 'Отметьте одну или несколько программ. Ничего не выбрано заранее.');
   ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', 'Выберите готовый архив портативных программ и/или архив установщиков.');
+  DestinationPage.Surface.Color := $0021262E;
+  ModePage.Surface.Color := $0021262E;
+  CatalogPage.Surface.Color := $0021262E;
+  ArchivePage.Surface.Color := $0021262E;
 
   AddPageText(DestinationPage, 'Куда сохранить выбранное?', 10, 34, 16, True);
   AddPageText(DestinationPage, 'Можно указать корень диска (например, C:\) или любую папку на компьютере. Если указанной папки ещё нет, Soft попробует создать её.', 52, 58, 9, False);
@@ -288,16 +296,19 @@ begin
   ArchiveModeButton.Font.Name := 'Segoe UI';
   ArchiveModeButton.Font.Size := 10;
 
+  AddPageText(CatalogPage, 'Выберите нужные программы', 10, 30, 15, True);
+  AddPageText(CatalogPage, 'Отметьте одну или несколько позиций. Группы Visual Studio и «Браузеры» можно раскрыть.', 43, 28, 9, False);
   CatalogList := TNewCheckListBox.Create(CatalogPage);
   CatalogList.Parent := CatalogPage.Surface;
   CatalogList.Left := ScaleX(8);
-  CatalogList.Top := ScaleY(78);
+  CatalogList.Top := ScaleY(80);
   CatalogList.Width := CatalogPage.SurfaceWidth - ScaleX(16);
-  CatalogList.Height := CatalogPage.SurfaceHeight - ScaleY(86);
+  CatalogList.Height := CatalogPage.SurfaceHeight - ScaleY(88);
   CatalogList.Anchors := [akLeft, akTop, akRight, akBottom];
   CatalogList.Flat := True;
   CatalogList.BorderStyle := bsNone;
-  CatalogList.ParentColor := True;
+  CatalogList.ParentColor := False;
+  CatalogList.Color := $002B3038;
   CatalogList.MinItemHeight := ScaleY(24);
   CatalogList.Font.Name := 'Segoe UI';
   CatalogList.Font.Size := 9;
@@ -358,9 +369,8 @@ begin
   AddCatalogCheck('s_premier', 'Adobe Premiere Pro', 1, False, True);
   AddCatalogCheck('s_steam', 'Steam', 1, False, True);
   AddCatalogCheck('s_torrent', 'Torrent', 1, False, True);
-  AddCatalogCheck('s_kmsauto', 'Windows and Microsoft Office (KMS Auto)', 1, False, True);
   AddCatalogCheck('s_winrar', 'WinRAR', 1, False, True);
-  AddCatalogCheck('s_vs_all', 'Visual Studio (оба варианта)', 1, True, False);
+  AddCatalogCheck('s_vs_all', 'Visual Studio (and Code version)', 1, True, False);
   AddCatalogCheck('s_vs_vs', 'Visual Studio', 2, False, True);
   AddCatalogCheck('s_vs_code', 'Visual Studio Code', 2, False, True);
   AddCatalogCheck('s_browsers_all', 'Браузеры (все сразу)', 1, True, False);
@@ -370,6 +380,8 @@ begin
   AddCatalogCheck('s_browser_opera', 'Opera', 2, False, True);
   AddCatalogCheck('s_browser_yandex', 'Яндекс Браузер', 2, False, True);
 
+  AddPageText(ArchivePage, 'Готовые сборники', 10, 30, 15, True);
+  AddPageText(ArchivePage, 'Можно выбрать Portable, Setup или оба архива. Архивы будут скопированы в указанную папку вместе с файлами информации о них.', 43, 40, 9, False);
   ArchiveList := TNewCheckListBox.Create(ArchivePage);
   ArchiveList.Parent := ArchivePage.Surface;
   ArchiveList.Left := ScaleX(8);
@@ -379,7 +391,8 @@ begin
   ArchiveList.Anchors := [akLeft, akTop, akRight, akBottom];
   ArchiveList.Flat := True;
   ArchiveList.BorderStyle := bsNone;
-  ArchiveList.ParentColor := True;
+  ArchiveList.ParentColor := False;
+  ArchiveList.Color := $002B3038;
   ArchiveList.MinItemHeight := ScaleY(32);
   ArchiveList.Font.Name := 'Segoe UI';
   ArchiveList.Font.Size := 10;

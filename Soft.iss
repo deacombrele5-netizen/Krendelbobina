@@ -168,7 +168,6 @@ begin
   L.Height := ScaleY(HeightValue);
   L.AutoSize := False;
   L.WordWrap := True;
-  L.Transparent := True;
   L.Caption := TextValue;
   L.Font.Name := 'Segoe UI';
   L.Font.Size := FontSizeValue;
@@ -246,7 +245,7 @@ begin
   DestinationPage := CreateCustomPage(wpWelcome, 'Папка назначения', 'Укажите место, куда сохранить выбранные программы.');
   ModePage := CreateCustomPage(DestinationPage.ID, 'Способ выбора', 'Выберите каталог отдельных программ или готовый архив.');
   CatalogPage := CreateCustomPage(ModePage.ID, 'Каталог программ', 'Отметьте одну или несколько программ. Ничего не выбрано заранее.');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', 'Выберите готовый архив портативных программ и/или архив установщиков.');
+  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Готовые архивы', 'Выберите готовый архив портативных программ и/или архив установщиков. Архив будет скопирован как RAR-файл.');
   DestinationPage.Surface.Color := $0021262E;
   ModePage.Surface.Color := $0021262E;
   CatalogPage.Surface.Color := $0021262E;
@@ -383,7 +382,7 @@ begin
   AddCatalogCheck('s_browser_yandex', 'Яндекс Браузер', 2, False, True);
 
   AddPageText(ArchivePage, 'Готовые сборники', 10, 30, 15, True);
-  AddPageText(ArchivePage, 'Можно выбрать Portable, Setup или оба архива. Архивы будут скопированы в указанную папку вместе с файлами информации о них.', 43, 40, 9, False);
+  AddPageText(ArchivePage, 'Можно выбрать Portable, Setup или оба архива. RAR-файлы и сведения о них будут скопированы в указанную папку; архивы останутся архивами.', 43, 40, 9, False);
   ArchiveList := TNewCheckListBox.Create(ArchivePage);
   ArchiveList.Parent := ArchivePage.Surface;
   ArchiveList.Left := ScaleX(8);
@@ -476,4 +475,5 @@ function InitializeSetup(): Boolean;
 begin
   Result := True;
 end;
+
 

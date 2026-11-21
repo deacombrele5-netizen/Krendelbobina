@@ -169,6 +169,7 @@ begin
   L.AutoSize := False;
   L.WordWrap := True;
   L.Caption := TextValue;
+  L.Color := Page.Surface.Color;
   L.Font.Name := 'Segoe UI';
   L.Font.Size := FontSizeValue;
   L.Font.Color := clWhite;
@@ -291,6 +292,7 @@ begin
   CatalogModeButton.Font.Name := 'Segoe UI';
   CatalogModeButton.Font.Size := 10;
   CatalogModeButton.Font.Color := clWhite;
+  CatalogModeButton.Color := $0021262E;
   ArchiveModeButton := TNewRadioButton.Create(ModePage);
   ArchiveModeButton.Parent := ModePage.Surface;
   ArchiveModeButton.Left := ScaleX(18);
@@ -301,6 +303,7 @@ begin
   ArchiveModeButton.Font.Name := 'Segoe UI';
   ArchiveModeButton.Font.Size := 10;
   ArchiveModeButton.Font.Color := clWhite;
+  ArchiveModeButton.Color := $0021262E;
 
   AddPageText(CatalogPage, 'Выберите нужные программы', 10, 30, 15, True);
   AddPageText(CatalogPage, 'Отметьте одну или несколько позиций. Группы Visual Studio и «Браузеры» можно раскрыть.', 43, 28, 9, False);
@@ -313,7 +316,6 @@ begin
   CatalogList.Anchors := [akLeft, akTop, akRight, akBottom];
   CatalogList.Flat := True;
   CatalogList.BorderStyle := bsNone;
-  CatalogList.ParentColor := False;
   CatalogList.Color := $002B3038;
   CatalogList.MinItemHeight := ScaleY(24);
   CatalogList.Font.Name := 'Segoe UI';
@@ -397,7 +399,6 @@ begin
   ArchiveList.Anchors := [akLeft, akTop, akRight, akBottom];
   ArchiveList.Flat := True;
   ArchiveList.BorderStyle := bsNone;
-  ArchiveList.ParentColor := False;
   ArchiveList.Color := $002B3038;
   ArchiveList.MinItemHeight := ScaleY(32);
   ArchiveList.Font.Name := 'Segoe UI';

@@ -13,7 +13,8 @@
  <circle cx="18" cy="18" r="3"/>
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Каталог установки</text>
+ <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выберите папку установки</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Укажите папку, в которой будут размещены выбранные программы или архивы.</text>
  
  <rect x="30" y="147" width="610" height="42" rx="6" fill="#0d151e" stroke="#465a70"/>
  <text x="48" y="174" font-size="15" fill="#f0f4f8">C:\</text>
@@ -31,6 +32,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор способа установки</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Выберите программы в каталоге или добавьте готовые архивы.</text>
  
  <rect x="30" y="145" width="740" height="54" rx="7" fill="#1a2c3b" stroke="#238ec8"/>
  <circle cx="57" cy="172" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><circle cx="57" cy="172" r="3.5" fill="#77d3f5"/>
@@ -50,6 +52,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор программ</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Отметьте нужные программы. Для Visual Studio и браузеров доступны отдельные компоненты.</text>
  
  <rect x="30" y="137" width="740" height="128" rx="7" fill="#101923" stroke="#34485d"/>
  <text x="48" y="161" font-size="12" font-weight="700" letter-spacing=".7" fill="#5abce8">ПОРТАТИВНЫЕ ПРОГРАММЫ</text>
@@ -74,6 +77,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор архивов</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Отметьте архивы, которые нужно добавить в выбранную папку. Можно выбрать оба варианта.</text>
  
  <rect x="30" y="148" width="740" height="48" rx="6" fill="#192633" stroke="#3d5268"/>
  <rect x="48" y="164" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M52 172l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="82" y="178" font-size="14" fill="#eaf1f7">Архив с портативными программами</text>
@@ -93,6 +97,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Готово к установке</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Мастер готов начать установку выбранных программ и архивов.</text>
  
 
 
@@ -107,6 +112,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка...</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Выполняется установка выбранных компонентов. Дождитесь завершения процесса.</text>
  
  <rect x="30" y="176" width="740" height="18" rx="9" fill="#0c151f" stroke="#43586d"/>
  <rect x="33" y="179" width="346" height="12" rx="6" fill="#249bd4"/>
@@ -123,6 +129,7 @@
  </g>
  <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка завершена</text>
+ <text x="30" y="121" font-size="15" fill="#aebdcb">Выбранные программы и архивы успешно размещены в указанной папке.</text>
 
  <path d="M0 278H800" stroke="#344456"/>
  <rect x="410" y="296" width="102" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="461" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Завершить</text>

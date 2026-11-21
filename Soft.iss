@@ -256,7 +256,8 @@ begin
   LogoBitmap.Height := 64;
   LogoBitmap.Canvas.Brush.Color := $001B2734;
   LogoBitmap.Canvas.Brush.Style := bsSolid;
-  LogoBitmap.Canvas.FillRect(Rect(0, 0, LogoBitmap.Width, LogoBitmap.Height));
+  LogoBitmap.Canvas.Pen.Color := $001B2734;
+  LogoBitmap.Canvas.Rectangle(0, 0, LogoBitmap.Width, LogoBitmap.Height);
   LogoBitmap.Canvas.Pen.Color := $00D5DCE4;
   LogoBitmap.Canvas.Pen.Width := ScaleX(5);
   LogoBitmap.Canvas.Brush.Style := bsClear;

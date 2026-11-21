@@ -250,7 +250,7 @@ begin
   WizardForm.Bevel.Visible := False;
   WizardForm.Bevel1.Visible := False;
 
-  { Собственный логотип: контур папки и шестерёнка, рисуется в памяти }
+  { Логотип: геометрия Lucide Folder Cog, масштаб 24x24 -> 64x64 }
   LogoBitmap := TBitmap.Create;
   LogoBitmap.Width := 64;
   LogoBitmap.Height := 64;
@@ -258,35 +258,50 @@ begin
   LogoBitmap.Canvas.Brush.Style := bsSolid;
   LogoBitmap.Canvas.FillRect(Rect(0, 0, LogoBitmap.Width, LogoBitmap.Height));
   LogoBitmap.Canvas.Pen.Color := $00D5DCE4;
-  LogoBitmap.Canvas.Pen.Width := ScaleX(2);
+  LogoBitmap.Canvas.Pen.Width := ScaleX(5);
   LogoBitmap.Canvas.Brush.Style := bsClear;
-  LogoBitmap.Canvas.MoveTo(7, 25);
-  LogoBitmap.Canvas.LineTo(7, 17);
-  LogoBitmap.Canvas.LineTo(22, 17);
-  LogoBitmap.Canvas.LineTo(27, 22);
-  LogoBitmap.Canvas.LineTo(55, 22);
-  LogoBitmap.Canvas.LineTo(55, 49);
-  LogoBitmap.Canvas.LineTo(7, 49);
-  LogoBitmap.Canvas.LineTo(7, 25);
-  { Шестерёнка расположена в нижнем правом углу папки }
-  LogoBitmap.Canvas.Ellipse(40, 34, 59, 53);
-  LogoBitmap.Canvas.Ellipse(46, 40, 53, 47);
-  LogoBitmap.Canvas.MoveTo(49, 29);
-  LogoBitmap.Canvas.LineTo(49, 34);
-  LogoBitmap.Canvas.MoveTo(49, 53);
-  LogoBitmap.Canvas.LineTo(49, 58);
-  LogoBitmap.Canvas.MoveTo(35, 43);
-  LogoBitmap.Canvas.LineTo(40, 43);
-  LogoBitmap.Canvas.MoveTo(59, 43);
-  LogoBitmap.Canvas.LineTo(64, 43);
-  LogoBitmap.Canvas.MoveTo(39, 33);
-  LogoBitmap.Canvas.LineTo(43, 37);
-  LogoBitmap.Canvas.MoveTo(55, 49);
-  LogoBitmap.Canvas.LineTo(59, 53);
-  LogoBitmap.Canvas.MoveTo(39, 53);
-  LogoBitmap.Canvas.LineTo(43, 49);
-  LogoBitmap.Canvas.MoveTo(55, 37);
-  LogoBitmap.Canvas.LineTo(59, 33);
+
+  { Контур папки }
+  LogoBitmap.Canvas.MoveTo(27, 53);
+  LogoBitmap.Canvas.LineTo(11, 53);
+  LogoBitmap.Canvas.LineTo(9, 53);
+  LogoBitmap.Canvas.LineTo(7, 52);
+  LogoBitmap.Canvas.LineTo(6, 50);
+  LogoBitmap.Canvas.LineTo(5, 48);
+  LogoBitmap.Canvas.LineTo(5, 13);
+  LogoBitmap.Canvas.LineTo(6, 11);
+  LogoBitmap.Canvas.LineTo(7, 9);
+  LogoBitmap.Canvas.LineTo(9, 8);
+  LogoBitmap.Canvas.LineTo(21, 8);
+  LogoBitmap.Canvas.LineTo(23, 8);
+  LogoBitmap.Canvas.LineTo(25, 9);
+  LogoBitmap.Canvas.LineTo(26, 11);
+  LogoBitmap.Canvas.LineTo(28, 14);
+  LogoBitmap.Canvas.LineTo(32, 16);
+  LogoBitmap.Canvas.LineTo(53, 16);
+  LogoBitmap.Canvas.LineTo(56, 17);
+  LogoBitmap.Canvas.LineTo(58, 19);
+  LogoBitmap.Canvas.LineTo(59, 21);
+  LogoBitmap.Canvas.LineTo(59, 30);
+
+  { Шестерёнка в правом нижнем углу }
+  LogoBitmap.Canvas.Ellipse(40, 40, 56, 56);
+  LogoBitmap.Canvas.MoveTo(41, 52);
+  LogoBitmap.Canvas.LineTo(43, 51);
+  LogoBitmap.Canvas.MoveTo(41, 45);
+  LogoBitmap.Canvas.LineTo(38, 44);
+  LogoBitmap.Canvas.MoveTo(45, 41);
+  LogoBitmap.Canvas.LineTo(44, 38);
+  LogoBitmap.Canvas.MoveTo(45, 55);
+  LogoBitmap.Canvas.LineTo(44, 58);
+  LogoBitmap.Canvas.MoveTo(51, 41);
+  LogoBitmap.Canvas.LineTo(52, 38);
+  LogoBitmap.Canvas.MoveTo(52, 58);
+  LogoBitmap.Canvas.LineTo(51, 55);
+  LogoBitmap.Canvas.MoveTo(55, 45);
+  LogoBitmap.Canvas.LineTo(58, 44);
+  LogoBitmap.Canvas.MoveTo(55, 51);
+  LogoBitmap.Canvas.LineTo(58, 52);
 
   WizardForm.WizardSmallBitmapImage.Bitmap := LogoBitmap;
   WizardForm.WizardSmallBitmapImage.AutoSize := False;

@@ -432,7 +432,7 @@ begin
   CatalogModeButton := TNewRadioButton.Create(ModePage);
   CatalogModeButton.Parent := ModePage.Surface;
   CatalogModeButton.Left := ScaleX(18);
-  CatalogModeButton.Top := ScaleY(116);
+  CatalogModeButton.Top := ScaleY(24);
   CatalogModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   CatalogModeButton.Height := ScaleY(32);
   CatalogModeButton.Caption := 'Выбрать программу из каталога программ';
@@ -444,7 +444,7 @@ begin
   ArchiveModeButton := TNewRadioButton.Create(ModePage);
   ArchiveModeButton.Parent := ModePage.Surface;
   ArchiveModeButton.Left := ScaleX(18);
-  ArchiveModeButton.Top := ScaleY(174);
+  ArchiveModeButton.Top := ScaleY(80);
   ArchiveModeButton.Width := ModePage.SurfaceWidth - ScaleX(36);
   ArchiveModeButton.Height := ScaleY(32);
   ArchiveModeButton.Caption := 'Выбрать готовый сборник программ в архиве';
@@ -455,9 +455,9 @@ begin
   CatalogList := TNewCheckListBox.Create(CatalogPage);
   CatalogList.Parent := CatalogPage.Surface;
   CatalogList.Left := ScaleX(8);
-  CatalogList.Top := ScaleY(80);
+  CatalogList.Top := ScaleY(8);
   CatalogList.Width := CatalogPage.SurfaceWidth - ScaleX(16);
-  CatalogList.Height := CatalogPage.SurfaceHeight - ScaleY(88);
+  CatalogList.Height := CatalogPage.SurfaceHeight - ScaleY(16);
   CatalogList.Anchors := [akLeft, akTop, akRight, akBottom];
   CatalogList.Flat := True;
   CatalogList.ShowLines := True;
@@ -535,9 +535,9 @@ begin
   ArchiveList := TNewCheckListBox.Create(ArchivePage);
   ArchiveList.Parent := ArchivePage.Surface;
   ArchiveList.Left := ScaleX(8);
-  ArchiveList.Top := ScaleY(90);
+  ArchiveList.Top := ScaleY(8);
   ArchiveList.Width := ArchivePage.SurfaceWidth - ScaleX(16);
-  ArchiveList.Height := ArchivePage.SurfaceHeight - ScaleY(98);
+  ArchiveList.Height := ArchivePage.SurfaceHeight - ScaleY(16);
   ArchiveList.Anchors := [akLeft, akTop, akRight, akBottom];
   ArchiveList.Flat := True;
   ArchiveList.BorderStyle := bsNone;

@@ -128,7 +128,6 @@ Source: "{#SetupRoot}\Photoshop\*"; DestDir: "{code:GetTargetFolder|Photoshop}";
 Source: "{#SetupRoot}\Premier\*"; DestDir: "{code:GetTargetFolder|Premier}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_premier')
 Source: "{#SetupRoot}\Steam\*"; DestDir: "{code:GetTargetFolder|Steam}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_steam')
 Source: "{#SetupRoot}\Torrent\*"; DestDir: "{code:GetTargetFolder|Torrent}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_torrent')
-Source: "{#SetupRoot}\Windows and Microsoft Office (KMS Auto)\*"; DestDir: "{code:GetTargetFolder|Windows and Microsoft Office (KMS Auto)}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_kmsauto')
 Source: "{#SetupRoot}\WinRar\*"; DestDir: "{code:GetTargetFolder|WinRar}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_winrar')
 Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_all') or IsItemSelected('s_vs_vs')
 Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_all') or IsItemSelected('s_vs_code')
@@ -234,7 +233,6 @@ end;
 
 procedure InitializeWizard();
 var
-  I: Integer;
 begin
   CatalogMap := TStringList.Create;
   WizardForm.Caption := 'Soft — установка программ';
@@ -265,6 +263,8 @@ begin
   DestinationEdit.Text := 'C:\';
   DestinationEdit.Font.Name := 'Segoe UI';
   DestinationEdit.Font.Size := 10;
+  DestinationEdit.Color := $00343A44;
+  DestinationEdit.Font.Color := clWhite;
   BrowseButton := TNewButton.Create(DestinationPage);
   BrowseButton.Parent := DestinationPage.Surface;
   BrowseButton.Left := DestinationEdit.Left + DestinationEdit.Width + ScaleX(8);
@@ -286,6 +286,7 @@ begin
   CatalogModeButton.Checked := True;
   CatalogModeButton.Font.Name := 'Segoe UI';
   CatalogModeButton.Font.Size := 10;
+  CatalogModeButton.Font.Color := clWhite;
   ArchiveModeButton := TNewRadioButton.Create(ModePage);
   ArchiveModeButton.Parent := ModePage.Surface;
   ArchiveModeButton.Left := ScaleX(18);
@@ -295,6 +296,7 @@ begin
   ArchiveModeButton.Caption := 'Выбрать готовый сборник программ в архиве';
   ArchiveModeButton.Font.Name := 'Segoe UI';
   ArchiveModeButton.Font.Size := 10;
+  ArchiveModeButton.Font.Color := clWhite;
 
   AddPageText(CatalogPage, 'Выберите нужные программы', 10, 30, 15, True);
   AddPageText(CatalogPage, 'Отметьте одну или несколько позиций. Группы Visual Studio и «Браузеры» можно раскрыть.', 43, 28, 9, False);
@@ -474,3 +476,4 @@ function InitializeSetup(): Boolean;
 begin
   Result := True;
 end;
+

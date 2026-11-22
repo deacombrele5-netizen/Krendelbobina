@@ -117,14 +117,12 @@ Name: "setup\s_steam"; Description: "Steam"; Types: custom; Flags: dontinheritch
 Name: "setup\s_torrent"; Description: "Torrent"; Types: custom; Flags: dontinheritcheck
 Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
 Name: "setup\visualstudio"; Description: "Visual Studio"; Types: custom
-Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom
-Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom
-Name: "setup\browsers"; Description: "Браузеры"; Types: custom
-Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom
-Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom
-Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom
-Name: "setup\browsers\opera"; Description: "Opera"; Types: custom
-Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom
+Name: "setup\vscode"; Description: "Visual Studio Code"; Types: custom
+Name: "setup\browser_chrome"; Description: "Google Chrome"; Types: custom
+Name: "setup\browser_firefox"; Description: "Mozilla Firefox"; Types: custom
+Name: "setup\browser_edge"; Description: "Microsoft Edge"; Types: custom
+Name: "setup\browser_opera"; Description: "Opera"; Types: custom
+Name: "setup\browser_yandex"; Description: "Яндекс Браузер"; Types: custom
 Name: "portable"; Description: "Портативные программы"; Types: custom; Flags: fixed
 Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
 Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
@@ -212,13 +210,13 @@ Source: "{#SetupRoot}\Premier\*"; DestDir: "{code:GetTargetFolder|Premier}"; Fla
 Source: "{#SetupRoot}\Steam\*"; DestDir: "{code:GetTargetFolder|Steam}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_steam
 Source: "{#SetupRoot}\Torrent\*"; DestDir: "{code:GetTargetFolder|Torrent}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_torrent
 Source: "{#SetupRoot}\WinRar\*"; DestDir: "{code:GetTargetFolder|WinRar}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_winrar
-Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\visualstudio\vs
-Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\visualstudio\vscode
-Source: "{#SetupRoot}\Браузеры\ChromeSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Components: setup\browsers\chrome
-Source: "{#SetupRoot}\Браузеры\Firefox Installer.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Components: setup\browsers\firefox
-Source: "{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Components: setup\browsers\edge
-Source: "{#SetupRoot}\Браузеры\OperaSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Components: setup\browsers\opera
-Source: "{#SetupRoot}\Браузеры\Yandex.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Components: setup\browsers\yandex
+Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\visualstudio
+Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\vscode
+Source: "{#SetupRoot}\Браузеры\ChromeSetup.exe"; DestDir: "{code:GetTargetFolder|Google Chrome}"; Flags: ignoreversion; Components: setup\browser_chrome
+Source: "{#SetupRoot}\Браузеры\Firefox Installer.exe"; DestDir: "{code:GetTargetFolder|Firefox}"; Flags: ignoreversion; Components: setup\browser_firefox
+Source: "{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{code:GetTargetFolder|Microsoft Edge}"; Flags: ignoreversion; Components: setup\browser_edge
+Source: "{#SetupRoot}\Браузеры\OperaSetup.exe"; DestDir: "{code:GetTargetFolder|Opera}"; Flags: ignoreversion; Components: setup\browser_opera
+Source: "{#SetupRoot}\Браузеры\Yandex.exe"; DestDir: "{code:GetTargetFolder|Яндекс браузер}"; Flags: ignoreversion; Components: setup\browser_yandex
 Source: "{#PortableArchiveRoot}\Софт-Portable.rar"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_portable')
 Source: "{#PortableArchiveRoot}\Информация об архиве - Софт-Portable.txt"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_portable')
 Source: "{#SetupArchiveRoot}\Софт-SetUp.rar"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_setup')
@@ -231,8 +229,6 @@ var
   ArchivePage: TInputOptionWizardPage;
 
 procedure InitializeWizard;
-var
-  I: Integer;
 begin
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
@@ -252,16 +248,7 @@ begin
   ArchivePage.Add('Архив с установочными версиями программ');
 
   { Изначально снять отметки со всех отдельных программ каталога }
-  WizardSelectComponents('!portable\p_adobe_acrobat,!portable\p_adobe_aftereffects,!portable\p_adobe_audition,!portable\p_adobe_illustrator,!portable\p_adobe_photoshop,!portable\p_adobe_premiere,!portable\p_aida64,!portable\p_anydesk,!portable\p_blender,!portable\p_easy2boot,!portable\p_encryptonclick,!portable\p_chrome,!portable\p_imgburn,!portable\p_localsend,!portable\p_scanner,!portable\p_nsis,!portable\p_obs,!portable\p_portablecreator,!portable\p_putty,!portable\p_rufus,!portable\p_sysinternals,!portable\p_utorrent,!portable\p_vlc,!portable\p_vscode,!portable\p_wifiinfoview,!portable\p_winnote,!portable\p_winpowershell,!portable\p_winrar,!portable\p_winscp,!portable\p_winsetup,!portable\p_winterminal,!portable\p_wnetwatcher,!setup\s_adobe_acrobat,!setup\s_adobe_aftereffects,!setup\s_adobe_animate,!setup\s_adobe_audition,!setup\s_adobe_lightroom,!setup\s_adobe_substance,!setup\s_aida64,!setup\s_blender,!setup\s_discord,!setup\s_epic,!setup\s_flstudio,!setup\s_illustrator,!setup\s_indesign,!setup\s_localsend,!setup\s_office,!setup\s_obs,!setup\s_photoshop,!setup\s_premier,!setup\s_steam,!setup\s_torrent,!setup\s_winrar,!setup\visualstudio\vs,!setup\visualstudio\vscode,!setup\browsers\chrome,!setup\browsers\firefox,!setup\browsers\edge,!setup\browsers\opera,!setup\browsers\yandex');
-
-  { Свернуть категории браузеров и Visual Studio при открытии списка }
-  for I := 0 to WizardForm.ComponentsList.ItemCount - 1 do
-  begin
-    if ((WizardForm.ComponentsList.ItemCaption[I] = 'Браузеры') or
-      (WizardForm.ComponentsList.ItemCaption[I] = 'Visual Studio')) and
-      (WizardForm.ComponentsList.ItemLevel[I] = 1) then
-      WizardForm.ComponentsList.ItemExpanded[I] := False;
-  end;
+  WizardSelectComponents('!portable\p_adobe_acrobat,!portable\p_adobe_aftereffects,!portable\p_adobe_audition,!portable\p_adobe_illustrator,!portable\p_adobe_photoshop,!portable\p_adobe_premiere,!portable\p_aida64,!portable\p_anydesk,!portable\p_blender,!portable\p_easy2boot,!portable\p_encryptonclick,!portable\p_chrome,!portable\p_imgburn,!portable\p_localsend,!portable\p_scanner,!portable\p_nsis,!portable\p_obs,!portable\p_portablecreator,!portable\p_putty,!portable\p_rufus,!portable\p_sysinternals,!portable\p_utorrent,!portable\p_vlc,!portable\p_vscode,!portable\p_wifiinfoview,!portable\p_winnote,!portable\p_winpowershell,!portable\p_winrar,!portable\p_winscp,!portable\p_winsetup,!portable\p_winterminal,!portable\p_wnetwatcher,!setup\s_adobe_acrobat,!setup\s_adobe_aftereffects,!setup\s_adobe_animate,!setup\s_adobe_audition,!setup\s_adobe_lightroom,!setup\s_adobe_substance,!setup\s_aida64,!setup\s_blender,!setup\s_discord,!setup\s_epic,!setup\s_flstudio,!setup\s_illustrator,!setup\s_indesign,!setup\s_localsend,!setup\s_office,!setup\s_obs,!setup\s_photoshop,!setup\s_premier,!setup\s_steam,!setup\s_torrent,!setup\s_winrar,!setup\visualstudio,!setup\visualstudiocode,!setup\browser_chrome,!setup\browser_firefox,!setup\browser_edge,!setup\browser_opera,!setup\browser_yandex');
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
@@ -393,19 +380,19 @@ begin
   else if ItemID = 's_winrar' then
     Result := WizardIsComponentSelected('setup\s_winrar')
   else if ItemID = 's_vs_vs' then
-    Result := WizardIsComponentSelected('setup\visualstudio\vs')
+    Result := WizardIsComponentSelected('setup\visualstudio')
   else if ItemID = 's_vs_code' then
-    Result := WizardIsComponentSelected('setup\visualstudio\vscode')
+    Result := WizardIsComponentSelected('setup\visualstudiocode')
   else if ItemID = 's_browser_chrome' then
-    Result := WizardIsComponentSelected('setup\browsers\chrome')
+    Result := WizardIsComponentSelected('setup\browser_chrome')
   else if ItemID = 's_browser_firefox' then
-    Result := WizardIsComponentSelected('setup\browsers\firefox')
+    Result := WizardIsComponentSelected('setup\browser_firefox')
   else if ItemID = 's_browser_edge' then
-    Result := WizardIsComponentSelected('setup\browsers\edge')
+    Result := WizardIsComponentSelected('setup\browser_edge')
   else if ItemID = 's_browser_opera' then
-    Result := WizardIsComponentSelected('setup\browsers\opera')
+    Result := WizardIsComponentSelected('setup\browser_opera')
   else if ItemID = 's_browser_yandex' then
-    Result := WizardIsComponentSelected('setup\browsers\yandex')
+    Result := WizardIsComponentSelected('setup\browser_yandex')
   else if ItemID = 'a_portable' then
     Result := ArchivePage.Values[0]
   else if ItemID = 'a_setup' then

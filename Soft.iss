@@ -14,10 +14,9 @@
 ; Все содержимое выбранных папок включается в установку без Excludes и без выборочного
 ; удаления файлов; вложенные каталоги и пустые папки сохраняются.
 ;
-; Интерфейс: индивидуальные страницы выбора и оформления внутри Inno Setup.
-; Полная замена системной оболочки Inno Setup на отдельное приложение
-; потребовала бы другого загрузчика/технологии, поэтому здесь настроены
-; собственные страницы, тексты, элементы выбора и тёмное оформление.
+; Интерфейс: стандартные страницы мастера Inno Setup с тёмным оформлением.
+; Выбор папки и компонентов выполняется встроенными средствами Inno Setup.
+; Категории каталога отображаются как вложенный список с системными флажками.
 ; =============================================================================
 
 #define MyAppName "Софт"
@@ -61,6 +60,7 @@ DiskSliceSize=35000000000
 SlicesPerDisk=1
 WizardStyle=modern dark
 AlwaysShowComponentsList=yes
+FlatComponentsList=no
 WizardSizePercent=100
 SetupIconFile={#MySoftRoot}\app.ico
 DefaultDialogFontName=Segoe UI
@@ -93,7 +93,7 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "custom"; Description: "Выборочная установка"; Flags: iscustom
 
 [Components]
-Name: "portable"; Description: "Портативные программы"; Types: custom; Flags: fixed
+Name: "portable"; Description: "Портативные программы"; Types: custom
 Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom
 Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom
 Name: "portable\p_adobe_audition"; Description: "Adobe Audition"; Types: custom
@@ -126,7 +126,7 @@ Name: "portable\p_winscp"; Description: "WinSCP"; Types: custom
 Name: "portable\p_winsetup"; Description: "WinSetupFromUSB"; Types: custom
 Name: "portable\p_winterminal"; Description: "Windows Terminal"; Types: custom
 Name: "portable\p_wnetwatcher"; Description: "WNetWatcher"; Types: custom
-Name: "setup"; Description: "Установщики программ"; Types: custom; Flags: fixed
+Name: "setup"; Description: "Установщики программ"; Types: custom
 Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom
 Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom
 Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom
@@ -148,19 +148,20 @@ Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom
 Name: "setup\s_steam"; Description: "Steam"; Types: custom
 Name: "setup\s_torrent"; Description: "Torrent"; Types: custom
 Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom
-Name: "setup\visualstudio"; Description: "Visual Studio (все версии)"; Types: custom
+Name: "setup\visualstudio_all"; Description: "Visual Studio (все версии)"; Types: custom
+Name: "setup\visualstudio"; Description: "Visual Studio по отдельности"; Types: custom
 Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom
 Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom
-Name: "setup\browsers"; Description: "Браузеры (все сразу)"; Types: custom
+Name: "setup\browsers_all"; Description: "Все браузеры сразу"; Types: custom
+Name: "setup\browsers"; Description: "Браузеры по отдельности"; Types: custom
 Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom
 Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom
 Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom
 Name: "setup\browsers\opera"; Description: "Opera"; Types: custom
 Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom
-Name: "archives"; Description: "Готовые архивы"; Types: custom; Flags: fixed
+Name: "archives"; Description: "Готовые архивы"; Types: custom
 Name: "archives\portable"; Description: "Архив с портативными программами"; Types: custom
 Name: "archives\setup"; Description: "Архив с установочными версиями программ"; Types: custom
-
 [Files]
 Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_acrobat')
 Source: "{#PortableRoot}\AdobeAfterEffects-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAfterEffects-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_aftereffects')
@@ -241,96 +242,198 @@ end;
 
 function IsItemSelected(const ItemID: String): Boolean;
 begin
-  if ItemID = 'a_portable' then
-    Result := IsComponentSelected('archives\portable')
-  else if ItemID = 'a_setup' then
-    Result := IsComponentSelected('archives\setup')
+  if ItemID = 'p_adobe_acrobat' then
+    Result := WizardIsComponentSelected('portable\p_adobe_acrobat')
+  else if ItemID = 'p_adobe_aftereffects' then
+    Result := WizardIsComponentSelected('portable\p_adobe_aftereffects')
+  else if ItemID = 'p_adobe_audition' then
+    Result := WizardIsComponentSelected('portable\p_adobe_audition')
+  else if ItemID = 'p_adobe_illustrator' then
+    Result := WizardIsComponentSelected('portable\p_adobe_illustrator')
+  else if ItemID = 'p_adobe_photoshop' then
+    Result := WizardIsComponentSelected('portable\p_adobe_photoshop')
+  else if ItemID = 'p_adobe_premiere' then
+    Result := WizardIsComponentSelected('portable\p_adobe_premiere')
+  else if ItemID = 'p_aida64' then
+    Result := WizardIsComponentSelected('portable\p_aida64')
+  else if ItemID = 'p_anydesk' then
+    Result := WizardIsComponentSelected('portable\p_anydesk')
+  else if ItemID = 'p_blender' then
+    Result := WizardIsComponentSelected('portable\p_blender')
+  else if ItemID = 'p_easy2boot' then
+    Result := WizardIsComponentSelected('portable\p_easy2boot')
+  else if ItemID = 'p_encryptonclick' then
+    Result := WizardIsComponentSelected('portable\p_encryptonclick')
+  else if ItemID = 'p_chrome' then
+    Result := WizardIsComponentSelected('portable\p_chrome')
+  else if ItemID = 'p_imgburn' then
+    Result := WizardIsComponentSelected('portable\p_imgburn')
+  else if ItemID = 'p_localsend' then
+    Result := WizardIsComponentSelected('portable\p_localsend')
+  else if ItemID = 'p_scanner' then
+    Result := WizardIsComponentSelected('portable\p_scanner')
+  else if ItemID = 'p_nsis' then
+    Result := WizardIsComponentSelected('portable\p_nsis')
+  else if ItemID = 'p_obs' then
+    Result := WizardIsComponentSelected('portable\p_obs')
+  else if ItemID = 'p_portablecreator' then
+    Result := WizardIsComponentSelected('portable\p_portablecreator')
+  else if ItemID = 'p_putty' then
+    Result := WizardIsComponentSelected('portable\p_putty')
+  else if ItemID = 'p_rufus' then
+    Result := WizardIsComponentSelected('portable\p_rufus')
+  else if ItemID = 'p_sysinternals' then
+    Result := WizardIsComponentSelected('portable\p_sysinternals')
+  else if ItemID = 'p_utorrent' then
+    Result := WizardIsComponentSelected('portable\p_utorrent')
+  else if ItemID = 'p_vlc' then
+    Result := WizardIsComponentSelected('portable\p_vlc')
+  else if ItemID = 'p_vscode' then
+    Result := WizardIsComponentSelected('portable\p_vscode')
+  else if ItemID = 'p_wifiinfoview' then
+    Result := WizardIsComponentSelected('portable\p_wifiinfoview')
+  else if ItemID = 'p_winnote' then
+    Result := WizardIsComponentSelected('portable\p_winnote')
+  else if ItemID = 'p_winpowershell' then
+    Result := WizardIsComponentSelected('portable\p_winpowershell')
+  else if ItemID = 'p_winrar' then
+    Result := WizardIsComponentSelected('portable\p_winrar')
+  else if ItemID = 'p_winscp' then
+    Result := WizardIsComponentSelected('portable\p_winscp')
+  else if ItemID = 'p_winsetup' then
+    Result := WizardIsComponentSelected('portable\p_winsetup')
+  else if ItemID = 'p_winterminal' then
+    Result := WizardIsComponentSelected('portable\p_winterminal')
+  else if ItemID = 'p_wnetwatcher' then
+    Result := WizardIsComponentSelected('portable\p_wnetwatcher')
+  else if ItemID = 's_adobe_acrobat' then
+    Result := WizardIsComponentSelected('setup\s_adobe_acrobat')
+  else if ItemID = 's_adobe_aftereffects' then
+    Result := WizardIsComponentSelected('setup\s_adobe_aftereffects')
+  else if ItemID = 's_adobe_animate' then
+    Result := WizardIsComponentSelected('setup\s_adobe_animate')
+  else if ItemID = 's_adobe_audition' then
+    Result := WizardIsComponentSelected('setup\s_adobe_audition')
+  else if ItemID = 's_adobe_lightroom' then
+    Result := WizardIsComponentSelected('setup\s_adobe_lightroom')
+  else if ItemID = 's_adobe_substance' then
+    Result := WizardIsComponentSelected('setup\s_adobe_substance')
+  else if ItemID = 's_aida64' then
+    Result := WizardIsComponentSelected('setup\s_aida64')
+  else if ItemID = 's_blender' then
+    Result := WizardIsComponentSelected('setup\s_blender')
+  else if ItemID = 's_discord' then
+    Result := WizardIsComponentSelected('setup\s_discord')
+  else if ItemID = 's_epic' then
+    Result := WizardIsComponentSelected('setup\s_epic')
+  else if ItemID = 's_flstudio' then
+    Result := WizardIsComponentSelected('setup\s_flstudio')
+  else if ItemID = 's_illustrator' then
+    Result := WizardIsComponentSelected('setup\s_illustrator')
+  else if ItemID = 's_indesign' then
+    Result := WizardIsComponentSelected('setup\s_indesign')
+  else if ItemID = 's_localsend' then
+    Result := WizardIsComponentSelected('setup\s_localsend')
+  else if ItemID = 's_office' then
+    Result := WizardIsComponentSelected('setup\s_office')
+  else if ItemID = 's_obs' then
+    Result := WizardIsComponentSelected('setup\s_obs')
+  else if ItemID = 's_photoshop' then
+    Result := WizardIsComponentSelected('setup\s_photoshop')
+  else if ItemID = 's_premier' then
+    Result := WizardIsComponentSelected('setup\s_premier')
+  else if ItemID = 's_steam' then
+    Result := WizardIsComponentSelected('setup\s_steam')
+  else if ItemID = 's_torrent' then
+    Result := WizardIsComponentSelected('setup\s_torrent')
+  else if ItemID = 's_winrar' then
+    Result := WizardIsComponentSelected('setup\s_winrar')
   else if ItemID = 's_vs_vs' then
-    Result := IsComponentSelected('setup\visualstudio\vs')
+    Result := WizardIsComponentSelected('setup\visualstudio_all') or WizardIsComponentSelected('setup\visualstudio\vs')
   else if ItemID = 's_vs_code' then
-    Result := IsComponentSelected('setup\visualstudio\vscode')
+    Result := WizardIsComponentSelected('setup\visualstudio_all') or WizardIsComponentSelected('setup\visualstudio\vscode')
   else if ItemID = 's_browser_chrome' then
-    Result := IsComponentSelected('setup\browsers\chrome')
+    Result := WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\chrome')
   else if ItemID = 's_browser_firefox' then
-    Result := IsComponentSelected('setup\browsers\firefox')
+    Result := WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\firefox')
   else if ItemID = 's_browser_edge' then
-    Result := IsComponentSelected('setup\browsers\edge')
+    Result := WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\edge')
   else if ItemID = 's_browser_opera' then
-    Result := IsComponentSelected('setup\browsers\opera')
+    Result := WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\opera')
   else if ItemID = 's_browser_yandex' then
-    Result := IsComponentSelected('setup\browsers\yandex')
-  else if Copy(ItemID, 1, 2) = 'p_' then
-    Result := IsComponentSelected('portable\' + ItemID)
-  else if Copy(ItemID, 1, 2) = 's_' then
-    Result := IsComponentSelected('setup\' + ItemID)
+    Result := WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\yandex')
+  else if ItemID = 'a_portable' then
+    Result := WizardIsComponentSelected('archives\portable')
+  else if ItemID = 'a_setup' then
+    Result := WizardIsComponentSelected('archives\setup')
   else
     Result := False;
 end;
 
 function HasAnySelection: Boolean;
 begin
-  Result := IsComponentSelected('portable\p_adobe_acrobat')
-    or IsComponentSelected('portable\p_adobe_aftereffects')
-    or IsComponentSelected('portable\p_adobe_audition')
-    or IsComponentSelected('portable\p_adobe_illustrator')
-    or IsComponentSelected('portable\p_adobe_photoshop')
-    or IsComponentSelected('portable\p_adobe_premiere')
-    or IsComponentSelected('portable\p_aida64')
-    or IsComponentSelected('portable\p_anydesk')
-    or IsComponentSelected('portable\p_blender')
-    or IsComponentSelected('portable\p_easy2boot')
-    or IsComponentSelected('portable\p_encryptonclick')
-    or IsComponentSelected('portable\p_chrome')
-    or IsComponentSelected('portable\p_imgburn')
-    or IsComponentSelected('portable\p_localsend')
-    or IsComponentSelected('portable\p_scanner')
-    or IsComponentSelected('portable\p_nsis')
-    or IsComponentSelected('portable\p_obs')
-    or IsComponentSelected('portable\p_portablecreator')
-    or IsComponentSelected('portable\p_putty')
-    or IsComponentSelected('portable\p_rufus')
-    or IsComponentSelected('portable\p_sysinternals')
-    or IsComponentSelected('portable\p_utorrent')
-    or IsComponentSelected('portable\p_vlc')
-    or IsComponentSelected('portable\p_vscode')
-    or IsComponentSelected('portable\p_wifiinfoview')
-    or IsComponentSelected('portable\p_winnote')
-    or IsComponentSelected('portable\p_winpowershell')
-    or IsComponentSelected('portable\p_winrar')
-    or IsComponentSelected('portable\p_winscp')
-    or IsComponentSelected('portable\p_winsetup')
-    or IsComponentSelected('portable\p_winterminal')
-    or IsComponentSelected('portable\p_wnetwatcher')
-    or IsComponentSelected('setup\s_adobe_acrobat')
-    or IsComponentSelected('setup\s_adobe_aftereffects')
-    or IsComponentSelected('setup\s_adobe_animate')
-    or IsComponentSelected('setup\s_adobe_audition')
-    or IsComponentSelected('setup\s_adobe_lightroom')
-    or IsComponentSelected('setup\s_adobe_substance')
-    or IsComponentSelected('setup\s_aida64')
-    or IsComponentSelected('setup\s_blender')
-    or IsComponentSelected('setup\s_discord')
-    or IsComponentSelected('setup\s_epic')
-    or IsComponentSelected('setup\s_flstudio')
-    or IsComponentSelected('setup\s_illustrator')
-    or IsComponentSelected('setup\s_indesign')
-    or IsComponentSelected('setup\s_localsend')
-    or IsComponentSelected('setup\s_office')
-    or IsComponentSelected('setup\s_obs')
-    or IsComponentSelected('setup\s_photoshop')
-    or IsComponentSelected('setup\s_premier')
-    or IsComponentSelected('setup\s_steam')
-    or IsComponentSelected('setup\s_torrent')
-    or IsComponentSelected('setup\s_winrar')
-    or IsComponentSelected('setup\visualstudio\vs')
-    or IsComponentSelected('setup\visualstudio\vscode')
-    or IsComponentSelected('setup\browsers\chrome')
-    or IsComponentSelected('setup\browsers\firefox')
-    or IsComponentSelected('setup\browsers\edge')
-    or IsComponentSelected('setup\browsers\opera')
-    or IsComponentSelected('setup\browsers\yandex')
-    or IsComponentSelected('archives\portable')
-    or IsComponentSelected('archives\setup');
+  Result := (WizardIsComponentSelected('portable\p_adobe_acrobat'))
+    or (WizardIsComponentSelected('portable\p_adobe_aftereffects'))
+    or (WizardIsComponentSelected('portable\p_adobe_audition'))
+    or (WizardIsComponentSelected('portable\p_adobe_illustrator'))
+    or (WizardIsComponentSelected('portable\p_adobe_photoshop'))
+    or (WizardIsComponentSelected('portable\p_adobe_premiere'))
+    or (WizardIsComponentSelected('portable\p_aida64'))
+    or (WizardIsComponentSelected('portable\p_anydesk'))
+    or (WizardIsComponentSelected('portable\p_blender'))
+    or (WizardIsComponentSelected('portable\p_easy2boot'))
+    or (WizardIsComponentSelected('portable\p_encryptonclick'))
+    or (WizardIsComponentSelected('portable\p_chrome'))
+    or (WizardIsComponentSelected('portable\p_imgburn'))
+    or (WizardIsComponentSelected('portable\p_localsend'))
+    or (WizardIsComponentSelected('portable\p_scanner'))
+    or (WizardIsComponentSelected('portable\p_nsis'))
+    or (WizardIsComponentSelected('portable\p_obs'))
+    or (WizardIsComponentSelected('portable\p_portablecreator'))
+    or (WizardIsComponentSelected('portable\p_putty'))
+    or (WizardIsComponentSelected('portable\p_rufus'))
+    or (WizardIsComponentSelected('portable\p_sysinternals'))
+    or (WizardIsComponentSelected('portable\p_utorrent'))
+    or (WizardIsComponentSelected('portable\p_vlc'))
+    or (WizardIsComponentSelected('portable\p_vscode'))
+    or (WizardIsComponentSelected('portable\p_wifiinfoview'))
+    or (WizardIsComponentSelected('portable\p_winnote'))
+    or (WizardIsComponentSelected('portable\p_winpowershell'))
+    or (WizardIsComponentSelected('portable\p_winrar'))
+    or (WizardIsComponentSelected('portable\p_winscp'))
+    or (WizardIsComponentSelected('portable\p_winsetup'))
+    or (WizardIsComponentSelected('portable\p_winterminal'))
+    or (WizardIsComponentSelected('portable\p_wnetwatcher'))
+    or (WizardIsComponentSelected('setup\s_adobe_acrobat'))
+    or (WizardIsComponentSelected('setup\s_adobe_aftereffects'))
+    or (WizardIsComponentSelected('setup\s_adobe_animate'))
+    or (WizardIsComponentSelected('setup\s_adobe_audition'))
+    or (WizardIsComponentSelected('setup\s_adobe_lightroom'))
+    or (WizardIsComponentSelected('setup\s_adobe_substance'))
+    or (WizardIsComponentSelected('setup\s_aida64'))
+    or (WizardIsComponentSelected('setup\s_blender'))
+    or (WizardIsComponentSelected('setup\s_discord'))
+    or (WizardIsComponentSelected('setup\s_epic'))
+    or (WizardIsComponentSelected('setup\s_flstudio'))
+    or (WizardIsComponentSelected('setup\s_illustrator'))
+    or (WizardIsComponentSelected('setup\s_indesign'))
+    or (WizardIsComponentSelected('setup\s_localsend'))
+    or (WizardIsComponentSelected('setup\s_office'))
+    or (WizardIsComponentSelected('setup\s_obs'))
+    or (WizardIsComponentSelected('setup\s_photoshop'))
+    or (WizardIsComponentSelected('setup\s_premier'))
+    or (WizardIsComponentSelected('setup\s_steam'))
+    or (WizardIsComponentSelected('setup\s_torrent'))
+    or (WizardIsComponentSelected('setup\s_winrar'))
+    or (WizardIsComponentSelected('setup\visualstudio_all') or WizardIsComponentSelected('setup\visualstudio\vs'))
+    or (WizardIsComponentSelected('setup\visualstudio_all') or WizardIsComponentSelected('setup\visualstudio\vscode'))
+    or (WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\chrome'))
+    or (WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\firefox'))
+    or (WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\edge'))
+    or (WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\opera'))
+    or (WizardIsComponentSelected('setup\browsers_all') or WizardIsComponentSelected('setup\browsers\yandex'))
+    or (WizardIsComponentSelected('archives\portable'))
+    or (WizardIsComponentSelected('archives\setup'));
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;

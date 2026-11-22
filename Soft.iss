@@ -236,8 +236,8 @@ begin
     'Выберите источник программ.',
     'Выберите один из двух вариантов:',
     True, False);
-  InstallModePage.Add('Выбрать программы из каталога');
-  InstallModePage.Add('Выбрать готовые архивы');
+  InstallModePage.Add('Выбор из каталога');
+  InstallModePage.Add('Выбор архива');
   InstallModePage.SelectedValueIndex := 0;
 
   ArchivePage := CreateInputOptionPage(wpSelectComponents,

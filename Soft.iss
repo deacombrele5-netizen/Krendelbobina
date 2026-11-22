@@ -248,7 +248,7 @@ begin
   ArchivePage.Add('Архив с установочными версиями программ');
 
   { Изначально снять отметки со всех отдельных программ каталога }
-  WizardSelectComponents('!portable\p_adobe_acrobat,!portable\p_adobe_aftereffects,!portable\p_adobe_audition,!portable\p_adobe_illustrator,!portable\p_adobe_photoshop,!portable\p_adobe_premiere,!portable\p_aida64,!portable\p_anydesk,!portable\p_blender,!portable\p_easy2boot,!portable\p_encryptonclick,!portable\p_chrome,!portable\p_imgburn,!portable\p_localsend,!portable\p_scanner,!portable\p_nsis,!portable\p_obs,!portable\p_portablecreator,!portable\p_putty,!portable\p_rufus,!portable\p_sysinternals,!portable\p_utorrent,!portable\p_vlc,!portable\p_vscode,!portable\p_wifiinfoview,!portable\p_winnote,!portable\p_winpowershell,!portable\p_winrar,!portable\p_winscp,!portable\p_winsetup,!portable\p_winterminal,!portable\p_wnetwatcher,!setup\s_adobe_acrobat,!setup\s_adobe_aftereffects,!setup\s_adobe_animate,!setup\s_adobe_audition,!setup\s_adobe_lightroom,!setup\s_adobe_substance,!setup\s_aida64,!setup\s_blender,!setup\s_discord,!setup\s_epic,!setup\s_flstudio,!setup\s_illustrator,!setup\s_indesign,!setup\s_localsend,!setup\s_office,!setup\s_obs,!setup\s_photoshop,!setup\s_premier,!setup\s_steam,!setup\s_torrent,!setup\s_winrar,!setup\visualstudio,!setup\visualstudiocode,!setup\browser_chrome,!setup\browser_firefox,!setup\browser_edge,!setup\browser_opera,!setup\browser_yandex');
+  WizardSelectComponents('!portable\p_adobe_acrobat,!portable\p_adobe_aftereffects,!portable\p_adobe_audition,!portable\p_adobe_illustrator,!portable\p_adobe_photoshop,!portable\p_adobe_premiere,!portable\p_aida64,!portable\p_anydesk,!portable\p_blender,!portable\p_easy2boot,!portable\p_encryptonclick,!portable\p_chrome,!portable\p_imgburn,!portable\p_localsend,!portable\p_scanner,!portable\p_nsis,!portable\p_obs,!portable\p_portablecreator,!portable\p_putty,!portable\p_rufus,!portable\p_sysinternals,!portable\p_utorrent,!portable\p_vlc,!portable\p_vscode,!portable\p_wifiinfoview,!portable\p_winnote,!portable\p_winpowershell,!portable\p_winrar,!portable\p_winscp,!portable\p_winsetup,!portable\p_winterminal,!portable\p_wnetwatcher,!setup\s_adobe_acrobat,!setup\s_adobe_aftereffects,!setup\s_adobe_animate,!setup\s_adobe_audition,!setup\s_adobe_lightroom,!setup\s_adobe_substance,!setup\s_aida64,!setup\s_blender,!setup\s_discord,!setup\s_epic,!setup\s_flstudio,!setup\s_illustrator,!setup\s_indesign,!setup\s_localsend,!setup\s_office,!setup\s_obs,!setup\s_photoshop,!setup\s_premier,!setup\s_steam,!setup\s_torrent,!setup\s_winrar,!setup\visualstudio,!setup\vscode,!setup\browser_chrome,!setup\browser_firefox,!setup\browser_edge,!setup\browser_opera,!setup\browser_yandex');
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
@@ -382,7 +382,7 @@ begin
   else if ItemID = 's_vs_vs' then
     Result := WizardIsComponentSelected('setup\visualstudio')
   else if ItemID = 's_vs_code' then
-    Result := WizardIsComponentSelected('setup\visualstudiocode')
+    Result := WizardIsComponentSelected('setup\vscode')
   else if ItemID = 's_browser_chrome' then
     Result := WizardIsComponentSelected('setup\browser_chrome')
   else if ItemID = 's_browser_firefox' then

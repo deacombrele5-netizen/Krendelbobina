@@ -1,65 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180">
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1118"/><stop offset="1" stop-color="#101a25"/></linearGradient></defs>
-<rect width="1600" height="1180" fill="url(#bg)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280">
+<defs><linearGradient id="canvas" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#111820"/><stop offset="1" stop-color="#0b1016"/></linearGradient><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".38"/></filter></defs>
+<rect width="1600" height="1280" fill="url(#canvas)"/>
 <g font-family="Segoe UI,Arial,sans-serif">
-<text x="55" y="58" font-size="28" font-weight="700" fill="#f3f6fa">SOFT / УСТАНОВЩИК</text>
-<text x="55" y="91" font-size="15" fill="#9aabbd">Отдельный выбор режима: каталог программ или готовые архивы</text>
-<path d="M55 115H1545" stroke="#34485c"/>
-<g transform="translate(55 145)">
-<rect width="720" height="430" rx="8" fill="#17212d" stroke="#465a70"/>
-<rect width="720" height="48" rx="8" fill="#202d3b"/>
-<text x="24" y="30" font-size="15" fill="#edf3f8">Установка - Софт</text>
-<text x="30" y="100" font-size="25" font-weight="600" fill="#f4f7fb">Выберите папку установки</text>
-<text x="30" y="133" font-size="15" fill="#b5c2cf">Укажите папку, в которой будут размещены выбранные программы или архивы.</text>
-<text x="30" y="195" font-size="14" fill="#e5edf5">Папка установки:</text>
-<rect x="30" y="211" width="520" height="38" rx="3" fill="#101923" stroke="#52667b"/>
-<text x="45" y="236" font-size="15" fill="#f1f5f9">C:\</text>
-<rect x="562" y="211" width="126" height="38" rx="3" fill="#29394a" stroke="#63778d"/>
-<text x="625" y="235" text-anchor="middle" font-size="14" fill="#f1f5f9">Обзор...</text>
-</g>
-<g transform="translate(825 145)">
-<rect width="720" height="430" rx="8" fill="#17212d" stroke="#465a70"/>
-<rect width="720" height="48" rx="8" fill="#202d3b"/>
-<text x="24" y="30" font-size="15" fill="#edf3f8">Установка - Софт</text>
-<text x="30" y="100" font-size="25" font-weight="600" fill="#f4f7fb">Выбор способа установки</text>
-<text x="30" y="133" font-size="15" fill="#b5c2cf">Выберите один из двух вариантов:</text>
-<circle cx="55" cy="195" r="10" fill="none" stroke="#8da1b6" stroke-width="2"/>
-<circle cx="55" cy="195" r="5" fill="#48a9e5"/>
-<text x="82" y="201" font-size="17" fill="#f1f5f9">Выбор из каталога</text>
-<circle cx="55" cy="252" r="10" fill="none" stroke="#8da1b6" stroke-width="2"/>
-<text x="82" y="258" font-size="17" fill="#f1f5f9">Выбор архива</text>
-<text x="30" y="335" font-size="14" fill="#9aabbd">После нажатия «Далее» откроется только выбранный раздел.</text>
-</g>
-<g transform="translate(55 625)">
-<rect width="720" height="430" rx="8" fill="#17212d" stroke="#465a70"/>
-<rect width="720" height="48" rx="8" fill="#202d3b"/>
-<text x="24" y="30" font-size="15" fill="#edf3f8">Установка - Софт</text>
-<text x="30" y="100" font-size="25" font-weight="600" fill="#f4f7fb">Выбор программ</text>
-<text x="30" y="133" font-size="15" fill="#b5c2cf">Отметьте нужные пункты в каталоге. Архивы здесь не отображаются.</text>
-<rect x="30" y="160" width="660" height="220" rx="4" fill="#111a24" stroke="#465a70"/>
-<g font-size="15" fill="#e8eef4">
-<text x="52" y="193" font-weight="600">▾ Портативные программы</text>
-<text x="75" y="225">□ Adobe Acrobat Pro</text>
-<text x="75" y="253">□ Blender</text>
-<text x="52" y="291" font-weight="600">▾ Установщики программ</text>
-<text x="75" y="323">□ Visual Studio</text>
-<text x="75" y="351">□ Visual Studio Code</text>
-<text x="75" y="379">▸ Браузеры</text>
-<text x="100" y="405" font-size="12" fill="#9aabbd">Нажмите стрелку, чтобы раскрыть список браузеров</text>
-</g>
-</g>
-<g transform="translate(825 625)">
-<rect width="720" height="430" rx="8" fill="#17212d" stroke="#465a70"/>
-<rect width="720" height="48" rx="8" fill="#202d3b"/>
-<text x="24" y="30" font-size="15" fill="#edf3f8">Установка - Софт</text>
-<text x="30" y="100" font-size="25" font-weight="600" fill="#f4f7fb">Выбор архивов</text>
-<text x="30" y="133" font-size="15" fill="#b5c2cf">Отметьте один или оба готовых архива.</text>
-<rect x="30" y="160" width="660" height="220" rx="4" fill="#111a24" stroke="#465a70"/>
-<g font-size="16" fill="#e8eef4">
-<text x="55" y="205">□ Архив с портативными программами</text>
-<text x="55" y="252">□ Архив с установочными версиями программ</text>
-</g>
-</g>
-<text x="55" y="1120" font-size="13" fill="#8396aa">Концепция последовательности страниц. Окончательный вид элементов формируется Inno Setup.</text>
+<text x="60" y="54" fill="#f2f5f8" font-size="28" font-weight="650">SOFT - МАКЕТ УСТАНОВЩИКА</text>
+<text x="60" y="83" fill="#9eacba" font-size="15">Макет страниц на основе реального расположения элементов Inno Setup Modern Dark</text><path d="M60 105H1540" stroke="#34414e"/>
+<!-- Destination -->
+<g transform="translate(60 135)" filter="url(#shadow)">
+<rect width="720" height="500" rx="8" fill="#252526" stroke="#41464d"/><path d="M8 0H712Q720 0 720 8V34H0V8Q0 0 8 0Z" fill="#1b1b1c"/>
+<text x="17" y="23" fill="#e9e9e9" font-size="13">Установка - Софт</text><path d="M654 13h10m20 0h10m20-5v10" stroke="#aeb4bb" stroke-width="1.2" fill="none"/>
+<text x="28" y="69" fill="#f5f5f5" font-size="16" font-weight="700">Выберите папку установки</text><text x="28" y="96" fill="#e1e1e1" font-size="13">Укажите папку, в которой будут размещены выбранные программы или архивы.</text>
+<g transform="translate(650 52)"><path d="M8 8h20l8 8h28v37H8z" fill="#e3b341" stroke="#f0c75e" stroke-width="1.5"/><path d="M8 17h56" stroke="#f8d77b" stroke-width="2"/></g>
+<g transform="translate(28 145)"><path d="M0 0h664" stroke="#42464b"/><text x="0" y="30" fill="#f1f1f1" font-size="13">Папка установки:</text><rect x="0" y="44" width="535" height="32" rx="2" fill="#1e1e1e" stroke="#555b63"/><text x="12" y="65" fill="#f2f2f2" font-size="13">C:\</text><rect x="547" y="44" width="117" height="32" rx="3" fill="#3a3d41" stroke="#5a6067"/><text x="605" y="65" text-anchor="middle" fill="#f4f4f4" font-size="13">Обзор...</text></g>
+<path d="M0 442H720" stroke="#41464d"/><g transform="translate(475 458)"><rect width="95" height="29" rx="4" fill="#286b9d" stroke="#3988bd"/><text x="47.5" y="19" text-anchor="middle" fill="#fff" font-size="12">Далее</text><rect x="104" width="95" height="29" rx="4" fill="#343638" stroke="#55595d"/><text x="151.5" y="19" text-anchor="middle" fill="#eee" font-size="12">Отмена</text></g></g>
+<!-- Method -->
+<g transform="translate(820 135)" filter="url(#shadow)">
+<rect width="720" height="500" rx="8" fill="#252526" stroke="#41464d"/><path d="M8 0H712Q720 0 720 8V34H0V8Q0 0 8 0Z" fill="#1b1b1c"/><text x="17" y="23" fill="#e9e9e9" font-size="13">Установка - Софт</text><path d="M654 13h10m20 0h10m20-5v10" stroke="#aeb4bb" stroke-width="1.2" fill="none"/>
+<text x="28" y="69" fill="#f5f5f5" font-size="16" font-weight="700">Выбор способа установки</text><text x="28" y="96" fill="#e1e1e1" font-size="13">Выберите источник программ.</text>
+<g transform="translate(28 145)" fill="#eee" font-size="14"><circle cx="10" cy="12" r="8" fill="none" stroke="#62b5e8" stroke-width="1.6"/><circle cx="10" cy="12" r="4" fill="#62b5e8"/><text x="32" y="17">Выбор из каталога</text><circle cx="10" cy="62" r="8" fill="none" stroke="#b9bdc2" stroke-width="1.4"/><text x="32" y="67">Выбор архива</text></g>
+<path d="M0 442H720" stroke="#41464d"/><g transform="translate(475 458)"><rect width="95" height="29" rx="4" fill="#286b9d" stroke="#3988bd"/><text x="47.5" y="19" text-anchor="middle" fill="#fff" font-size="12">Далее</text><rect x="104" width="95" height="29" rx="4" fill="#343638" stroke="#55595d"/><text x="151.5" y="19" text-anchor="middle" fill="#eee" font-size="12">Отмена</text></g></g>
+<!-- Catalog -->
+<g transform="translate(60 685)" filter="url(#shadow)">
+<rect width="720" height="500" rx="8" fill="#252526" stroke="#41464d"/><path d="M8 0H712Q720 0 720 8V34H0V8Q0 0 8 0Z" fill="#1b1b1c"/><text x="17" y="23" fill="#e9e9e9" font-size="13">Установка - Софт</text><path d="M654 13h10m20 0h10m20-5v10" stroke="#aeb4bb" stroke-width="1.2" fill="none"/>
+<text x="28" y="69" fill="#f5f5f5" font-size="16" font-weight="700">Выбор программ</text><text x="28" y="96" fill="#e1e1e1" font-size="13">Отметьте программы, которые нужно установить.</text>
+<rect x="28" y="125" width="664" height="280" rx="2" fill="#202020" stroke="#484b50"/>
+<g font-size="13" fill="#ededed">
+<rect x="44" y="144" width="13" height="13" rx="1" fill="#3c3c3c" stroke="#9ba1a8"/><path d="M47 150l3 3 5-6" stroke="#d6dce2" stroke-width="1.4" fill="none"/><text x="67" y="155" font-weight="600">Портативные программы</text>
+<path d="M51 167V230" stroke="#51565c"/><rect x="67" y="174" width="13" height="13" rx="1" fill="#202020" stroke="#aeb4bb"/><text x="91" y="185">Adobe Acrobat Pro</text><rect x="67" y="198" width="13" height="13" rx="1" fill="#202020" stroke="#aeb4bb"/><text x="91" y="209">Blender</text><rect x="67" y="222" width="13" height="13" rx="1" fill="#202020" stroke="#aeb4bb"/><text x="91" y="233">Rufus</text>
+<rect x="44" y="250" width="13" height="13" rx="1" fill="#3c3c3c" stroke="#9ba1a8"/><path d="M47 256l3 3 5-6" stroke="#d6dce2" stroke-width="1.4" fill="none"/><text x="67" y="261" font-weight="600">Установщики программ</text><path d="M51 273V377" stroke="#51565c"/>
+<path d="M67 284l4 4-4 4" stroke="#cbd2d9" stroke-width="1.2" fill="none"/><text x="82" y="294" font-weight="600">Visual Studio</text><path d="M67 320l4 4-4 4" stroke="#cbd2d9" stroke-width="1.2" fill="none"/><text x="82" y="330" font-weight="600">Браузеры</text><text x="106" y="354" fill="#9ca8b4" font-size="11">Стрелка слева раскрывает вложенные пункты.</text></g>
+<path d="M0 442H720" stroke="#41464d"/><g transform="translate(475 458)"><rect width="95" height="29" rx="4" fill="#286b9d" stroke="#3988bd"/><text x="47.5" y="19" text-anchor="middle" fill="#fff" font-size="12">Далее</text><rect x="104" width="95" height="29" rx="4" fill="#343638" stroke="#55595d"/><text x="151.5" y="19" text-anchor="middle" fill="#eee" font-size="12">Отмена</text></g></g>
+<!-- Archive page -->
+<g transform="translate(820 685)" filter="url(#shadow)">
+<rect width="720" height="500" rx="8" fill="#252526" stroke="#41464d"/><path d="M8 0H712Q720 0 720 8V34H0V8Q0 0 8 0Z" fill="#1b1b1c"/><text x="17" y="23" fill="#e9e9e9" font-size="13">Установка - Софт</text><path d="M654 13h10m20 0h10m20-5v10" stroke="#aeb4bb" stroke-width="1.2" fill="none"/>
+<text x="28" y="69" fill="#f5f5f5" font-size="16" font-weight="700">Выбор архивов</text><text x="28" y="96" fill="#e1e1e1" font-size="13">Выберите архивы для установки.</text>
+<g transform="translate(38 145)" fill="#ededed" font-size="14"><rect x="0" y="0" width="15" height="15" rx="1" fill="#202020" stroke="#b5bbc1"/><text x="28" y="13">Архив с портативными программами</text><rect x="0" y="42" width="15" height="15" rx="1" fill="#202020" stroke="#b5bbc1"/><text x="28" y="55">Архив с установочными версиями программ</text></g>
+<path d="M0 442H720" stroke="#41464d"/><g transform="translate(475 458)"><rect width="95" height="29" rx="4" fill="#286b9d" stroke="#3988bd"/><text x="47.5" y="19" text-anchor="middle" fill="#fff" font-size="12">Далее</text><rect x="104" width="95" height="29" rx="4" fill="#343638" stroke="#55595d"/><text x="151.5" y="19" text-anchor="middle" fill="#eee" font-size="12">Отмена</text></g></g>
+<text x="60" y="1230" fill="#8998a7" font-size="13">Основа: официальный пример Inno Setup Modern Dark. Фактические отступы и системные элементы могут незначительно отличаться из-за версии Windows и масштаба экрана.</text>
 </g></svg>

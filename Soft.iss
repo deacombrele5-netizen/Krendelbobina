@@ -233,7 +233,7 @@ procedure InitializeWizard;
 begin
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
-    'Выберите источник программ.',
+    'Выберите, что установить: программы из каталога или готовые архивы.',
     'Выберите один из двух вариантов:',
     True, False);
   InstallModePage.Add('Выбор из каталога');

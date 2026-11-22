@@ -46,9 +46,9 @@
   <rect x="428" y="312" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="324">Microsoft Edge</text>
   <rect x="428" y="335" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="347">Opera</text>
   <rect x="428" y="358" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="370">Яндекс Браузер</text>
-  <rect x="35" y="337" width="14" height="14" rx="2" fill="#26394b" stroke="#71869b"/><path d="M38 344l3 3 6-7" fill="none" stroke="#aebdcb" stroke-width="1.5"/><text x="60" y="350" font-weight="600">Готовые архивы</text>
-  <rect x="76" y="357" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="103" y="369">Архив с портативными программами</text>
-  <rect x="76" y="380" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="103" y="392">Архив с установочными версиями</text>
+  <rect x="35" y="346" width="14" height="14" rx="2" fill="#26394b" stroke="#71869b"/><path d="M38 353l3 3 6-7" fill="none" stroke="#aebdcb" stroke-width="1.5"/><text x="60" y="359" font-weight="600">Готовые архивы</text>
+  <rect x="76" y="366" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="103" y="378">Архив с портативными программами</text>
+  <rect x="76" y="389" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="103" y="401">Архив с установочными версиями</text>
  </g>
  <path d="M0 402H800" stroke="#3c4d60"/>
  <rect x="512" y="422" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>

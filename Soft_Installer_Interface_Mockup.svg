@@ -26,9 +26,9 @@
 <text x="30" y="133" font-size="15" fill="#b5c2cf">Выберите один из двух вариантов:</text>
 <circle cx="55" cy="195" r="10" fill="none" stroke="#8da1b6" stroke-width="2"/>
 <circle cx="55" cy="195" r="5" fill="#48a9e5"/>
-<text x="82" y="201" font-size="17" fill="#f1f5f9">Выбрать программы из каталога</text>
+<text x="82" y="201" font-size="17" fill="#f1f5f9">Выбор из каталога</text>
 <circle cx="55" cy="252" r="10" fill="none" stroke="#8da1b6" stroke-width="2"/>
-<text x="82" y="258" font-size="17" fill="#f1f5f9">Выбрать готовые архивы</text>
+<text x="82" y="258" font-size="17" fill="#f1f5f9">Выбор архива</text>
 <text x="30" y="335" font-size="14" fill="#9aabbd">После нажатия «Далее» откроется только выбранный раздел.</text>
 </g>
 <g transform="translate(55 625)">
@@ -46,9 +46,8 @@
 <text x="75" y="323">□ Visual Studio</text>
 <text x="75" y="351">□ Visual Studio Code</text>
 <text x="75" y="379">▸ Браузеры</text>
+<text x="100" y="405" font-size="12" fill="#9aabbd">Нажмите стрелку, чтобы раскрыть список браузеров</text>
 </g>
-<rect x="75" y="390" width="115" height="25" rx="3" fill="#29394a" stroke="#63778d"/>
-<text x="132" y="407" text-anchor="middle" font-size="12" fill="#f1f5f9">Развернуть</text>
 </g>
 <g transform="translate(825 625)">
 <rect width="720" height="430" rx="8" fill="#17212d" stroke="#465a70"/>

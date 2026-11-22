@@ -28,7 +28,7 @@
 #define SetupRoot SourceRoot + "\Софт-SetUp\Программы без архива-SetUp"
 #define PortableArchiveRoot SourceRoot + "\Софт-Portable"
 #define SetupArchiveRoot SourceRoot + "\Софт-SetUp"
-#define OutputRoot MySoftRoot + "\Софт\Софт - установка"
+#define OutputRoot MySoftRoot + "\Софт\Софт установка"
 #define PortableArchiveSizeValue FileSize(PortableArchiveRoot + "\Софт-Portable.rar")
 #define SetupArchiveSizeValue FileSize(SetupArchiveRoot + "\Софт-SetUp.rar")
 ; Наличие исходных файлов проверяется самим Inno Setup при компиляции

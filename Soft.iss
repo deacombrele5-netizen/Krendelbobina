@@ -328,7 +328,7 @@ begin
   PortableItemSizes := TStringList.Create;
 
   ColumnGap := ScaleX(18);
-  ColumnWidth := (CatalogPage.SurfaceWidth - ColumnGap) div 2;
+  ColumnWidth := ((CatalogPage.SurfaceWidth - ColumnGap) * 55) div 100;
   ListTop := ScaleY(28);
   ListHeight := CatalogPage.SurfaceHeight - ListTop - ScaleY(30);
 
@@ -367,7 +367,7 @@ begin
   SetupCheckList.ShowLines := False;
   SetupCheckList.BorderStyle := bsSingle;
   SetupCheckList.Font.Name := 'Arial';
-  SetupCheckList.Font.Size := 9;
+  SetupCheckList.Font.Size := 8;
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#SetupRoot}\Adobe Acrobat Pro'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#SetupRoot}\Adobe After Effects'));
@@ -497,40 +497,10 @@ begin
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
-var
-  I: Integer;
 begin
-  Result := False;
-
-  if SelectedItemIDs <> nil then
-    Result := SelectedItemIDs.IndexOf(ItemID) >= 0;
-  if Result then
-    Exit;
-
-  { Fallback: read the visible selection directly if the snapshot was not captured. }
-  if (PortableItemIDs <> nil) and (PortableCheckList <> nil) then
-    for I := 0 to PortableItemIDs.Count - 1 do
-      if PortableItemIDs[I] = ItemID then
-      begin
-        Result := PortableCheckList.Checked[I];
-        Exit;
-      end;
-
-  if (SetupItemIDs <> nil) and (SetupCheckList <> nil) then
-    for I := 0 to SetupItemIDs.Count - 1 do
-      if SetupItemIDs[I] = ItemID then
-      begin
-        Result := SetupCheckList.Checked[I];
-        Exit;
-      end;
-
-  if ArchivePage <> nil then
-  begin
-    if ItemID = 'a_portable' then
-      Result := ArchivePage.Values[0]
-    else if ItemID = 'a_setup' then
-      Result := ArchivePage.Values[1];
-  end;
+  { The file entries use a frozen snapshot captured immediately before ssInstall. }
+  Result := (SelectedItemIDs <> nil) and
+    (SelectedItemIDs.IndexOf(ItemID) >= 0);
 end;
 
 procedure CaptureCatalogSelection;
@@ -553,6 +523,20 @@ begin
     SelectedItemIDs.Add('a_portable');
   if ArchivePage.Values[1] then
     SelectedItemIDs.Add('a_setup');
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+  if CurStep = ssInstall then
+  begin
+    { Re-read the actual visible checkboxes at the last safe point before [Files] runs. }
+    if InstallModePage.SelectedValueIndex = 0 then
+      CaptureCatalogSelection
+    else
+      CaptureArchiveSelection;
+
+    Log('SOFT: frozen selection count = ' + IntToStr(SelectedItemIDs.Count));
+  end;
 end;
 
 function HasAnySelection: Boolean;

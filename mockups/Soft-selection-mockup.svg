@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17191e"/><stop offset="1" stop-color="#20232a"/></linearGradient>
+  <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#30343d"/><stop offset="1" stop-color="#272b33"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity=".28"/></filter>
+  <style>
+    .ui{font-family:"Segoe UI",Arial,sans-serif}.muted{fill:#aeb5c1}.white{fill:#f3f5f8}.head{font-size:24px;font-weight:600}.item{font-size:18px;fill:#e6e9ef}.small{font-size:15px;fill:#aeb5c1}
+    .check{fill:#20242b;stroke:#78818f;stroke-width:1.5}.checked{fill:#3185e8;stroke:#3185e8}.tick{fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+</defs>
+<rect width="1440" height="900" fill="#101216"/>
+<g filter="url(#shadow)">
+ <rect x="105" y="65" width="1230" height="770" rx="16" fill="url(#bg)" stroke="#424853" stroke-width="1.5"/>
+ <path d="M121 65h1198a16 16 0 0 1 16 16v52H105V81a16 16 0 0 1 16-16z" fill="url(#bar)"/>
+ <circle cx="137" cy="99" r="7" fill="#6f7a8a"/><text x="160" y="106" class="ui white" font-size="19" font-weight="600">Установка - Софт</text>
+ <text x="1290" y="106" text-anchor="end" class="ui muted" font-size="15">Мастер установки</text>
+</g>
+<g class="ui">
+ <text x="165" y="190" class="white" font-size="31" font-weight="600">Выбор программ</text>
+ <text x="165" y="225" class="muted" font-size="17">Отметьте программы, которые нужно скопировать в выбранную папку</text>
+ <!-- Column headings -->
+ <text x="165" y="292" class="white head">Установщики программ</text>
+ <text x="745" y="292" class="white head">Портативные программы</text>
+ <!-- two equal panels, no middle divider -->
+ <rect x="165" y="316" width="535" height="420" rx="9" fill="#191c22" stroke="#444b57" stroke-width="1.5"/>
+ <rect x="745" y="316" width="535" height="420" rx="9" fill="#191c22" stroke="#444b57" stroke-width="1.5"/>
+</g>
+<g class="ui">
+ <g transform="translate(190 350)">
+  <g><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 11l4 4 8-9"/></g><text x="40" y="18" class="item">Adobe Acrobat Pro</text>
+  <g transform="translate(0 31)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="49" class="item">Adobe After Effects</text>
+  <g transform="translate(0 62)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 73l4 4 8-9"/></g><text x="40" y="80" class="item">Adobe Animate</text>
+  <g transform="translate(0 93)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="111" class="item">Adobe Audition</text>
+  <g transform="translate(0 124)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 135l4 4 8-9"/></g><text x="40" y="142" class="item">Blender 3D</text>
+  <g transform="translate(0 155)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="173" class="item">Discord</text>
+  <g transform="translate(0 186)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="204" class="item">FL Studio</text>
+  <g transform="translate(0 217)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 228l4 4 8-9"/></g><text x="40" y="235" class="item">Microsoft Office</text>
+  <g transform="translate(0 248)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="266" class="item">OBS Studio</text>
+  <g transform="translate(0 279)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="297" class="item">Photoshop</text>
+  <g transform="translate(0 310)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 321l4 4 8-9"/></g><text x="40" y="328" class="item">Steam</text>
+  <g transform="translate(0 341)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="359" class="item">WinRAR</text>
+ </g>
+ <g transform="translate(770 350)">
+  <g><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 11l4 4 8-9"/></g><text x="40" y="18" class="item">Adobe Acrobat Pro Portable</text>
+  <g transform="translate(0 31)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="49" class="item">Blender Portable</text>
+  <g transform="translate(0 62)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 73l4 4 8-9"/></g><text x="40" y="80" class="item">Easy2Boot Portable</text>
+  <g transform="translate(0 93)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="111" class="item">Google Chrome Portable</text>
+  <g transform="translate(0 124)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="142" class="item">LocalSend Portable</text>
+  <g transform="translate(0 155)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 166l4 4 8-9"/></g><text x="40" y="173" class="item">OBS Studio Portable</text>
+  <g transform="translate(0 186)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="204" class="item">Rufus Portable</text>
+  <g transform="translate(0 217)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 228l4 4 8-9"/></g><text x="40" y="235" class="item">VS Code Portable</text>
+  <g transform="translate(0 248)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="266" class="item">VLC Media Player Portable</text>
+  <g transform="translate(0 279)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="297" class="item">WinRAR Portable</text>
+  <g transform="translate(0 310)"><rect class="check checked" width="22" height="22" rx="4"/><path class="tick" d="M5 321l4 4 8-9"/></g><text x="40" y="328" class="item">WinSCP Portable</text>
+  <g transform="translate(0 341)"><rect class="check" width="22" height="22" rx="4"/></g><text x="40" y="359" class="item">WiFiInfoView Portable</text>
+ </g>
+</g>
+<path d="M105 770h1230" stroke="#3a404a"/>
+<g class="ui">
+ <text x="165" y="803" class="small">Выбранные файлы будут скопированы в указанную папку.</text>
+ <rect x="948" y="784" width="105" height="36" rx="6" fill="#303640" stroke="#626b79"/><text x="1000" y="808" text-anchor="middle" class="white" font-size="16">‹ Назад</text>
+ <rect x="1065" y="784" width="105" height="36" rx="6" fill="#247bd3"/><text x="1117" y="808" text-anchor="middle" class="white" font-size="16" font-weight="600">Далее ›</text>
+ <rect x="1182" y="784" width="105" height="36" rx="6" fill="#303640" stroke="#626b79"/><text x="1234" y="808" text-anchor="middle" class="white" font-size="16">Отмена</text>
+</g>
+</svg>

@@ -209,7 +209,6 @@ end;
 procedure InitializeWizard;
 var
   SetupHeader, PortableHeader: TNewStaticText;
-  ColumnDivider: TBevel;
   ColumnWidth, ListTop, ListHeight: Integer;
 begin
   InstallModePage := CreateInputOptionPage(wpSelectDir,
@@ -332,14 +331,6 @@ begin
   AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winterminal', 'Windows Terminal');
   AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_wnetwatcher', 'WNetWatcher');
 
-  ColumnDivider := TBevel.Create(CatalogPage);
-  ColumnDivider.Parent := CatalogPage.Surface;
-  ColumnDivider.Shape := bsLeftLine;
-  ColumnDivider.Left := CatalogPage.SurfaceWidth div 2;
-  ColumnDivider.Top := 0;
-  ColumnDivider.Width := ScaleX(2);
-  ColumnDivider.Height := CatalogPage.SurfaceHeight;
-  ColumnDivider.Anchors := [akTop, akBottom];
 
   ArchivePage := CreateInputOptionPage(CatalogPage.ID,
     'Выбор архивов',

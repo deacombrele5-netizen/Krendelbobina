@@ -227,8 +227,8 @@ Source: "{#SetupArchiveRoot}\Информация об архиве - Софт-S
 [Code]
 
 const
-  PortableArchiveBytes: Int64 = {#PortableArchiveSizeValue};
-  SetupArchiveBytes: Int64 = {#SetupArchiveSizeValue};
+  PortableArchiveBytes = {#PortableArchiveSizeValue};
+  SetupArchiveBytes = {#SetupArchiveSizeValue};
 
 var
   InstallModePage: TInputOptionWizardPage;

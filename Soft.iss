@@ -94,6 +94,37 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "custom"; Description: "Выборочная установка"; Flags: iscustom
 
 [Components]
+Name: "setup"; Description: "Установщики программ"; Types: custom; Flags: fixed
+Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_lightroom"; Description: "Adobe Lightroom Classic"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_substance"; Description: "Adobe Substance 3D Painter"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_aida64"; Description: "AIDA 64"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_blender"; Description: "Blender 3D"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_discord"; Description: "Discord"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_epic"; Description: "Epic Games"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_flstudio"; Description: "FL Studio"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_indesign"; Description: "Adobe InDesign"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_localsend"; Description: "LocalSend"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_office"; Description: "Microsoft Office"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_obs"; Description: "OBS Studio"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_steam"; Description: "Steam"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_torrent"; Description: "Torrent"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
+Name: "setup\visualstudio"; Description: "Visual Studio"; Types: custom
+Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom
+Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom
+Name: "setup\browsers"; Description: "Браузеры"; Types: custom
+Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom
+Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom
+Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom
+Name: "setup\browsers\opera"; Description: "Opera"; Types: custom
+Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom
 Name: "portable"; Description: "Портативные программы"; Types: custom; Flags: fixed
 Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
 Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
@@ -127,37 +158,6 @@ Name: "portable\p_winscp"; Description: "WinSCP"; Types: custom; Flags: dontinhe
 Name: "portable\p_winsetup"; Description: "WinSetupFromUSB"; Types: custom; Flags: dontinheritcheck
 Name: "portable\p_winterminal"; Description: "Windows Terminal"; Types: custom; Flags: dontinheritcheck
 Name: "portable\p_wnetwatcher"; Description: "WNetWatcher"; Types: custom; Flags: dontinheritcheck
-Name: "setup"; Description: "Установщики программ"; Types: custom; Flags: fixed
-Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_lightroom"; Description: "Adobe Lightroom Classic"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_substance"; Description: "Adobe Substance 3D Painter"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_aida64"; Description: "AIDA 64"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_blender"; Description: "Blender 3D"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_discord"; Description: "Discord"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_epic"; Description: "Epic Games"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_flstudio"; Description: "FL Studio"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_indesign"; Description: "Adobe InDesign"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_localsend"; Description: "LocalSend"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_office"; Description: "Microsoft Office"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_obs"; Description: "OBS Studio"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_steam"; Description: "Steam"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_torrent"; Description: "Torrent"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
-Name: "setup\visualstudio"; Description: "Visual Studio"; Types: custom
-Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom
-Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom
-Name: "setup\browsers"; Description: "Браузеры"; Types: custom
-Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom
-Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom
-Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom
-Name: "setup\browsers\opera"; Description: "Opera"; Types: custom
-Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom
 [Files]
 Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_acrobat
 Source: "{#PortableRoot}\AdobeAfterEffects-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAfterEffects-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_aftereffects
@@ -231,6 +231,8 @@ var
   ArchivePage: TInputOptionWizardPage;
 
 procedure InitializeWizard;
+var
+  I: Integer;
 begin
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
@@ -251,6 +253,15 @@ begin
 
   { Изначально снять отметки со всех отдельных программ каталога }
   WizardSelectComponents('!portable\p_adobe_acrobat,!portable\p_adobe_aftereffects,!portable\p_adobe_audition,!portable\p_adobe_illustrator,!portable\p_adobe_photoshop,!portable\p_adobe_premiere,!portable\p_aida64,!portable\p_anydesk,!portable\p_blender,!portable\p_easy2boot,!portable\p_encryptonclick,!portable\p_chrome,!portable\p_imgburn,!portable\p_localsend,!portable\p_scanner,!portable\p_nsis,!portable\p_obs,!portable\p_portablecreator,!portable\p_putty,!portable\p_rufus,!portable\p_sysinternals,!portable\p_utorrent,!portable\p_vlc,!portable\p_vscode,!portable\p_wifiinfoview,!portable\p_winnote,!portable\p_winpowershell,!portable\p_winrar,!portable\p_winscp,!portable\p_winsetup,!portable\p_winterminal,!portable\p_wnetwatcher,!setup\s_adobe_acrobat,!setup\s_adobe_aftereffects,!setup\s_adobe_animate,!setup\s_adobe_audition,!setup\s_adobe_lightroom,!setup\s_adobe_substance,!setup\s_aida64,!setup\s_blender,!setup\s_discord,!setup\s_epic,!setup\s_flstudio,!setup\s_illustrator,!setup\s_indesign,!setup\s_localsend,!setup\s_office,!setup\s_obs,!setup\s_photoshop,!setup\s_premier,!setup\s_steam,!setup\s_torrent,!setup\s_winrar,!setup\visualstudio\vs,!setup\visualstudio\vscode,!setup\browsers\chrome,!setup\browsers\firefox,!setup\browsers\edge,!setup\browsers\opera,!setup\browsers\yandex');
+
+  { Свернуть категории браузеров и Visual Studio при открытии списка }
+  for I := 0 to WizardForm.ComponentsList.ItemCount - 1 do
+  begin
+    if ((WizardForm.ComponentsList.ItemCaption[I] = 'Браузеры') or
+      (WizardForm.ComponentsList.ItemCaption[I] = 'Visual Studio')) and
+      (WizardForm.ComponentsList.ItemLevel[I] = 1) then
+      WizardForm.ComponentsList.ItemExpanded[I] := False;
+  end;
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;

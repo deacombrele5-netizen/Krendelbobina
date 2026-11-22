@@ -49,7 +49,7 @@ CreateAppDir=yes
 DisableDirPage=no
 DisableWelcomePage=yes
 DisableProgramGroupPage=yes
-DisableReadyMemo=yes
+DisableReadyMemo=no
 Uninstallable=no
 PrivilegesRequired=admin
 OutputDir={#OutputRoot}
@@ -228,6 +228,16 @@ Source: "{#SetupArchiveRoot}\Софт-SetUp.rar"; DestDir: "{code:GetDestination
 Source: "{#SetupArchiveRoot}\Информация об архиве - Софт-SetUp.txt"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_setup')
 
 [Code]
+
+function GetDestinationPath(Param: String): String;
+begin
+  Result := WizardDirValue;
+end;
+
+function GetTargetFolder(Param: String): String;
+begin
+  Result := AddBackslash(WizardDirValue) + Param;
+end;
 
 function IsItemSelected(const ItemID: String): Boolean;
 begin

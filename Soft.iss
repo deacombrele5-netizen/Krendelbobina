@@ -256,7 +256,7 @@ begin
   SetupCheckList.Top := ListTop;
   SetupCheckList.Width := ColumnWidth;
   SetupCheckList.Height := ListHeight;
-  SetupCheckList.Anchors := [akLeft, akTop, akRight, akBottom];
+  SetupCheckList.Anchors := [akLeft, akTop, akBottom];
   SetupCheckList.Flat := True;
   SetupCheckList.ShowLines := False;
   SetupCheckList.BorderStyle := bsSingle;
@@ -295,7 +295,7 @@ begin
   PortableCheckList.Top := ListTop;
   PortableCheckList.Width := ColumnWidth;
   PortableCheckList.Height := ListHeight;
-  PortableCheckList.Anchors := [akLeft, akTop, akRight, akBottom];
+  PortableCheckList.Anchors := [akRight, akTop, akBottom];
   PortableCheckList.Flat := True;
   PortableCheckList.ShowLines := False;
   PortableCheckList.BorderStyle := bsSingle;

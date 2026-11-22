@@ -197,7 +197,7 @@ begin
           if (FindRec.Attributes and FILE_ATTRIBUTE_DIRECTORY) <> 0 then
             Result := Result + GetDirectorySize(ItemPath)
           else
-            Result := Result + FindRec.Size;
+            Result := Result + Int64(FindRec.SizeHigh) * 4294967296 + FindRec.SizeLow;
         end;
       until not FindNext(FindRec);
     finally
@@ -213,7 +213,7 @@ begin
   Result := 0;
   if FindFirst(FileName, FindRec) then
   begin
-    Result := FindRec.Size;
+    Result := Int64(FindRec.SizeHigh) * 4294967296 + FindRec.SizeLow;
     FindClose(FindRec);
   end;
 end;

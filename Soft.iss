@@ -92,133 +92,67 @@ ClickFinish=Нажмите «Завершить», чтобы закрыть м�
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
-[Types]
-Name: "custom"; Description: "Выборочная установка"; Flags: iscustom
-
-[Components]
-Name: "setup"; Description: "Установщики программ"; Types: custom; Flags: fixed
-Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_lightroom"; Description: "Adobe Lightroom Classic"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_adobe_substance"; Description: "Adobe Substance 3D Painter"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_aida64"; Description: "AIDA 64"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_blender"; Description: "Blender 3D"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_discord"; Description: "Discord"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_epic"; Description: "Epic Games"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_flstudio"; Description: "FL Studio"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_indesign"; Description: "Adobe InDesign"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_localsend"; Description: "LocalSend"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_office"; Description: "Microsoft Office"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_obs"; Description: "OBS Studio"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_steam"; Description: "Steam"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_torrent"; Description: "Torrent"; Types: custom; Flags: dontinheritcheck
-Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
-Name: "setup\visualstudio"; Description: "Visual Studio"; Types: custom
-Name: "setup\vscode"; Description: "Visual Studio Code"; Types: custom
-Name: "setup\browser_chrome"; Description: "Google Chrome"; Types: custom
-Name: "setup\browser_firefox"; Description: "Mozilla Firefox"; Types: custom
-Name: "setup\browser_edge"; Description: "Microsoft Edge"; Types: custom
-Name: "setup\browser_opera"; Description: "Opera"; Types: custom
-Name: "setup\browser_yandex"; Description: "Яндекс Браузер"; Types: custom
-Name: "portable"; Description: "Портативные программы"; Types: custom; Flags: fixed
-Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_adobe_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_adobe_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_adobe_premiere"; Description: "Adobe Premiere Pro"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_aida64"; Description: "AIDA64"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_anydesk"; Description: "AnyDesk"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_blender"; Description: "Blender"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_easy2boot"; Description: "Easy2Boot"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_encryptonclick"; Description: "EncryptOnClick"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_chrome"; Description: "Google Chrome"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_imgburn"; Description: "ImgBurn"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_localsend"; Description: "LocalSend"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_scanner"; Description: "Microsoft Scanner"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_nsis"; Description: "NSIS"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_obs"; Description: "OBS Studio"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_portablecreator"; Description: "Portable Creator"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_putty"; Description: "PuTTY"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_rufus"; Description: "Rufus"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_sysinternals"; Description: "Sysinternals Suite"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_utorrent"; Description: "µTorrent"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_vlc"; Description: "VLC Media Player"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_vscode"; Description: "Visual Studio Code"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_wifiinfoview"; Description: "WifiInfoView"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_winnote"; Description: "WinNotepad"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_winpowershell"; Description: "WinPowerShell"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_winscp"; Description: "WinSCP"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_winsetup"; Description: "WinSetupFromUSB"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_winterminal"; Description: "Windows Terminal"; Types: custom; Flags: dontinheritcheck
-Name: "portable\p_wnetwatcher"; Description: "WNetWatcher"; Types: custom; Flags: dontinheritcheck
 [Files]
-Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_acrobat
-Source: "{#PortableRoot}\AdobeAfterEffects-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAfterEffects-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_aftereffects
-Source: "{#PortableRoot}\AdobeAudition-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAudition-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_audition
-Source: "{#PortableRoot}\AdobeIllustrator-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeIllustrator-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_illustrator
-Source: "{#PortableRoot}\AdobePhotoshop-Portable\*"; DestDir: "{code:GetTargetFolder|AdobePhotoshop-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_photoshop
-Source: "{#PortableRoot}\AdobePremierePro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobePremierePro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_adobe_premiere
-Source: "{#PortableRoot}\AIDA64-Portable\*"; DestDir: "{code:GetTargetFolder|AIDA64-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_aida64
-Source: "{#PortableRoot}\AnyDesk-Portable\*"; DestDir: "{code:GetTargetFolder|AnyDesk-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_anydesk
-Source: "{#PortableRoot}\Blender-Portable\*"; DestDir: "{code:GetTargetFolder|Blender-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_blender
-Source: "{#PortableRoot}\Easy2Boot-Portable\*"; DestDir: "{code:GetTargetFolder|Easy2Boot-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_easy2boot
-Source: "{#PortableRoot}\EncryptOnClick-Portable\*"; DestDir: "{code:GetTargetFolder|EncryptOnClick-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_encryptonclick
-Source: "{#PortableRoot}\GoogleChrome-Portable\*"; DestDir: "{code:GetTargetFolder|GoogleChrome-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_chrome
-Source: "{#PortableRoot}\ImgBurn-Portable\*"; DestDir: "{code:GetTargetFolder|ImgBurn-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_imgburn
-Source: "{#PortableRoot}\LocalSend-Portable\*"; DestDir: "{code:GetTargetFolder|LocalSend-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_localsend
-Source: "{#PortableRoot}\MicrosoftScaner-Portable\*"; DestDir: "{code:GetTargetFolder|MicrosoftScaner-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_scanner
-Source: "{#PortableRoot}\NSIS-Portable\*"; DestDir: "{code:GetTargetFolder|NSIS-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_nsis
-Source: "{#PortableRoot}\OBS-Studio-Portable\*"; DestDir: "{code:GetTargetFolder|OBS-Studio-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_obs
-Source: "{#PortableRoot}\PortableCreator-Portable\*"; DestDir: "{code:GetTargetFolder|PortableCreator-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_portablecreator
-Source: "{#PortableRoot}\PuTTY-Portable\*"; DestDir: "{code:GetTargetFolder|PuTTY-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_putty
-Source: "{#PortableRoot}\Rufus-Portable\*"; DestDir: "{code:GetTargetFolder|Rufus-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_rufus
-Source: "{#PortableRoot}\SysinternalsSuite-Portable\*"; DestDir: "{code:GetTargetFolder|SysinternalsSuite-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_sysinternals
-Source: "{#PortableRoot}\uTorrent-Portable\*"; DestDir: "{code:GetTargetFolder|uTorrent-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_utorrent
-Source: "{#PortableRoot}\VlcMediaPlayer-Portable\*"; DestDir: "{code:GetTargetFolder|VlcMediaPlayer-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_vlc
-Source: "{#PortableRoot}\VSCode-Portable\*"; DestDir: "{code:GetTargetFolder|VSCode-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_vscode
-Source: "{#PortableRoot}\Wifiinfoview-Portable\*"; DestDir: "{code:GetTargetFolder|Wifiinfoview-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_wifiinfoview
-Source: "{#PortableRoot}\WinNotepad-Portable\*"; DestDir: "{code:GetTargetFolder|WinNotepad-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_winnote
-Source: "{#PortableRoot}\WinPowerShel-Portable\*"; DestDir: "{code:GetTargetFolder|WinPowerShel-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_winpowershell
-Source: "{#PortableRoot}\WinRAR-Portable\*"; DestDir: "{code:GetTargetFolder|WinRAR-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_winrar
-Source: "{#PortableRoot}\WinSCP-Portable\*"; DestDir: "{code:GetTargetFolder|WinSCP-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_winscp
-Source: "{#PortableRoot}\WinSetupFromUSB-Portable\*"; DestDir: "{code:GetTargetFolder|WinSetupFromUSB-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_winsetup
-Source: "{#PortableRoot}\WinTerminal-Portable\*"; DestDir: "{code:GetTargetFolder|WinTerminal-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_winterminal
-Source: "{#PortableRoot}\Wnet-Watcher-Portable\*"; DestDir: "{code:GetTargetFolder|Wnet-Watcher-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: portable\p_wnetwatcher
-Source: "{#SetupRoot}\Adobe Acrobat Pro\*"; DestDir: "{code:GetTargetFolder|Adobe Acrobat Pro}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_adobe_acrobat
-Source: "{#SetupRoot}\Adobe After Effects\*"; DestDir: "{code:GetTargetFolder|Adobe After Effects}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_adobe_aftereffects
-Source: "{#SetupRoot}\Adobe Animate\*"; DestDir: "{code:GetTargetFolder|Adobe Animate}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_adobe_animate
-Source: "{#SetupRoot}\Adobe Audition\*"; DestDir: "{code:GetTargetFolder|Adobe Audition}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_adobe_audition
-Source: "{#SetupRoot}\Adobe Lightroom Classic\*"; DestDir: "{code:GetTargetFolder|Adobe Lightroom Classic}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_adobe_lightroom
-Source: "{#SetupRoot}\Adobe Substance 3D Painter\*"; DestDir: "{code:GetTargetFolder|Adobe Substance 3D Painter}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_adobe_substance
-Source: "{#SetupRoot}\AIDA 64\*"; DestDir: "{code:GetTargetFolder|AIDA 64}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_aida64
-Source: "{#SetupRoot}\Blender 3D\*"; DestDir: "{code:GetTargetFolder|Blender 3D}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_blender
-Source: "{#SetupRoot}\Discord\*"; DestDir: "{code:GetTargetFolder|Discord}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_discord
-Source: "{#SetupRoot}\Epic Games\*"; DestDir: "{code:GetTargetFolder|Epic Games}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_epic
-Source: "{#SetupRoot}\FL Studio\*"; DestDir: "{code:GetTargetFolder|FL Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_flstudio
-Source: "{#SetupRoot}\Illustrator\*"; DestDir: "{code:GetTargetFolder|Illustrator}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_illustrator
-Source: "{#SetupRoot}\InDesign\*"; DestDir: "{code:GetTargetFolder|InDesign}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_indesign
-Source: "{#SetupRoot}\LocalSend\*"; DestDir: "{code:GetTargetFolder|LocalSend}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_localsend
-Source: "{#SetupRoot}\Microsoft Office\*"; DestDir: "{code:GetTargetFolder|Microsoft Office}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_office
-Source: "{#SetupRoot}\OBS Studio\*"; DestDir: "{code:GetTargetFolder|OBS Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_obs
-Source: "{#SetupRoot}\Photoshop\*"; DestDir: "{code:GetTargetFolder|Photoshop}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_photoshop
-Source: "{#SetupRoot}\Premier\*"; DestDir: "{code:GetTargetFolder|Premier}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_premier
-Source: "{#SetupRoot}\Steam\*"; DestDir: "{code:GetTargetFolder|Steam}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_steam
-Source: "{#SetupRoot}\Torrent\*"; DestDir: "{code:GetTargetFolder|Torrent}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_torrent
-Source: "{#SetupRoot}\WinRar\*"; DestDir: "{code:GetTargetFolder|WinRar}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\s_winrar
-Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\visualstudio
-Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: setup\vscode
-Source: "{#SetupRoot}\Браузеры\ChromeSetup.exe"; DestDir: "{code:GetTargetFolder|Google Chrome}"; Flags: ignoreversion; Components: setup\browser_chrome
-Source: "{#SetupRoot}\Браузеры\Firefox Installer.exe"; DestDir: "{code:GetTargetFolder|Firefox}"; Flags: ignoreversion; Components: setup\browser_firefox
-Source: "{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{code:GetTargetFolder|Microsoft Edge}"; Flags: ignoreversion; Components: setup\browser_edge
-Source: "{#SetupRoot}\Браузеры\OperaSetup.exe"; DestDir: "{code:GetTargetFolder|Opera}"; Flags: ignoreversion; Components: setup\browser_opera
-Source: "{#SetupRoot}\Браузеры\Yandex.exe"; DestDir: "{code:GetTargetFolder|Яндекс браузер}"; Flags: ignoreversion; Components: setup\browser_yandex
+Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_acrobat')
+Source: "{#PortableRoot}\AdobeAfterEffects-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAfterEffects-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_aftereffects')
+Source: "{#PortableRoot}\AdobeAudition-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAudition-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_audition')
+Source: "{#PortableRoot}\AdobeIllustrator-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeIllustrator-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_illustrator')
+Source: "{#PortableRoot}\AdobePhotoshop-Portable\*"; DestDir: "{code:GetTargetFolder|AdobePhotoshop-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_photoshop')
+Source: "{#PortableRoot}\AdobePremierePro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobePremierePro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_premiere')
+Source: "{#PortableRoot}\AIDA64-Portable\*"; DestDir: "{code:GetTargetFolder|AIDA64-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_aida64')
+Source: "{#PortableRoot}\AnyDesk-Portable\*"; DestDir: "{code:GetTargetFolder|AnyDesk-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_anydesk')
+Source: "{#PortableRoot}\Blender-Portable\*"; DestDir: "{code:GetTargetFolder|Blender-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_blender')
+Source: "{#PortableRoot}\Easy2Boot-Portable\*"; DestDir: "{code:GetTargetFolder|Easy2Boot-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_easy2boot')
+Source: "{#PortableRoot}\EncryptOnClick-Portable\*"; DestDir: "{code:GetTargetFolder|EncryptOnClick-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_encryptonclick')
+Source: "{#PortableRoot}\GoogleChrome-Portable\*"; DestDir: "{code:GetTargetFolder|GoogleChrome-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_chrome')
+Source: "{#PortableRoot}\ImgBurn-Portable\*"; DestDir: "{code:GetTargetFolder|ImgBurn-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_imgburn')
+Source: "{#PortableRoot}\LocalSend-Portable\*"; DestDir: "{code:GetTargetFolder|LocalSend-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_localsend')
+Source: "{#PortableRoot}\MicrosoftScaner-Portable\*"; DestDir: "{code:GetTargetFolder|MicrosoftScaner-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_scanner')
+Source: "{#PortableRoot}\NSIS-Portable\*"; DestDir: "{code:GetTargetFolder|NSIS-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_nsis')
+Source: "{#PortableRoot}\OBS-Studio-Portable\*"; DestDir: "{code:GetTargetFolder|OBS-Studio-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_obs')
+Source: "{#PortableRoot}\PortableCreator-Portable\*"; DestDir: "{code:GetTargetFolder|PortableCreator-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_portablecreator')
+Source: "{#PortableRoot}\PuTTY-Portable\*"; DestDir: "{code:GetTargetFolder|PuTTY-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_putty')
+Source: "{#PortableRoot}\Rufus-Portable\*"; DestDir: "{code:GetTargetFolder|Rufus-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_rufus')
+Source: "{#PortableRoot}\SysinternalsSuite-Portable\*"; DestDir: "{code:GetTargetFolder|SysinternalsSuite-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_sysinternals')
+Source: "{#PortableRoot}\uTorrent-Portable\*"; DestDir: "{code:GetTargetFolder|uTorrent-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_utorrent')
+Source: "{#PortableRoot}\VlcMediaPlayer-Portable\*"; DestDir: "{code:GetTargetFolder|VlcMediaPlayer-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_vlc')
+Source: "{#PortableRoot}\VSCode-Portable\*"; DestDir: "{code:GetTargetFolder|VSCode-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_vscode')
+Source: "{#PortableRoot}\Wifiinfoview-Portable\*"; DestDir: "{code:GetTargetFolder|Wifiinfoview-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_wifiinfoview')
+Source: "{#PortableRoot}\WinNotepad-Portable\*"; DestDir: "{code:GetTargetFolder|WinNotepad-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_winnote')
+Source: "{#PortableRoot}\WinPowerShel-Portable\*"; DestDir: "{code:GetTargetFolder|WinPowerShel-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_winpowershell')
+Source: "{#PortableRoot}\WinRAR-Portable\*"; DestDir: "{code:GetTargetFolder|WinRAR-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_winrar')
+Source: "{#PortableRoot}\WinSCP-Portable\*"; DestDir: "{code:GetTargetFolder|WinSCP-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_winscp')
+Source: "{#PortableRoot}\WinSetupFromUSB-Portable\*"; DestDir: "{code:GetTargetFolder|WinSetupFromUSB-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_winsetup')
+Source: "{#PortableRoot}\WinTerminal-Portable\*"; DestDir: "{code:GetTargetFolder|WinTerminal-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_winterminal')
+Source: "{#PortableRoot}\Wnet-Watcher-Portable\*"; DestDir: "{code:GetTargetFolder|Wnet-Watcher-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_wnetwatcher')
+Source: "{#SetupRoot}\Adobe Acrobat Pro\*"; DestDir: "{code:GetTargetFolder|Adobe Acrobat Pro}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_adobe_acrobat')
+Source: "{#SetupRoot}\Adobe After Effects\*"; DestDir: "{code:GetTargetFolder|Adobe After Effects}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_adobe_aftereffects')
+Source: "{#SetupRoot}\Adobe Animate\*"; DestDir: "{code:GetTargetFolder|Adobe Animate}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_adobe_animate')
+Source: "{#SetupRoot}\Adobe Audition\*"; DestDir: "{code:GetTargetFolder|Adobe Audition}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_adobe_audition')
+Source: "{#SetupRoot}\Adobe Lightroom Classic\*"; DestDir: "{code:GetTargetFolder|Adobe Lightroom Classic}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_adobe_lightroom')
+Source: "{#SetupRoot}\Adobe Substance 3D Painter\*"; DestDir: "{code:GetTargetFolder|Adobe Substance 3D Painter}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_adobe_substance')
+Source: "{#SetupRoot}\AIDA 64\*"; DestDir: "{code:GetTargetFolder|AIDA 64}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_aida64')
+Source: "{#SetupRoot}\Blender 3D\*"; DestDir: "{code:GetTargetFolder|Blender 3D}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_blender')
+Source: "{#SetupRoot}\Discord\*"; DestDir: "{code:GetTargetFolder|Discord}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_discord')
+Source: "{#SetupRoot}\Epic Games\*"; DestDir: "{code:GetTargetFolder|Epic Games}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_epic')
+Source: "{#SetupRoot}\FL Studio\*"; DestDir: "{code:GetTargetFolder|FL Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_flstudio')
+Source: "{#SetupRoot}\Illustrator\*"; DestDir: "{code:GetTargetFolder|Illustrator}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_illustrator')
+Source: "{#SetupRoot}\InDesign\*"; DestDir: "{code:GetTargetFolder|InDesign}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_indesign')
+Source: "{#SetupRoot}\LocalSend\*"; DestDir: "{code:GetTargetFolder|LocalSend}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_localsend')
+Source: "{#SetupRoot}\Microsoft Office\*"; DestDir: "{code:GetTargetFolder|Microsoft Office}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_office')
+Source: "{#SetupRoot}\OBS Studio\*"; DestDir: "{code:GetTargetFolder|OBS Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_obs')
+Source: "{#SetupRoot}\Photoshop\*"; DestDir: "{code:GetTargetFolder|Photoshop}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_photoshop')
+Source: "{#SetupRoot}\Premier\*"; DestDir: "{code:GetTargetFolder|Premier}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_premier')
+Source: "{#SetupRoot}\Steam\*"; DestDir: "{code:GetTargetFolder|Steam}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_steam')
+Source: "{#SetupRoot}\Torrent\*"; DestDir: "{code:GetTargetFolder|Torrent}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_torrent')
+Source: "{#SetupRoot}\WinRar\*"; DestDir: "{code:GetTargetFolder|WinRar}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_winrar')
+Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_vs')
+Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_code')
+Source: "{#SetupRoot}\Браузеры\ChromeSetup.exe"; DestDir: "{code:GetTargetFolder|Google Chrome}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_chrome')
+Source: "{#SetupRoot}\Браузеры\Firefox Installer.exe"; DestDir: "{code:GetTargetFolder|Firefox}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_firefox')
+Source: "{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{code:GetTargetFolder|Microsoft Edge}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_edge')
+Source: "{#SetupRoot}\Браузеры\OperaSetup.exe"; DestDir: "{code:GetTargetFolder|Opera}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_opera')
+Source: "{#SetupRoot}\Браузеры\Yandex.exe"; DestDir: "{code:GetTargetFolder|Яндекс браузер}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_yandex')
 Source: "{#PortableArchiveRoot}\Софт-Portable.rar"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_portable')
 Source: "{#PortableArchiveRoot}\Информация об архиве - Софт-Portable.txt"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_portable')
 Source: "{#SetupArchiveRoot}\Софт-SetUp.rar"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_setup')
@@ -232,7 +166,12 @@ const
 
 var
   InstallModePage: TInputOptionWizardPage;
+  CatalogPage: TWizardPage;
   ArchivePage: TInputOptionWizardPage;
+  SetupCheckList: TNewCheckListBox;
+  PortableCheckList: TNewCheckListBox;
+  SetupItemIDs: TStringList;
+  PortableItemIDs: TStringList;
 
 function FormatArchiveSize(const Bytes: Int64): String;
 begin
@@ -260,7 +199,23 @@ begin
   UpdateArchiveSpace;
 end;
 
+procedure AddCatalogItems(ListBox: TNewCheckListBox; ItemIDs: TStringList;
+  const IDs, Captions: array of String);
+var
+  I: Integer;
+begin
+  for I := 0 to GetArrayLength(IDs) - 1 do
+  begin
+    ItemIDs.Add(IDs[I]);
+    ListBox.AddCheckBox(Captions[I], '', 0, False, True, False, True, nil);
+  end;
+end;
+
 procedure InitializeWizard;
+var
+  SetupHeader, PortableHeader: TNewStaticText;
+  ColumnDivider: TBevel;
+  ColumnWidth, ListTop, ListHeight: Integer;
 begin
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
@@ -271,7 +226,73 @@ begin
   InstallModePage.Add('Выбор архива');
   InstallModePage.SelectedValueIndex := 0;
 
-  ArchivePage := CreateInputOptionPage(wpSelectComponents,
+  CatalogPage := CreateCustomPage(InstallModePage.ID,
+    'Выбор программ',
+    'Отметьте программы, файлы которых нужно разместить в выбранной папке.');
+
+  SetupItemIDs := TStringList.Create;
+  PortableItemIDs := TStringList.Create;
+
+  SetupHeader := TNewStaticText.Create(CatalogPage);
+  SetupHeader.Parent := CatalogPage.Surface;
+  SetupHeader.Left := 0;
+  SetupHeader.Top := 0;
+  SetupHeader.Width := CatalogPage.SurfaceWidth div 2 - ScaleX(12);
+  SetupHeader.Height := ScaleY(22);
+  SetupHeader.Caption := 'Установщики программ';
+  SetupHeader.Font.Style := [fsBold];
+
+  PortableHeader := TNewStaticText.Create(CatalogPage);
+  PortableHeader.Parent := CatalogPage.Surface;
+  PortableHeader.Left := CatalogPage.SurfaceWidth div 2 + ScaleX(12);
+  PortableHeader.Top := 0;
+  PortableHeader.Width := CatalogPage.SurfaceWidth div 2 - ScaleX(12);
+  PortableHeader.Height := ScaleY(22);
+  PortableHeader.Caption := 'Портативные программы';
+  PortableHeader.Font.Style := [fsBold];
+
+  ColumnWidth := (CatalogPage.SurfaceWidth - ScaleX(34)) div 2;
+  ListTop := ScaleY(26);
+  ListHeight := CatalogPage.SurfaceHeight - ListTop;
+
+  SetupCheckList := TNewCheckListBox.Create(CatalogPage);
+  SetupCheckList.Parent := CatalogPage.Surface;
+  SetupCheckList.Left := 0;
+  SetupCheckList.Top := ListTop;
+  SetupCheckList.Width := ColumnWidth;
+  SetupCheckList.Height := ListHeight;
+  SetupCheckList.Anchors := [akLeft, akTop, akRight, akBottom];
+  SetupCheckList.Flat := True;
+  SetupCheckList.ShowLines := False;
+  SetupCheckList.BorderStyle := bsSingle;
+  AddCatalogItems(SetupCheckList, SetupItemIDs,
+    ['s_adobe_acrobat', 's_adobe_aftereffects', 's_adobe_animate', 's_adobe_audition', 's_adobe_lightroom', 's_adobe_substance', 's_aida64', 's_blender', 's_discord', 's_epic', 's_flstudio', 's_illustrator', 's_indesign', 's_localsend', 's_office', 's_obs', 's_photoshop', 's_premier', 's_steam', 's_torrent', 's_winrar', 's_vs_vs', 's_vs_code', 's_browser_chrome', 's_browser_firefox', 's_browser_edge', 's_browser_opera', 's_browser_yandex'],
+    ['Adobe Acrobat Pro', 'Adobe After Effects', 'Adobe Animate', 'Adobe Audition', 'Adobe Lightroom Classic', 'Adobe Substance 3D Painter', 'AIDA 64', 'Blender 3D', 'Discord', 'Epic Games', 'FL Studio', 'Adobe Illustrator', 'Adobe InDesign', 'LocalSend', 'Microsoft Office', 'OBS Studio', 'Adobe Photoshop', 'Adobe Premiere Pro', 'Steam', 'Torrent', 'WinRAR', 'Visual Studio', 'Visual Studio Code', 'Google Chrome', 'Mozilla Firefox', 'Microsoft Edge', 'Opera', 'Яндекс Браузер']);
+
+  PortableCheckList := TNewCheckListBox.Create(CatalogPage);
+  PortableCheckList.Parent := CatalogPage.Surface;
+  PortableCheckList.Left := CatalogPage.SurfaceWidth div 2 + ScaleX(17);
+  PortableCheckList.Top := ListTop;
+  PortableCheckList.Width := ColumnWidth;
+  PortableCheckList.Height := ListHeight;
+  PortableCheckList.Anchors := [akLeft, akTop, akRight, akBottom];
+  PortableCheckList.Flat := True;
+  PortableCheckList.ShowLines := False;
+  PortableCheckList.BorderStyle := bsSingle;
+  AddCatalogItems(PortableCheckList, PortableItemIDs,
+    ['p_adobe_acrobat', 'p_adobe_aftereffects', 'p_adobe_audition', 'p_adobe_illustrator', 'p_adobe_photoshop', 'p_adobe_premiere', 'p_aida64', 'p_anydesk', 'p_blender', 'p_easy2boot', 'p_encryptonclick', 'p_chrome', 'p_imgburn', 'p_localsend', 'p_scanner', 'p_nsis', 'p_obs', 'p_portablecreator', 'p_putty', 'p_rufus', 'p_sysinternals', 'p_utorrent', 'p_vlc', 'p_vscode', 'p_wifiinfoview', 'p_winnote', 'p_winpowershell', 'p_winrar', 'p_winscp', 'p_winsetup', 'p_winterminal', 'p_wnetwatcher'],
+    ['Adobe Acrobat Pro', 'Adobe After Effects', 'Adobe Audition', 'Adobe Illustrator', 'Adobe Photoshop', 'Adobe Premiere Pro', 'AIDA64', 'AnyDesk', 'Blender', 'Easy2Boot', 'EncryptOnClick', 'Google Chrome', 'ImgBurn', 'LocalSend', 'Microsoft Scanner', 'NSIS', 'OBS Studio', 'Portable Creator', 'PuTTY', 'Rufus', 'Sysinternals Suite', 'µTorrent', 'VLC Media Player', 'Visual Studio Code', 'WifiInfoView', 'WinNotepad', 'WinPowerShell', 'WinRAR', 'WinSCP', 'WinSetupFromUSB', 'Windows Terminal', 'WNetWatcher']);
+
+  ColumnDivider := TBevel.Create(CatalogPage);
+  ColumnDivider.Parent := CatalogPage.Surface;
+  ColumnDivider.Shape := bsLeftLine;
+  ColumnDivider.Left := CatalogPage.SurfaceWidth div 2;
+  ColumnDivider.Top := 0;
+  ColumnDivider.Width := ScaleX(2);
+  ColumnDivider.Height := CatalogPage.SurfaceHeight;
+  ColumnDivider.Anchors := [akTop, akBottom];
+
+  ArchivePage := CreateInputOptionPage(CatalogPage.ID,
     'Выбор архивов',
     'Выберите архивы для установки.',
     '',
@@ -280,14 +301,11 @@ begin
   ArchivePage.Add('Установщики программ');
   ArchivePage.CheckListBox.OnClickCheck := @ArchiveSelectionChanged;
   UpdateArchiveSpace;
-
-  { Изначально снять отметки со всех отдельных программ каталога }
-  WizardSelectComponents('!portable\p_adobe_acrobat,!portable\p_adobe_aftereffects,!portable\p_adobe_audition,!portable\p_adobe_illustrator,!portable\p_adobe_photoshop,!portable\p_adobe_premiere,!portable\p_aida64,!portable\p_anydesk,!portable\p_blender,!portable\p_easy2boot,!portable\p_encryptonclick,!portable\p_chrome,!portable\p_imgburn,!portable\p_localsend,!portable\p_scanner,!portable\p_nsis,!portable\p_obs,!portable\p_portablecreator,!portable\p_putty,!portable\p_rufus,!portable\p_sysinternals,!portable\p_utorrent,!portable\p_vlc,!portable\p_vscode,!portable\p_wifiinfoview,!portable\p_winnote,!portable\p_winpowershell,!portable\p_winrar,!portable\p_winscp,!portable\p_winsetup,!portable\p_winterminal,!portable\p_wnetwatcher,!setup\s_adobe_acrobat,!setup\s_adobe_aftereffects,!setup\s_adobe_animate,!setup\s_adobe_audition,!setup\s_adobe_lightroom,!setup\s_adobe_substance,!setup\s_aida64,!setup\s_blender,!setup\s_discord,!setup\s_epic,!setup\s_flstudio,!setup\s_illustrator,!setup\s_indesign,!setup\s_localsend,!setup\s_office,!setup\s_obs,!setup\s_photoshop,!setup\s_premier,!setup\s_steam,!setup\s_torrent,!setup\s_winrar,!setup\visualstudio,!setup\vscode,!setup\browser_chrome,!setup\browser_firefox,!setup\browser_edge,!setup\browser_opera,!setup\browser_yandex');
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin
-  if PageID = wpSelectComponents then
+  if PageID = CatalogPage.ID then
     Result := InstallModePage.SelectedValueIndex <> 0
   else if PageID = ArchivePage.ID then
     Result := InstallModePage.SelectedValueIndex <> 1
@@ -306,204 +324,51 @@ begin
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
+var
+  Index: Integer;
 begin
-  if ItemID = 'p_adobe_acrobat' then
-    Result := WizardIsComponentSelected('portable\p_adobe_acrobat')
-  else if ItemID = 'p_adobe_aftereffects' then
-    Result := WizardIsComponentSelected('portable\p_adobe_aftereffects')
-  else if ItemID = 'p_adobe_audition' then
-    Result := WizardIsComponentSelected('portable\p_adobe_audition')
-  else if ItemID = 'p_adobe_illustrator' then
-    Result := WizardIsComponentSelected('portable\p_adobe_illustrator')
-  else if ItemID = 'p_adobe_photoshop' then
-    Result := WizardIsComponentSelected('portable\p_adobe_photoshop')
-  else if ItemID = 'p_adobe_premiere' then
-    Result := WizardIsComponentSelected('portable\p_adobe_premiere')
-  else if ItemID = 'p_aida64' then
-    Result := WizardIsComponentSelected('portable\p_aida64')
-  else if ItemID = 'p_anydesk' then
-    Result := WizardIsComponentSelected('portable\p_anydesk')
-  else if ItemID = 'p_blender' then
-    Result := WizardIsComponentSelected('portable\p_blender')
-  else if ItemID = 'p_easy2boot' then
-    Result := WizardIsComponentSelected('portable\p_easy2boot')
-  else if ItemID = 'p_encryptonclick' then
-    Result := WizardIsComponentSelected('portable\p_encryptonclick')
-  else if ItemID = 'p_chrome' then
-    Result := WizardIsComponentSelected('portable\p_chrome')
-  else if ItemID = 'p_imgburn' then
-    Result := WizardIsComponentSelected('portable\p_imgburn')
-  else if ItemID = 'p_localsend' then
-    Result := WizardIsComponentSelected('portable\p_localsend')
-  else if ItemID = 'p_scanner' then
-    Result := WizardIsComponentSelected('portable\p_scanner')
-  else if ItemID = 'p_nsis' then
-    Result := WizardIsComponentSelected('portable\p_nsis')
-  else if ItemID = 'p_obs' then
-    Result := WizardIsComponentSelected('portable\p_obs')
-  else if ItemID = 'p_portablecreator' then
-    Result := WizardIsComponentSelected('portable\p_portablecreator')
-  else if ItemID = 'p_putty' then
-    Result := WizardIsComponentSelected('portable\p_putty')
-  else if ItemID = 'p_rufus' then
-    Result := WizardIsComponentSelected('portable\p_rufus')
-  else if ItemID = 'p_sysinternals' then
-    Result := WizardIsComponentSelected('portable\p_sysinternals')
-  else if ItemID = 'p_utorrent' then
-    Result := WizardIsComponentSelected('portable\p_utorrent')
-  else if ItemID = 'p_vlc' then
-    Result := WizardIsComponentSelected('portable\p_vlc')
-  else if ItemID = 'p_vscode' then
-    Result := WizardIsComponentSelected('portable\p_vscode')
-  else if ItemID = 'p_wifiinfoview' then
-    Result := WizardIsComponentSelected('portable\p_wifiinfoview')
-  else if ItemID = 'p_winnote' then
-    Result := WizardIsComponentSelected('portable\p_winnote')
-  else if ItemID = 'p_winpowershell' then
-    Result := WizardIsComponentSelected('portable\p_winpowershell')
-  else if ItemID = 'p_winrar' then
-    Result := WizardIsComponentSelected('portable\p_winrar')
-  else if ItemID = 'p_winscp' then
-    Result := WizardIsComponentSelected('portable\p_winscp')
-  else if ItemID = 'p_winsetup' then
-    Result := WizardIsComponentSelected('portable\p_winsetup')
-  else if ItemID = 'p_winterminal' then
-    Result := WizardIsComponentSelected('portable\p_winterminal')
-  else if ItemID = 'p_wnetwatcher' then
-    Result := WizardIsComponentSelected('portable\p_wnetwatcher')
-  else if ItemID = 's_adobe_acrobat' then
-    Result := WizardIsComponentSelected('setup\s_adobe_acrobat')
-  else if ItemID = 's_adobe_aftereffects' then
-    Result := WizardIsComponentSelected('setup\s_adobe_aftereffects')
-  else if ItemID = 's_adobe_animate' then
-    Result := WizardIsComponentSelected('setup\s_adobe_animate')
-  else if ItemID = 's_adobe_audition' then
-    Result := WizardIsComponentSelected('setup\s_adobe_audition')
-  else if ItemID = 's_adobe_lightroom' then
-    Result := WizardIsComponentSelected('setup\s_adobe_lightroom')
-  else if ItemID = 's_adobe_substance' then
-    Result := WizardIsComponentSelected('setup\s_adobe_substance')
-  else if ItemID = 's_aida64' then
-    Result := WizardIsComponentSelected('setup\s_aida64')
-  else if ItemID = 's_blender' then
-    Result := WizardIsComponentSelected('setup\s_blender')
-  else if ItemID = 's_discord' then
-    Result := WizardIsComponentSelected('setup\s_discord')
-  else if ItemID = 's_epic' then
-    Result := WizardIsComponentSelected('setup\s_epic')
-  else if ItemID = 's_flstudio' then
-    Result := WizardIsComponentSelected('setup\s_flstudio')
-  else if ItemID = 's_illustrator' then
-    Result := WizardIsComponentSelected('setup\s_illustrator')
-  else if ItemID = 's_indesign' then
-    Result := WizardIsComponentSelected('setup\s_indesign')
-  else if ItemID = 's_localsend' then
-    Result := WizardIsComponentSelected('setup\s_localsend')
-  else if ItemID = 's_office' then
-    Result := WizardIsComponentSelected('setup\s_office')
-  else if ItemID = 's_obs' then
-    Result := WizardIsComponentSelected('setup\s_obs')
-  else if ItemID = 's_photoshop' then
-    Result := WizardIsComponentSelected('setup\s_photoshop')
-  else if ItemID = 's_premier' then
-    Result := WizardIsComponentSelected('setup\s_premier')
-  else if ItemID = 's_steam' then
-    Result := WizardIsComponentSelected('setup\s_steam')
-  else if ItemID = 's_torrent' then
-    Result := WizardIsComponentSelected('setup\s_torrent')
-  else if ItemID = 's_winrar' then
-    Result := WizardIsComponentSelected('setup\s_winrar')
-  else if ItemID = 's_vs_vs' then
-    Result := WizardIsComponentSelected('setup\visualstudio')
-  else if ItemID = 's_vs_code' then
-    Result := WizardIsComponentSelected('setup\vscode')
-  else if ItemID = 's_browser_chrome' then
-    Result := WizardIsComponentSelected('setup\browser_chrome')
-  else if ItemID = 's_browser_firefox' then
-    Result := WizardIsComponentSelected('setup\browser_firefox')
-  else if ItemID = 's_browser_edge' then
-    Result := WizardIsComponentSelected('setup\browser_edge')
-  else if ItemID = 's_browser_opera' then
-    Result := WizardIsComponentSelected('setup\browser_opera')
-  else if ItemID = 's_browser_yandex' then
-    Result := WizardIsComponentSelected('setup\browser_yandex')
+  Result := False;
+  if Copy(ItemID, 1, 2) = 'p_' then
+  begin
+    Index := PortableItemIDs.IndexOf(ItemID);
+    if Index >= 0 then
+      Result := PortableCheckList.Checked[Index];
+  end
+  else if Copy(ItemID, 1, 2) = 's_' then
+  begin
+    Index := SetupItemIDs.IndexOf(ItemID);
+    if Index >= 0 then
+      Result := SetupCheckList.Checked[Index];
+  end
   else if ItemID = 'a_portable' then
     Result := ArchivePage.Values[0]
   else if ItemID = 'a_setup' then
-    Result := ArchivePage.Values[1]
-  else
-    Result := False;
+    Result := ArchivePage.Values[1];
 end;
 
 function HasAnySelection: Boolean;
+var
+  I: Integer;
 begin
-  Result :=
-    (IsItemSelected('p_adobe_acrobat'))
-    or (IsItemSelected('p_adobe_aftereffects'))
-    or (IsItemSelected('p_adobe_audition'))
-    or (IsItemSelected('p_adobe_illustrator'))
-    or (IsItemSelected('p_adobe_photoshop'))
-    or (IsItemSelected('p_adobe_premiere'))
-    or (IsItemSelected('p_aida64'))
-    or (IsItemSelected('p_anydesk'))
-    or (IsItemSelected('p_blender'))
-    or (IsItemSelected('p_easy2boot'))
-    or (IsItemSelected('p_encryptonclick'))
-    or (IsItemSelected('p_chrome'))
-    or (IsItemSelected('p_imgburn'))
-    or (IsItemSelected('p_localsend'))
-    or (IsItemSelected('p_scanner'))
-    or (IsItemSelected('p_nsis'))
-    or (IsItemSelected('p_obs'))
-    or (IsItemSelected('p_portablecreator'))
-    or (IsItemSelected('p_putty'))
-    or (IsItemSelected('p_rufus'))
-    or (IsItemSelected('p_sysinternals'))
-    or (IsItemSelected('p_utorrent'))
-    or (IsItemSelected('p_vlc'))
-    or (IsItemSelected('p_vscode'))
-    or (IsItemSelected('p_wifiinfoview'))
-    or (IsItemSelected('p_winnote'))
-    or (IsItemSelected('p_winpowershell'))
-    or (IsItemSelected('p_winrar'))
-    or (IsItemSelected('p_winscp'))
-    or (IsItemSelected('p_winsetup'))
-    or (IsItemSelected('p_winterminal'))
-    or (IsItemSelected('p_wnetwatcher'))
-    or (IsItemSelected('s_adobe_acrobat'))
-    or (IsItemSelected('s_adobe_aftereffects'))
-    or (IsItemSelected('s_adobe_animate'))
-    or (IsItemSelected('s_adobe_audition'))
-    or (IsItemSelected('s_adobe_lightroom'))
-    or (IsItemSelected('s_adobe_substance'))
-    or (IsItemSelected('s_aida64'))
-    or (IsItemSelected('s_blender'))
-    or (IsItemSelected('s_discord'))
-    or (IsItemSelected('s_epic'))
-    or (IsItemSelected('s_flstudio'))
-    or (IsItemSelected('s_illustrator'))
-    or (IsItemSelected('s_indesign'))
-    or (IsItemSelected('s_localsend'))
-    or (IsItemSelected('s_office'))
-    or (IsItemSelected('s_obs'))
-    or (IsItemSelected('s_photoshop'))
-    or (IsItemSelected('s_premier'))
-    or (IsItemSelected('s_steam'))
-    or (IsItemSelected('s_torrent'))
-    or (IsItemSelected('s_winrar'))
-    or (IsItemSelected('s_vs_vs'))
-    or (IsItemSelected('s_vs_code'))
-    or (IsItemSelected('s_browser_chrome'))
-    or (IsItemSelected('s_browser_firefox'))
-    or (IsItemSelected('s_browser_edge'))
-    or (IsItemSelected('s_browser_opera'))
-    or (IsItemSelected('s_browser_yandex'));
+  Result := False;
+  for I := 0 to PortableItemIDs.Count - 1 do
+    if PortableCheckList.Checked[I] then
+    begin
+      Result := True;
+      Exit;
+    end;
+  for I := 0 to SetupItemIDs.Count - 1 do
+    if SetupCheckList.Checked[I] then
+    begin
+      Result := True;
+      Exit;
+    end;
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 begin
   Result := True;
-  if (CurPageID = wpSelectComponents) and (not HasAnySelection) then
+  if (CurPageID = CatalogPage.ID) and (not HasAnySelection) then
   begin
     MsgBox('Выберите хотя бы одну программу из каталога.', mbInformation, MB_OK);
     Result := False;

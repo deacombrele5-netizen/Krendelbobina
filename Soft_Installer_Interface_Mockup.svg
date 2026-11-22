@@ -1,139 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1695" viewBox="0 0 1720 1695">
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1118"/><stop offset="1" stop-color="#101a25"/></linearGradient></defs>
-<rect width="1720" height="1695" fill="url(#bg)"/>
-<text x="60" y="68" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#f3f6fa">SOFT / ИНТЕРФЕЙС УСТАНОВЩИКА</text>
-<text x="60" y="105" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#8fa2b6">Обновлённый макет · стандартные формулировки Inno Setup · папка с шестерёнкой</text>
-<path d="M60 132H1660" stroke="#2e4053"/>
-<g font-family="Segoe UI,Arial,sans-serif"><g transform="translate(60 175)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1260" viewBox="0 0 1720 1260">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1118"/><stop offset="1" stop-color="#101a25"/></linearGradient>
+</defs>
+<rect width="1720" height="1260" fill="url(#bg)"/>
+<text x="60" y="62" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="700" fill="#f3f6fa">SOFT / ВСТРОЕННЫЙ ИНТЕРФЕЙС INNO SETUP</text>
+<text x="60" y="98" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#9aabbd">Штатные страницы мастера · встроенный выбор папки · стандартное дерево компонентов с флажками</text>
+<path d="M60 122H1660" stroke="#34485c"/>
+<g font-family="Segoe UI,Arial,sans-serif">
+<!-- destination -->
+<g transform="translate(60 155)">
+ <rect width="800" height="470" rx="7" fill="#17212d" stroke="#465a70"/>
+ <rect width="800" height="48" rx="7" fill="#202d3b"/>
+ <text x="24" y="30" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="34" y="98" font-size="24" font-weight="600" fill="#f4f7fb">Выберите папку установки</text>
+ <text x="34" y="130" font-size="15" fill="#b5c2cf">Укажите папку, в которой будут размещены выбранные программы или архивы.</text>
+ <text x="34" y="185" font-size="14" fill="#e5edf5">Папка установки:</text>
+ <rect x="34" y="202" width="585" height="38" rx="3" fill="#101923" stroke="#52667b"/>
+ <text x="48" y="227" font-size="15" fill="#f1f5f9">C:\</text>
+ <rect x="632" y="202" width="132" height="38" rx="3" fill="#29394a" stroke="#63778d"/>
+ <text x="698" y="226" text-anchor="middle" font-size="14" fill="#f1f5f9">Обзор...</text>
+ <path d="M0 402H800" stroke="#3c4d60"/>
+ <rect x="512" y="422" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>
+ <rect x="612" y="422" width="88" height="30" rx="3" fill="#167fbd" stroke="#279bd8"/><text x="656" y="442" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Далее</text>
+ <rect x="712" y="422" width="68" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="746" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Отмена</text>
+</g>
+<!-- components -->
+<g transform="translate(860 155)">
+ <rect width="800" height="470" rx="7" fill="#17212d" stroke="#465a70"/>
+ <rect width="800" height="48" rx="7" fill="#202d3b"/>
+ <text x="24" y="30" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="34" y="98" font-size="24" font-weight="600" fill="#f4f7fb">Выбор программ и архивов</text>
+ <text x="34" y="130" font-size="15" fill="#b5c2cf">Отметьте программы или архивы, которые нужно разместить в выбранной папке.</text>
+ <rect x="34" y="151" width="730" height="231" rx="3" fill="#111a24" stroke="#465a70"/>
+ <g font-size="14" fill="#e8eef4">
+  <rect x="52" y="169" width="15" height="15" rx="2" fill="#25394a" stroke="#7e94aa"/><path d="M55 176l4 4 6-8" fill="none" stroke="#d8e8f5" stroke-width="1.6"/>
+  <text x="79" y="182" font-weight="600">Портативные программы</text>
+  <rect x="78" y="195" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="105" y="207">Adobe Acrobat Pro</text>
+  <rect x="78" y="220" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="105" y="232">Adobe After Effects</text>
+  <rect x="78" y="245" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="105" y="257">Blender</text>
+  <rect x="78" y="270" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="105" y="282">Google Chrome</text>
+  <rect x="52" y="300" width="15" height="15" rx="2" fill="#25394a" stroke="#7e94aa"/><path d="M55 307l4 4 6-8" fill="none" stroke="#d8e8f5" stroke-width="1.6"/>
+  <text x="79" y="313" font-weight="600">Установщики программ</text>
+  <rect x="78" y="326" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="105" y="338">Adobe Photoshop</text>
+  <rect x="78" y="351" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="105" y="363">Visual Studio (все версии)</text>
+  <rect x="405" y="195" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="432" y="207">Visual Studio</text>
+  <rect x="405" y="220" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="432" y="232">Visual Studio Code</text>
+  <rect x="405" y="245" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="432" y="257">Браузеры (все сразу)</text>
+  <rect x="431" y="270" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="458" y="282">Google Chrome</text>
+  <rect x="431" y="295" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="458" y="307">Mozilla Firefox</text>
+  <rect x="52" y="359" width="15" height="15" rx="2" fill="#25394a" stroke="#7e94aa"/><path d="M55 366l4 4 6-8" fill="none" stroke="#d8e8f5" stroke-width="1.6"/>
+  <text x="79" y="372" font-weight="600">Готовые архивы</text>
  </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выберите папку установки</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Укажите папку, в которой будут размещены выбранные программы или архивы.</text>
- 
- <rect x="30" y="147" width="610" height="42" rx="6" fill="#0d151e" stroke="#465a70"/>
- <text x="48" y="174" font-size="15" fill="#f0f4f8">C:\</text>
- <rect x="652" y="147" width="118" height="42" rx="6" fill="#2a3a4b" stroke="#52677e"/>
- <text x="711" y="174" text-anchor="middle" font-size="13" fill="#eef4fa">Обзор...</text>
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
- </g><g transform="translate(860 175)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
- </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор способа установки</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Выберите источник: отдельные программы из каталога или готовые архивы.</text>
- 
- <rect x="30" y="145" width="740" height="54" rx="7" fill="#1a2c3b" stroke="#238ec8"/>
- <circle cx="57" cy="172" r="8" fill="#163b53" stroke="#46b7e8" stroke-width="1.6"/><circle cx="57" cy="172" r="3.5" fill="#77d3f5"/>
- <text x="82" y="178" font-size="15" font-weight="600" fill="#f1f6fb">Выбрать программу из каталога программ</text>
- <rect x="30" y="211" width="740" height="54" rx="7" fill="#192431" stroke="#405267"/>
- <circle cx="57" cy="238" r="8" fill="#101923" stroke="#718397" stroke-width="1.6"/>
- <text x="82" y="244" font-size="15" fill="#e0e8f0">Выбрать готовый архив с программами</text>
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
- </g><g transform="translate(60 555)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
- </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор программ</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Выберите программы, которые можно добавить.</text>
- 
- <rect x="30" y="137" width="740" height="128" rx="7" fill="#101923" stroke="#34485d"/>
- <text x="48" y="161" font-size="12" font-weight="700" letter-spacing=".7" fill="#5abce8">ПОРТАТИВНЫЕ ПРОГРАММЫ</text>
- <rect x="46" y="177" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M50 185l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="73" y="190" font-size="13" fill="#e5edf5">Adobe Acrobat Pro</text>
- <rect x="46" y="203" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="73" y="216" font-size="13" fill="#e5edf5">Adobe After Effects</text>
- <rect x="46" y="229" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="73" y="242" font-size="13" fill="#e5edf5">Blender</text>
- <rect x="292" y="177" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="319" y="190" font-size="13" fill="#e5edf5">Google Chrome</text>
- <rect x="292" y="203" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M296 211l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="319" y="216" font-size="13" fill="#e5edf5">LocalSend</text>
- <rect x="292" y="229" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="319" y="242" font-size="13" fill="#e5edf5">Rufus</text>
- <rect x="540" y="177" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="567" y="190" font-size="13" fill="#e5edf5">VLC Media Player</text>
- <rect x="540" y="203" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="567" y="216" font-size="13" fill="#e5edf5">WinRAR</text>
- <rect x="540" y="229" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M544 237l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="567" y="242" font-size="13" fill="#e5edf5">WinSCP</text>
- <rect x="750" y="176" width="5" height="76" rx="2.5" fill="#27394a"/><rect x="750" y="181" width="5" height="24" rx="2.5" fill="#6b8298"/>
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
- </g><g transform="translate(860 555)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
- </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Выбор архивов</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Выберите архив.</text>
- 
- <rect x="30" y="148" width="740" height="48" rx="6" fill="#192633" stroke="#3d5268"/>
- <rect x="48" y="164" width="16" height="16" rx="3" fill="#153b53" stroke="#46b7e8" stroke-width="1.4"/><path d="M52 172l3 3 5-6" fill="none" stroke="#77d3f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="82" y="178" font-size="14" fill="#eaf1f7">Архив с портативными программами</text>
- 
- <rect x="30" y="208" width="740" height="48" rx="6" fill="#192633" stroke="#3d5268"/>
- <rect x="48" y="224" width="16" height="16" rx="3" fill="#101923" stroke="#718397" stroke-width="1.4"/><text x="82" y="238" font-size="14" fill="#eaf1f7">Архив с установочными версиями программ</text>
- 
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="334" y="296" width="82" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="375" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Далее</text><rect x="238" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="279" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
- </g><g transform="translate(60 935)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
- </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Готово к установке</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Мастер установки готов перенести выбранные файлы на ваш компьютер.</text>
- 
-
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Назад</text><rect x="314" y="296" width="102" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="365" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Установить</text><rect x="218" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="259" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
- </g><g transform="translate(860 935)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
- </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка...</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Выполняется размещение выбранных компонентов. Дождитесь завершения процесса.</text>
- 
- <rect x="30" y="176" width="740" height="18" rx="9" fill="#0c151f" stroke="#43586d"/>
- <rect x="33" y="179" width="346" height="12" rx="6" fill="#249bd4"/>
- <text x="30" y="226" font-size="22" font-weight="600" fill="#eaf4fb">47%</text>
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="430" y="296" width="82" height="30" rx="5" fill="#29394a" stroke="#4b6075"/><text x="471" y="316" text-anchor="middle" font-size="12" font-weight="400" fill="#f0f5fa">Отмена</text>
- </g><g transform="translate(460 1315)">
- <rect width="800" height="340" rx="12" fill="#141e29" stroke="#34495e"/>
- <path d="M12 0H788Q800 0 800 12V52H0V12Q0 0 12 0Z" fill="#202d3b"/>
- <g transform="translate(12 7) scale(2)" fill="none" stroke="#dce7f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
- <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3m-7.695 8.23l.923-.382m0-2.296l-.923-.383m2.547-1.241l-.383-.923m.383 6.467l-.383.924m2.679-6.468l.383-.923m-.001 7.391l-.382-.924m1.624-3.92l.924-.383m-.924 2.679l.924.383"/>
- <circle cx="18" cy="18" r="3"/>
- </g>
- <text x="70" y="32" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
- <text x="30" y="91" font-size="23" font-weight="600" fill="#f4f7fb">Установка завершена</text>
- <text x="30" y="121" font-size="15" fill="#aebdcb">Чтобы завершить установку, нажмите кнопку: «Завершить».</text>
-
- <path d="M0 278H800" stroke="#344456"/>
- <rect x="410" y="296" width="102" height="30" rx="5" fill="#168ac7" stroke="#168ac7"/><text x="461" y="316" text-anchor="middle" font-size="12" font-weight="600" fill="#f0f5fa">Завершить</text>
- </g></g>
-<text x="60" y="1670" font-family="Segoe UI,Arial,sans-serif" font-size="11" fill="#71869b">SOFT SETUP · UI CONCEPT · 2026</text>
+ <path d="M0 402H800" stroke="#3c4d60"/>
+ <rect x="512" y="422" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>
+ <rect x="612" y="422" width="88" height="30" rx="3" fill="#167fbd" stroke="#279bd8"/><text x="656" y="442" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Далее</text>
+ <rect x="712" y="422" width="68" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="746" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Отмена</text>
+</g>
+<!-- ready -->
+<g transform="translate(60 665)">
+ <rect width="800" height="470" rx="7" fill="#17212d" stroke="#465a70"/>
+ <rect width="800" height="48" rx="7" fill="#202d3b"/>
+ <text x="24" y="30" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="34" y="98" font-size="24" font-weight="600" fill="#f4f7fb">Готово к установке</text>
+ <text x="34" y="130" font-size="15" fill="#b5c2cf">Мастер установки готов разместить выбранные компоненты на вашем компьютере.</text>
+ <text x="34" y="190" font-size="15" fill="#e5edf5">Параметры установки:</text>
+ <rect x="34" y="208" width="730" height="145" rx="3" fill="#111a24" stroke="#465a70"/>
+ <text x="54" y="241" font-size="14" fill="#b5c2cf">Папка установки:</text><text x="230" y="241" font-size="14" fill="#f1f5f9">C:\</text>
+ <text x="54" y="273" font-size="14" fill="#b5c2cf">Выбранные компоненты:</text><text x="230" y="273" font-size="14" fill="#f1f5f9">Отмеченные программы и архивы</text>
+ <text x="54" y="305" font-size="14" fill="#b5c2cf">Действие:</text><text x="230" y="305" font-size="14" fill="#f1f5f9">Размещение выбранных файлов</text>
+ <path d="M0 402H800" stroke="#3c4d60"/>
+ <rect x="512" y="422" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>
+ <rect x="612" y="422" width="88" height="30" rx="3" fill="#167fbd" stroke="#279bd8"/><text x="656" y="442" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Установить</text>
+ <rect x="712" y="422" width="68" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="746" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Отмена</text>
+</g>
+<!-- finished -->
+<g transform="translate(860 665)">
+ <rect width="800" height="470" rx="7" fill="#17212d" stroke="#465a70"/>
+ <rect width="800" height="48" rx="7" fill="#202d3b"/>
+ <text x="24" y="30" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
+ <text x="34" y="98" font-size="24" font-weight="600" fill="#f4f7fb">Установка завершена</text>
+ <text x="34" y="130" font-size="15" fill="#b5c2cf">Чтобы завершить установку, нажмите кнопку: «Завершить».</text>
+ <circle cx="88" cy="222" r="28" fill="#1c4a3c" stroke="#55b58d" stroke-width="2"/>
+ <path d="M74 222l9 9 19-21" fill="none" stroke="#a7e4c6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="136" y="219" font-size="17" font-weight="600" fill="#e9f3ef">Выбранные компоненты размещены.</text>
+ <text x="136" y="247" font-size="14" fill="#b5c2cf">Нажмите «Завершить», чтобы закрыть мастер установки.</text>
+ <path d="M0 402H800" stroke="#3c4d60"/>
+ <rect x="682" y="422" width="98" height="30" rx="3" fill="#167fbd" stroke="#279bd8"/><text x="731" y="442" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Завершить</text>
+</g>
+</g>
+<text x="60" y="1195" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#8396aa">Схема показывает структуру страниц. Реальные элементы, дерево и кнопки создаёт сам Inno Setup 7.1.1.</text>
 </svg>

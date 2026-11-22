@@ -70,8 +70,16 @@ jobs:
       - name: Compile Soft.iss
         shell: pwsh
         run: |
-          $compiler = Join-Path $env:ProgramFiles "Inno Setup 7\ISCC.exe"
-          if (!(Test-Path $compiler)) { throw "Inno Setup 7.1.1 ISCC.exe was not found at $compiler" }
+          $compiler = @(
+            (Join-Path $env:ProgramFiles "Inno Setup 7\ISCC.exe"),
+            (Join-Path ${env:ProgramFiles(x86)} "Inno Setup 7\ISCC.exe")
+          ) | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (!$compiler) {
+            $compiler = Get-ChildItem -Path $env:ProgramFiles, ${env:ProgramFiles(x86)} -Filter ISCC.exe -Recurse -ErrorAction SilentlyContinue |
+              Where-Object { $_.FullName -match "Inno Setup 7" } |
+              Select-Object -ExpandProperty FullName -First 1
+          }
+          if (!$compiler) { throw "Inno Setup 7.1.1 ISCC.exe was not found after installation" }
           $version = (& $compiler --version 2>&1 | Out-String)
           if ($version -notmatch "7\.1\.1") { throw "Expected Inno Setup 7.1.1, got: $version" }
           & $compiler "/DMySoftRoot=$env:RUNNER_TEMP\MySoft" "Soft.iss"

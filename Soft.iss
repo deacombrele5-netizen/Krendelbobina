@@ -93,75 +93,75 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "custom"; Description: "Выборочная установка"; Flags: iscustom
 
 [Components]
-Name: "portable"; Description: "Портативные программы"; Types: custom
-Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom
-Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom
-Name: "portable\p_adobe_audition"; Description: "Adobe Audition"; Types: custom
-Name: "portable\p_adobe_illustrator"; Description: "Adobe Illustrator"; Types: custom
-Name: "portable\p_adobe_photoshop"; Description: "Adobe Photoshop"; Types: custom
-Name: "portable\p_adobe_premiere"; Description: "Adobe Premiere Pro"; Types: custom
-Name: "portable\p_aida64"; Description: "AIDA64"; Types: custom
-Name: "portable\p_anydesk"; Description: "AnyDesk"; Types: custom
-Name: "portable\p_blender"; Description: "Blender"; Types: custom
-Name: "portable\p_easy2boot"; Description: "Easy2Boot"; Types: custom
-Name: "portable\p_encryptonclick"; Description: "EncryptOnClick"; Types: custom
-Name: "portable\p_chrome"; Description: "Google Chrome"; Types: custom
-Name: "portable\p_imgburn"; Description: "ImgBurn"; Types: custom
-Name: "portable\p_localsend"; Description: "LocalSend"; Types: custom
-Name: "portable\p_scanner"; Description: "Microsoft Scanner"; Types: custom
-Name: "portable\p_nsis"; Description: "NSIS"; Types: custom
-Name: "portable\p_obs"; Description: "OBS Studio"; Types: custom
-Name: "portable\p_portablecreator"; Description: "Portable Creator"; Types: custom
-Name: "portable\p_putty"; Description: "PuTTY"; Types: custom
-Name: "portable\p_rufus"; Description: "Rufus"; Types: custom
-Name: "portable\p_sysinternals"; Description: "Sysinternals Suite"; Types: custom
-Name: "portable\p_utorrent"; Description: "µTorrent"; Types: custom
-Name: "portable\p_vlc"; Description: "VLC Media Player"; Types: custom
-Name: "portable\p_vscode"; Description: "Visual Studio Code"; Types: custom
-Name: "portable\p_wifiinfoview"; Description: "WifiInfoView"; Types: custom
-Name: "portable\p_winnote"; Description: "WinNotepad"; Types: custom
-Name: "portable\p_winpowershell"; Description: "WinPowerShell"; Types: custom
-Name: "portable\p_winrar"; Description: "WinRAR"; Types: custom
-Name: "portable\p_winscp"; Description: "WinSCP"; Types: custom
-Name: "portable\p_winsetup"; Description: "WinSetupFromUSB"; Types: custom
-Name: "portable\p_winterminal"; Description: "Windows Terminal"; Types: custom
-Name: "portable\p_wnetwatcher"; Description: "WNetWatcher"; Types: custom
-Name: "setup"; Description: "Установщики программ"; Types: custom
-Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom
-Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom
-Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom
-Name: "setup\s_adobe_audition"; Description: "Adobe Audition"; Types: custom
-Name: "setup\s_adobe_lightroom"; Description: "Adobe Lightroom Classic"; Types: custom
-Name: "setup\s_adobe_substance"; Description: "Adobe Substance 3D Painter"; Types: custom
-Name: "setup\s_aida64"; Description: "AIDA 64"; Types: custom
-Name: "setup\s_blender"; Description: "Blender 3D"; Types: custom
-Name: "setup\s_discord"; Description: "Discord"; Types: custom
-Name: "setup\s_epic"; Description: "Epic Games"; Types: custom
-Name: "setup\s_flstudio"; Description: "FL Studio"; Types: custom
-Name: "setup\s_illustrator"; Description: "Adobe Illustrator"; Types: custom
-Name: "setup\s_indesign"; Description: "Adobe InDesign"; Types: custom
-Name: "setup\s_localsend"; Description: "LocalSend"; Types: custom
-Name: "setup\s_office"; Description: "Microsoft Office"; Types: custom
-Name: "setup\s_obs"; Description: "OBS Studio"; Types: custom
-Name: "setup\s_photoshop"; Description: "Adobe Photoshop"; Types: custom
-Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom
-Name: "setup\s_steam"; Description: "Steam"; Types: custom
-Name: "setup\s_torrent"; Description: "Torrent"; Types: custom
-Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom
-Name: "setup\visualstudio_all"; Description: "Visual Studio (все версии)"; Types: custom
-Name: "setup\visualstudio"; Description: "Visual Studio по отдельности"; Types: custom
-Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom
-Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom
-Name: "setup\browsers_all"; Description: "Все браузеры сразу"; Types: custom
-Name: "setup\browsers"; Description: "Браузеры по отдельности"; Types: custom
-Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom
-Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom
-Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom
-Name: "setup\browsers\opera"; Description: "Opera"; Types: custom
-Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom
-Name: "archives"; Description: "Готовые архивы"; Types: custom
-Name: "archives\portable"; Description: "Архив с портативными программами"; Types: custom
-Name: "archives\setup"; Description: "Архив с установочными версиями программ"; Types: custom
+Name: "portable"; Description: "Портативные программы"; Types: custom; Flags: fixed
+Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_adobe_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_adobe_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_adobe_premiere"; Description: "Adobe Premiere Pro"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_aida64"; Description: "AIDA64"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_anydesk"; Description: "AnyDesk"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_blender"; Description: "Blender"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_easy2boot"; Description: "Easy2Boot"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_encryptonclick"; Description: "EncryptOnClick"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_chrome"; Description: "Google Chrome"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_imgburn"; Description: "ImgBurn"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_localsend"; Description: "LocalSend"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_scanner"; Description: "Microsoft Scanner"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_nsis"; Description: "NSIS"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_obs"; Description: "OBS Studio"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_portablecreator"; Description: "Portable Creator"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_putty"; Description: "PuTTY"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_rufus"; Description: "Rufus"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_sysinternals"; Description: "Sysinternals Suite"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_utorrent"; Description: "µTorrent"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_vlc"; Description: "VLC Media Player"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_vscode"; Description: "Visual Studio Code"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_wifiinfoview"; Description: "WifiInfoView"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_winnote"; Description: "WinNotepad"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_winpowershell"; Description: "WinPowerShell"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_winscp"; Description: "WinSCP"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_winsetup"; Description: "WinSetupFromUSB"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_winterminal"; Description: "Windows Terminal"; Types: custom; Flags: dontinheritcheck
+Name: "portable\p_wnetwatcher"; Description: "WNetWatcher"; Types: custom; Flags: dontinheritcheck
+Name: "setup"; Description: "Установщики программ"; Types: custom; Flags: fixed
+Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_lightroom"; Description: "Adobe Lightroom Classic"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_adobe_substance"; Description: "Adobe Substance 3D Painter"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_aida64"; Description: "AIDA 64"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_blender"; Description: "Blender 3D"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_discord"; Description: "Discord"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_epic"; Description: "Epic Games"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_flstudio"; Description: "FL Studio"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_indesign"; Description: "Adobe InDesign"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_localsend"; Description: "LocalSend"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_office"; Description: "Microsoft Office"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_obs"; Description: "OBS Studio"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_steam"; Description: "Steam"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_torrent"; Description: "Torrent"; Types: custom; Flags: dontinheritcheck
+Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom; Flags: dontinheritcheck
+Name: "setup\visualstudio_all"; Description: "Visual Studio (все версии)"; Types: custom; Flags: dontinheritcheck
+Name: "setup\visualstudio"; Description: "Visual Studio по отдельности"; Types: custom; Flags: fixed dontinheritcheck
+Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom; Flags: dontinheritcheck
+Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom; Flags: dontinheritcheck
+Name: "setup\browsers_all"; Description: "Все браузеры сразу"; Types: custom; Flags: dontinheritcheck
+Name: "setup\browsers"; Description: "Браузеры по отдельности"; Types: custom; Flags: fixed dontinheritcheck
+Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom; Flags: dontinheritcheck
+Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom; Flags: dontinheritcheck
+Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom; Flags: dontinheritcheck
+Name: "setup\browsers\opera"; Description: "Opera"; Types: custom; Flags: dontinheritcheck
+Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom; Flags: dontinheritcheck
+Name: "archives"; Description: "Готовые архивы"; Types: custom; Flags: fixed
+Name: "archives\portable"; Description: "Архив с портативными программами"; Types: custom; Flags: dontinheritcheck
+Name: "archives\setup"; Description: "Архив с установочными версиями программ"; Types: custom; Flags: dontinheritcheck
 [Files]
 Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_acrobat')
 Source: "{#PortableRoot}\AdobeAfterEffects-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAfterEffects-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_aftereffects')

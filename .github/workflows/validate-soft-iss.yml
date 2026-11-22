@@ -23,9 +23,13 @@ jobs:
           $expectedHash = "8a5a6711c3766a6e5fb74f280ba0e3551e719ce94538d901fdbd1f8f9920b3f0"
           $actualHash = (Get-FileHash -Algorithm SHA256 $installer).Hash.ToLowerInvariant()
           if ($actualHash -ne $expectedHash) { throw "Inno Setup 7.1.1 installer SHA-256 mismatch" }
-          $installDir = Join-Path $env:ProgramFiles "Inno Setup 7"
-          $process = Start-Process -FilePath $installer -ArgumentList @("/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-", "/DIR=$installDir") -Wait -PassThru
+          $installDir = Join-Path $env:RUNNER_TEMP "InnoSetup-7.1.1"
+          $installArgs = @("/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-", "/DIR=`"$installDir`"")
+          $process = Start-Process -FilePath $installer -ArgumentList $installArgs -Wait -PassThru
           if ($process.ExitCode -ne 0) { throw "Inno Setup 7.1.1 installation failed with exit code $($process.ExitCode)" }
+          if (!(Test-Path (Join-Path $installDir "ISCC.exe"))) {
+            throw "Inno Setup 7.1.1 installation completed, but ISCC.exe was not found in $installDir"
+          }
 
       - name: Prepare isolated placeholder source tree
         shell: pwsh
@@ -64,19 +68,16 @@ jobs:
             40,0,0,0,1,0,0,0,2,0,0,0,1,0,32,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0)
           [IO.File]::WriteAllBytes((Join-Path $root "app.ico"), $ico)
-          New-Item -ItemType Directory -Force -Path (Join-Path $root "Софт установка") | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $root "Софт\\Софт - установка") | Out-Null
           "Prepared placeholder source tree under $root"
 
       - name: Compile Soft.iss
         shell: pwsh
         run: |
-          $compiler = @(
-            (Join-Path $env:ProgramFiles "Inno Setup 7\ISCC.exe"),
-            (Join-Path ${env:ProgramFiles(x86)} "Inno Setup 7\ISCC.exe")
-          ) | Where-Object { Test-Path $_ } | Select-Object -First 1
+          $compiler = Join-Path $env:RUNNER_TEMP "InnoSetup-7.1.1\\ISCC.exe"
           if (!$compiler) {
-            $compiler = Get-ChildItem -Path $env:ProgramFiles, ${env:ProgramFiles(x86)} -Filter ISCC.exe -Recurse -ErrorAction SilentlyContinue |
-              Where-Object { $_.FullName -match "Inno Setup 7" } |
+            $compiler = Get-ChildItem -Path $env:ProgramFiles, ${env:ProgramFiles(x86)}, $env:RUNNER_TEMP -Filter ISCC.exe -Recurse -ErrorAction SilentlyContinue |
+              Where-Object { $_.FullName -match "Inno Setup 7|InnoSetup-7.1.1" } |
               Select-Object -ExpandProperty FullName -First 1
           }
           if (!$compiler) { throw "Inno Setup 7.1.1 ISCC.exe was not found after installation" }

@@ -15,10 +15,10 @@
  <text x="34" y="185" font-size="14" fill="#e5edf5">Папка установки:</text>
  <rect x="34" y="202" width="585" height="38" rx="3" fill="#101923" stroke="#52667b"/><text x="48" y="227" font-size="15" fill="#f1f5f9">C:\</text>
  <rect x="632" y="202" width="132" height="38" rx="3" fill="#29394a" stroke="#63778d"/><text x="698" y="226" text-anchor="middle" font-size="14" fill="#f1f5f9">Обзор...</text>
- <path d="M0 402H800" stroke="#3c4d60"/>
- <rect x="512" y="422" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>
- <rect x="612" y="422" width="88" height="30" rx="3" fill="#167fbd" stroke="#279bd8"/><text x="656" y="442" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Далее</text>
- <rect x="712" y="422" width="68" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="746" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Отмена</text>
+ <path d="M0 416H800" stroke="#3c4d60"/>
+ <rect x="512" y="432" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="452" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>
+ <rect x="612" y="432" width="88" height="30" rx="3" fill="#167fbd" stroke="#279bd8"/><text x="656" y="442" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Далее</text>
+ <rect x="712" y="432" width="68" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="746" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Отмена</text>
 </g>
 <!-- components page -->
 <g transform="translate(860 155)">
@@ -26,7 +26,7 @@
  <text x="24" y="30" font-size="15" font-weight="600" fill="#edf3f8">Установка - Софт</text>
  <text x="34" y="98" font-size="24" font-weight="600" fill="#f4f7fb">Выбор программ и архивов</text>
  <text x="34" y="130" font-size="15" fill="#b5c2cf">Отметьте компоненты, которые нужно разместить в выбранной папке.</text>
- <rect x="34" y="151" width="730" height="231" rx="3" fill="#111a24" stroke="#465a70"/>
+ <rect x="34" y="151" width="730" height="255" rx="3" fill="#111a24" stroke="#465a70"/>
  <g font-size="13.5" fill="#e8eef4">
   <rect x="35" y="163" width="14" height="14" rx="2" fill="#26394b" stroke="#71869b"/><path d="M38 170l3 3 6-7" fill="none" stroke="#aebdcb" stroke-width="1.5"/><text x="60" y="176" font-weight="600">Портативные программы</text>
   <path d="M61 183V235" stroke="#52677c" stroke-width="1"/>
@@ -44,8 +44,11 @@
   <rect x="428" y="266" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="278">Google Chrome</text>
   <rect x="428" y="289" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="301">Mozilla Firefox</text>
   <rect x="428" y="312" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="324">Microsoft Edge</text>
-  <rect x="35" y="356" width="14" height="14" rx="2" fill="#26394b" stroke="#71869b"/><path d="M38 363l3 3 6-7" fill="none" stroke="#aebdcb" stroke-width="1.5"/><text x="60" y="369" font-weight="600">Готовые архивы</text>
-  <rect x="240" y="356" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="267" y="368">Архив с портативными программами</text>
+  <rect x="428" y="335" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="347">Opera</text>
+  <rect x="428" y="358" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="455" y="370">Яндекс Браузер</text>
+  <rect x="35" y="337" width="14" height="14" rx="2" fill="#26394b" stroke="#71869b"/><path d="M38 344l3 3 6-7" fill="none" stroke="#aebdcb" stroke-width="1.5"/><text x="60" y="350" font-weight="600">Готовые архивы</text>
+  <rect x="76" y="357" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="103" y="369">Архив с портативными программами</text>
+  <rect x="76" y="380" width="14" height="14" rx="2" fill="#111a24" stroke="#8093a7"/><text x="103" y="392">Архив с установочными версиями</text>
  </g>
  <path d="M0 402H800" stroke="#3c4d60"/>
  <rect x="512" y="422" width="88" height="30" rx="3" fill="#29394a" stroke="#53677c"/><text x="556" y="442" text-anchor="middle" font-size="13" fill="#eaf0f6">Назад</text>

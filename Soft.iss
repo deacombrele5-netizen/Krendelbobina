@@ -14,9 +14,11 @@
 ; Все содержимое выбранных папок включается в установку без Excludes и без выборочного
 ; удаления файлов; вложенные каталоги и пустые папки сохраняются.
 ;
+; Целевая версия компилятора: Inno Setup 7.1.1 (64-bit).
 ; Интерфейс: стандартные страницы мастера Inno Setup с тёмным оформлением.
-; Выбор папки и компонентов выполняется встроенными средствами Inno Setup.
-; Категории каталога отображаются как вложенный список с системными флажками.
+; Каталог отображается в двух независимых параллельных окнах со своей прокруткой:
+; слева установщики программ, справа портативные программы.
+; Каждый пункт каталога напрямую связан с конкретным исходным путём в секции [Files].
 ; =============================================================================
 
 #define MyAppName "Софт"
@@ -209,7 +211,7 @@ end;
 procedure InitializeWizard;
 var
   SetupHeader, PortableHeader: TNewStaticText;
-  ColumnWidth, ListTop, ListHeight: Integer;
+  ColumnWidth, ColumnGap, ListTop, ListHeight: Integer;
 begin
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
@@ -227,27 +229,30 @@ begin
   SetupItemIDs := TStringList.Create;
   PortableItemIDs := TStringList.Create;
 
+  ColumnGap := ScaleX(18);
+  ColumnWidth := (CatalogPage.SurfaceWidth - ColumnGap) div 2;
+  ListTop := ScaleY(28);
+  ListHeight := CatalogPage.SurfaceHeight - ListTop;
+
   SetupHeader := TNewStaticText.Create(CatalogPage);
   SetupHeader.Parent := CatalogPage.Surface;
   SetupHeader.Left := 0;
   SetupHeader.Top := 0;
-  SetupHeader.Width := CatalogPage.SurfaceWidth div 2 - ScaleX(12);
-  SetupHeader.Height := ScaleY(22);
+  SetupHeader.Width := ColumnWidth;
+  SetupHeader.Height := ScaleY(24);
   SetupHeader.Caption := 'Установщики программ';
+  SetupHeader.Alignment := taCenter;
   SetupHeader.Font.Style := [fsBold];
 
   PortableHeader := TNewStaticText.Create(CatalogPage);
   PortableHeader.Parent := CatalogPage.Surface;
-  PortableHeader.Left := CatalogPage.SurfaceWidth div 2 + ScaleX(12);
+  PortableHeader.Left := ColumnWidth + ColumnGap;
   PortableHeader.Top := 0;
-  PortableHeader.Width := CatalogPage.SurfaceWidth div 2 - ScaleX(12);
-  PortableHeader.Height := ScaleY(22);
+  PortableHeader.Width := CatalogPage.SurfaceWidth - PortableHeader.Left;
+  PortableHeader.Height := ScaleY(24);
   PortableHeader.Caption := 'Портативные программы';
+  PortableHeader.Alignment := taCenter;
   PortableHeader.Font.Style := [fsBold];
-
-  ColumnWidth := (CatalogPage.SurfaceWidth - ScaleX(34)) div 2;
-  ListTop := ScaleY(26);
-  ListHeight := CatalogPage.SurfaceHeight - ListTop;
 
   SetupCheckList := TNewCheckListBox.Create(CatalogPage);
   SetupCheckList.Parent := CatalogPage.Surface;
@@ -256,7 +261,7 @@ begin
   SetupCheckList.Width := ColumnWidth;
   SetupCheckList.Height := ListHeight;
   SetupCheckList.Anchors := [akLeft, akTop, akBottom];
-  SetupCheckList.Flat := True;
+  SetupCheckList.Flat := False;
   SetupCheckList.ShowLines := False;
   SetupCheckList.BorderStyle := bsSingle;
   AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_acrobat', 'Adobe Acrobat Pro');
@@ -290,12 +295,12 @@ begin
 
   PortableCheckList := TNewCheckListBox.Create(CatalogPage);
   PortableCheckList.Parent := CatalogPage.Surface;
-  PortableCheckList.Left := CatalogPage.SurfaceWidth div 2 + ScaleX(17);
+  PortableCheckList.Left := ColumnWidth + ColumnGap;
   PortableCheckList.Top := ListTop;
-  PortableCheckList.Width := ColumnWidth;
+  PortableCheckList.Width := CatalogPage.SurfaceWidth - PortableCheckList.Left;
   PortableCheckList.Height := ListHeight;
   PortableCheckList.Anchors := [akRight, akTop, akBottom];
-  PortableCheckList.Flat := True;
+  PortableCheckList.Flat := False;
   PortableCheckList.ShowLines := False;
   PortableCheckList.BorderStyle := bsSingle;
   AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_acrobat', 'Adobe Acrobat Pro');

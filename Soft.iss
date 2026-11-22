@@ -187,6 +187,7 @@ var
   PortableCheckList: TNewCheckListBox;
   SetupItemIDs: TStringList;
   PortableItemIDs: TStringList;
+  SelectedItemIDs: TStringList;
   SetupItemSizes: TStringList;
   PortableItemSizes: TStringList;
   CatalogSpaceLabel: TNewStaticText;
@@ -296,6 +297,7 @@ begin
 
   SetupItemIDs := TStringList.Create;
   PortableItemIDs := TStringList.Create;
+  SelectedItemIDs := TStringList.Create;
   SetupItemSizes := TStringList.Create;
   PortableItemSizes := TStringList.Create;
 
@@ -469,26 +471,30 @@ begin
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
-var
-  Index: Integer;
 begin
-  Result := False;
-  if Copy(ItemID, 1, 2) = 'p_' then
-  begin
-    Index := PortableItemIDs.IndexOf(ItemID);
-    if Index >= 0 then
-      Result := PortableCheckList.Checked[Index];
-  end
-  else if Copy(ItemID, 1, 2) = 's_' then
-  begin
-    Index := SetupItemIDs.IndexOf(ItemID);
-    if Index >= 0 then
-      Result := SetupCheckList.Checked[Index];
-  end
-  else if ItemID = 'a_portable' then
-    Result := ArchivePage.Values[0]
-  else if ItemID = 'a_setup' then
-    Result := ArchivePage.Values[1];
+  Result := SelectedItemIDs.IndexOf(ItemID) >= 0;
+end;
+
+procedure CaptureCatalogSelection;
+var
+  I: Integer;
+begin
+  SelectedItemIDs.Clear;
+  for I := 0 to PortableItemIDs.Count - 1 do
+    if PortableCheckList.Checked[I] then
+      SelectedItemIDs.Add(PortableItemIDs[I]);
+  for I := 0 to SetupItemIDs.Count - 1 do
+    if SetupCheckList.Checked[I] then
+      SelectedItemIDs.Add(SetupItemIDs[I]);
+end;
+
+procedure CaptureArchiveSelection;
+begin
+  SelectedItemIDs.Clear;
+  if ArchivePage.Values[0] then
+    SelectedItemIDs.Add('a_portable');
+  if ArchivePage.Values[1] then
+    SelectedItemIDs.Add('a_setup');
 end;
 
 function HasAnySelection: Boolean;
@@ -513,15 +519,24 @@ end;
 function NextButtonClick(CurPageID: Integer): Boolean;
 begin
   Result := True;
-  if (CurPageID = CatalogPage.ID) and (not HasAnySelection) then
+  if CurPageID = CatalogPage.ID then
   begin
-    MsgBox('Выберите хотя бы одну программу из каталога.', mbInformation, MB_OK);
-    Result := False;
+    if not HasAnySelection then
+    begin
+      MsgBox('Выберите хотя бы одну программу из каталога.', mbInformation, MB_OK);
+      Result := False;
+    end
+    else
+      CaptureCatalogSelection;
   end
-  else if (CurPageID = ArchivePage.ID) and
-    (not ArchivePage.Values[0]) and (not ArchivePage.Values[1]) then
+  else if CurPageID = ArchivePage.ID then
   begin
-    MsgBox('Выберите хотя бы один архив.', mbInformation, MB_OK);
-    Result := False;
+    if (not ArchivePage.Values[0]) and (not ArchivePage.Values[1]) then
+    begin
+      MsgBox('Выберите хотя бы один архив.', mbInformation, MB_OK);
+      Result := False;
+    end
+    else
+      CaptureArchiveSelection;
   end;
 end;

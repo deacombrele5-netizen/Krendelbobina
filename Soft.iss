@@ -392,11 +392,11 @@ begin
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_winrar', 'WinRAR', GetDirectorySize('{#SetupRoot}\\WinRar'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_vs', 'Visual Studio', GetDirectorySize('{#SetupRoot}\\Visual Studio (and Code version)\\VS'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_code', 'Visual Studio Code', GetDirectorySize('{#SetupRoot}\\Visual Studio (and Code version)\\VS Code'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_chrome', 'Google Chrome', GetFileSizeSafe('{#SetupRoot}\\Браузеры\\ChromeSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_firefox', 'Mozilla Firefox', GetFileSizeSafe('{#SetupRoot}\\Браузеры\\Firefox Installer.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_edge', 'Microsoft Edge', GetFileSizeSafe('{#SetupRoot}\\Браузеры\\MicrosoftEdgeSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_opera', 'Opera', GetFileSizeSafe('{#SetupRoot}\\Браузеры\\OperaSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_yandex', 'Яндекс Браузер', GetFileSizeSafe('{#SetupRoot}\\Браузеры\\Yandex.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_chrome', 'Google Chrome', GetFileSizeSafe('{#SetupRoot}\Браузеры\\ChromeSetup.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_firefox', 'Mozilla Firefox', GetFileSizeSafe('{#SetupRoot}\Браузеры\\Firefox Installer.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_edge', 'Microsoft Edge', GetFileSizeSafe('{#SetupRoot}\Браузеры\\MicrosoftEdgeSetup.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_opera', 'Opera', GetFileSizeSafe('{#SetupRoot}\Браузеры\\OperaSetup.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_yandex', 'Яндекс Браузер', GetFileSizeSafe('{#SetupRoot}\Браузеры\\Yandex.exe'));
 
   PortableCheckList := TNewCheckListBox.Create(CatalogPage);
   PortableCheckList.Parent := CatalogPage.Surface;
@@ -497,8 +497,40 @@ begin
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
+var
+  I: Integer;
 begin
-  Result := SelectedItemIDs.IndexOf(ItemID) >= 0;
+  Result := False;
+
+  if SelectedItemIDs <> nil then
+    Result := SelectedItemIDs.IndexOf(ItemID) >= 0;
+  if Result then
+    Exit;
+
+  { Fallback: read the visible selection directly if the snapshot was not captured. }
+  if (PortableItemIDs <> nil) and (PortableCheckList <> nil) then
+    for I := 0 to PortableItemIDs.Count - 1 do
+      if PortableItemIDs[I] = ItemID then
+      begin
+        Result := PortableCheckList.Checked[I];
+        Exit;
+      end;
+
+  if (SetupItemIDs <> nil) and (SetupCheckList <> nil) then
+    for I := 0 to SetupItemIDs.Count - 1 do
+      if SetupItemIDs[I] = ItemID then
+      begin
+        Result := SetupCheckList.Checked[I];
+        Exit;
+      end;
+
+  if ArchivePage <> nil then
+  begin
+    if ItemID = 'a_portable' then
+      Result := ArchivePage.Values[0]
+    else if ItemID = 'a_setup' then
+      Result := ArchivePage.Values[1];
+  end;
 end;
 
 procedure CaptureCatalogSelection;

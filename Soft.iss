@@ -199,16 +199,11 @@ begin
   UpdateArchiveSpace;
 end;
 
-procedure AddCatalogItems(ListBox: TNewCheckListBox; ItemIDs: TStringList;
-  const IDs, Captions: array of String);
-var
-  I: Integer;
+procedure AddCatalogItem(ListBox: TNewCheckListBox; ItemIDs: TStringList;
+  const ItemID, Caption: String);
 begin
-  for I := 0 to GetArrayLength(IDs) - 1 do
-  begin
-    ItemIDs.Add(IDs[I]);
-    ListBox.AddCheckBox(Captions[I], '', 0, False, True, False, True, nil);
-  end;
+  ItemIDs.Add(ItemID);
+  ListBox.AddCheckBox(Caption, '', 0, False, True, False, True, nil);
 end;
 
 procedure InitializeWizard;
@@ -265,9 +260,34 @@ begin
   SetupCheckList.Flat := True;
   SetupCheckList.ShowLines := False;
   SetupCheckList.BorderStyle := bsSingle;
-  AddCatalogItems(SetupCheckList, SetupItemIDs,
-    ['s_adobe_acrobat', 's_adobe_aftereffects', 's_adobe_animate', 's_adobe_audition', 's_adobe_lightroom', 's_adobe_substance', 's_aida64', 's_blender', 's_discord', 's_epic', 's_flstudio', 's_illustrator', 's_indesign', 's_localsend', 's_office', 's_obs', 's_photoshop', 's_premier', 's_steam', 's_torrent', 's_winrar', 's_vs_vs', 's_vs_code', 's_browser_chrome', 's_browser_firefox', 's_browser_edge', 's_browser_opera', 's_browser_yandex'],
-    ['Adobe Acrobat Pro', 'Adobe After Effects', 'Adobe Animate', 'Adobe Audition', 'Adobe Lightroom Classic', 'Adobe Substance 3D Painter', 'AIDA 64', 'Blender 3D', 'Discord', 'Epic Games', 'FL Studio', 'Adobe Illustrator', 'Adobe InDesign', 'LocalSend', 'Microsoft Office', 'OBS Studio', 'Adobe Photoshop', 'Adobe Premiere Pro', 'Steam', 'Torrent', 'WinRAR', 'Visual Studio', 'Visual Studio Code', 'Google Chrome', 'Mozilla Firefox', 'Microsoft Edge', 'Opera', 'Яндекс Браузер']);
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_acrobat', 'Adobe Acrobat Pro');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_aftereffects', 'Adobe After Effects');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_animate', 'Adobe Animate');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_audition', 'Adobe Audition');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_lightroom', 'Adobe Lightroom Classic');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_adobe_substance', 'Adobe Substance 3D Painter');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_aida64', 'AIDA 64');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_blender', 'Blender 3D');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_discord', 'Discord');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_epic', 'Epic Games');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_flstudio', 'FL Studio');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_illustrator', 'Adobe Illustrator');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_indesign', 'Adobe InDesign');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_localsend', 'LocalSend');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_office', 'Microsoft Office');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_obs', 'OBS Studio');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_photoshop', 'Adobe Photoshop');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_premier', 'Adobe Premiere Pro');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_steam', 'Steam');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_torrent', 'Torrent');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_winrar', 'WinRAR');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_vs_vs', 'Visual Studio');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_vs_code', 'Visual Studio Code');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_browser_chrome', 'Google Chrome');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_browser_firefox', 'Mozilla Firefox');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_browser_edge', 'Microsoft Edge');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_browser_opera', 'Opera');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, 's_browser_yandex', 'Яндекс Браузер');
 
   PortableCheckList := TNewCheckListBox.Create(CatalogPage);
   PortableCheckList.Parent := CatalogPage.Surface;
@@ -279,9 +299,38 @@ begin
   PortableCheckList.Flat := True;
   PortableCheckList.ShowLines := False;
   PortableCheckList.BorderStyle := bsSingle;
-  AddCatalogItems(PortableCheckList, PortableItemIDs,
-    ['p_adobe_acrobat', 'p_adobe_aftereffects', 'p_adobe_audition', 'p_adobe_illustrator', 'p_adobe_photoshop', 'p_adobe_premiere', 'p_aida64', 'p_anydesk', 'p_blender', 'p_easy2boot', 'p_encryptonclick', 'p_chrome', 'p_imgburn', 'p_localsend', 'p_scanner', 'p_nsis', 'p_obs', 'p_portablecreator', 'p_putty', 'p_rufus', 'p_sysinternals', 'p_utorrent', 'p_vlc', 'p_vscode', 'p_wifiinfoview', 'p_winnote', 'p_winpowershell', 'p_winrar', 'p_winscp', 'p_winsetup', 'p_winterminal', 'p_wnetwatcher'],
-    ['Adobe Acrobat Pro', 'Adobe After Effects', 'Adobe Audition', 'Adobe Illustrator', 'Adobe Photoshop', 'Adobe Premiere Pro', 'AIDA64', 'AnyDesk', 'Blender', 'Easy2Boot', 'EncryptOnClick', 'Google Chrome', 'ImgBurn', 'LocalSend', 'Microsoft Scanner', 'NSIS', 'OBS Studio', 'Portable Creator', 'PuTTY', 'Rufus', 'Sysinternals Suite', 'µTorrent', 'VLC Media Player', 'Visual Studio Code', 'WifiInfoView', 'WinNotepad', 'WinPowerShell', 'WinRAR', 'WinSCP', 'WinSetupFromUSB', 'Windows Terminal', 'WNetWatcher']);
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_acrobat', 'Adobe Acrobat Pro');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_aftereffects', 'Adobe After Effects');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_audition', 'Adobe Audition');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_illustrator', 'Adobe Illustrator');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_photoshop', 'Adobe Photoshop');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_adobe_premiere', 'Adobe Premiere Pro');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_aida64', 'AIDA64');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_anydesk', 'AnyDesk');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_blender', 'Blender');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_easy2boot', 'Easy2Boot');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_encryptonclick', 'EncryptOnClick');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_chrome', 'Google Chrome');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_imgburn', 'ImgBurn');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_localsend', 'LocalSend');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_scanner', 'Microsoft Scanner');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_nsis', 'NSIS');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_obs', 'OBS Studio');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_portablecreator', 'Portable Creator');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_putty', 'PuTTY');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_rufus', 'Rufus');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_sysinternals', 'Sysinternals Suite');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_utorrent', 'µTorrent');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_vlc', 'VLC Media Player');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_vscode', 'Visual Studio Code');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_wifiinfoview', 'WifiInfoView');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winnote', 'WinNotepad');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winpowershell', 'WinPowerShell');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winrar', 'WinRAR');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winscp', 'WinSCP');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winsetup', 'WinSetupFromUSB');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_winterminal', 'Windows Terminal');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, 'p_wnetwatcher', 'WNetWatcher');
 
   ColumnDivider := TBevel.Create(CatalogPage);
   ColumnDivider.Parent := CatalogPage.Surface;

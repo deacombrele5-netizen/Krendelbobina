@@ -41,10 +41,11 @@ AppVersion=Софт
 AppVerName=Софт
 AppPublisher=Софт
 DefaultDirName=C:\
+AppendDefaultDirName=no
 AllowRootDirectory=yes
 AllowUNCPath=yes
 UsePreviousAppDir=no
-CreateAppDir=no
+CreateAppDir=yes
 DisableDirPage=no
 DisableWelcomePage=yes
 DisableProgramGroupPage=yes
@@ -59,6 +60,7 @@ DiskSpanning=yes
 DiskSliceSize=35000000000
 SlicesPerDisk=1
 WizardStyle=modern dark
+AlwaysShowComponentsList=yes
 WizardSizePercent=100
 SetupIconFile={#MySoftRoot}\app.ico
 DefaultDialogFontName=Segoe UI
@@ -70,6 +72,9 @@ WizardSelectDir=Выберите папку установки
 SelectDirDesc=Укажите папку, в которой будут размещены выбранные программы или архивы.
 SelectDirLabel3=
 SelectDirBrowseLabel=Для выбора другой папки нажмите «Обзор».
+WizardSelectComponents=Выбор программ и архивов
+SelectComponentsDesc=Отметьте программы или архивы, которые нужно разместить в выбранной папке.
+SelectComponentsLabel2=Отметьте нужные компоненты. Вложенные пункты позволяют выбрать отдельные программы.
 WizardReady=Готово к установке
 ReadyLabel1=Мастер установки готов перенести выбранные файлы на ваш компьютер.
 ReadyLabel2a=
@@ -83,6 +88,78 @@ ClickFinish=Нажмите «Завершить», чтобы закрыть м�
 
 [Languages]
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
+
+[Types]
+Name: "custom"; Description: "Выборочная установка"; Flags: iscustom
+
+[Components]
+Name: "portable"; Description: "Портативные программы"; Types: custom; Flags: fixed
+Name: "portable\p_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: unchecked
+Name: "portable\p_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: unchecked
+Name: "portable\p_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: unchecked
+Name: "portable\p_adobe_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: unchecked
+Name: "portable\p_adobe_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: unchecked
+Name: "portable\p_adobe_premiere"; Description: "Adobe Premiere Pro"; Types: custom; Flags: unchecked
+Name: "portable\p_aida64"; Description: "AIDA64"; Types: custom; Flags: unchecked
+Name: "portable\p_anydesk"; Description: "AnyDesk"; Types: custom; Flags: unchecked
+Name: "portable\p_blender"; Description: "Blender"; Types: custom; Flags: unchecked
+Name: "portable\p_easy2boot"; Description: "Easy2Boot"; Types: custom; Flags: unchecked
+Name: "portable\p_encryptonclick"; Description: "EncryptOnClick"; Types: custom; Flags: unchecked
+Name: "portable\p_chrome"; Description: "Google Chrome"; Types: custom; Flags: unchecked
+Name: "portable\p_imgburn"; Description: "ImgBurn"; Types: custom; Flags: unchecked
+Name: "portable\p_localsend"; Description: "LocalSend"; Types: custom; Flags: unchecked
+Name: "portable\p_scanner"; Description: "Microsoft Scanner"; Types: custom; Flags: unchecked
+Name: "portable\p_nsis"; Description: "NSIS"; Types: custom; Flags: unchecked
+Name: "portable\p_obs"; Description: "OBS Studio"; Types: custom; Flags: unchecked
+Name: "portable\p_portablecreator"; Description: "Portable Creator"; Types: custom; Flags: unchecked
+Name: "portable\p_putty"; Description: "PuTTY"; Types: custom; Flags: unchecked
+Name: "portable\p_rufus"; Description: "Rufus"; Types: custom; Flags: unchecked
+Name: "portable\p_sysinternals"; Description: "Sysinternals Suite"; Types: custom; Flags: unchecked
+Name: "portable\p_utorrent"; Description: "µTorrent"; Types: custom; Flags: unchecked
+Name: "portable\p_vlc"; Description: "VLC Media Player"; Types: custom; Flags: unchecked
+Name: "portable\p_vscode"; Description: "Visual Studio Code"; Types: custom; Flags: unchecked
+Name: "portable\p_wifiinfoview"; Description: "WifiInfoView"; Types: custom; Flags: unchecked
+Name: "portable\p_winnote"; Description: "WinNotepad"; Types: custom; Flags: unchecked
+Name: "portable\p_winpowershell"; Description: "WinPowerShell"; Types: custom; Flags: unchecked
+Name: "portable\p_winrar"; Description: "WinRAR"; Types: custom; Flags: unchecked
+Name: "portable\p_winscp"; Description: "WinSCP"; Types: custom; Flags: unchecked
+Name: "portable\p_winsetup"; Description: "WinSetupFromUSB"; Types: custom; Flags: unchecked
+Name: "portable\p_winterminal"; Description: "Windows Terminal"; Types: custom; Flags: unchecked
+Name: "portable\p_wnetwatcher"; Description: "WNetWatcher"; Types: custom; Flags: unchecked
+Name: "setup"; Description: "Установщики программ"; Types: custom; Flags: fixed
+Name: "setup\s_adobe_acrobat"; Description: "Adobe Acrobat Pro"; Types: custom; Flags: unchecked
+Name: "setup\s_adobe_aftereffects"; Description: "Adobe After Effects"; Types: custom; Flags: unchecked
+Name: "setup\s_adobe_animate"; Description: "Adobe Animate"; Types: custom; Flags: unchecked
+Name: "setup\s_adobe_audition"; Description: "Adobe Audition"; Types: custom; Flags: unchecked
+Name: "setup\s_adobe_lightroom"; Description: "Adobe Lightroom Classic"; Types: custom; Flags: unchecked
+Name: "setup\s_adobe_substance"; Description: "Adobe Substance 3D Painter"; Types: custom; Flags: unchecked
+Name: "setup\s_aida64"; Description: "AIDA 64"; Types: custom; Flags: unchecked
+Name: "setup\s_blender"; Description: "Blender 3D"; Types: custom; Flags: unchecked
+Name: "setup\s_discord"; Description: "Discord"; Types: custom; Flags: unchecked
+Name: "setup\s_epic"; Description: "Epic Games"; Types: custom; Flags: unchecked
+Name: "setup\s_flstudio"; Description: "FL Studio"; Types: custom; Flags: unchecked
+Name: "setup\s_illustrator"; Description: "Adobe Illustrator"; Types: custom; Flags: unchecked
+Name: "setup\s_indesign"; Description: "Adobe InDesign"; Types: custom; Flags: unchecked
+Name: "setup\s_localsend"; Description: "LocalSend"; Types: custom; Flags: unchecked
+Name: "setup\s_office"; Description: "Microsoft Office"; Types: custom; Flags: unchecked
+Name: "setup\s_obs"; Description: "OBS Studio"; Types: custom; Flags: unchecked
+Name: "setup\s_photoshop"; Description: "Adobe Photoshop"; Types: custom; Flags: unchecked
+Name: "setup\s_premier"; Description: "Adobe Premiere Pro"; Types: custom; Flags: unchecked
+Name: "setup\s_steam"; Description: "Steam"; Types: custom; Flags: unchecked
+Name: "setup\s_torrent"; Description: "Torrent"; Types: custom; Flags: unchecked
+Name: "setup\s_winrar"; Description: "WinRAR"; Types: custom; Flags: unchecked
+Name: "setup\visualstudio"; Description: "Visual Studio (все версии)"; Types: custom
+Name: "setup\visualstudio\vs"; Description: "Visual Studio"; Types: custom; Flags: unchecked
+Name: "setup\visualstudio\vscode"; Description: "Visual Studio Code"; Types: custom; Flags: unchecked
+Name: "setup\browsers"; Description: "Браузеры (все сразу)"; Types: custom
+Name: "setup\browsers\chrome"; Description: "Google Chrome"; Types: custom; Flags: unchecked
+Name: "setup\browsers\firefox"; Description: "Mozilla Firefox"; Types: custom; Flags: unchecked
+Name: "setup\browsers\edge"; Description: "Microsoft Edge"; Types: custom; Flags: unchecked
+Name: "setup\browsers\opera"; Description: "Opera"; Types: custom; Flags: unchecked
+Name: "setup\browsers\yandex"; Description: "Яндекс Браузер"; Types: custom; Flags: unchecked
+Name: "archives"; Description: "Готовые архивы"; Types: custom; Flags: fixed
+Name: "archives\portable"; Description: "Архив с портативными программами"; Types: custom; Flags: unchecked
+Name: "archives\setup"; Description: "Архив с установочными версиями программ"; Types: custom; Flags: unchecked
 
 [Files]
 Source: "{#PortableRoot}\AdobeAcrobatPro-Portable\*"; DestDir: "{code:GetTargetFolder|AdobeAcrobatPro-Portable}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('p_adobe_acrobat')
@@ -138,447 +215,120 @@ Source: "{#SetupRoot}\Premier\*"; DestDir: "{code:GetTargetFolder|Premier}"; Fla
 Source: "{#SetupRoot}\Steam\*"; DestDir: "{code:GetTargetFolder|Steam}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_steam')
 Source: "{#SetupRoot}\Torrent\*"; DestDir: "{code:GetTargetFolder|Torrent}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_torrent')
 Source: "{#SetupRoot}\WinRar\*"; DestDir: "{code:GetTargetFolder|WinRar}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_winrar')
-Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_all') or IsItemSelected('s_vs_vs')
-Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_all') or IsItemSelected('s_vs_code')
-Source: "{#SetupRoot}\Браузеры\ChromeSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browsers_all') or IsItemSelected('s_browser_chrome')
-Source: "{#SetupRoot}\Браузеры\Firefox Installer.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browsers_all') or IsItemSelected('s_browser_firefox')
-Source: "{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browsers_all') or IsItemSelected('s_browser_edge')
-Source: "{#SetupRoot}\Браузеры\OperaSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browsers_all') or IsItemSelected('s_browser_opera')
-Source: "{#SetupRoot}\Браузеры\Yandex.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browsers_all') or IsItemSelected('s_browser_yandex')
+Source: "{#SetupRoot}\Visual Studio (and Code version)\VS\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_vs')
+Source: "{#SetupRoot}\Visual Studio (and Code version)\VS Code\*"; DestDir: "{code:GetTargetFolder|Visual Studio (and Code version)\VS Code}"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: IsItemSelected('s_vs_code')
+Source: "{#SetupRoot}\Браузеры\ChromeSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_chrome')
+Source: "{#SetupRoot}\Браузеры\Firefox Installer.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_firefox')
+Source: "{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_edge')
+Source: "{#SetupRoot}\Браузеры\OperaSetup.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_opera')
+Source: "{#SetupRoot}\Браузеры\Yandex.exe"; DestDir: "{code:GetTargetFolder|Браузеры}"; Flags: ignoreversion; Check: IsItemSelected('s_browser_yandex')
 Source: "{#PortableArchiveRoot}\Софт-Portable.rar"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_portable')
 Source: "{#PortableArchiveRoot}\Информация об архиве - Софт-Portable.txt"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_portable')
 Source: "{#SetupArchiveRoot}\Софт-SetUp.rar"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_setup')
 Source: "{#SetupArchiveRoot}\Информация об архиве - Софт-SetUp.txt"; DestDir: "{code:GetDestinationPath}"; Flags: ignoreversion; Check: IsItemSelected('a_setup')
 
 [Code]
-var
-    ModePage: TWizardPage;
-  CatalogPage: TWizardPage;
-  ArchivePage: TWizardPage;
-  CatalogList: TNewCheckListBox;
-  ArchiveList: TNewCheckListBox;
-  CatalogMap: TStringList;
-  CatalogModeButton: TNewRadioButton;
-  ArchiveModeButton: TNewRadioButton;
-  ProgressPercentLabel: TNewStaticText;
-
-function AddCatalogCheck(const ItemID, CaptionText: String; const LevelValue: Byte; const HasChildren, CheckWhenParent: Boolean): Integer;
-begin
-  Result := CatalogList.AddCheckBox(CaptionText, '', LevelValue, False, True, HasChildren, CheckWhenParent, nil);
-  CatalogMap.Add(ItemID + '=' + IntToStr(Result));
-end;
-
-function GetCatalogIndex(const ItemID: String): Integer;
-var
-  I, P: Integer;
-  Entry: String;
-begin
-  Result := -1;
-  for I := 0 to CatalogMap.Count - 1 do
-  begin
-    Entry := CatalogMap.Strings[I];
-    P := Pos('=', Entry);
-    if (P > 0) and (Copy(Entry, 1, P - 1) = ItemID) then
-    begin
-      Result := StrToIntDef(Copy(Entry, P + 1, Length(Entry) - P), -1);
-      Exit;
-    end;
-  end;
-end;
-
-function CatalogChecked(const ItemID: String): Boolean;
-var
-  I: Integer;
-begin
-  I := GetCatalogIndex(ItemID);
-  Result := False;
-  if I >= 0 then
-    Result := CatalogList.Checked[I];
-end;
 
 function IsItemSelected(const ItemID: String): Boolean;
 begin
   if ItemID = 'a_portable' then
-    Result := ArchiveList.Checked[0]
+    Result := IsComponentSelected('archives\portable')
   else if ItemID = 'a_setup' then
-    Result := ArchiveList.Checked[1]
+    Result := IsComponentSelected('archives\setup')
+  else if ItemID = 's_vs_vs' then
+    Result := IsComponentSelected('setup\visualstudio\vs')
+  else if ItemID = 's_vs_code' then
+    Result := IsComponentSelected('setup\visualstudio\vscode')
+  else if ItemID = 's_browser_chrome' then
+    Result := IsComponentSelected('setup\browsers\chrome')
+  else if ItemID = 's_browser_firefox' then
+    Result := IsComponentSelected('setup\browsers\firefox')
+  else if ItemID = 's_browser_edge' then
+    Result := IsComponentSelected('setup\browsers\edge')
+  else if ItemID = 's_browser_opera' then
+    Result := IsComponentSelected('setup\browsers\opera')
+  else if ItemID = 's_browser_yandex' then
+    Result := IsComponentSelected('setup\browsers\yandex')
+  else if Copy(ItemID, 1, 2) = 'p_' then
+    Result := IsComponentSelected('portable\' + ItemID)
+  else if Copy(ItemID, 1, 2) = 's_' then
+    Result := IsComponentSelected('setup\' + ItemID)
   else
-    Result := CatalogChecked(ItemID);
+    Result := False;
 end;
 
-function HasAnyCatalogSelection: Boolean;
-var
-  I: Integer;
-  ItemIndex: Integer;
+function HasAnySelection: Boolean;
 begin
-  Result := False;
-  for I := 0 to CatalogMap.Count - 1 do
-  begin
-    ItemIndex := StrToIntDef(Copy(CatalogMap.Strings[I], Pos('=', CatalogMap.Strings[I]) + 1, Length(CatalogMap.Strings[I])), -1);
-    if (ItemIndex >= 0) and CatalogList.Checked[ItemIndex] then
-    begin
-      Result := True;
-      Exit;
-    end;
-  end;
-end;
-
-function GetDestinationPath(Param: String): String;
-begin
-  Result := WizardDirValue;
-end;
-
-function GetTargetFolder(Param: String): String;
-begin
-  Result := AddBackslash(WizardDirValue) + Param;
-end;
-
-procedure InitializeWizard();
-var
-  ModeCardCatalog, ModeCardArchive, CatalogCard, ArchiveCard: TPanel;
-  LogoBitmap: TBitmap;
-begin
-  CatalogMap := TStringList.Create;
-
-  { Общая визуальная тема установщика }
-  WizardForm.Color := $00131A23;
-  WizardForm.Font.Name := 'Segoe UI';
-  WizardForm.Font.Color := clWhite;
-  WizardForm.MainPanel.Color := $001B2734;
-  WizardForm.MainPanel.BevelOuter := bvNone;
-  WizardForm.InnerPage.Color := $00131A23;
-  WizardForm.Bevel.Visible := False;
-  WizardForm.Bevel1.Visible := False;
-
-  { Логотип: геометрия Lucide Folder Cog, масштаб 24x24 -> 64x64 }
-  LogoBitmap := TBitmap.Create;
-  LogoBitmap.Width := 64;
-  LogoBitmap.Height := 64;
-  LogoBitmap.Canvas.Brush.Color := $001B2734;
-  LogoBitmap.Canvas.Brush.Style := bsSolid;
-  LogoBitmap.Canvas.Pen.Color := $001B2734;
-  LogoBitmap.Canvas.Rectangle(0, 0, LogoBitmap.Width, LogoBitmap.Height);
-  LogoBitmap.Canvas.Pen.Color := $00D5DCE4;
-  LogoBitmap.Canvas.Pen.Width := ScaleX(5);
-  LogoBitmap.Canvas.Brush.Style := bsClear;
-
-  { Контур папки }
-  LogoBitmap.Canvas.MoveTo(27, 53);
-  LogoBitmap.Canvas.LineTo(11, 53);
-  LogoBitmap.Canvas.LineTo(9, 53);
-  LogoBitmap.Canvas.LineTo(7, 52);
-  LogoBitmap.Canvas.LineTo(6, 50);
-  LogoBitmap.Canvas.LineTo(5, 48);
-  LogoBitmap.Canvas.LineTo(5, 13);
-  LogoBitmap.Canvas.LineTo(6, 11);
-  LogoBitmap.Canvas.LineTo(7, 9);
-  LogoBitmap.Canvas.LineTo(9, 8);
-  LogoBitmap.Canvas.LineTo(21, 8);
-  LogoBitmap.Canvas.LineTo(23, 8);
-  LogoBitmap.Canvas.LineTo(25, 9);
-  LogoBitmap.Canvas.LineTo(26, 11);
-  LogoBitmap.Canvas.LineTo(28, 14);
-  LogoBitmap.Canvas.LineTo(32, 16);
-  LogoBitmap.Canvas.LineTo(53, 16);
-  LogoBitmap.Canvas.LineTo(56, 17);
-  LogoBitmap.Canvas.LineTo(58, 19);
-  LogoBitmap.Canvas.LineTo(59, 21);
-  LogoBitmap.Canvas.LineTo(59, 30);
-
-  { Шестерёнка в правом нижнем углу }
-  LogoBitmap.Canvas.Ellipse(40, 40, 56, 56);
-  LogoBitmap.Canvas.MoveTo(41, 52);
-  LogoBitmap.Canvas.LineTo(43, 51);
-  LogoBitmap.Canvas.MoveTo(41, 45);
-  LogoBitmap.Canvas.LineTo(38, 44);
-  LogoBitmap.Canvas.MoveTo(45, 41);
-  LogoBitmap.Canvas.LineTo(44, 38);
-  LogoBitmap.Canvas.MoveTo(45, 55);
-  LogoBitmap.Canvas.LineTo(44, 58);
-  LogoBitmap.Canvas.MoveTo(51, 41);
-  LogoBitmap.Canvas.LineTo(52, 38);
-  LogoBitmap.Canvas.MoveTo(52, 58);
-  LogoBitmap.Canvas.LineTo(51, 55);
-  LogoBitmap.Canvas.MoveTo(55, 45);
-  LogoBitmap.Canvas.LineTo(58, 44);
-  LogoBitmap.Canvas.MoveTo(55, 51);
-  LogoBitmap.Canvas.LineTo(58, 52);
-
-  WizardForm.WizardSmallBitmapImage.Bitmap := LogoBitmap;
-  WizardForm.WizardSmallBitmapImage.AutoSize := False;
-  WizardForm.WizardSmallBitmapImage.Stretch := True;
-  WizardForm.WizardSmallBitmapImage.BackColor := $001B2734;
-  WizardForm.WizardSmallBitmapImage.Left := ScaleX(12);
-  WizardForm.WizardSmallBitmapImage.Top := ScaleY(7);
-  WizardForm.WizardSmallBitmapImage.Width := ScaleX(48);
-  WizardForm.WizardSmallBitmapImage.Height := ScaleY(48);
-  WizardForm.WizardSmallBitmapImage.Visible := True;
-
-  WizardForm.PageNameLabel.Left := ScaleX(70);
-  WizardForm.PageNameLabel.Top := ScaleY(7);
-  WizardForm.PageNameLabel.Width := WizardForm.MainPanel.Width - ScaleX(82);
-  WizardForm.PageNameLabel.Height := ScaleY(24);
-  WizardForm.PageNameLabel.Font.Name := 'Segoe UI';
-  WizardForm.PageNameLabel.Font.Size := 14;
-  WizardForm.PageNameLabel.Font.Style := [fsBold];
-  WizardForm.PageNameLabel.Font.Color := $00F2F5F8;
-
-  WizardForm.PageDescriptionLabel.Left := ScaleX(70);
-  WizardForm.PageDescriptionLabel.Top := ScaleY(31);
-  WizardForm.PageDescriptionLabel.Width := WizardForm.MainPanel.Width - ScaleX(82);
-  WizardForm.PageDescriptionLabel.Height := ScaleY(32);
-  WizardForm.PageDescriptionLabel.Visible := True;
-  WizardForm.PageDescriptionLabel.Font.Name := 'Segoe UI';
-  WizardForm.PageDescriptionLabel.Font.Size := 10;
-  WizardForm.PageDescriptionLabel.Font.Color := $00B7C4D1;
-
-  WizardForm.NextButton.Font.Name := 'Segoe UI';
-  WizardForm.BackButton.Font.Name := 'Segoe UI';
-  WizardForm.CancelButton.Font.Name := 'Segoe UI';
-
-  ProgressPercentLabel := TNewStaticText.Create(WizardForm);
-  ProgressPercentLabel.Parent := WizardForm.ProgressGauge.Parent;
-  ProgressPercentLabel.Left := WizardForm.ProgressGauge.Left;
-  ProgressPercentLabel.Top := WizardForm.ProgressGauge.Top + WizardForm.ProgressGauge.Height + ScaleY(6);
-  ProgressPercentLabel.Width := ScaleX(100);
-  ProgressPercentLabel.Height := ScaleY(20);
-  ProgressPercentLabel.Caption := '0%';
-  ProgressPercentLabel.Font.Name := 'Segoe UI';
-  ProgressPercentLabel.Font.Size := 9;
-  ProgressPercentLabel.Font.Color := clWhite;
-
-  ModePage := CreateCustomPage(wpSelectDir, 'Выбор способа установки', 'Выберите источник: отдельные программы из каталога или готовые архивы.');
-  CatalogPage := CreateCustomPage(ModePage.ID, 'Выбор программ', 'Выберите программы, которые можно добавить.');
-  ArchivePage := CreateCustomPage(CatalogPage.ID, 'Выбор архивов', 'Выберите архив.');
-  ModePage.Surface.Color := $00131A23;
-  CatalogPage.Surface.Color := $00131A23;
-  ArchivePage.Surface.Color := $00131A23;
-
-  { Две отдельные карточки выбора источника }
-  ModeCardCatalog := TPanel.Create(ModePage);
-  ModeCardCatalog.Parent := ModePage.Surface;
-  ModeCardCatalog.Left := ScaleX(10);
-  ModeCardCatalog.Top := ScaleY(16);
-  ModeCardCatalog.Width := ModePage.SurfaceWidth - ScaleX(20);
-  ModeCardCatalog.Height := ScaleY(64);
-  ModeCardCatalog.Anchors := [akLeft, akTop, akRight];
-  ModeCardCatalog.BevelOuter := bvNone;
-  ModeCardCatalog.Color := $001E2B39;
-
-  ModeCardArchive := TPanel.Create(ModePage);
-  ModeCardArchive.Parent := ModePage.Surface;
-  ModeCardArchive.Left := ScaleX(10);
-  ModeCardArchive.Top := ScaleY(92);
-  ModeCardArchive.Width := ModePage.SurfaceWidth - ScaleX(20);
-  ModeCardArchive.Height := ScaleY(64);
-  ModeCardArchive.Anchors := [akLeft, akTop, akRight];
-  ModeCardArchive.BevelOuter := bvNone;
-  ModeCardArchive.Color := $001E2B39;
-
-  CatalogModeButton := TNewRadioButton.Create(ModePage);
-  CatalogModeButton.Parent := ModeCardCatalog;
-  CatalogModeButton.Left := ScaleX(16);
-  CatalogModeButton.Top := ScaleY(16);
-  CatalogModeButton.Width := ModeCardCatalog.Width - ScaleX(32);
-  CatalogModeButton.Height := ScaleY(32);
-  CatalogModeButton.Anchors := [akLeft, akTop, akRight];
-  CatalogModeButton.Caption := 'Выбрать программу из каталога программ';
-  CatalogModeButton.Checked := True;
-  CatalogModeButton.Font.Name := 'Segoe UI';
-  CatalogModeButton.Font.Size := 11;
-  CatalogModeButton.Font.Style := [fsBold];
-  CatalogModeButton.Font.Color := $00F0F4F8;
-  CatalogModeButton.Color := ModeCardCatalog.Color;
-
-  ArchiveModeButton := TNewRadioButton.Create(ModePage);
-  ArchiveModeButton.Parent := ModeCardArchive;
-  ArchiveModeButton.Left := ScaleX(16);
-  ArchiveModeButton.Top := ScaleY(16);
-  ArchiveModeButton.Width := ModeCardArchive.Width - ScaleX(32);
-  ArchiveModeButton.Height := ScaleY(32);
-  ArchiveModeButton.Anchors := [akLeft, akTop, akRight];
-  ArchiveModeButton.Caption := 'Выбрать готовый архив с программами';
-  ArchiveModeButton.Font.Name := 'Segoe UI';
-  ArchiveModeButton.Font.Size := 11;
-  ArchiveModeButton.Font.Style := [fsBold];
-  ArchiveModeButton.Font.Color := $00F0F4F8;
-  ArchiveModeButton.Color := ModeCardArchive.Color;
-
-  { Каталог размещён на отдельной тёмной панели }
-  CatalogCard := TPanel.Create(CatalogPage);
-  CatalogCard.Parent := CatalogPage.Surface;
-  CatalogCard.Left := ScaleX(8);
-  CatalogCard.Top := ScaleY(8);
-  CatalogCard.Width := CatalogPage.SurfaceWidth - ScaleX(16);
-  CatalogCard.Height := CatalogPage.SurfaceHeight - ScaleY(16);
-  CatalogCard.Anchors := [akLeft, akTop, akRight, akBottom];
-  CatalogCard.BevelOuter := bvNone;
-  CatalogCard.Color := $0019232D;
-
-  CatalogList := TNewCheckListBox.Create(CatalogPage);
-  CatalogList.Parent := CatalogCard;
-  CatalogList.Left := ScaleX(10);
-  CatalogList.Top := ScaleY(10);
-  CatalogList.Width := CatalogCard.Width - ScaleX(20);
-  CatalogList.Height := CatalogCard.Height - ScaleY(20);
-  CatalogList.Anchors := [akLeft, akTop, akRight, akBottom];
-  CatalogList.Flat := False;
-  CatalogList.ShowLines := False;
-  CatalogList.BorderStyle := bsNone;
-  CatalogList.Color := $0019232D;
-  CatalogList.MinItemHeight := ScaleY(28);
-  CatalogList.Font.Name := 'Segoe UI';
-  CatalogList.Font.Size := 10;
-  CatalogList.Font.Color := $00E8EDF2;
-  CatalogList.Font.Style := [];
-
-  CatalogList.AddGroup('Портативные программы', '', 0, nil);
-  AddCatalogCheck('p_adobe_acrobat', 'Adobe Acrobat Pro', 1, False, True);
-  AddCatalogCheck('p_adobe_aftereffects', 'Adobe After Effects', 1, False, True);
-  AddCatalogCheck('p_adobe_audition', 'Adobe Audition', 1, False, True);
-  AddCatalogCheck('p_adobe_illustrator', 'Adobe Illustrator', 1, False, True);
-  AddCatalogCheck('p_adobe_photoshop', 'Adobe Photoshop', 1, False, True);
-  AddCatalogCheck('p_adobe_premiere', 'Adobe Premiere Pro', 1, False, True);
-  AddCatalogCheck('p_aida64', 'AIDA64', 1, False, True);
-  AddCatalogCheck('p_anydesk', 'AnyDesk', 1, False, True);
-  AddCatalogCheck('p_blender', 'Blender', 1, False, True);
-  AddCatalogCheck('p_easy2boot', 'Easy2Boot', 1, False, True);
-  AddCatalogCheck('p_encryptonclick', 'EncryptOnClick', 1, False, True);
-  AddCatalogCheck('p_chrome', 'Google Chrome', 1, False, True);
-  AddCatalogCheck('p_imgburn', 'ImgBurn', 1, False, True);
-  AddCatalogCheck('p_localsend', 'LocalSend', 1, False, True);
-  AddCatalogCheck('p_scanner', 'Microsoft Scanner', 1, False, True);
-  AddCatalogCheck('p_nsis', 'NSIS', 1, False, True);
-  AddCatalogCheck('p_obs', 'OBS Studio', 1, False, True);
-  AddCatalogCheck('p_portablecreator', 'Portable Creator', 1, False, True);
-  AddCatalogCheck('p_putty', 'PuTTY', 1, False, True);
-  AddCatalogCheck('p_rufus', 'Rufus', 1, False, True);
-  AddCatalogCheck('p_sysinternals', 'Sysinternals Suite', 1, False, True);
-  AddCatalogCheck('p_utorrent', 'µTorrent', 1, False, True);
-  AddCatalogCheck('p_vlc', 'VLC Media Player', 1, False, True);
-  AddCatalogCheck('p_vscode', 'Visual Studio Code', 1, False, True);
-  AddCatalogCheck('p_wifiinfoview', 'WifiInfoView', 1, False, True);
-  AddCatalogCheck('p_winnote', 'WinNotepad', 1, False, True);
-  AddCatalogCheck('p_winpowershell', 'WinPowerShell', 1, False, True);
-  AddCatalogCheck('p_winrar', 'WinRAR', 1, False, True);
-  AddCatalogCheck('p_winscp', 'WinSCP', 1, False, True);
-  AddCatalogCheck('p_winsetup', 'WinSetupFromUSB', 1, False, True);
-  AddCatalogCheck('p_winterminal', 'Windows Terminal', 1, False, True);
-  AddCatalogCheck('p_wnetwatcher', 'WNetWatcher', 1, False, True);
-  CatalogList.AddGroup('Установщики программ', '', 0, nil);
-  AddCatalogCheck('s_adobe_acrobat', 'Adobe Acrobat Pro', 1, False, True);
-  AddCatalogCheck('s_adobe_aftereffects', 'Adobe After Effects', 1, False, True);
-  AddCatalogCheck('s_adobe_animate', 'Adobe Animate', 1, False, True);
-  AddCatalogCheck('s_adobe_audition', 'Adobe Audition', 1, False, True);
-  AddCatalogCheck('s_adobe_lightroom', 'Adobe Lightroom Classic', 1, False, True);
-  AddCatalogCheck('s_adobe_substance', 'Adobe Substance 3D Painter', 1, False, True);
-  AddCatalogCheck('s_aida64', 'AIDA 64', 1, False, True);
-  AddCatalogCheck('s_blender', 'Blender 3D', 1, False, True);
-  AddCatalogCheck('s_discord', 'Discord', 1, False, True);
-  AddCatalogCheck('s_epic', 'Epic Games', 1, False, True);
-  AddCatalogCheck('s_flstudio', 'FL Studio', 1, False, True);
-  AddCatalogCheck('s_illustrator', 'Adobe Illustrator', 1, False, True);
-  AddCatalogCheck('s_indesign', 'Adobe InDesign', 1, False, True);
-  AddCatalogCheck('s_localsend', 'LocalSend', 1, False, True);
-  AddCatalogCheck('s_office', 'Microsoft Office', 1, False, True);
-  AddCatalogCheck('s_obs', 'OBS Studio', 1, False, True);
-  AddCatalogCheck('s_photoshop', 'Adobe Photoshop', 1, False, True);
-  AddCatalogCheck('s_premier', 'Adobe Premiere Pro', 1, False, True);
-  AddCatalogCheck('s_steam', 'Steam', 1, False, True);
-  AddCatalogCheck('s_torrent', 'Torrent', 1, False, True);
-  AddCatalogCheck('s_winrar', 'WinRAR', 1, False, True);
-  AddCatalogCheck('s_vs_all', 'Visual Studio (and Code version)', 1, True, True);
-  AddCatalogCheck('s_vs_vs', 'Visual Studio', 2, False, True);
-  AddCatalogCheck('s_vs_code', 'Visual Studio Code', 2, False, True);
-  AddCatalogCheck('s_browsers_all', 'Браузеры (все сразу)', 1, True, True);
-  AddCatalogCheck('s_browser_chrome', 'Google Chrome', 2, False, True);
-  AddCatalogCheck('s_browser_firefox', 'Mozilla Firefox', 2, False, True);
-  AddCatalogCheck('s_browser_edge', 'Microsoft Edge', 2, False, True);
-  AddCatalogCheck('s_browser_opera', 'Opera', 2, False, True);
-  AddCatalogCheck('s_browser_yandex', 'Яндекс Браузер', 2, False, True);
-  ArchiveCard := TPanel.Create(ArchivePage);
-  ArchiveCard.Parent := ArchivePage.Surface;
-  ArchiveCard.Left := ScaleX(8);
-  ArchiveCard.Top := ScaleY(8);
-  ArchiveCard.Width := ArchivePage.SurfaceWidth - ScaleX(16);
-  ArchiveCard.Height := ScaleY(132);
-  ArchiveCard.Anchors := [akLeft, akTop, akRight];
-  ArchiveCard.BevelOuter := bvNone;
-  ArchiveCard.Color := $0019232D;
-
-  ArchiveList := TNewCheckListBox.Create(ArchivePage);
-  ArchiveList.Parent := ArchiveCard;
-  ArchiveList.Left := ScaleX(10);
-  ArchiveList.Top := ScaleY(10);
-  ArchiveList.Width := ArchiveCard.Width - ScaleX(20);
-  ArchiveList.Height := ArchiveCard.Height - ScaleY(20);
-  ArchiveList.Anchors := [akLeft, akTop, akRight, akBottom];
-  ArchiveList.Flat := False;
-  ArchiveList.BorderStyle := bsNone;
-  ArchiveList.Color := $0019232D;
-  ArchiveList.MinItemHeight := ScaleY(42);
-  ArchiveList.Font.Name := 'Segoe UI';
-  ArchiveList.Font.Size := 11;
-  ArchiveList.Font.Color := $00E8EDF2;
-  ArchiveList.Font.Style := [];
-  ArchiveList.AddCheckBox('Архив с портативными программами', '', 0, False, True, False, False, nil);
-  ArchiveList.AddCheckBox('Архив с установочными версиями программ', '', 0, False, True, False, False, nil);
-
-end;
-
-function ShouldSkipPage(PageID: Integer): Boolean;
-begin
-  Result := False;
-  if (PageID = wpWelcome) or
-     (PageID = wpSelectComponents) or (PageID = wpSelectProgramGroup) then
-    Result := True;
-  if (PageID = CatalogPage.ID) and ArchiveModeButton.Checked then
-    Result := True;
-  if (PageID = ArchivePage.ID) and CatalogModeButton.Checked then
-    Result := True;
+  Result := IsComponentSelected('portable\p_adobe_acrobat')
+    or IsComponentSelected('portable\p_adobe_aftereffects')
+    or IsComponentSelected('portable\p_adobe_audition')
+    or IsComponentSelected('portable\p_adobe_illustrator')
+    or IsComponentSelected('portable\p_adobe_photoshop')
+    or IsComponentSelected('portable\p_adobe_premiere')
+    or IsComponentSelected('portable\p_aida64')
+    or IsComponentSelected('portable\p_anydesk')
+    or IsComponentSelected('portable\p_blender')
+    or IsComponentSelected('portable\p_easy2boot')
+    or IsComponentSelected('portable\p_encryptonclick')
+    or IsComponentSelected('portable\p_chrome')
+    or IsComponentSelected('portable\p_imgburn')
+    or IsComponentSelected('portable\p_localsend')
+    or IsComponentSelected('portable\p_scanner')
+    or IsComponentSelected('portable\p_nsis')
+    or IsComponentSelected('portable\p_obs')
+    or IsComponentSelected('portable\p_portablecreator')
+    or IsComponentSelected('portable\p_putty')
+    or IsComponentSelected('portable\p_rufus')
+    or IsComponentSelected('portable\p_sysinternals')
+    or IsComponentSelected('portable\p_utorrent')
+    or IsComponentSelected('portable\p_vlc')
+    or IsComponentSelected('portable\p_vscode')
+    or IsComponentSelected('portable\p_wifiinfoview')
+    or IsComponentSelected('portable\p_winnote')
+    or IsComponentSelected('portable\p_winpowershell')
+    or IsComponentSelected('portable\p_winrar')
+    or IsComponentSelected('portable\p_winscp')
+    or IsComponentSelected('portable\p_winsetup')
+    or IsComponentSelected('portable\p_winterminal')
+    or IsComponentSelected('portable\p_wnetwatcher')
+    or IsComponentSelected('setup\s_adobe_acrobat')
+    or IsComponentSelected('setup\s_adobe_aftereffects')
+    or IsComponentSelected('setup\s_adobe_animate')
+    or IsComponentSelected('setup\s_adobe_audition')
+    or IsComponentSelected('setup\s_adobe_lightroom')
+    or IsComponentSelected('setup\s_adobe_substance')
+    or IsComponentSelected('setup\s_aida64')
+    or IsComponentSelected('setup\s_blender')
+    or IsComponentSelected('setup\s_discord')
+    or IsComponentSelected('setup\s_epic')
+    or IsComponentSelected('setup\s_flstudio')
+    or IsComponentSelected('setup\s_illustrator')
+    or IsComponentSelected('setup\s_indesign')
+    or IsComponentSelected('setup\s_localsend')
+    or IsComponentSelected('setup\s_office')
+    or IsComponentSelected('setup\s_obs')
+    or IsComponentSelected('setup\s_photoshop')
+    or IsComponentSelected('setup\s_premier')
+    or IsComponentSelected('setup\s_steam')
+    or IsComponentSelected('setup\s_torrent')
+    or IsComponentSelected('setup\s_winrar')
+    or IsComponentSelected('setup\visualstudio\vs')
+    or IsComponentSelected('setup\visualstudio\vscode')
+    or IsComponentSelected('setup\browsers\chrome')
+    or IsComponentSelected('setup\browsers\firefox')
+    or IsComponentSelected('setup\browsers\edge')
+    or IsComponentSelected('setup\browsers\opera')
+    or IsComponentSelected('setup\browsers\yandex')
+    or IsComponentSelected('archives\portable')
+    or IsComponentSelected('archives\setup');
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 begin
   Result := True;
-  if CurPageID = CatalogPage.ID then
+  if (CurPageID = wpSelectComponents) and (not HasAnySelection) then
   begin
-    if not HasAnyCatalogSelection then
-    begin
-      MsgBox('Выберите хотя бы одну программу для установки.', mbInformation, MB_OK);
-      Result := False;
-    end;
-  end
-  else if CurPageID = ArchivePage.ID then
-  begin
-    if not (ArchiveList.Checked[0] or ArchiveList.Checked[1]) then
-    begin
-      MsgBox('Выберите хотя бы один архив для установки.', mbInformation, MB_OK);
-      Result := False;
-    end;
+    MsgBox('Выберите хотя бы одну программу или архив.', mbInformation, MB_OK);
+    Result := False;
   end;
 end;
-
-procedure CurInstallProgressChanged(CurProgress, MaxProgress: Integer);
-var
-  PercentValue: Integer;
-begin
-  if MaxProgress > 0 then
-  begin
-    PercentValue := Round(CurProgress * 100.0 / MaxProgress);
-    if PercentValue < 0 then
-      PercentValue := 0;
-    if PercentValue > 100 then
-      PercentValue := 100;
-    ProgressPercentLabel.Caption := IntToStr(PercentValue) + '%';
-  end
-  else
-    ProgressPercentLabel.Caption := '0%';
-end;
-
-function InitializeSetup(): Boolean;
-begin
-  Result := True;
-end;
-
-

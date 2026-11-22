@@ -327,8 +327,9 @@ begin
   SetupItemSizes := TStringList.Create;
   PortableItemSizes := TStringList.Create;
 
-  ColumnGap := ScaleX(18);
-  ColumnWidth := ((CatalogPage.SurfaceWidth - ColumnGap) * 55) div 100;
+  { Keep both catalog columns broad; the narrow center gap gives each side more room. }
+  ColumnGap := ScaleX(10);
+  ColumnWidth := ((CatalogPage.SurfaceWidth - ColumnGap) * 52) div 100;
   ListTop := ScaleY(28);
   ListHeight := CatalogPage.SurfaceHeight - ListTop - ScaleY(30);
 
@@ -368,6 +369,7 @@ begin
   SetupCheckList.BorderStyle := bsSingle;
   SetupCheckList.Font.Name := 'Arial';
   SetupCheckList.Font.Size := 8;
+  SetupCheckList.MinItemHeight := ScaleY(20);
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#SetupRoot}\Adobe Acrobat Pro'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#SetupRoot}\Adobe After Effects'));
@@ -390,13 +392,13 @@ begin
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_steam', 'Steam', GetDirectorySize('{#SetupRoot}\Steam'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_torrent', 'Torrent', GetDirectorySize('{#SetupRoot}\Torrent'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_winrar', 'WinRAR', GetDirectorySize('{#SetupRoot}\WinRar'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_vs', 'Visual Studio', GetDirectorySize('{#SetupRoot}\Visual Studio (and Code version)\\VS'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_code', 'Visual Studio Code', GetDirectorySize('{#SetupRoot}\Visual Studio (and Code version)\\VS Code'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_chrome', 'Google Chrome', GetFileSizeSafe('{#SetupRoot}\Браузеры\\ChromeSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_firefox', 'Mozilla Firefox', GetFileSizeSafe('{#SetupRoot}\Браузеры\\Firefox Installer.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_edge', 'Microsoft Edge', GetFileSizeSafe('{#SetupRoot}\Браузеры\\MicrosoftEdgeSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_opera', 'Opera', GetFileSizeSafe('{#SetupRoot}\Браузеры\\OperaSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_yandex', 'Яндекс Браузер', GetFileSizeSafe('{#SetupRoot}\Браузеры\\Yandex.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_vs', 'Visual Studio', GetDirectorySize('{#SetupRoot}\Visual Studio (and Code version)\VS'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_code', 'Visual Studio Code', GetDirectorySize('{#SetupRoot}\Visual Studio (and Code version)\VS Code'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_chrome', 'Google Chrome', GetFileSizeSafe('{#SetupRoot}\Браузеры\ChromeSetup.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_firefox', 'Mozilla Firefox', GetFileSizeSafe('{#SetupRoot}\Браузеры\Firefox Installer.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_edge', 'Microsoft Edge', GetFileSizeSafe('{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_opera', 'Opera', GetFileSizeSafe('{#SetupRoot}\Браузеры\OperaSetup.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_yandex', 'Яндекс Браузер', GetFileSizeSafe('{#SetupRoot}\Браузеры\Yandex.exe'));
 
   PortableCheckList := TNewCheckListBox.Create(CatalogPage);
   PortableCheckList.Parent := CatalogPage.Surface;
@@ -410,6 +412,7 @@ begin
   PortableCheckList.BorderStyle := bsSingle;
   PortableCheckList.Font.Name := 'Arial';
   PortableCheckList.Font.Size := 9;
+  PortableCheckList.MinItemHeight := ScaleY(20);
   PortableCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#PortableRoot}\AdobeAcrobatPro-Portable'));
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#PortableRoot}\AdobeAfterEffects-Portable'));
@@ -497,10 +500,48 @@ begin
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
+var
+  I: Integer;
 begin
-  { The file entries use a frozen snapshot captured immediately before ssInstall. }
+  { Read the live checkbox first; this is the authoritative state for catalog files. }
+  Result := False;
+
+  if (PortableItemIDs <> nil) and (PortableCheckList <> nil) then
+    for I := 0 to PortableItemIDs.Count - 1 do
+      if PortableItemIDs[I] = ItemID then
+      begin
+        Result := PortableCheckList.Checked[I];
+        Log('SOFT: ' + ItemID + ' portable checked=' + IntToStr(Ord(Result)));
+        Exit;
+      end;
+
+  if (SetupItemIDs <> nil) and (SetupCheckList <> nil) then
+    for I := 0 to SetupItemIDs.Count - 1 do
+      if SetupItemIDs[I] = ItemID then
+      begin
+        Result := SetupCheckList.Checked[I];
+        Log('SOFT: ' + ItemID + ' setup checked=' + IntToStr(Ord(Result)));
+        Exit;
+      end;
+
+  if (ItemID = 'a_portable') or (ItemID = 'a_setup') then
+  begin
+    if ArchivePage <> nil then
+    begin
+      if ItemID = 'a_portable' then
+        Result := ArchivePage.Values[0]
+      else
+        Result := ArchivePage.Values[1];
+      Log('SOFT: ' + ItemID + ' archive checked=' + IntToStr(Ord(Result)));
+      Exit;
+    end;
+  end;
+
+  { Snapshot fallback if a future build evaluates Check after UI teardown. }
   Result := (SelectedItemIDs <> nil) and
     (SelectedItemIDs.IndexOf(ItemID) >= 0);
+  if Result then
+    Log('SOFT: ' + ItemID + ' selected from snapshot');
 end;
 
 procedure CaptureCatalogSelection;

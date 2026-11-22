@@ -39,7 +39,7 @@
         GoToNextFile(path, handle, size) : \
         CalcFileSizeTestIfDir(path, handle, size, AddBackslash(path) + FindGetFileName(handle))
 #define private GoToNextFile(str path, int handle, int size) \
-    FindNext(handle) ? CalcFileSizeFilterPath(path, handle, size) : size
+    FindNext(handle) ? CalcFileSizeFilterPath(path, handle, size) : (FindClose(handle), size)
 #define private CalcFileSizeTestIfDir(str path, int handle, int size, str filename) \
     DirExists(filename) ? CalcDirSize(filename) + GoToNextFile(path, handle, size) : \
         GoToNextFile(path, handle, size + FileSize(filename))

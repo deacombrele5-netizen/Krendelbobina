@@ -44,8 +44,8 @@
     DirExists(filename) ? CalcDirSize(filename) + GoToNextFile(path, handle, size) : \
         GoToNextFile(path, handle, size + FileSize(filename))
 #define OutputRoot MySoftRoot + "\Софт\Софт - установка"
-#define PortableArchiveSizeValue FileSize(PortableArchiveRoot + "\Софт-Portable.rar")
-#define SetupArchiveSizeValue FileSize(SetupArchiveRoot + "\Софт-SetUp.rar")
+#define PortableArchiveSizeValue (FileSize(PortableArchiveRoot + "\Софт-Portable.rar") + FileSize(PortableArchiveRoot + "\Информация об архиве - Софт-Portable.txt"))
+#define SetupArchiveSizeValue (FileSize(SetupArchiveRoot + "\Софт-SetUp.rar") + FileSize(SetupArchiveRoot + "\Информация об архиве - Софт-SetUp.txt"))
 ; Наличие исходных файлов проверяется самим Inno Setup при компиляции
 ; по путям, указанным в секции [Files]. Не используем проверки #if DirExists:
 ; они выполняются препроцессором и не подходят для проверки локальной структуры.
@@ -246,15 +246,21 @@ end;
 
 procedure UpdateArchiveSpace;
 var
-  RequiredBytes: Int64;
+  RequiredBytes, FreeBytes, TotalBytes: Int64;
 begin
   RequiredBytes := 0;
   if ArchivePage.Values[0] then
     RequiredBytes := RequiredBytes + PortableArchiveBytes;
   if ArchivePage.Values[1] then
     RequiredBytes := RequiredBytes + SetupArchiveBytes;
-  ArchivePage.SubCaptionLabel.Caption :=
-    'Требуемое место: ' + FormatArchiveSize(RequiredBytes);
+
+  if GetSpaceOnDisk64(WizardDirValue, FreeBytes, TotalBytes) then
+    ArchivePage.SubCaptionLabel.Caption :=
+      'Требуемое место: ' + FormatArchiveSize(RequiredBytes) +
+      '     Свободно: ' + FormatArchiveSize(FreeBytes)
+  else
+    ArchivePage.SubCaptionLabel.Caption :=
+      'Требуемое место: ' + FormatArchiveSize(RequiredBytes);
 end;
 
 procedure ArchiveSelectionChanged(Sender: TObject);

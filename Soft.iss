@@ -328,8 +328,8 @@ begin
   PortableItemSizes := TStringList.Create;
 
   { Keep both catalog columns broad; the narrow center gap gives each side more room. }
-  ColumnGap := ScaleX(10);
-  ColumnWidth := ((CatalogPage.SurfaceWidth - ColumnGap) * 52) div 100;
+  ColumnGap := ScaleX(6);
+  ColumnWidth := ((CatalogPage.SurfaceWidth - ColumnGap) * 56) div 100;
   ListTop := ScaleY(28);
   ListHeight := CatalogPage.SurfaceHeight - ListTop - ScaleY(30);
 
@@ -369,7 +369,7 @@ begin
   SetupCheckList.BorderStyle := bsSingle;
   SetupCheckList.Font.Name := 'Arial';
   SetupCheckList.Font.Size := 8;
-  SetupCheckList.MinItemHeight := ScaleY(20);
+  SetupCheckList.MinItemHeight := ScaleY(22);
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#SetupRoot}\Adobe Acrobat Pro'));
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#SetupRoot}\Adobe After Effects'));
@@ -411,8 +411,8 @@ begin
   PortableCheckList.ShowLines := False;
   PortableCheckList.BorderStyle := bsSingle;
   PortableCheckList.Font.Name := 'Arial';
-  PortableCheckList.Font.Size := 9;
-  PortableCheckList.MinItemHeight := ScaleY(20);
+  PortableCheckList.Font.Size := 8;
+  PortableCheckList.MinItemHeight := ScaleY(22);
   PortableCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#PortableRoot}\AdobeAcrobatPro-Portable'));
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#PortableRoot}\AdobeAfterEffects-Portable'));
@@ -500,48 +500,12 @@ begin
 end;
 
 function IsItemSelected(const ItemID: String): Boolean;
-var
-  I: Integer;
 begin
-  { Read the live checkbox first; this is the authoritative state for catalog files. }
-  Result := False;
-
-  if (PortableItemIDs <> nil) and (PortableCheckList <> nil) then
-    for I := 0 to PortableItemIDs.Count - 1 do
-      if PortableItemIDs[I] = ItemID then
-      begin
-        Result := PortableCheckList.Checked[I];
-        Log('SOFT: ' + ItemID + ' portable checked=' + IntToStr(Ord(Result)));
-        Exit;
-      end;
-
-  if (SetupItemIDs <> nil) and (SetupCheckList <> nil) then
-    for I := 0 to SetupItemIDs.Count - 1 do
-      if SetupItemIDs[I] = ItemID then
-      begin
-        Result := SetupCheckList.Checked[I];
-        Log('SOFT: ' + ItemID + ' setup checked=' + IntToStr(Ord(Result)));
-        Exit;
-      end;
-
-  if (ItemID = 'a_portable') or (ItemID = 'a_setup') then
-  begin
-    if ArchivePage <> nil then
-    begin
-      if ItemID = 'a_portable' then
-        Result := ArchivePage.Values[0]
-      else
-        Result := ArchivePage.Values[1];
-      Log('SOFT: ' + ItemID + ' archive checked=' + IntToStr(Ord(Result)));
-      Exit;
-    end;
-  end;
-
-  { Snapshot fallback if a future build evaluates Check after UI teardown. }
+  { [Files] Check must use the frozen selection only. Wizard controls may no longer
+    be the authoritative source while Setup evaluates individual file entries. }
   Result := (SelectedItemIDs <> nil) and
     (SelectedItemIDs.IndexOf(ItemID) >= 0);
-  if Result then
-    Log('SOFT: ' + ItemID + ' selected from snapshot');
+  Log('SOFT: Check ' + ItemID + ' = ' + IntToStr(Ord(Result)));
 end;
 
 procedure CaptureCatalogSelection;
@@ -570,12 +534,8 @@ procedure CurStepChanged(CurStep: TSetupStep);
 begin
   if CurStep = ssInstall then
   begin
-    { Re-read the actual visible checkboxes at the last safe point before [Files] runs. }
-    if InstallModePage.SelectedValueIndex = 0 then
-      CaptureCatalogSelection
-    else
-      CaptureArchiveSelection;
-
+    { Do not reread wizard controls here: the immutable snapshot was captured
+      in NextButtonClick before Setup begins evaluating [Files] entries. }
     Log('SOFT: frozen selection count = ' + IntToStr(SelectedItemIDs.Count));
   end;
 end;

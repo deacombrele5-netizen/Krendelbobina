@@ -165,9 +165,6 @@ Source: "{#SetupArchiveRoot}\Информация об архиве - Софт-S
 const
   PortableArchiveBytes = {#PortableArchiveSizeValue};
   SetupArchiveBytes = {#SetupArchiveSizeValue};
-  GWL_STYLE = -16;
-  WS_HSCROLL = $00100000;
-  LB_SETHORIZONTALEXTENT = $0194;
 
 var
   InstallModePage: TInputOptionWizardPage;
@@ -257,15 +254,6 @@ procedure CatalogSelectionChanged(Sender: TObject);
 begin
   UpdateCatalogSpace;
 end;
-
-function GetWindowLong(hWnd: HWND; nIndex: Integer): Longint;
-external 'GetWindowLongA@user32.dll stdcall';
-
-function SetWindowLong(hWnd: HWND; nIndex: Integer; dwNewLong: Longint): Longint;
-external 'SetWindowLongA@user32.dll stdcall';
-
-function SendMessage(hWnd: HWND; Msg: Longint; wParam: Longint; lParam: Longint): Longint;
-external 'SendMessageA@user32.dll stdcall';
 
 function CreateRoundRectRgn(X1, Y1, X2, Y2, X3, Y3: Integer): THandle;
 external 'CreateRoundRectRgn@gdi32.dll stdcall';
@@ -461,11 +449,6 @@ begin
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winterminal', 'Windows Terminal', GetDirectorySize('{#PortableRoot}\WinTerminal-Portable'));
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_wnetwatcher', 'WNetWatcher', GetDirectorySize('{#PortableRoot}\Wnet-Watcher-Portable'));
 
-
-  { Native horizontal scrolling for the left list; column widths stay equal. }
-  SetWindowLong(SetupCheckList.Handle, GWL_STYLE,
-    GetWindowLong(SetupCheckList.Handle, GWL_STYLE) or WS_HSCROLL);
-  SendMessage(SetupCheckList.Handle, LB_SETHORIZONTALEXTENT, ScaleX(520), 0);
 
   CatalogSpaceLabel := TNewStaticText.Create(CatalogPage);
   CatalogSpaceLabel.Parent := CatalogPage.Surface;

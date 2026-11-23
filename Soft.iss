@@ -177,7 +177,11 @@ var
   SelectedItemIDs: TStringList;
   SetupItemSizes: TStringList;
   PortableItemSizes: TStringList;
+  SetupItemPaths: TStringList;
+  PortableItemPaths: TStringList;
   CatalogSpaceLabel: TNewStaticText;
+  CatalogLoadingPage: TOutputProgressWizardPage;
+  CatalogSourcesScanned: Boolean;
 
 function GetDirectorySize(const DirName: String): Int64;
 var
@@ -295,12 +299,67 @@ begin
   UpdateArchiveSpace;
 end;
 
-procedure AddCatalogItem(ListBox: TNewCheckListBox; ItemIDs, ItemSizes: TStringList;
-  const ItemID, Caption: String; const SizeBytes: Int64);
+procedure AddCatalogItem(ListBox: TNewCheckListBox; ItemIDs, ItemSizes, ItemPaths: TStringList;
+  const ItemID, Caption, SourcePath: String);
 begin
   ItemIDs.Add(ItemID);
-  ItemSizes.Add(IntToStr(SizeBytes));
+  ItemSizes.Add('0');
+  ItemPaths.Add(SourcePath);
   ListBox.AddCheckBox(Caption, '', 0, False, True, False, True, nil);
+end;
+
+procedure ScanCatalogSources;
+var
+  I, Total, DoneCount, Percent: Integer;
+  SourcePath: String;
+  SizeBytes: Int64;
+begin
+  if CatalogSourcesScanned then
+    Exit;
+
+  Total := SetupItemPaths.Count + PortableItemPaths.Count;
+  DoneCount := 0;
+  CatalogLoadingPage.Show;
+  try
+    CatalogLoadingPage.SetText('Загрузка установщика...', 'Подготовка каталога программ');
+    CatalogLoadingPage.SetProgress(0, Total);
+
+    for I := 0 to SetupItemPaths.Count - 1 do
+    begin
+      SourcePath := SetupItemPaths[I];
+      if DirExists(SourcePath) then
+        SizeBytes := GetDirectorySize(SourcePath)
+      else
+        SizeBytes := GetFileSizeSafe(SourcePath);
+      SetupItemSizes[I] := IntToStr(SizeBytes);
+      Inc(DoneCount);
+      Percent := (DoneCount * 100) div Total;
+      CatalogLoadingPage.SetText('Сканирование каталогов программ...',
+        ExtractFileName(SourcePath) + ' — ' + IntToStr(Percent) + '%');
+      CatalogLoadingPage.SetProgress(DoneCount, Total);
+    end;
+
+    for I := 0 to PortableItemPaths.Count - 1 do
+    begin
+      SourcePath := PortableItemPaths[I];
+      if DirExists(SourcePath) then
+        SizeBytes := GetDirectorySize(SourcePath)
+      else
+        SizeBytes := GetFileSizeSafe(SourcePath);
+      PortableItemSizes[I] := IntToStr(SizeBytes);
+      Inc(DoneCount);
+      Percent := (DoneCount * 100) div Total;
+      CatalogLoadingPage.SetText('Сканирование каталогов программ...',
+        ExtractFileName(SourcePath) + ' — ' + IntToStr(Percent) + '%');
+      CatalogLoadingPage.SetProgress(DoneCount, Total);
+    end;
+
+    CatalogSourcesScanned := True;
+  finally
+    CatalogLoadingPage.Hide;
+  end;
+
+  UpdateCatalogSpace;
 end;
 
 procedure InitializeWizard;
@@ -328,6 +387,9 @@ begin
   SelectedItemIDs := TStringList.Create;
   SetupItemSizes := TStringList.Create;
   PortableItemSizes := TStringList.Create;
+  SetupItemPaths := TStringList.Create;
+  PortableItemPaths := TStringList.Create;
+  CatalogSourcesScanned := False;
 
   { Keep both catalog columns broad; the narrow center gap gives each side more room. }
   ColumnGap := ScaleX(6);
@@ -373,34 +435,34 @@ begin
   SetupCheckList.Font.Size := 9;
   SetupCheckList.MinItemHeight := ScaleY(22);
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#SetupRoot}\Adobe Acrobat Pro'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#SetupRoot}\Adobe After Effects'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_animate', 'Adobe Animate', GetDirectorySize('{#SetupRoot}\Adobe Animate'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_audition', 'Adobe Audition', GetDirectorySize('{#SetupRoot}\Adobe Audition'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_lightroom', 'Adobe Lightroom Classic', GetDirectorySize('{#SetupRoot}\Adobe Lightroom Classic'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_substance', 'Adobe Substance 3D Painter', GetDirectorySize('{#SetupRoot}\Adobe Substance 3D Painter'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_aida64', 'AIDA 64', GetDirectorySize('{#SetupRoot}\AIDA 64'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_blender', 'Blender 3D', GetDirectorySize('{#SetupRoot}\Blender 3D'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_discord', 'Discord', GetDirectorySize('{#SetupRoot}\Discord'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_epic', 'Epic Games', GetDirectorySize('{#SetupRoot}\Epic Games'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_flstudio', 'FL Studio', GetDirectorySize('{#SetupRoot}\FL Studio'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_illustrator', 'Adobe Illustrator', GetDirectorySize('{#SetupRoot}\Illustrator'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_indesign', 'Adobe InDesign', GetDirectorySize('{#SetupRoot}\InDesign'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_localsend', 'LocalSend', GetDirectorySize('{#SetupRoot}\LocalSend'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_office', 'Microsoft Office', GetDirectorySize('{#SetupRoot}\Microsoft Office'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_obs', 'OBS Studio', GetDirectorySize('{#SetupRoot}\OBS Studio'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_photoshop', 'Adobe Photoshop', GetDirectorySize('{#SetupRoot}\Photoshop'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_premier', 'Adobe Premiere Pro', GetDirectorySize('{#SetupRoot}\Premier'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_steam', 'Steam', GetDirectorySize('{#SetupRoot}\Steam'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_torrent', 'Torrent', GetDirectorySize('{#SetupRoot}\Torrent'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_winrar', 'WinRAR', GetDirectorySize('{#SetupRoot}\WinRar'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_vs', 'Visual Studio', GetDirectorySize('{#SetupRoot}\Visual Studio (and Code version)\VS'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_vs_code', 'Visual Studio Code', GetDirectorySize('{#SetupRoot}\Visual Studio (and Code version)\VS Code'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_chrome', 'Google Chrome', GetFileSizeSafe('{#SetupRoot}\Браузеры\ChromeSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_firefox', 'Mozilla Firefox', GetFileSizeSafe('{#SetupRoot}\Браузеры\Firefox Installer.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_edge', 'Microsoft Edge', GetFileSizeSafe('{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_opera', 'Opera', GetFileSizeSafe('{#SetupRoot}\Браузеры\OperaSetup.exe'));
-  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_browser_yandex', 'Яндекс Браузер', GetFileSizeSafe('{#SetupRoot}\Браузеры\Yandex.exe'));
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_acrobat', 'Adobe Acrobat Pro', '{#SetupRoot}\Adobe Acrobat Pro');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_aftereffects', 'Adobe After Effects', '{#SetupRoot}\Adobe After Effects');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_animate', 'Adobe Animate', '{#SetupRoot}\Adobe Animate');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_audition', 'Adobe Audition', '{#SetupRoot}\Adobe Audition');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_lightroom', 'Adobe Lightroom Classic', '{#SetupRoot}\Adobe Lightroom Classic');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_substance', 'Adobe Substance 3D Painter', '{#SetupRoot}\Adobe Substance 3D Painter');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_aida64', 'AIDA 64', '{#SetupRoot}\AIDA 64');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_blender', 'Blender 3D', '{#SetupRoot}\Blender 3D');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_discord', 'Discord', '{#SetupRoot}\Discord');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_epic', 'Epic Games', '{#SetupRoot}\Epic Games');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_flstudio', 'FL Studio', '{#SetupRoot}\FL Studio');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_illustrator', 'Adobe Illustrator', '{#SetupRoot}\Illustrator');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_indesign', 'Adobe InDesign', '{#SetupRoot}\InDesign');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_localsend', 'LocalSend', '{#SetupRoot}\LocalSend');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_office', 'Microsoft Office', '{#SetupRoot}\Microsoft Office');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_obs', 'OBS Studio', '{#SetupRoot}\OBS Studio');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_photoshop', 'Adobe Photoshop', '{#SetupRoot}\Photoshop');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_premier', 'Adobe Premiere Pro', '{#SetupRoot}\Premier');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_steam', 'Steam', '{#SetupRoot}\Steam');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_torrent', 'Torrent', '{#SetupRoot}\Torrent');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_winrar', 'WinRAR', '{#SetupRoot}\WinRar');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_vs_vs', 'Visual Studio', '{#SetupRoot}\Visual Studio (and Code version)\VS');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_vs_code', 'Visual Studio Code', '{#SetupRoot}\Visual Studio (and Code version)\VS Code');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_browser_chrome', 'Google Chrome', '{#SetupRoot}\Браузеры\ChromeSetup.exe');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_browser_firefox', 'Mozilla Firefox', '{#SetupRoot}\Браузеры\Firefox Installer.exe');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_browser_edge', 'Microsoft Edge', '{#SetupRoot}\Браузеры\MicrosoftEdgeSetup.exe');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_browser_opera', 'Opera', '{#SetupRoot}\Браузеры\OperaSetup.exe');
+  AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_browser_yandex', 'Яндекс Браузер', '{#SetupRoot}\Браузеры\Yandex.exe');
 
   PortableCheckList := TNewCheckListBox.Create(CatalogPage);
   PortableCheckList.Parent := CatalogPage.Surface;
@@ -416,38 +478,38 @@ begin
   PortableCheckList.Font.Size := 9;
   PortableCheckList.MinItemHeight := ScaleY(22);
   PortableCheckList.OnClickCheck := @CatalogSelectionChanged;
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#PortableRoot}\AdobeAcrobatPro-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_aftereffects', 'Adobe After Effects', GetDirectorySize('{#PortableRoot}\AdobeAfterEffects-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_audition', 'Adobe Audition', GetDirectorySize('{#PortableRoot}\AdobeAudition-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_illustrator', 'Adobe Illustrator', GetDirectorySize('{#PortableRoot}\AdobeIllustrator-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_photoshop', 'Adobe Photoshop', GetDirectorySize('{#PortableRoot}\AdobePhotoshop-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_premiere', 'Adobe Premiere Pro', GetDirectorySize('{#PortableRoot}\AdobePremierePro-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_aida64', 'AIDA64', GetDirectorySize('{#PortableRoot}\AIDA64-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_anydesk', 'AnyDesk', GetDirectorySize('{#PortableRoot}\AnyDesk-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_blender', 'Blender', GetDirectorySize('{#PortableRoot}\Blender-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_easy2boot', 'Easy2Boot', GetDirectorySize('{#PortableRoot}\Easy2Boot-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_encryptonclick', 'EncryptOnClick', GetDirectorySize('{#PortableRoot}\EncryptOnClick-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_chrome', 'Google Chrome', GetDirectorySize('{#PortableRoot}\GoogleChrome-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_imgburn', 'ImgBurn', GetDirectorySize('{#PortableRoot}\ImgBurn-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_localsend', 'LocalSend', GetDirectorySize('{#PortableRoot}\LocalSend-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_scanner', 'Microsoft Scanner', GetDirectorySize('{#PortableRoot}\MicrosoftScaner-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_nsis', 'NSIS', GetDirectorySize('{#PortableRoot}\NSIS-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_obs', 'OBS Studio', GetDirectorySize('{#PortableRoot}\OBS-Studio-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_portablecreator', 'Portable Creator', GetDirectorySize('{#PortableRoot}\PortableCreator-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_putty', 'PuTTY', GetDirectorySize('{#PortableRoot}\PuTTY-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_rufus', 'Rufus', GetDirectorySize('{#PortableRoot}\Rufus-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_sysinternals', 'Sysinternals Suite', GetDirectorySize('{#PortableRoot}\SysinternalsSuite-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_utorrent', 'µTorrent', GetDirectorySize('{#PortableRoot}\uTorrent-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_vlc', 'VLC Media Player', GetDirectorySize('{#PortableRoot}\VlcMediaPlayer-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_vscode', 'Visual Studio Code', GetDirectorySize('{#PortableRoot}\VSCode-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_wifiinfoview', 'WifiInfoView', GetDirectorySize('{#PortableRoot}\Wifiinfoview-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winnote', 'WinNotepad', GetDirectorySize('{#PortableRoot}\WinNotepad-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winpowershell', 'WinPowerShell', GetDirectorySize('{#PortableRoot}\WinPowerShel-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winrar', 'WinRAR', GetDirectorySize('{#PortableRoot}\WinRAR-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winscp', 'WinSCP', GetDirectorySize('{#PortableRoot}\WinSCP-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winsetup', 'WinSetupFromUSB', GetDirectorySize('{#PortableRoot}\WinSetupFromUSB-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winterminal', 'Windows Terminal', GetDirectorySize('{#PortableRoot}\WinTerminal-Portable'));
-  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_wnetwatcher', 'WNetWatcher', GetDirectorySize('{#PortableRoot}\Wnet-Watcher-Portable'));
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_acrobat', 'Adobe Acrobat Pro', '{#PortableRoot}\AdobeAcrobatPro-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_aftereffects', 'Adobe After Effects', '{#PortableRoot}\AdobeAfterEffects-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_audition', 'Adobe Audition', '{#PortableRoot}\AdobeAudition-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_illustrator', 'Adobe Illustrator', '{#PortableRoot}\AdobeIllustrator-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_photoshop', 'Adobe Photoshop', '{#PortableRoot}\AdobePhotoshop-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_premiere', 'Adobe Premiere Pro', '{#PortableRoot}\AdobePremierePro-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_aida64', 'AIDA64', '{#PortableRoot}\AIDA64-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_anydesk', 'AnyDesk', '{#PortableRoot}\AnyDesk-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_blender', 'Blender', '{#PortableRoot}\Blender-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_easy2boot', 'Easy2Boot', '{#PortableRoot}\Easy2Boot-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_encryptonclick', 'EncryptOnClick', '{#PortableRoot}\EncryptOnClick-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_chrome', 'Google Chrome', '{#PortableRoot}\GoogleChrome-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_imgburn', 'ImgBurn', '{#PortableRoot}\ImgBurn-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_localsend', 'LocalSend', '{#PortableRoot}\LocalSend-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_scanner', 'Microsoft Scanner', '{#PortableRoot}\MicrosoftScaner-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_nsis', 'NSIS', '{#PortableRoot}\NSIS-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_obs', 'OBS Studio', '{#PortableRoot}\OBS-Studio-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_portablecreator', 'Portable Creator', '{#PortableRoot}\PortableCreator-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_putty', 'PuTTY', '{#PortableRoot}\PuTTY-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_rufus', 'Rufus', '{#PortableRoot}\Rufus-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_sysinternals', 'Sysinternals Suite', '{#PortableRoot}\SysinternalsSuite-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_utorrent', 'µTorrent', '{#PortableRoot}\uTorrent-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_vlc', 'VLC Media Player', '{#PortableRoot}\VlcMediaPlayer-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_vscode', 'Visual Studio Code', '{#PortableRoot}\VSCode-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_wifiinfoview', 'WifiInfoView', '{#PortableRoot}\Wifiinfoview-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_winnote', 'WinNotepad', '{#PortableRoot}\WinNotepad-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_winpowershell', 'WinPowerShell', '{#PortableRoot}\WinPowerShel-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_winrar', 'WinRAR', '{#PortableRoot}\WinRAR-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_winscp', 'WinSCP', '{#PortableRoot}\WinSCP-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_winsetup', 'WinSetupFromUSB', '{#PortableRoot}\WinSetupFromUSB-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_winterminal', 'Windows Terminal', '{#PortableRoot}\WinTerminal-Portable');
+  AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_wnetwatcher', 'WNetWatcher', '{#PortableRoot}\Wnet-Watcher-Portable');
 
 
   CatalogSpaceLabel := TNewStaticText.Create(CatalogPage);
@@ -463,6 +525,8 @@ begin
   ApplyRoundedCorners(SetupCheckList);
   ApplyRoundedCorners(PortableCheckList);
   UpdateCatalogSpace;
+  CatalogLoadingPage := CreateOutputProgressPage(
+    'Загрузка установщика', 'Выполняется сканирование каталогов программ...');
 
   ArchivePage := CreateInputOptionPage(CatalogPage.ID,
     'Выбор архивов',
@@ -477,6 +541,8 @@ end;
 
 procedure CurPageChanged(CurPageID: Integer);
 begin
+  if not CatalogSourcesScanned then
+    ScanCatalogSources;
   if CurPageID = CatalogPage.ID then
     UpdateCatalogSpace;
 end;

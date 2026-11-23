@@ -165,6 +165,9 @@ Source: "{#SetupArchiveRoot}\Информация об архиве - Софт-S
 const
   PortableArchiveBytes = {#PortableArchiveSizeValue};
   SetupArchiveBytes = {#SetupArchiveSizeValue};
+  GWL_STYLE = -16;
+  WS_HSCROLL = $00100000;
+  LB_SETHORIZONTALEXTENT = $0194;
 
 var
   InstallModePage: TInputOptionWizardPage;
@@ -254,11 +257,6 @@ procedure CatalogSelectionChanged(Sender: TObject);
 begin
   UpdateCatalogSpace;
 end;
-
-const
-  GWL_STYLE = -16;
-  WS_HSCROLL = $00100000;
-  LB_SETHORIZONTALEXTENT = $0194;
 
 function GetWindowLong(hWnd: HWND; nIndex: Integer): Longint;
 external 'GetWindowLongA@user32.dll stdcall';

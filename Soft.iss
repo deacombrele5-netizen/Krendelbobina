@@ -259,22 +259,6 @@ begin
   UpdateCatalogSpace;
 end;
 
-function CreateRoundRectRgn(X1, Y1, X2, Y2, X3, Y3: Integer): THandle;
-external 'CreateRoundRectRgn@gdi32.dll stdcall';
-
-function SetWindowRgn(hWnd: HWND; hRgn: THandle; bRedraw: Boolean): Integer;
-external 'SetWindowRgn@user32.dll stdcall';
-
-procedure ApplyRoundedCorners(Control: TWinControl);
-var
-  Region: THandle;
-begin
-  Region := CreateRoundRectRgn(0, 0, Control.Width + 1, Control.Height + 1,
-    ScaleX(12), ScaleY(12));
-  if Region <> 0 then
-    SetWindowRgn(Control.Handle, Region, True);
-end;
-
 procedure UpdateArchiveSpace;
 var
   RequiredBytes, FreeBytes, TotalBytes: Int64;
@@ -428,9 +412,8 @@ begin
   SetupCheckList.Anchors := [akLeft, akTop, akBottom];
   SetupCheckList.Flat := False;
   SetupCheckList.ShowLines := False;
-  SetupCheckList.BorderStyle := bsSingle;
-  SetupCheckList.Font.Name := 'Arial';
-  SetupCheckList.Font.Size := 9;
+  SetupCheckList.BorderStyle := bsNone;
+
   SetupCheckList.MinItemHeight := ScaleY(22);
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, SetupItemPaths, 's_adobe_acrobat', 'Adobe Acrobat Pro', '{#SetupRoot}\Adobe Acrobat Pro');
@@ -471,9 +454,8 @@ begin
   PortableCheckList.Anchors := [akRight, akTop, akBottom];
   PortableCheckList.Flat := False;
   PortableCheckList.ShowLines := False;
-  PortableCheckList.BorderStyle := bsSingle;
-  PortableCheckList.Font.Name := 'Arial';
-  PortableCheckList.Font.Size := 9;
+  PortableCheckList.BorderStyle := bsNone;
+
   PortableCheckList.MinItemHeight := ScaleY(22);
   PortableCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, PortableItemPaths, 'p_adobe_acrobat', 'Adobe Acrobat Pro', '{#PortableRoot}\AdobeAcrobatPro-Portable');
@@ -520,8 +502,6 @@ begin
   CatalogSpaceLabel.Font.Name := 'Arial';
   CatalogSpaceLabel.Font.Size := 9;
 
-  ApplyRoundedCorners(SetupCheckList);
-  ApplyRoundedCorners(PortableCheckList);
   UpdateCatalogSpace;
   CatalogLoadingPage := CreateOutputProgressPage(
     'Подготовка установщика', '');
@@ -535,6 +515,10 @@ begin
   ArchivePage.Add('Установщики программ');
   ArchivePage.CheckListBox.OnClickCheck := @ArchiveSelectionChanged;
   UpdateArchiveSpace;
+  
+  { Match the catalog checklist typography to the standard archive selection list. }
+  SetupCheckList.Font.Assign(ArchivePage.CheckListBox.Font);
+  PortableCheckList.Font.Assign(ArchivePage.CheckListBox.Font);
 end;
 
 procedure CurPageChanged(CurPageID: Integer);

@@ -321,7 +321,7 @@ begin
   DoneCount := 0;
   CatalogLoadingPage.Show;
   try
-    CatalogLoadingPage.SetText('Загрузка установщика...', 'Подготовка каталога программ');
+    CatalogLoadingPage.SetText('', '0%');
     CatalogLoadingPage.SetProgress(0, Total);
 
     for I := 0 to SetupItemPaths.Count - 1 do
@@ -334,8 +334,7 @@ begin
       SetupItemSizes[I] := IntToStr(SizeBytes);
       Inc(DoneCount);
       Percent := (DoneCount * 100) div Total;
-      CatalogLoadingPage.SetText('Сканирование каталогов программ...',
-        ExtractFileName(SourcePath) + ' — ' + IntToStr(Percent) + '%');
+      CatalogLoadingPage.SetText('', IntToStr(Percent) + '%');
       CatalogLoadingPage.SetProgress(DoneCount, Total);
     end;
 
@@ -349,8 +348,7 @@ begin
       PortableItemSizes[I] := IntToStr(SizeBytes);
       Inc(DoneCount);
       Percent := (DoneCount * 100) div Total;
-      CatalogLoadingPage.SetText('Сканирование каталогов программ...',
-        ExtractFileName(SourcePath) + ' — ' + IntToStr(Percent) + '%');
+      CatalogLoadingPage.SetText('', IntToStr(Percent) + '%');
       CatalogLoadingPage.SetProgress(DoneCount, Total);
     end;
 
@@ -526,7 +524,7 @@ begin
   ApplyRoundedCorners(PortableCheckList);
   UpdateCatalogSpace;
   CatalogLoadingPage := CreateOutputProgressPage(
-    'Загрузка установщика', 'Выполняется сканирование каталогов программ...');
+    'Подготовка установщика', '');
 
   ArchivePage := CreateInputOptionPage(CatalogPage.ID,
     'Выбор архивов',

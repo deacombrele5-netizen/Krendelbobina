@@ -255,6 +255,20 @@ begin
   UpdateCatalogSpace;
 end;
 
+const
+  GWL_STYLE = -16;
+  WS_HSCROLL = $00100000;
+  LB_SETHORIZONTALEXTENT = $0194;
+
+function GetWindowLong(hWnd: HWND; nIndex: Integer): Longint;
+external 'GetWindowLongA@user32.dll stdcall';
+
+function SetWindowLong(hWnd: HWND; nIndex: Integer; dwNewLong: Longint): Longint;
+external 'SetWindowLongA@user32.dll stdcall';
+
+function SendMessage(hWnd: HWND; Msg: Longint; wParam: Longint; lParam: Longint): Longint;
+external 'SendMessageA@user32.dll stdcall';
+
 function CreateRoundRectRgn(X1, Y1, X2, Y2, X3, Y3: Integer): THandle;
 external 'CreateRoundRectRgn@gdi32.dll stdcall';
 
@@ -329,7 +343,7 @@ begin
 
   { Keep both catalog columns broad; the narrow center gap gives each side more room. }
   ColumnGap := ScaleX(6);
-  ColumnWidth := ((CatalogPage.SurfaceWidth - ColumnGap) * 56) div 100;
+  ColumnWidth := (CatalogPage.SurfaceWidth - ColumnGap) div 2;
   ListTop := ScaleY(28);
   ListHeight := CatalogPage.SurfaceHeight - ListTop - ScaleY(30);
 
@@ -404,7 +418,7 @@ begin
   PortableCheckList.Parent := CatalogPage.Surface;
   PortableCheckList.Left := ColumnWidth + ColumnGap;
   PortableCheckList.Top := ListTop;
-  PortableCheckList.Width := CatalogPage.SurfaceWidth - PortableCheckList.Left;
+  PortableCheckList.Width := ColumnWidth;
   PortableCheckList.Height := ListHeight;
   PortableCheckList.Anchors := [akRight, akTop, akBottom];
   PortableCheckList.Flat := False;
@@ -447,6 +461,11 @@ begin
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_winterminal', 'Windows Terminal', GetDirectorySize('{#PortableRoot}\WinTerminal-Portable'));
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_wnetwatcher', 'WNetWatcher', GetDirectorySize('{#PortableRoot}\Wnet-Watcher-Portable'));
 
+
+  { Native horizontal scrolling for the left list; column widths stay equal. }
+  SetWindowLong(SetupCheckList.Handle, GWL_STYLE,
+    GetWindowLong(SetupCheckList.Handle, GWL_STYLE) or WS_HSCROLL);
+  SendMessage(SetupCheckList.Handle, LB_SETHORIZONTALEXTENT, ScaleX(520), 0);
 
   CatalogSpaceLabel := TNewStaticText.Create(CatalogPage);
   CatalogSpaceLabel.Parent := CatalogPage.Surface;

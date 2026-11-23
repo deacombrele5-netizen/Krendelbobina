@@ -320,6 +320,8 @@ var
   SetupHeader, PortableHeader: TNewStaticText;
   ColumnWidth, ColumnGap, ListTop, ListHeight: Integer;
 begin
+  WizardForm.FilenameLabel.Font.Size := 8;
+
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
     'Выберите, что установить: программы из каталога или готовые архивы.',
@@ -380,7 +382,7 @@ begin
   SetupCheckList.ShowLines := False;
   SetupCheckList.BorderStyle := bsSingle;
   SetupCheckList.Font.Name := 'Arial';
-  SetupCheckList.Font.Size := 8;
+  SetupCheckList.Font.Size := 9;
   SetupCheckList.MinItemHeight := ScaleY(22);
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(SetupCheckList, SetupItemIDs, SetupItemSizes, 's_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#SetupRoot}\Adobe Acrobat Pro'));
@@ -423,7 +425,7 @@ begin
   PortableCheckList.ShowLines := False;
   PortableCheckList.BorderStyle := bsSingle;
   PortableCheckList.Font.Name := 'Arial';
-  PortableCheckList.Font.Size := 8;
+  PortableCheckList.Font.Size := 9;
   PortableCheckList.MinItemHeight := ScaleY(22);
   PortableCheckList.OnClickCheck := @CatalogSelectionChanged;
   AddCatalogItem(PortableCheckList, PortableItemIDs, PortableItemSizes, 'p_adobe_acrobat', 'Adobe Acrobat Pro', GetDirectorySize('{#PortableRoot}\AdobeAcrobatPro-Portable'));

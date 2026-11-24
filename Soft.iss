@@ -168,17 +168,17 @@ const
 
 function GetScrollPos(hWnd: HWND; nBar: Integer): Integer;
   external 'GetScrollPos@user32.dll stdcall';
-function SendMessage(hWnd: HWND; Msg: LongWord; wParam: Longint; lParam: Longint): Longint;
+function SendMessage(hWnd: HWND; Msg: LongWord; wParam: NativeInt; lParam: NativeInt): NativeInt;
   external 'SendMessageW@user32.dll stdcall';
 function ShowScrollBar(hWnd: HWND; wBar: LongWord; bShow: BOOL): BOOL;
   external 'ShowScrollBar@user32.dll stdcall';
-function SetTimer(hWnd: HWND; nIDEvent, uElapse: LongWord; lpTimerFunc: Longint): LongWord;
+function SetTimer(hWnd: HWND; nIDEvent: NativeUInt; uElapse: LongWord; lpTimerFunc: NativeInt): NativeUInt;
   external 'SetTimer@user32.dll stdcall';
-function KillTimer(hWnd: HWND; uIDEvent: LongWord): BOOL;
+function KillTimer(hWnd: HWND; uIDEvent: NativeUInt): BOOL;
   external 'KillTimer@user32.dll stdcall';
 
 var
-  CatalogScrollTimer: LongWord;
+  CatalogScrollTimer: NativeUInt;
   LastSetupScrollPos: Integer;
   LastPortableScrollPos: Integer;
   CatalogScrollSyncReady: Boolean;
@@ -542,7 +542,7 @@ begin
   PortableCheckList.MinItemHeight := ArchivePage.CheckListBox.MinItemHeight;
 end;
 
-procedure CatalogScrollTimerProc(H: HWND; Msg: LongWord; IdEvent: LongWord; Time: LongWord);
+procedure CatalogScrollTimerProc(H: HWND; Msg: LongWord; IdEvent: NativeUInt; Time: LongWord);
 var
   SetupPos, PortablePos: Integer;
 begin

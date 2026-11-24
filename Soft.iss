@@ -68,7 +68,6 @@ AlwaysShowComponentsList=yes
 FlatComponentsList=no
 WizardSizePercent=100
 SetupIconFile={#MySoftRoot}\app.ico
-DefaultDialogFontName=Arial
 CloseApplications=no
 
 [Messages]
@@ -168,6 +167,10 @@ const
 
 function GetScrollPos(hWnd: HWND; nBar: Integer): Integer;
   external 'GetScrollPos@user32.dll stdcall';
+function SetScrollRange(hWnd: HWND; nBar, nMinPos, nMaxPos: Integer; bRedraw: BOOL): BOOL;
+  external 'SetScrollRange@user32.dll stdcall';
+function SetScrollPos(hWnd: HWND; nBar, nPos: Integer; bRedraw: BOOL): Integer;
+  external 'SetScrollPos@user32.dll stdcall';
 function SendMessage(hWnd: HWND; Msg: LongWord; wParam: NativeInt; lParam: NativeInt): NativeInt;
   external 'SendMessageW@user32.dll stdcall';
 function ShowScrollBar(hWnd: HWND; wBar: LongWord; bShow: BOOL): BOOL;
@@ -181,7 +184,9 @@ var
   CatalogScrollTimer: NativeUInt;
   LastSetupScrollPos: Integer;
   LastPortableScrollPos: Integer;
+  LastWindowScrollPos: Integer;
   CatalogScrollSyncReady: Boolean;
+  StartupScanTimer: NativeUInt;
   InstallModePage: TInputOptionWizardPage;
   CatalogPage: TWizardPage;
   ArchivePage: TInputOptionWizardPage;
@@ -366,7 +371,6 @@ var
   SetupHeader, PortableHeader: TNewStaticText;
   ColumnWidth, ColumnGap, ListTop, ListHeight: Integer;
 begin
-  WizardForm.FilenameLabel.Font.Size := 8;
 
   InstallModePage := CreateInputOptionPage(wpSelectDir,
     'Выбор способа установки',
@@ -404,9 +408,6 @@ begin
   SetupHeader.Height := ScaleY(24);
   SetupHeader.Caption := 'Установщики программ';
   SetupHeader.Alignment := taCenter;
-  SetupHeader.Font.Name := 'Arial';
-  SetupHeader.Font.Size := 10;
-  SetupHeader.Font.Style := [fsBold];
 
   PortableHeader := TNewStaticText.Create(CatalogPage);
   PortableHeader.Parent := CatalogPage.Surface;
@@ -416,9 +417,6 @@ begin
   PortableHeader.Height := ScaleY(24);
   PortableHeader.Caption := 'Портативные программы';
   PortableHeader.Alignment := taCenter;
-  PortableHeader.Font.Name := 'Arial';
-  PortableHeader.Font.Size := 10;
-  PortableHeader.Font.Style := [fsBold];
 
   SetupCheckList := TNewCheckListBox.Create(CatalogPage);
   SetupCheckList.Parent := CatalogPage.Surface;
@@ -518,8 +516,6 @@ begin
   CatalogSpaceLabel.Width := CatalogPage.SurfaceWidth;
   CatalogSpaceLabel.Height := ScaleY(22);
   CatalogSpaceLabel.Anchors := [akLeft, akRight, akBottom];
-  CatalogSpaceLabel.Font.Name := 'Arial';
-  CatalogSpaceLabel.Font.Size := 9;
 
   UpdateCatalogSpace;
   CatalogLoadingPage := CreateOutputProgressPage(
@@ -535,41 +531,86 @@ begin
   ArchivePage.CheckListBox.OnClickCheck := @ArchiveSelectionChanged;
   UpdateArchiveSpace;
   
-  { Match the catalog checklist typography to the standard archive selection list. }
+  { Keep the default Inno Setup font and standard checklist item metrics. }
   SetupCheckList.Font.Assign(ArchivePage.CheckListBox.Font);
   PortableCheckList.Font.Assign(ArchivePage.CheckListBox.Font);
   SetupCheckList.MinItemHeight := ArchivePage.CheckListBox.MinItemHeight;
   PortableCheckList.MinItemHeight := ArchivePage.CheckListBox.MinItemHeight;
+
+  { Let the first wizard window paint before the initial source scan begins. }
+  StartupScanTimer := SetTimer(0, 0, 150, CreateCallback(@StartupScanTimerProc));
 end;
 
 procedure CatalogScrollTimerProc(H: HWND; Msg: LongWord; IdEvent: NativeUInt; Time: LongWord);
 var
-  SetupPos, PortablePos: Integer;
+  SetupPos, PortablePos, WindowPos, MaxTop: Integer;
 begin
   if (SetupCheckList = nil) or (PortableCheckList = nil) then
     Exit;
 
-  SetupPos := GetScrollPos(SetupCheckList.Handle, 1);
-  PortablePos := GetScrollPos(PortableCheckList.Handle, 1);
+  { Both checklist controls have their own scrollbars disabled. The only
+    visible scrollbar belongs to the wizard window and spans its full height. }
+  ShowScrollBar(SetupCheckList.Handle, 1, False);
+  ShowScrollBar(PortableCheckList.Handle, 1, False);
+
+  SetupPos := SendMessage(SetupCheckList.Handle, $018E, 0, 0); { LB_GETTOPINDEX }
+  PortablePos := SendMessage(PortableCheckList.Handle, $018E, 0, 0);
+  WindowPos := GetScrollPos(WizardForm.Handle, 1);
 
   if not CatalogScrollSyncReady then
   begin
     LastSetupScrollPos := SetupPos;
     LastPortableScrollPos := PortablePos;
+    LastWindowScrollPos := WindowPos;
     CatalogScrollSyncReady := True;
+  end
+  else if WindowPos <> LastWindowScrollPos then
+  begin
+    { The user moved the single scrollbar on the outer wizard window. }
+    SendMessage(SetupCheckList.Handle, $0197, WindowPos, 0);
+    SendMessage(PortableCheckList.Handle, $0197, WindowPos, 0);
+    SetupPos := SendMessage(SetupCheckList.Handle, $018E, 0, 0);
+    PortablePos := SendMessage(PortableCheckList.Handle, $018E, 0, 0);
+    LastSetupScrollPos := SetupPos;
+    LastPortableScrollPos := PortablePos;
+    LastWindowScrollPos := GetScrollPos(WizardForm.Handle, 1);
   end
   else if SetupPos <> LastSetupScrollPos then
   begin
-    SendMessage(PortableCheckList.Handle, $0197, SetupPos, 0); { LB_SETTOPINDEX }
+    SendMessage(PortableCheckList.Handle, $0197, SetupPos, 0);
+    PortablePos := SendMessage(PortableCheckList.Handle, $018E, 0, 0);
+    SetScrollPos(WizardForm.Handle, 1, SetupPos, True);
     LastSetupScrollPos := SetupPos;
-    LastPortableScrollPos := GetScrollPos(PortableCheckList.Handle, 1);
+    LastPortableScrollPos := PortablePos;
+    LastWindowScrollPos := GetScrollPos(WizardForm.Handle, 1);
   end
   else if PortablePos <> LastPortableScrollPos then
   begin
-    SendMessage(SetupCheckList.Handle, $0197, PortablePos, 0); { LB_SETTOPINDEX }
+    SendMessage(SetupCheckList.Handle, $0197, PortablePos, 0);
+    SetupPos := SendMessage(SetupCheckList.Handle, $018E, 0, 0);
+    SetScrollPos(WizardForm.Handle, 1, PortablePos, True);
+    LastSetupScrollPos := SetupPos;
     LastPortableScrollPos := PortablePos;
-    LastSetupScrollPos := GetScrollPos(SetupCheckList.Handle, 1);
+    LastWindowScrollPos := GetScrollPos(WizardForm.Handle, 1);
   end;
+
+  MaxTop := SetupItemIDs.Count;
+  if PortableItemIDs.Count > MaxTop then
+    MaxTop := PortableItemIDs.Count;
+  if MaxTop > 0 then
+    Dec(MaxTop);
+  SetScrollRange(WizardForm.Handle, 1, 0, MaxTop, True);
+end;
+
+procedure StartupScanTimerProc(H: HWND; Msg: LongWord; IdEvent: NativeUInt; Time: LongWord);
+begin
+  if StartupScanTimer <> 0 then
+  begin
+    KillTimer(0, StartupScanTimer);
+    StartupScanTimer := 0;
+  end;
+  if not CatalogSourcesScanned then
+    ScanCatalogSources;
 end;
 
 procedure CurPageChanged(CurPageID: Integer);
@@ -579,12 +620,14 @@ begin
 
   if CurPageID = CatalogPage.ID then
   begin
-    { Keep a single visible scrollbar at the far right of the catalog. The
-      timer mirrors the first visible row in the other column, regardless of
-      whether the user scrolls with the wheel or drags the scrollbar thumb. }
+    { One full-height scrollbar on the outer wizard window controls both columns. }
     ShowScrollBar(SetupCheckList.Handle, 1, False);
-    ShowScrollBar(PortableCheckList.Handle, 1, True);
+    ShowScrollBar(PortableCheckList.Handle, 1, False);
+    SetScrollRange(WizardForm.Handle, 1, 0,
+      Max(SetupItemIDs.Count, PortableItemIDs.Count) - 1, True);
+    ShowScrollBar(WizardForm.Handle, 1, True);
     CatalogScrollSyncReady := False;
+    LastWindowScrollPos := 0;
     if CatalogScrollTimer = 0 then
       CatalogScrollTimer := SetTimer(0, 0, 35, CreateCallback(@CatalogScrollTimerProc));
     UpdateCatalogSpace;
@@ -594,6 +637,7 @@ begin
     KillTimer(0, CatalogScrollTimer);
     CatalogScrollTimer := 0;
     CatalogScrollSyncReady := False;
+    ShowScrollBar(WizardForm.Handle, 1, False);
   end;
 end;
 

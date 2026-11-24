@@ -16,8 +16,8 @@
 ;
 ; Целевая версия компилятора: Inno Setup 7.1.1 (64-bit).
 ; Интерфейс: стандартные страницы мастера Inno Setup с тёмным оформлением.
-; Каталог отображается в двух независимых параллельных окнах со своей прокруткой:
-; слева установщики программ, справа портативные программы.
+; Каталог отображается в двух колонках без рамок; используется одна общая
+; вертикальная прокрутка справа, синхронизирующая обе колонки.
 ; Каждый пункт каталога напрямую связан с конкретным исходным путём в секции [Files].
 ; =============================================================================
 
@@ -166,7 +166,22 @@ const
   PortableArchiveBytes = {#PortableArchiveSizeValue};
   SetupArchiveBytes = {#SetupArchiveSizeValue};
 
+function GetScrollPos(hWnd: HWND; nBar: Integer): Integer;
+  external 'GetScrollPos@user32.dll stdcall';
+function SendMessage(hWnd: HWND; Msg: LongWord; wParam: Longint; lParam: Longint): Longint;
+  external 'SendMessageW@user32.dll stdcall';
+function ShowScrollBar(hWnd: HWND; wBar: LongWord; bShow: BOOL): BOOL;
+  external 'ShowScrollBar@user32.dll stdcall';
+function SetTimer(hWnd: HWND; nIDEvent, uElapse: LongWord; lpTimerFunc: Longint): LongWord;
+  external 'SetTimer@user32.dll stdcall';
+function KillTimer(hWnd: HWND; uIDEvent: LongWord): BOOL;
+  external 'KillTimer@user32.dll stdcall';
+
 var
+  CatalogScrollTimer: LongWord;
+  LastSetupScrollPos: Integer;
+  LastPortableScrollPos: Integer;
+  CatalogScrollSyncReady: Boolean;
   InstallModePage: TInputOptionWizardPage;
   CatalogPage: TWizardPage;
   ArchivePage: TInputOptionWizardPage;
@@ -305,8 +320,10 @@ begin
   DoneCount := 0;
   CatalogLoadingPage.Show;
   try
-    CatalogLoadingPage.SetText('', '0%');
+    { Paint the loading page before starting the directory scan. SetProgress
+      also pumps the Windows message queue so the progress UI stays responsive. }
     CatalogLoadingPage.SetProgress(0, Total);
+    CatalogLoadingPage.SetText('', '0%');
 
     for I := 0 to SetupItemPaths.Count - 1 do
     begin
@@ -410,9 +427,10 @@ begin
   SetupCheckList.Width := ColumnWidth;
   SetupCheckList.Height := ListHeight;
   SetupCheckList.Anchors := [akLeft, akTop, akBottom];
-  SetupCheckList.Flat := False;
+  SetupCheckList.Flat := True;
   SetupCheckList.ShowLines := False;
   SetupCheckList.BorderStyle := bsNone;
+  SetupCheckList.Color := CatalogPage.SurfaceColor;
 
   SetupCheckList.MinItemHeight := ScaleY(22);
   SetupCheckList.OnClickCheck := @CatalogSelectionChanged;
@@ -452,9 +470,10 @@ begin
   PortableCheckList.Width := ColumnWidth;
   PortableCheckList.Height := ListHeight;
   PortableCheckList.Anchors := [akRight, akTop, akBottom];
-  PortableCheckList.Flat := False;
+  PortableCheckList.Flat := True;
   PortableCheckList.ShowLines := False;
   PortableCheckList.BorderStyle := bsNone;
+  PortableCheckList.Color := CatalogPage.SurfaceColor;
 
   PortableCheckList.MinItemHeight := ScaleY(22);
   PortableCheckList.OnClickCheck := @CatalogSelectionChanged;
@@ -504,7 +523,7 @@ begin
 
   UpdateCatalogSpace;
   CatalogLoadingPage := CreateOutputProgressPage(
-    'Подготовка установщика', '');
+    'Загрузка...', '');
 
   ArchivePage := CreateInputOptionPage(CatalogPage.ID,
     'Выбор архивов',
@@ -519,14 +538,63 @@ begin
   { Match the catalog checklist typography to the standard archive selection list. }
   SetupCheckList.Font.Assign(ArchivePage.CheckListBox.Font);
   PortableCheckList.Font.Assign(ArchivePage.CheckListBox.Font);
+  SetupCheckList.MinItemHeight := ArchivePage.CheckListBox.MinItemHeight;
+  PortableCheckList.MinItemHeight := ArchivePage.CheckListBox.MinItemHeight;
+end;
+
+procedure CatalogScrollTimerProc(H: HWND; Msg: LongWord; IdEvent: LongWord; Time: LongWord);
+var
+  SetupPos, PortablePos: Integer;
+begin
+  if (SetupCheckList = nil) or (PortableCheckList = nil) then
+    Exit;
+
+  SetupPos := GetScrollPos(SetupCheckList.Handle, 1);
+  PortablePos := GetScrollPos(PortableCheckList.Handle, 1);
+
+  if not CatalogScrollSyncReady then
+  begin
+    LastSetupScrollPos := SetupPos;
+    LastPortableScrollPos := PortablePos;
+    CatalogScrollSyncReady := True;
+  end
+  else if SetupPos <> LastSetupScrollPos then
+  begin
+    SendMessage(PortableCheckList.Handle, $0197, SetupPos, 0); { LB_SETTOPINDEX }
+    LastSetupScrollPos := SetupPos;
+    LastPortableScrollPos := GetScrollPos(PortableCheckList.Handle, 1);
+  end
+  else if PortablePos <> LastPortableScrollPos then
+  begin
+    SendMessage(SetupCheckList.Handle, $0197, PortablePos, 0); { LB_SETTOPINDEX }
+    LastPortableScrollPos := PortablePos;
+    LastSetupScrollPos := GetScrollPos(SetupCheckList.Handle, 1);
+  end;
 end;
 
 procedure CurPageChanged(CurPageID: Integer);
 begin
   if not CatalogSourcesScanned then
     ScanCatalogSources;
+
   if CurPageID = CatalogPage.ID then
+  begin
+    { Keep a single visible scrollbar at the far right of the catalog. The
+      timer mirrors the first visible row in the other column, regardless of
+      whether the user scrolls with the wheel or drags the scrollbar thumb. }
+    ShowScrollBar(SetupCheckList.Handle, 1, False);
+    ShowScrollBar(PortableCheckList.Handle, 1, True);
+    CatalogScrollSyncReady := False;
+    if CatalogScrollTimer = 0 then
+      CatalogScrollTimer := SetTimer(0, 0, 35, CreateCallback(@CatalogScrollTimerProc));
     UpdateCatalogSpace;
+  end
+  else if CatalogScrollTimer <> 0 then
+  begin
+    KillTimer(0, CatalogScrollTimer);
+    CatalogScrollTimer := 0;
+    CatalogScrollSyncReady := False;
+  end;
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;

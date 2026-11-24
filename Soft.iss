@@ -366,6 +366,8 @@ begin
   UpdateCatalogSpace;
 end;
 
+procedure StartupScanTimerProc(H: HWND; Msg: LongWord; IdEvent: NativeUInt; Time: LongWord); forward;
+
 procedure InitializeWizard;
 var
   SetupHeader, PortableHeader: TNewStaticText;
@@ -613,6 +615,15 @@ begin
     ScanCatalogSources;
 end;
 
+function CatalogMaximumTop: Integer;
+begin
+  Result := SetupItemIDs.Count;
+  if PortableItemIDs.Count > Result then
+    Result := PortableItemIDs.Count;
+  if Result > 0 then
+    Dec(Result);
+end;
+
 procedure CurPageChanged(CurPageID: Integer);
 begin
   if not CatalogSourcesScanned then
@@ -623,8 +634,7 @@ begin
     { One full-height scrollbar on the outer wizard window controls both columns. }
     ShowScrollBar(SetupCheckList.Handle, 1, False);
     ShowScrollBar(PortableCheckList.Handle, 1, False);
-    SetScrollRange(WizardForm.Handle, 1, 0,
-      Max(SetupItemIDs.Count, PortableItemIDs.Count) - 1, True);
+    SetScrollRange(WizardForm.Handle, 1, 0, CatalogMaximumTop, True);
     ShowScrollBar(WizardForm.Handle, 1, True);
     CatalogScrollSyncReady := False;
     LastWindowScrollPos := 0;
